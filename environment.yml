@@ -1,0 +1,9 @@
+name: hc_microeconometrics
+
+dependencies:
+- numpy
+- pandas
+- flake8
+- pytest
+- pandas 
+- jupyter

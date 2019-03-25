@@ -1,0 +1,16 @@
+language: python
+
+python:
+  - 3.6
+
+bundler_args: --retry 3
+
+install:
+  - sudo apt-get update
+  - ./.travis_miniconda.sh
+  - PATH="$HOME/miniconda/bin:$PATH"
+  - conda env create -f environment.yml
+  - source activate hc_micrometrics
+
+script:
+  - travis_wait python utils/travis_runner.py
