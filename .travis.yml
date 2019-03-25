@@ -10,7 +10,7 @@ install:
   - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
   - conda env create -f environment.yml
-  - source activate hc_micrometrics
+  - source activate hc_microeconometrics
 
 script:
   - travis_wait python utils/travis_runner.py
