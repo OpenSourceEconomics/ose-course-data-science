@@ -5,6 +5,8 @@ We start on May 2nd 2019 and meet on Tuesdays (12:15-13:45pm, Room 0.017) and We
 
 **Assistant** [Valerie Stottuth](https://github.com/vstottuth)
 
+We will conduct all course communications using slack, so please be sure to  there [join us](https://join.slack.com/t/humancapitalanalysis/shared_invite/enQtNDQ0ODkyODYyODA2LWEyZjdlNWYwYmUyNzlkOWFkNWJkMGI5M2M4ZWUyMThhNWNiMmJhY2ZjY2E4YzE3NGQ5MzcxZTRhN2QxYjgxYWY) there.
+
 
 ## Lecture Plan
 
