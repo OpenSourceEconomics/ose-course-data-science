@@ -7,7 +7,7 @@ bundler_args: --retry 3
 
 install:
   - sudo apt-get update
-  - ./.travis_miniconda.sh
+  - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
   - conda env create -f environment.yml
   - source activate hc_micrometrics
