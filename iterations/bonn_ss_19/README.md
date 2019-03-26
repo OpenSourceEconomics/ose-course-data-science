@@ -40,10 +40,10 @@ We will conduct all course communications using slack, so please be sure to  the
 | 19/06/19  |                                                           |
 | 25/06/19  |                                                           |
 | 26/06/19  |                                                           |
-| 02/07/19  |                                                           |
-| 03/07/19  |                                                           |
-| 09/07/19  |                                                           |
-| 10/07/19  |                                                           |
+| 02/07/19  | Structural microeconometrics                              |
+| 03/07/19  | Structural microeconometrics                              |
+| 09/07/19  | Structural microeconometrics                              |
+| 10/07/19  | Structural microeconometrics                              |
 
 ## Lectures
 
@@ -62,3 +62,25 @@ We discuss some details about the course and in particular student projects.
 * [OpenSourceEconomics](https://github.com/OpenSourceEconomics)
 
 We briefly present our efforts around this student run initiative.
+
+## Guest lecturers
+
+We are lucky to draw on a set of guest lecturers for our different topics.
+
+#### [SeBecker](https://github.com/sebeckerh) on [OpenSourceEconomics](https://github.com/OpenSourceEconomics) and [grmpy](https://grmpy.readthedocs.io)
+
+Sebastian will present on the efforts around the OpenSourceEconomics Initiative and his work on the `grmpy` package.
+
+#### [janosg](https://github.com/janosg) on [Structural Microeconometrics](https://en.wikipedia.org/wiki/Structural_estimation) and [respy](http://respy.readthedocs.io)
+
+Janos will present on structural microeconometrics models and his work on the `respy` package.
+
+## Software packages
+
+#### [respy](https://respy.readthedocs.io)
+
+`respy` is an open-source Python package for the simulation and estimation of a prototypical finite-horizon discrete choice dynamic programming model.
+
+#### [grmpy](https://grmpy.readthedocs.io)
+
+`grmpy`  is an open-source package for the simulation and estimation of the generalized Roy model. It serves as a teaching tool to promote the conceptual framework of the generalized Roy model, illustrate a variety of issues in the econometrics of policy evaluation, and showcase basic software engineering practices.
