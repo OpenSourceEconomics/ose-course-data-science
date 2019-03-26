@@ -74,3 +74,7 @@ Sebastian will present on the efforts around the OpenSourceEconomics Initiative 
 #### [janosg](https://github.com/janosg) on [Structural Microeconometrics](https://en.wikipedia.org/wiki/Structural_estimation) and [respy](http://respy.readthedocs.io)
 
 Janos will present on structural microeconometrics models and his work on the `respy` package.
+
+## Student projects
+
+We will run student projects for grading and heavily rely on [GitHub Classroom](https://classroom.github.com).
