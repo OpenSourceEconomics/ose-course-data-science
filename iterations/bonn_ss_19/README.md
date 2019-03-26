@@ -74,13 +74,3 @@ Sebastian will present on the efforts around the OpenSourceEconomics Initiative 
 #### [janosg](https://github.com/janosg) on [Structural Microeconometrics](https://en.wikipedia.org/wiki/Structural_estimation) and [respy](http://respy.readthedocs.io)
 
 Janos will present on structural microeconometrics models and his work on the `respy` package.
-
-## Software packages
-
-#### [respy](https://respy.readthedocs.io)
-
-`respy` is an open-source Python package for the simulation and estimation of a prototypical finite-horizon discrete choice dynamic programming model.
-
-#### [grmpy](https://grmpy.readthedocs.io)
-
-`grmpy`  is an open-source package for the simulation and estimation of the generalized Roy model. It serves as a teaching tool to promote the conceptual framework of the generalized Roy model, illustrate a variety of issues in the econometrics of policy evaluation, and showcase basic software engineering practices.
