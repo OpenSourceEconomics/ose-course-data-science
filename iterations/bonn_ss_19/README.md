@@ -55,9 +55,9 @@ The core lectures are available [here](https://github.com/HumanCapitalAnalysis/m
 
 I briefly introduce my research background and provide a basic overview on my teaching efforts.
 
-* [Course details]()
+* [Course details](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/iterations/bonn_ss_19/00_course_outline.pdf)
 
-We discuss some details about the course and student projects.
+We discuss some details about the course and in particular student projects.
 
 * [OpenSourceEconomics](https://github.com/OpenSourceEconomics)
 
