@@ -14,7 +14,7 @@ We will conduct all course communications using slack, so please be sure to  the
 
 | Date      | Topic                                                     |
 | ----------| --------------------------------------------------------- |
-| 02/04/19  | Course overview                                           |
+| 02/04/19  | Kickoff                                                   |
 | 03/04/19  | Tools for microeconometric analysis                       |
 | 09/04/19  |                                                           |
 | 10/04/19  |                                                           |
@@ -49,8 +49,16 @@ We will conduct all course communications using slack, so please be sure to  the
 
 The core lectures are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/README.md).
 
-#### Course overview
+#### Kickoff
 
 * [Introduction to students](https://github.com/peisenha/intro_to_students/blob/master/dist/eisenhauer-introduction.pdf)
 
 I briefly introduce my research background and provide a basic overview on my teaching efforts.
+
+* [Course details]()
+
+We discuss some details about the course and student projects.
+
+* [OpenSourceEconomics](https://github.com/OpenSourceEconomics)
+
+We briefly present our efforts around this student run initiative.

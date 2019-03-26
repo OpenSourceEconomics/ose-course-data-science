@@ -1,0 +1,3 @@
+[submodule "submodules/bibliography"]
+	path = submodules/bibliography
+	url = https://github.com/eisenhauerIO/bibliography.git
