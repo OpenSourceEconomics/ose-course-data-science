@@ -22,7 +22,7 @@ We will conduct all course communications using slack, so please be sure to  the
 | 17/04/19  |                                                           |
 | 23/04/19  |                                                           |
 | 24/04/19  |                                                           |
-| 30/05/19  |                                                           |
+| 30/04/19  |                                                           |
 | 01/05/19  | Labor Day                                                 |
 | 07/05/19  |                                                           |
 | 08/05/19  |                                                           |
