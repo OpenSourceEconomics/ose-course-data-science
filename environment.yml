@@ -6,4 +6,5 @@ dependencies:
 - flake8
 - pytest
 - pandas 
-- jupyter
+- jupyterlab
+- matplotlib
