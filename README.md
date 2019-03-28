@@ -20,9 +20,9 @@ We heavily rely on [Jupyter Notebooks](https://jupyter.org) throughout the cours
 
 We provide the lectures in the form of a Jupyter notebook.
 
-#### The Single-Equation Linear Model and OLS Estimation [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics.git/master?filepath=lectures%2F01_single_equation_ols.ipynb)
+#### Introduction [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F01_introduction%2Flecture.ipynb)
 
-We study the workhorse model of all microeconmetric analysis.
+We briefly introduce the course and discuss some basic ideas. 
 
 #### Structural microeconometrics
 
