@@ -67,7 +67,7 @@ We briefly present our efforts around this student run initiative.
 
 We are lucky to draw on a set of guest lecturers for our different topics.
 
-#### [SeBecker](https://github.com/sebeckerh) on [OpenSourceEconomics](https://github.com/OpenSourceEconomics) and [grmpy](https://grmpy.readthedocs.io)
+#### [SeBecker](https://github.com/sebecker) on [OpenSourceEconomics](https://github.com/OpenSourceEconomics) and [grmpy](https://grmpy.readthedocs.io)
 
 Sebastian will present on the efforts around the OpenSourceEconomics Initiative and his work on the `grmpy` package.
 
