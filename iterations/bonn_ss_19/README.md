@@ -77,4 +77,4 @@ Janos will present on structural microeconometrics models and his work on the `r
 
 ## Student projects
 
-We will run student projects for grading and heavily rely on [GitHub Classroom](https://classroom.github.com).
+We will run student projects for grading and heavily rely on [GitHub Classroom](https://classroom.github.com). All details regarding the projects are available [here](https://github.com/HumanCapitalAnalysis/student-project-template).
