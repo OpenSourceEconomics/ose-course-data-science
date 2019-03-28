@@ -6,11 +6,11 @@ We heavily rely on [Jupyter Notebooks](https://jupyter.org) throughout the cours
 
 **Key References**
 
-* https://www.amazon.com/Counterfactuals-Causal-Inference-Principles-Analytical/dp/1107694167/ref=dp_ob_title_bk
+* Winship, C., & Morgan, S. L. (2007). [*Counterfactuals and causal inference: Methods and principles for social research (Analytical methods for social research)*](https://www.amazon.com/Counterfactuals-Causal-Inference-Principles-Analytical/dp/1107694167/ref=dp_ob_title_bk). Cambridge, England: Cambridge University Press.
 
-* https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data
+* Wooldridge, J. M. (2001). [*Econometric analysis of cross section and panel data*](https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data). Cambridge, MA: The MIT Press.
 
-* https://www.amazon.com/Mostly-Harmless-Econometrics-Empiricists-Companion/dp/0691120358/ref=sr_1_1?keywords=mostly+harmless+econometrics&qid=1553511192&s=gateway&sr=8-1
+* Angrist, J. D., & Pischke, J. (2009). [*Mostly harmless econometrics: An empiricists companion*](https://www.amazon.com/Mostly-Harmless-Econometrics-Empiricists-Companion/dp/0691120358/ref=sr_1_1?keywords=mostly+harmless+econometrics&qid=1553511192&s=gateway&sr=8-1). Princeton, NJ: Princeton University Press.
 
 1. [Lectures](#lectures)
 2. [Resources](#resources)
@@ -34,9 +34,9 @@ We provide some additional resources that are useful for our course work.
 
 #### Tools
 
-* https://proquest.tech.safaribooksonline.de/9781783986989
+* Rossant, C. (2015). [*Learning IPython for interactive computing and data visualization* (2nd ed.)](https://proquest.tech.safaribooksonline.de/9781783986989). Birmingham, England: Packt Publishing.
 
-* https://proquest.tech.safaribooksonline.de/9781785888632
+* Rossant, C. (2018). [*IPython interactive computing and visualization cookbook* (2nd ed.)](https://proquest.tech.safaribooksonline.de/9781785888632). Birmingham, England: Packt Publishing.
 
 #### Software packages
 
