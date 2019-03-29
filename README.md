@@ -2,6 +2,11 @@
 
 ... introductory course to microeconmetrics
 
+Throughout the course we will make heavy use of (Python)[https://www.python.org] and its (SciPy ecosystem)[https://www.scipy.org].  
+
+
+
+
 We heavily rely on [Jupyter Notebooks](https://jupyter.org) throughout the course and so we provide some useful resources below. For further information, please do not hesitate to [contact us](https://join.slack.com/t/humancapitalanalysis/shared_invite/enQtNDQ0ODkyODYyODA2LWEyZjdlNWYwYmUyNzlkOWFkNWJkMGI5M2M4ZWUyMThhNWNiMmJhY2ZjY2E4YzE3NGQ5MzcxZTRhN2QxYjgxYWY).
 
 **Key References**
@@ -22,11 +27,11 @@ We provide the lectures in the form of a Jupyter notebook.
 
 #### Introduction [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F01_introduction%2Flecture.ipynb)
 
-We briefly introduce the course and discuss some basic ideas. 
+We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference.
 
-#### Structural microeconometrics
+#### Tools for data science [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OpenSourceEconomics/tutorials/master?filepath=tools_for_data_science%2Ftutorial.ipynb)
 
-We will provide a basic introduction to structural microeconmetric research.
+We introduce the basic tools used throughout the class.
 
 ## Resources <a name="resources"></a>
 
