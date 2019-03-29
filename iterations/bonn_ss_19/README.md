@@ -1,6 +1,5 @@
 We start on May 2nd 2019 and meet on Tuesdays (12:15-13:45pm, Room 0.017) and Wednesdays (10:15-11:45pm, Lecture Hall M).
 
-
 **Lecturer** [Philipp Eisenhauer](https://peisenha.github.io/build/html/index.html)
 
 **Assistant** [Valerie Stottuth](https://github.com/vstottuth)
@@ -9,15 +8,14 @@ We will conduct all course communications using slack, so please be sure to  the
 
 ## Course overview
 
-
 ## Lecture plan
 
 | Date      | Topic                                                     |
 | ----------| --------------------------------------------------------- |
 | 02/04/19  | Kickoff                                                   |
-| 03/04/19  | Tools for microeconometric analysis                       |
-| 09/04/19  |                                                           |
-| 10/04/19  |                                                           |
+| 03/04/19  | Tools for data tools for data science                     |
+| 09/04/19  | Tools for data tools for data science                     |                                                           |
+| 10/04/19  | Counterfactuals, potential outcomes, and causal graphs    |
 | 16/04/19  |                                                           |
 | 17/04/19  |                                                           |
 | 23/04/19  |                                                           |
@@ -77,4 +75,12 @@ Janos will present on structural microeconometrics models and his work on the `r
 
 ## Student projects
 
-We will run student projects for grading and heavily rely on [GitHub Classroom](https://classroom.github.com). All details regarding the projects are available [here](https://github.com/HumanCapitalAnalysis/student-project-template).
+We will run student projects for grading and heavily rely on [GitHub Classroom](https://classroom.github.com). In this project you are asked to summarize and reproduce core results of an empirical paper of your choice. Please select an article that interests you but also allows you to access the data used in the analysis. Also, for a good grade you need to add some analysis of your own. This can take very different forms. For example, you could create some visualizations that make the paper more accessible to interested readers, investigate the sensitivity of results to the author's modeling choices, or add some additional robustness checks.
+
+All details regarding the projects are available [here](https://github.com/HumanCapitalAnalysis/student-project-template).
+
+* **Do we need to report on the progress of our project?** Yes, I will frequently select a student project at random to report on their current state at the end of a lecture.
+
+* **When is the student project due?** We need to finish working on our projects by
+
+* **Why are the projects public?** Transparency and reproducibility is a core value in research. Also, we want to learn from each other.

@@ -10,6 +10,8 @@ We heavily rely on [Jupyter Notebooks](https://jupyter.org) throughout the cours
 
 * Winship, C., & Morgan, S. L. (2007). [*Counterfactuals and causal inference: Methods and principles for social research (Analytical methods for social research)*](https://www.amazon.com/Counterfactuals-Causal-Inference-Principles-Analytical/dp/1107694167/ref=dp_ob_title_bk). Cambridge, England: Cambridge University Press.
 
+Please use the table of content to navigate the rest of the material.
+
 1. [Lectures](#lectures)
 2. [Resources](#resources)
 3. [Iterations](#iterations)
