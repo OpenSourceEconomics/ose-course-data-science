@@ -40,6 +40,10 @@ We provide some additional resources that are useful for our course work.
 
 * Angrist, J. D., & Pischke, J. (2009). [*Mostly harmless econometrics: An empiricists companion*](https://www.amazon.com/Mostly-Harmless-Econometrics-Empiricists-Companion/dp/0691120358/ref=sr_1_1?keywords=mostly+harmless+econometrics&qid=1553511192&s=gateway&sr=8-1). Princeton, NJ: Princeton University Press.
 
+#### Datasets
+
+The two textbooks above provide an impressive amount of data from research articles. We provide them in a central place [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/datasets).
+
 #### Tools
 
 * Rossant, C. (2015). [*Learning IPython for interactive computing and data visualization* (2nd ed.)](https://proquest.tech.safaribooksonline.de/9781783986989). Birmingham, England: Packt Publishing.
