@@ -16,6 +16,8 @@ Please use the table of content to navigate the rest of the material.
 2. [Resources](#resources)
 3. [Iterations](#iterations)
 
+We collect a list of additional, more general, reading recommendations [here](https://github.com/HumanCapitalAnalysis/general-resources).
+
 ## Lectures <a name="lectures"></a>
 
 We provide the lectures in the form of a Jupyter notebook.
