@@ -6,9 +6,21 @@ Throughout the course we will make heavy use of [Python](https://www.python.org)
 
 We heavily rely on [Jupyter Notebooks](https://jupyter.org) throughout the course and so we provide some useful resources below. For further information, please do not hesitate to [contact us](https://join.slack.com/t/humancapitalanalysis/shared_invite/enQtNDQ0ODkyODYyODA2LWEyZjdlNWYwYmUyNzlkOWFkNWJkMGI5M2M4ZWUyMThhNWNiMmJhY2ZjY2E4YzE3NGQ5MzcxZTRhN2QxYjgxYWY).
 
-**Key Reference**
+## Counterfactual approach to causal analysis
 
 * Winship, C., & Morgan, S. L. (2014). [*Counterfactuals and causal inference: Methods and principles for social research (Analytical methods for social research)* (2nd ed.)](https://www.amazon.com/Counterfactuals-Causal-Inference-Principles-Analytical/dp/1107694167/ref=dp_ob_title_bk). Cambridge, England: Cambridge University Press.
+
+### Potential outcome model
+
+* http://econ.ucsb.edu/~doug/245a/Papers/Econometric%20Evaluation%20Social%20Programs.pdf
+
+* https://link.springer.com/chapter/10.1057/9780230280816_28
+
+### Directed graphs
+
+* https://www.amazon.de/Causality-Judea-Pearl/dp/052189560X/ref=sr_1_3?keywords=judea+pearl&qid=1554121403&s=gateway&sr=8-3
+
+* https://www.amazon.de/Elements-Causal-Inference-Foundations-Computation/dp/0262037319?SubscriptionId=AKIAILSHYYTFIVPWUY6Q&tag=duc03-21&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0262037319
 
 Please use the table of content to navigate the rest of the material.
 
