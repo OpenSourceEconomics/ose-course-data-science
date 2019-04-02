@@ -73,6 +73,6 @@ The two textbooks above provide an impressive amount of data from research artic
 `grmpy`  is an open-source package for the simulation and estimation of the generalized Roy model. It serves as a teaching tool to promote the conceptual framework of the generalized Roy model, illustrate a variety of issues in the econometrics of policy evaluation, and showcase basic software engineering practices.
 ## Iterations <a name="iterations"></a>
 
-* **Summer Quarter 2017**, Graduate Program at the University of Bonn, please see [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn_ss_19/README.md) for details.
+* **Summer Quarter 2019**, Graduate Program at the University of Bonn, please see [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn_ss_19/README.md) for details.
 
 [![Build Status](https://travis-ci.org/HumanCapitalAnalysis/econometrics.svg?branch=master)](https://travis-ci.org/HumanCapitalAnalysis/econometrics) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/OpenSourceEconomics/soepy/blob/master/LICENSE)
