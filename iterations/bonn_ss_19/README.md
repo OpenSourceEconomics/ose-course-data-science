@@ -80,3 +80,5 @@ All details regarding the projects are available [here](https://github.com/Human
 * **When is the student project due?** We need to finish working on our projects by noon on 07/04/19.
 
 * **Why are the projects public?** Transparency and reproducibility is a core value in research. Also, we want to learn from each other.
+
+* **When do I need to sign up for the project?** You need to sign up for the class between 04/08/19 - 04/14/19.
