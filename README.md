@@ -38,7 +38,7 @@ We provide the lectures in the form of a Jupyter notebook.
 
 We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference.
 
-#### Tools for data science [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OpenSourceEconomics/tutorials/master?filepath=tools_for_data_science%2Ftutorial.ipynb)
+#### [Tools for data science](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/02_tools_for_data_science/lecture.ipynb)
 
 We introduce the basic tools used throughout the class.
 
