@@ -58,9 +58,9 @@ The two textbooks above provide an impressive amount of data from research artic
 
 #### Tools
 
-* Rossant, C. (2015). [*Learning IPython for interactive computing and data visualization* (2nd ed.)](https://proquest.tech.safaribooksonline.de/9781783986989). Birmingham, England: Packt Publishing.
-
 * Rossant, C. (2018). [*IPython interactive computing and visualization cookbook* (2nd ed.)](https://proquest.tech.safaribooksonline.de/9781785888632). Birmingham, England: Packt Publishing.
+
+* https://scipy-lectures.org/
 
 #### Software packages
 
