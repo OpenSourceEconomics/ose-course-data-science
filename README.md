@@ -38,7 +38,7 @@ We provide the lectures in the form of a Jupyter notebook.
 
 We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference.
 
-#### [Tools for data science](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/02_tools_for_data_science/lecture.ipynb)
+#### [Tools for data science](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/02_tools_for_data_science/lecture.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F02_tools_for_data_science%2Flecture.ipynb)
 
 We introduce the basic tools used throughout the class.
 
