@@ -77,7 +77,7 @@ All details regarding the projects are available [here](https://github.com/Human
 
 * **Do we need to report on the progress of our project?** Yes, I will frequently select a student project at random to report on their current state at the end of a lecture.
 
-* **When is the student project due?** We need to finish working on our projects by noon on 07/04/19.
+* **When is the student project due?** We need to finish working on our projects by noon on 08/04/19.
 
 * **Why are the projects public?** Transparency and reproducibility is a core value in research. Also, we want to learn from each other.
 

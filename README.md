@@ -66,11 +66,8 @@ The two textbooks above provide an impressive amount of data from research artic
 
 * [respy](https://respy.readthedocs.io)
 
-`respy` is an open-source Python package for the simulation and estimation of a prototypical finite-horizon discrete choice dynamic programming model.
-
 * [grmpy](https://grmpy.readthedocs.io)
 
-`grmpy`  is an open-source package for the simulation and estimation of the generalized Roy model. It serves as a teaching tool to promote the conceptual framework of the generalized Roy model, illustrate a variety of issues in the econometrics of policy evaluation, and showcase basic software engineering practices.
 ## Iterations <a name="iterations"></a>
 
 * **Summer Quarter 2019**, Graduate Program at the University of Bonn, please see [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn_ss_19/README.md) for details.
