@@ -8,19 +8,19 @@ We heavily rely on [Jupyter Notebooks](https://jupyter.org) throughout the cours
 
 ## Counterfactual approach to causal analysis
 
-* Winship, C., & Morgan, S. L. (2014). [*Counterfactuals and causal inference: Methods and principles for social research (Analytical methods for social research)* (2nd ed.)](https://www.amazon.com/Counterfactuals-Causal-Inference-Principles-Analytical/dp/1107694167/ref=dp_ob_title_bk). Cambridge, England: Cambridge University Press.
+* Winship, C., and Morgan, S. L. (2014). [*Counterfactuals and causal inference: Methods and principles for social research (Analytical methods for social research)* (2nd ed.)](https://www.amazon.com/Counterfactuals-Causal-Inference-Principles-Analytical/dp/1107694167/ref=dp_ob_title_bk). Cambridge, England: Cambridge University Press.
 
 ### Potential outcome model
 
-* http://econ.ucsb.edu/~doug/245a/Papers/Econometric%20Evaluation%20Social%20Programs.pdf
+*  Heckman, J. J., and Vytlacil, E. J. (2007a). [Econometric evaluation of social programs, part I: Causal effects, structural models and econometric policy evaluation.](http://econ.ucsb.edu/~doug/245a/Papers/Econometric%20Evaluation%20Social%20Programs.pdf) In J. J. Heckman, and E. E. Leamer (Eds.), *Handbook of Econometrics*, volume 6B, pages 4779–4874. Amsterdam, Netherlands: Elsevier Science.
 
-* https://link.springer.com/chapter/10.1057/9780230280816_28
+*  Imbens G. W., & Rubin D. B. (2010). [Rubin Causal Model.](https://link.springer.com/chapter/10.1057/9780230280816_2) In S. N. Durlauf, and L. E. Blume (Eds.), *Microeconometrics*, The New Palgrave Economics Collection. London, England: Palgrave Macmillan.
 
 ### Directed graphs
 
-* https://www.amazon.de/Causality-Judea-Pearl/dp/052189560X/ref=sr_1_3?keywords=judea+pearl&qid=1554121403&s=gateway&sr=8-3
+* Pearl, J. (2014). [*Causality* (2nd ed.)](https://www.amazon.de/Causality-Judea-Pearl/dp/052189560X/ref=sr_1_3?keywords=judea+pearl&qid=1554121403&s=gateway&sr=8-3). Cambridge, England: Cambridge University Press.
 
-* https://www.amazon.de/Elements-Causal-Inference-Foundations-Computation/dp/0262037319?SubscriptionId=AKIAILSHYYTFIVPWUY6Q&tag=duc03-21&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0262037319
+* Peters, J., Janzig, D., and Schölkopf, B. (2018) [Elements of causal inference: Foundations and learning algorithms](https://www.amazon.de/Elements-Causal-Inference-Foundations-Computation/dp/0262037319?SubscriptionId=AKIAILSHYYTFIVPWUY6Q&tag=duc03-21&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0262037319). Cambridge, MA: The MIT Press.
 
 Please use the table of content to navigate the rest of the material.
 
