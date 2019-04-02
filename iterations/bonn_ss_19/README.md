@@ -14,15 +14,15 @@ We will conduct all course communications using slack, so please be sure to  the
 | ----------| --------------------------------------------------------- |
 | 02/04/19  | Kickoff                                                   |
 | 03/04/19  | Tools for data tools for data science                     |
-| 09/04/19  | Tools for data tools for data science                     |                                                           |
-| 10/04/19  | Counterfactuals, potential outcomes, and causal graphs    |
-| 16/04/19  |                                                           |
-| 17/04/19  |                                                           |
-| 23/04/19  |                                                           |
-| 24/04/19  |                                                           |
-| 30/04/19  |                                                           |
+| 09/04/19  | Tools for data tools for data science                     |
+| 10/04/19  | Counterfactuals and the potential outcome model           |
+| 16/04/19  | Causal graphs                                             |
+| 17/04/19  | Estimating causal effects by back-door conditioning       |
+| 23/04/19  | ...                                                       |
+| 24/04/19  | ...                                                       |
+| 30/04/19  | ...                                                       |
 | 01/05/19  | Labor Day                                                 |
-| 07/05/19  |                                                           |
+| 07/05/19  | Alternatives to back-door conditioning                    |
 | 08/05/19  |                                                           |
 | 14/05/19  |                                                           |
 | 15/05/19  | Dies Academicus                                           |
@@ -52,10 +52,6 @@ The core lectures are available [here](https://github.com/HumanCapitalAnalysis/m
 * [Introduction to students](https://github.com/peisenha/intro_to_students/blob/master/dist/eisenhauer-introduction.pdf)
 
 I briefly introduce my research background and provide a basic overview on my teaching efforts.
-
-* [Course details](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/iterations/bonn_ss_19/00_course_outline.pdf)
-
-We discuss some details about the course and in particular student projects.
 
 * [OpenSourceEconomics](https://github.com/OpenSourceEconomics)
 
