@@ -1,4 +1,4 @@
-We start on May 2nd 2019 and meet on Tuesdays (12:15-13:45pm, Room 0.017) and Wednesdays (10:15-11:45pm, Lecture Hall M).
+We start on May 2nd 2019 and meet on Tuesdays (12:15-13:45pm, Room 0.017) and Wednesdays (10:15-11:45pm, Lecture Hall N).
 
 **Lecturer** [Philipp Eisenhauer](https://peisenha.github.io/build/html/index.html)
 
