@@ -42,6 +42,10 @@ We briefly introduce the course and discuss some basic ideas about counterfactua
 
 This guest lecture by the team of [OpenSourceEconomics](https://github.com/OpenSourceEconomics) presents a basic overview on the scientific Python ecosystem as we will heavily rely on it throughout the course.
 
+#### [Potential outcome model](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/02_potential_outcome_model/lecture.ipynb)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F02_potential_outcome_model%2Flecture.ipynb)
+
+We discuss the core model of the course.
+
 ## Resources <a name="resources"></a>
 
 We provide some additional resources that are useful for our course work.
