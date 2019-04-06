@@ -14,4 +14,7 @@ dependencies:
 - matplotlib
 - seaborn
 - jupyter_contrib_nbextensions
-- jupyter_nbextensions_configurator  
+- jupyter_nbextensions_configurator
+- pip
+- pip:
+      - wbdata  
