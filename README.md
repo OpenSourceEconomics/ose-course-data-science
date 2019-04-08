@@ -52,9 +52,9 @@ We provide some additional resources that are useful for our course work.
 
 #### Textbooks
 
-* Wooldridge, J. M. (2009). [*Econometric analysis of cross section and panel data*](https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data). Cambridge, MA: The MIT Press.
-
 * Angrist, J. D., and Pischke, J. (2009). [*Mostly harmless econometrics: An empiricists companion*](https://press.princeton.edu/titles/8769.html). Princeton, NJ: Princeton University Press.
+
+* Wooldridge, J. M. (2009). [*Econometric analysis of cross section and panel data*](https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data). Cambridge, MA: The MIT Press.
 
 #### Datasets
 
@@ -63,6 +63,8 @@ The two textbooks above provide an impressive amount of data from research artic
 #### Tools
 
 * Rossant, C. (2018). [*IPython interactive computing and visualization cookbook*](https://www.packtpub.com/big-data-and-business-intelligence/ipython-interactive-computing-and-visualization-cookbook-second-e). Birmingham, England: Packt Publishing.
+
+* VanderPlas, J. (2016). [*Python data science handbook*](https://www.oreilly.com/library/view/python-data-science/9781491912126/). Sebastopol, CA: O'Reilly Media, Inc.
 
 * https://scipy-lectures.org/
 
