@@ -8,19 +8,19 @@ We heavily rely on [Jupyter Notebooks](https://jupyter.org) throughout the cours
 
 ## Counterfactual approach to causal analysis
 
-* Winship, C., and Morgan, S. L. (2014). [*Counterfactuals and causal inference: Methods and principles for social research (Analytical methods for social research)* (2nd ed.)](https://www.amazon.com/Counterfactuals-Causal-Inference-Principles-Analytical/dp/1107694167/ref=dp_ob_title_bk). Cambridge, England: Cambridge University Press.
+* Winship, C., and Morgan, S. L. (2014). [*Counterfactuals and causal inference: Methods and principles for social research (Analytical methods for social research)*](https://www.cambridge.org/de/academic/subjects/sociology/sociology-general-interest/counterfactuals-and-causal-inference-methods-and-principles-social-research-2nd-edition?format=PB). Cambridge, England: Cambridge University Press.
 
 ### Potential outcome model
 
-*  Heckman, J. J., and Vytlacil, E. J. (2007a). [Econometric evaluation of social programs, part I: Causal effects, structural models and econometric policy evaluation.](http://econ.ucsb.edu/~doug/245a/Papers/Econometric%20Evaluation%20Social%20Programs.pdf) In J. J. Heckman, and E. E. Leamer (Eds.), *Handbook of Econometrics* (Vol. 6B, pp. 4779–4874). Amsterdam, Netherlands: Elsevier Science.
+*  Heckman, J. J., and Vytlacil, E. J. (2007a). [Econometric evaluation of social programs, part I: Causal effects, structural models and econometric policy evaluation.](https://www.sciencedirect.com/science/article/pii/S1573441207060709) In J. J. Heckman, and E. E. Leamer (Eds.), *Handbook of Econometrics* (Vol. 6B, pp. 4779–4874). Amsterdam, Netherlands: Elsevier Science.
 
 *  Imbens G. W., and Rubin D. B. (2015). [Causal inference for statistics, social, and biomedical sciences: An introduction.](https://www.cambridge.org/core/books/causal-inference-for-statistics-social-and-biomedical-sciences/71126BE90C58F1A431FE9B2DD07938AB). Cambridge, England: Cambridge University Press.
 
 ### Directed graphs
 
-* Pearl, J. (2014). [*Causality* (2nd ed.)](https://www.amazon.de/Causality-Judea-Pearl/dp/052189560X/ref=sr_1_3?keywords=judea+pearl&qid=1554121403&s=gateway&sr=8-3). Cambridge, England: Cambridge University Press.
+* Pearl, J. (2014). [*Causality*](https://www.cambridge.org/core/books/causality/B0046844FAE10CBF274D4ACBDAEB5F5B). Cambridge, England: Cambridge University Press.
 
-* Peters, J., Janzig, D., and Schölkopf, B. (2018) [Elements of causal inference: Foundations and learning algorithms](https://www.amazon.de/Elements-Causal-Inference-Foundations-Computation/dp/0262037319?SubscriptionId=AKIAILSHYYTFIVPWUY6Q&tag=duc03-21&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0262037319). Cambridge, MA: The MIT Press.
+* Peters, J., Janzig, D., and Schölkopf, B. (2018) [Elements of causal inference: Foundations and learning algorithms](https://mitpress.mit.edu/books/elements-causal-inference). Cambridge, MA: The MIT Press.
 
 Please use the table of content to navigate the rest of the material.
 
@@ -52,9 +52,9 @@ We provide some additional resources that are useful for our course work.
 
 #### Textbooks
 
-* Wooldridge, J. M. (2009). [*Econometric analysis of cross section and panel data* (2nd ed.)](https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data). Cambridge, MA: The MIT Press.
+* Wooldridge, J. M. (2009). [*Econometric analysis of cross section and panel data*](https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data). Cambridge, MA: The MIT Press.
 
-* Angrist, J. D., and Pischke, J. (2009). [*Mostly harmless econometrics: An empiricists companion*](https://www.amazon.com/Mostly-Harmless-Econometrics-Empiricists-Companion/dp/0691120358/ref=sr_1_1?keywords=mostly+harmless+econometrics&qid=1553511192&s=gateway&sr=8-1). Princeton, NJ: Princeton University Press.
+* Angrist, J. D., and Pischke, J. (2009). [*Mostly harmless econometrics: An empiricists companion*](https://press.princeton.edu/titles/8769.html). Princeton, NJ: Princeton University Press.
 
 #### Datasets
 
@@ -62,7 +62,7 @@ The two textbooks above provide an impressive amount of data from research artic
 
 #### Tools
 
-* Rossant, C. (2018). [*IPython interactive computing and visualization cookbook* (2nd ed.)](https://proquest.tech.safaribooksonline.de/9781785888632). Birmingham, England: Packt Publishing.
+* Rossant, C. (2018). [*IPython interactive computing and visualization cookbook*](https://www.packtpub.com/big-data-and-business-intelligence/ipython-interactive-computing-and-visualization-cookbook-second-e). Birmingham, England: Packt Publishing.
 
 * https://scipy-lectures.org/
 
