@@ -66,13 +66,13 @@ The two textbooks above provide an impressive amount of data from research artic
 
 * VanderPlas, J. (2016). [*Python data science handbook*](https://www.oreilly.com/library/view/python-data-science/9781491912126/). Sebastopol, CA: O'Reilly Media, Inc.
 
-* https://scipy-lectures.org/
+* Varoquaux, G., Haenel, V., Gouillart, E., Jędrzejewski-Szmek, Z., Gommers, R., Pedregosa, F., … yasutomo57jp. (2015, October 2). [Scipy lecture notes](https://scipy-lectures.org/): Release 2015.2 (Version 2015.2). Zenodo. http://doi.org/10.5281/zenodo.31736
 
 #### Software packages
 
-* [respy](https://respy.readthedocs.io)
+* Becker, S., Eisenhauer, P., & benediktkauf. (2018, January 30). [grmpy](https://grmpy.readthedocs.io/en/latest/) grmToolbox/grmpy: zenodo setup (Version v0.0.1). Zenodo. http://doi.org/10.5281/zenodo.1162640
 
-* [grmpy](https://grmpy.readthedocs.io)
+* Eisenhauer, P. (2018, March 6). [respy](https://respy.readthedocs.io/en/latest/) restudToolbox/package releases/v1.0.0 (Version releases/v1.0.0). Zenodo. http://doi.org/10.5281/zenodo.1189209
 
 ## Iterations <a name="iterations"></a>
 
