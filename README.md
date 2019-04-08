@@ -14,7 +14,7 @@ We heavily rely on [Jupyter Notebooks](https://jupyter.org) throughout the cours
 
 *  Heckman, J. J., and Vytlacil, E. J. (2007a). [Econometric evaluation of social programs, part I: Causal effects, structural models and econometric policy evaluation.](http://econ.ucsb.edu/~doug/245a/Papers/Econometric%20Evaluation%20Social%20Programs.pdf) In J. J. Heckman, and E. E. Leamer (Eds.), *Handbook of Econometrics* (Vol. 6B, pp. 4779–4874). Amsterdam, Netherlands: Elsevier Science.
 
-*  Imbens G. W., and Rubin D. B. (2010). [Rubin Causal Model.](https://link.springer.com/chapter/10.1057/9780230280816_2) In S. N. Durlauf, and L. E. Blume (Eds.), *Microeconometrics* (pp. 229-241). London, England: Palgrave Macmillan.
+*  Imbens G. W., and Rubin D. B. (2015). [Causal inference for statistics, social, and biomedical sciences: An introduction.](https://www.cambridge.org/core/books/causal-inference-for-statistics-social-and-biomedical-sciences/71126BE90C58F1A431FE9B2DD07938AB). Cambridge, England: Cambridge University Press.
 
 ### Directed graphs
 
