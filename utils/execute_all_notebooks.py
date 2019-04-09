@@ -3,15 +3,20 @@
 executed and work proper independently."""
 import subprocess as sp
 import glob
+import os
 
 
-def run_notebook():
-    for notebook in sorted(glob.glob('*.ipynb')):
-        cmd = ' jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1'.format(notebook)
-        sp.check_call(cmd, shell=True)
+def run_notebook(notebook):
+    cmd = ' jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1'.format(notebook)
+    sp.check_call(cmd, shell=True)
 
 
 if __name__ == '__main__':
 
-    run_notebook()
+    for subdir, dirs, files in os.walk('.'):
+        # We want to skip all hidden directories.
+        dirs[:] = [d for d in dirs if not d[0] == '.']
 
+        for file in files:
+            if 'ipynb' in file:
+                run_notebook(subdir + '/' + file)
