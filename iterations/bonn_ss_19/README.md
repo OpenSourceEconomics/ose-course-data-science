@@ -14,7 +14,7 @@ We will conduct all course communications using slack, so please be sure to  the
 | ----------| --------------------------------------------------------- |
 | 02/04/19  | Kickoff                                                   |
 | 03/04/19  | Tools for data tools for data science                     |
-| 09/04/19  | Tools for data tools for data science                     |
+| 09/04/19  | Counterfactuals and the potential outcome model           |
 | 10/04/19  | Counterfactuals and the potential outcome model           |
 | 16/04/19  | Causal graphs                                             |
 | 17/04/19  | Estimating causal effects by back-door conditioning       |
