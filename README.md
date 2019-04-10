@@ -46,6 +46,10 @@ This guest lecture by the team of [OpenSourceEconomics](https://github.com/OpenS
 
 We discuss the core model of the course.
 
+#### [Causal graphs, identification, and models of causal exposure](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/03_causal_graphs/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F03_causal_graphs%2Flecture.ipynb)
+
+We study the usefulness of causal graphs.
+
 ## Resources <a name="resources"></a>
 
 We provide some additional resources that are useful for our course work.
