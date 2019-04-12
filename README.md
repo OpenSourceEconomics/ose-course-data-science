@@ -46,9 +46,14 @@ This guest lecture by the team of [OpenSourceEconomics](https://github.com/OpenS
 
 We discuss the core model of the course.
 
-#### [Causal graphs, identification, and models of causal exposure](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/03_causal_graphs/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F03_causal_graphs%2Flecture.ipynb)
+#### [Causal graphs](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/03_causal_graphs/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F03_causal_graphs%2Flecture.ipynb)
 
 We study the usefulness of causal graphs.
+
+
+#### [Models of causal exposure and identification criteria for conditioning estimators](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/04_criteria_conditioning_estimators/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F04_criteria_conditioning_estimators%2Flecture.ipynb)
+
+We study the basic conditioning strategy for the estimation of causal effects.
 
 ## Resources <a name="resources"></a>
 
