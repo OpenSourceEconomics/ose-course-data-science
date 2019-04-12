@@ -16,5 +16,6 @@ dependencies:
 - jupyter_contrib_nbextensions
 - jupyter_nbextensions_configurator
 - pip
+- pygraphviz
 - pip:
       - wbdata  
