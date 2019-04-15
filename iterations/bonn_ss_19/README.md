@@ -17,7 +17,7 @@ We will conduct all course communications using slack, so please be sure to  the
 | 09/04/19  | Counterfactuals and the potential outcome model           |
 | 10/04/19  | Counterfactuals and the potential outcome model           |
 | 16/04/19  | Causal graphs                                             |
-| 17/04/19  | Estimating causal effects by back-door conditioning       |
+| 17/04/19  | Models of causal exposure and identification criteria for conditioning estimators       |
 | 23/04/19  | ...                                                       |
 | 24/04/19  | ...                                                       |
 | 30/04/19  | ...                                                       |
