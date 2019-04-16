@@ -48,7 +48,7 @@ We discuss the core model of the course.
 
 #### [Causal graphs](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/03_causal_graphs/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F03_causal_graphs%2Flecture.ipynb)
 
-We study the usefulness of causal graphs.
+We study explore the usefulness of causal graphs for the visualization of complex causal systems and the clarification of identification strategies for causal effects. We conclude by linking them to structural equations and the potential outcome model.
 
 #### [Models of causal exposure and identification criteria for conditioning estimators](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/04_criteria_conditioning_estimators/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F04_criteria_conditioning_estimators%2Flecture.ipynb)
 
