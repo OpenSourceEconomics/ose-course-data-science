@@ -3,6 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import pandas as pd
 from collections import OrderedDict
+import statsmodels.formula.api as smf
 
 a_grid = np.linspace(0.01, 1.00, 100)
 b_grid = np.linspace(0.01, 1.00, 100)
@@ -55,7 +56,7 @@ def get_sample_matching_demonstration_3():
                     sample += [[a, b, d, y, y_1, y_0, prob]]
             counts[2, i, j] = np.sum(counts[:2, i, j])
             
-    df = pd.DataFrame(sample, columns=['a', 'b', 'd', 'y', 'y_1', 'y_0', 'prob'])
+    df = pd.DataFrame(sample, columns=['a', 'b', 'd', 'y', 'y_1', 'y_0', 'p'])
     return df, counts
 
 def get_propensity_score(a, b):
@@ -200,6 +201,32 @@ def get_sample_matching_demonstration_2(num_agents):
     
     return df
 
+
+def get_sample_matching_demonstration_4():
+    df = pd.read_csv('../../datasets/processed/morgan_winship/mw_cath1.csv')
+    return df
+
+def get_propensity_scores_matching_demonstration_4(df, specification='complete'):
+    assert specification in ['complete', 'incomplete']
+    def get_columns_for_estimation(specification):
+        columns = df.columns.to_list()
+        
+        labels_removed = ['y', 'yt', 'yc', 'dshock', 'd', 'treat']
+        if specification == 'incomplete':
+            labels_removed += ['test', 'testsq']
+        
+        for label in labels_removed:
+            columns.remove(label)
+        
+        return columns
+                
+    # complete specification
+    columns = get_columns_for_estimation(specification)
+    formula = 'treat ~ {:}'.format(' + '.join(columns))      
+    prob = smf.logit(formula=formula, data=df).fit().predict()   
+
+    return prob
+
 def get_sparsity_pattern_overall(counts):
     fig, ax = plt.subplots(1, 1)
     ax.spy(counts[2, :, :])
@@ -214,3 +241,17 @@ def get_sparsity_pattern_by_treatment(counts):
     ax2.set_title('Untreated', pad=15)
 
     fig.suptitle('Sparsity pattern')
+    
+def get_common_support(df, label='d'):
+
+    
+    prob = df['p']
+
+    prob_untreated = df['p'][df[label] == 0]
+    prob_treated = df['p'][df[label] == 1]
+
+    fig, ax = plt.subplots(1, 1)
+    bins = np.linspace(0.01, 1.00, 100)
+    ax.hist([prob_untreated, prob_treated], bins=bins, label=['control', 'treated'])
+    ax.set_xlim([0, 1])
+    ax.legend();
