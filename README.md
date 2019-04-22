@@ -54,6 +54,10 @@ We explore the usefulness of causal graphs for the visualization of complex caus
 
 We study the basic conditioning strategy for the estimation of causal effects.
 
+#### [Matching Estimators of causal effects](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/05_matching_estimators/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F05_matching_estimators%2Flecture.ipynb)
+
+We review the fundamental concepts of matching such as stratification of data, weighting to achieve balance, and propensity scores.
+
 ## Resources <a name="resources"></a>
 
 We provide some additional resources that are useful for our course work.
