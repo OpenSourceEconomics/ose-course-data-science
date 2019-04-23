@@ -203,7 +203,13 @@ def get_sample_matching_demonstration_2(num_agents):
 
 
 def get_sample_matching_demonstration_4():
-    df = pd.read_csv('../../datasets/processed/morgan_winship/mw_cath1.csv')
+    # This allows to run it locally but also check out the files from an online 
+    # repository.
+    try:
+        df = pd.read_csv('../../datasets/processed/morgan_winship/mw_cath1.csv')
+    except:
+        url = 'https://raw.githubusercontent.com/HumanCapitalAnalysis/microeconometrics/master/datasets/processed/morgan_winship/mw_cath1.csv'
+        df = pd.read_csv(url)
     return df
 
 def get_propensity_scores_matching_demonstration_4(df, specification='complete'):
