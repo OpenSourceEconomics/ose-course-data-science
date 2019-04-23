@@ -1,12 +1,11 @@
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import numpy as np
-import pandas as pd
 from collections import OrderedDict
-import statsmodels.formula.api as smf
 
-a_grid = np.linspace(0.01, 1.00, 100)
-b_grid = np.linspace(0.01, 1.00, 100)
+from mpl_toolkits.mplot3d import Axes3D
+import statsmodels.formula.api as smf
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
 
 def get_potential_outcomes(a, b):
     """ Get potential outcomes.
@@ -23,7 +22,8 @@ def get_potential_outcomes(a, b):
     """
     v_0, v_1 = np.random.normal(0, 5, size=2)
     y_0 = 100.0 + 3.0 * a + 2.0 * b + v_0
-    y_1 = 102.0 + 6.0 * a + 4.0 * b + v_1
+    y_1 = 102.0 + 6.0 * a + 4from mpl_toolkits.mplot3d import Axes3D
+.0 * b + v_1
     return [y_1, y_0]
     
 
@@ -39,9 +39,9 @@ def get_propensity_score_3(df, specification='true'):
     
     return p
     
-def get_sample_matching_demonstration_3():
+def get_sample_matching_demonstration_3(a_grid, b_grid):
     sample = list()
-    
+
     counts = np.tile(np.nan, (3, 100, 100))
     
     for i, a in enumerate(a_grid):
@@ -108,58 +108,6 @@ def plot_propensity_score(a_grid, b_grid):
     ax.set_zlabel('Propensity Score');
     
     
-def get_sample_matching_demonstration_1(num_agents):
-    def get_potential_outcomes(s):
-        if s == 1:
-            y_1, y_0 = 4, 2
-        elif s == 2:
-            y_1, y_0 = 8, 6
-        elif s == 3:
-            y_1, y_0 = 14, 10
-        else:
-            raise AssertionError
-            
-        # We want some randomness
-        y_1 += np.random.normal()
-        y_0 += np.random.normal()
-                
-        return y_1, y_0
-
-        
-    data = np.tile(np.nan, (num_agents, 5))
-    for i in range(num_agents):
-        u = np.random.uniform()
-
-        if 0.00 <= u < 0.36:
-            s, d = 1, 0
-        elif 0.36 <= u < 0.48:
-            s, d = 2, 0
-        elif 0.48 <= u < 0.60:
-            s, d = 3, 0
-        elif 0.60 <= u < 0.68:
-            s, d = 1, 1
-        elif 0.68 <= u < 0.80:
-            s, d = 2, 1
-        else:
-            s, d = 3, 1
-
-
-        y_1, y_0 = get_potential_outcomes(s)
-        y = d * y_1 + (1 - d) * y_0  
-        
-        data[i, :] = y, d, s, y_1, y_0
-
-    info = OrderedDict()
-    info['Y'] = np.float
-    info['D'] = np.int
-    info['S'] = np.int
-    info['Y_1'] = np.float
-    info['Y_0'] = np.float
-    
-    df = pd.DataFrame(data, columns=info.keys())
-    df = df.astype(info)
-    return df
-
 def get_sample_matching_demonstration_2(num_agents):
     def get_potential_outcomes(s):
         if s == 1:
