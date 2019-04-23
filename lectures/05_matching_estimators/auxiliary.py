@@ -27,7 +27,18 @@ def get_potential_outcomes(a, b):
     return [y_1, y_0]
     
 
-
+def get_propensity_score_3(df, specification='true'):
+    assert specification in ['correct', 'misspecified', 'true']
+    if specification == 'true':
+        
+        p = df['p']
+    elif specification == 'correct':
+        p = smf.logit(formula='d ~ a + b + a * b', data=df).fit().predict()
+    elif specification == 'misspecified':
+        p = smf.logit(formula='d ~ a + b', data=df).fit().predict()
+    
+    return p
+    
 def get_sample_matching_demonstration_3():
     sample = list()
     
@@ -260,4 +271,40 @@ def get_common_support(df, label='d'):
     bins = np.linspace(0.01, 1.00, 100)
     ax.hist([prob_untreated, prob_treated], bins=bins, label=['control', 'treated'])
     ax.set_xlim([0, 1])
+    ax.set_xlabel('Propensity score')
     ax.legend();
+    
+def get_lalonde_data():
+    df = pd.read_csv('../../datasets/processed/angrist_pischke/nswre74.csv')
+
+    df['Y'] = df['re78']
+    df['Y_0'] = df.loc[df['treat'] == 0, 're78']
+    df['Y_1'] = df.loc[df['treat'] == 1, 're78']
+
+    df['D'] = 0
+    df.loc[df['treat'] == 1, 'D'] = 1
+    
+    return df
+
+def plot_weights():
+    
+    x_grid = np.linspace(0.01, 0.99, 100)
+    inv_odds_grid = list()
+    odds_grid = list()
+    for x in x_grid:
+        odds_grid.append(get_odds(x))
+        inv_odds_grid.append(get_inv_odds(x))
+
+    fig, ax = plt.subplots(1, 1)
+    ax.plot(x_grid, odds_grid, label='ATT') 
+    ax.plot(x_grid, inv_odds_grid, label='ATC') 
+    ax.set_xlim([0, 1])
+    ax.set_ylabel('Weight')
+    ax.set_xlabel('Propensity score')
+    ax.legend()
+    
+def get_odds(p):
+    return p / (1 - p)
+
+def get_inv_odds(p):
+    return (1 - p) / p
