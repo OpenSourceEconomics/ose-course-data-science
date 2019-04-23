@@ -124,7 +124,6 @@ def get_sample_matching_demonstration_2(num_agents):
                 
         return y_1, y_0
 
-        
     data = np.tile(np.nan, (num_agents, 5))
     for i in range(num_agents):
         u = np.random.uniform()
