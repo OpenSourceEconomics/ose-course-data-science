@@ -22,8 +22,7 @@ def get_potential_outcomes(a, b):
     """
     v_0, v_1 = np.random.normal(0, 5, size=2)
     y_0 = 100.0 + 3.0 * a + 2.0 * b + v_0
-    y_1 = 102.0 + 6.0 * a + 4from mpl_toolkits.mplot3d import Axes3D
-.0 * b + v_1
+    y_1 = 102.0 + 6.0 * a + 4.0 * b + v_1
     return [y_1, y_0]
     
 
