@@ -18,9 +18,9 @@ We will conduct all course communications using slack, so please be sure to  the
 | 10/04/19  | Counterfactuals and the potential outcome model           |
 | 16/04/19  | Causal graphs                                             |
 | 17/04/19  | Models of causal exposure and identification criteria for conditioning estimators       |
-| 23/04/19  | ...                                                       |
-| 24/04/19  | ...                                                       |
-| 30/04/19  | ...                                                       |
+| 23/04/19  | Matching estimators of causal effects                     |
+| 24/04/19  | Matching estimators of causal effects                     |
+| 30/04/19  | Regression estimators of causal effects                   |
 | 01/05/19  | Labor Day                                                 |
 | 07/05/19  | Alternatives to back-door conditioning                    |
 | 08/05/19  |                                                           |
