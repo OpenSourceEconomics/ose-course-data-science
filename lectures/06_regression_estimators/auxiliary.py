@@ -3,6 +3,138 @@ import pandas as pd
 
 import matplotlib.pyplot as plt
 import statsmodels.formula.api as smf
+import seaborn as sns
+
+def plot_freedman_exercise(df):
+    fig, (ax1, ax2) = plt.subplots(1, 2)
+    ax1.hist(df['F-statistic'])    
+    ax1.set_title('F-statistic')
+
+    ax2.hist(df['Regressors']) 
+    ax2.set_title('Number of regressors')
+
+def run_freedman_exercise():
+    
+    columns = ['Y']
+    for i in range(50):
+        columns.append('X{:}'.format(i))
+    df = pd.DataFrame(np.random.normal(size=(100, 51)), columns=columns)
+
+    
+    formula = 'Y ~ ' + ' + '.join(columns[1:]) + '- 1'
+    rslt = smf.ols(formula=formula, data=df).fit()
+    
+    final_covariates = list()
+    for label in rslt.params.keys():
+        if rslt.pvalues[label] > 0.25:
+            continue
+        final_covariates.append(label)
+
+    formula = 'Y ~ '  + ' + '.join(final_covariates)
+    rslt = smf.ols(formula=formula, data=df).fit()
+    return rslt
+
+def get_correlation(x, y, df):
+    
+    stat = df[x].corr(df[y])
+
+    if pd.isnull(stat):
+        return 0.0
+    else:
+        return stat
+
+def get_sample_bias_illustration(sample, num_agents=1000):
+    columns = ['Y', 'D', 'Y_1', 'Y_0', 'V_1', 'V_0', 'C']
+    df = pd.DataFrame(columns=columns, dtype=np.float)
+
+    for i in range(num_agents):
+        group = np.random.choice(range(2))
+
+        if sample == 0:
+            if group == 0:
+                attr_ = 20, 10, 0, 5, 20, 1, 0
+            elif group == 1:
+                attr_ = 20, 0, 0, -5, 0, 0, -5
+            else:
+                raise NotImplementedError
+
+        elif sample == 1:
+            if group == 0:
+                attr_ = 20, 10, 2.5, 0, 20, 1, 2.5
+            elif group == 1:
+                attr_ = 15, 10, -2.5, 0, 10, 0, 0
+            else:
+                raise NotImplementedError
+
+        elif sample == 2:
+            if group == 0:
+                attr_ = 25, 5, 5, -2.5, 25, 1, 5
+            elif group == 1:
+                attr_ = 15, 10, -5, 2.5, 10, 0, 2.5
+            else:
+                raise NotImplementedError
+
+        y_1, y_0, v_1, v_0, y, d, c = attr_
+
+        df.loc[i] = [y, d, y_1, y_0, v_1, v_0, c]
+
+    # We set all but the treatment dummy to float values.
+    df = df.astype(np.float)
+    df = df.astype({'D': np.int})
+
+    return df
+
+
+def get_sample_regression_adjustment(sample, num_agents=1000, seed=123):
+    """There exist six different groups in the population with equal shares"""
+    np.random.seed(seed)
+    columns = ['Y', 'D', 'X', 'Y_1', 'Y_0', 'V_1', 'V_0']
+    df = pd.DataFrame(columns=columns)
+
+        
+    for i in range(num_agents):
+        
+        group = np.random.choice(range(6))
+        
+        
+        if sample == 0:
+
+            # This is a direct copy from the top panel in Table 6.4
+            if group in [0, 1]:
+                attr_ = 20, 10, 2.5, 2.5, 20, 1, 1,
+            elif group == 2:
+                attr_ = 15, 5, -2.5, -2.5, 15, 1, 0
+            elif group == 3:
+                attr_ = 20, 10, 2.5, 2.5, 10, 0, 1
+            elif group == 4:
+                attr_ = 15, 5, -2.5, -2.5, 5, 0, 0 
+            elif group == 5:
+                attr_ = 15, 5, -2.5, -2.5, 5, 0, 0
+            else:
+                raise NotImplementedError
+        elif sample == 1:
+            
+            
+            if group in [0, 1]:
+                attr_ = 20, 10, 2.83, 2.5, 20, 1, 1 
+            elif group == 2:
+                attr_ = 15, 5, -2.17, -2.5, 15, 1, 0
+            elif group == 3:
+                attr_ = 18, 10, 0.83, 2.5, 10, 0, 1
+            elif group == 4:
+                attr_ = 15, 5, -2.17, -2.5, 5, 0, 0
+            elif group == 5:
+                attr_ = 15, 5, -2.17, -2.5, 5, 0, 0
+        else:
+            raise NotImplementedError
+            
+        y_1, y_0, v_1, v_0, y, d, x = attr_
+        
+        df.loc[i] = [y, d, x, y_1, y_0, v_1, v_0]
+    
+    df = df.astype({'D': np.int})
+
+    return df
 
 
 def get_sample_demonstration_1(num_agents):
@@ -57,12 +189,18 @@ def plot_conditional_expectation_demonstration_1(df):
     fig, ax = plt.subplots(1, 1)
     rslt = df[df['D'] == 1].groupby('S')['Y'].mean().to_dict()
     x, y = rslt.keys(), rslt.values()
-    ax.plot(x, y, label='Treated')
-
+    ax.plot(x, y, label='Treated')    
+    
     rslt = df[df['D'] == 0].groupby('S')['Y'].mean().to_dict()
     x, y = rslt.keys(), rslt.values()
     ax.plot(x, y, label='Control')
 
+    # We study the treatment effect heterogeneity.
+    plt.plot((1, 1), (2, 4), 'k-'); ax.text(0.95, 6, r'$\Delta Y_{S = 1}$', fontsize=15)
+    plt.plot((2, 2), (6, 8), 'k-'); ax.text(1.95, 10, r'$\Delta Y_{S = 2}$', fontsize=15)
+    plt.plot((3, 3), (10, 14), 'k-'); ax.text(2.95, 15, r'$\Delta Y_{S = 3}$', fontsize=15)
+
+    
     ax.set_title('Conditional Expectations')
     ax.set_xticks([1, 2, 3])    
     ax.set_ylim([0, 16])
@@ -104,10 +242,25 @@ def plot_predictions_demonstration_1(df):
     for label, ax in [('treated', ax1), ('control', ax2)]:
 
         ax.bar(y - 0.3, rslt['observed'][label].values(), width=0.2, label='actual')
-        ax.bar(y - 0.1, rslt['predict_1'][label].values(), width=0.2, label='first prediction')
-        ax.bar(y + 0.1, rslt['predict_2'][label].values(), width=0.2, label='second prediction')
-        ax.bar(y + 0.3, rslt['predict_3'][label].values(), width=0.2, label='third prediction')
+        ax.bar(y - 0.1, rslt['predict_1'][label].values(), width=0.2, label='first')
+        ax.bar(y + 0.1, rslt['predict_2'][label].values(), width=0.2, label='second')
+        ax.bar(y + 0.3, rslt['predict_3'][label].values(), width=0.2, label='third')
 
         ax.set_title(label.title())
         ax.set_ylim([0, 22])
         ax.legend()
+        
+
+def plot_anscombe_dataset():
+    df = sns.load_dataset("anscombe")
+
+    sns.lmplot(x="x", y="y", col="dataset", hue="dataset", data=df,
+           col_wrap=2, ci=None, palette="muted", height=4,
+           scatter_kws={"s": 50, "alpha": 1})
+
+
+def get_anscombe_datasets():
+    df = sns.load_dataset("anscombe")
+    # This is an exmple of a list comprehension
+    return [df[df['dataset'] == 'I' * i] for i in range(1, 5)]
+
