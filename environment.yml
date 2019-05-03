@@ -1,4 +1,4 @@
-name: hc_microeconometrics
+name: teaching_microeconometrics
 
 channels:
 - conda
@@ -13,6 +13,7 @@ dependencies:
 - jupyterlab
 - matplotlib
 - seaborn
+- jupyter
 - jupyter_contrib_nbextensions
 - jupyter_nbextensions_configurator
 - pip

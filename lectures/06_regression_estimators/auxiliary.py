@@ -8,7 +8,7 @@ import seaborn as sns
 def plot_freedman_exercise(df):
     fig, (ax1, ax2) = plt.subplots(1, 2)
     ax1.hist(df['F-statistic'])    
-    ax1.set_title('F-statistic')
+    ax1.set_title('Prob(F-statistic)')
 
     ax2.hist(df['Regressors']) 
     ax2.set_title('Number of regressors')
@@ -262,5 +262,7 @@ def plot_anscombe_dataset():
 def get_anscombe_datasets():
     df = sns.load_dataset("anscombe")
     # This is an exmple of a list comprehension
-    return [df[df['dataset'] == 'I' * i] for i in range(1, 5)]
-
+    rslt = list()
+    for numeral in ['I', 'II', 'III', 'IV']:
+        rslt.append(df[df['dataset'] == numeral])
+    return rslt

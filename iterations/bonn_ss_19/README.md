@@ -22,8 +22,8 @@ We will conduct all course communications using slack, so please be sure to  the
 | 24/04/19  | Matching estimators of causal effects                     |
 | 30/04/19  | Regression estimators of causal effects                   |
 | 01/05/19  | Labor Day                                                 |
-| 07/05/19  | Alternatives to back-door conditioning                    |
-| 08/05/19  |                                                           |
+| 07/05/19  | Self-selection, heterogeneity, and causal graphs          |
+| 08/05/19  | Instrumental variable estimators of causal effects        |
 | 14/05/19  |                                                           |
 | 15/05/19  | Dies Academicus                                           |
 | 21/05/19  |                                                           |
