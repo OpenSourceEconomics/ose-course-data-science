@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3802cf19-0bd9-4638-ba87-569bd6a9af84" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/lectures/06_regression_estimators/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/06_regression_estimators/lecture.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture-canvas.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture-canvas.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -11,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -101,16 +103,17 @@
       <workItem from="1557205348996" duration="1318000" />
       <workItem from="1557206842401" duration="37000" />
       <workItem from="1557217422966" duration="876000" />
+      <workItem from="1557232871307" duration="9000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8841000" />
+    <option name="totallyTimeSpent" value="8850000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
+    <frame x="67" y="17" width="1213" height="782" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12954639" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1319623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
