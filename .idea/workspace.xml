@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3802cf19-0bd9-4638-ba87-569bd6a9af84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/configurations/ipython/profile_default/startup/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.envrc" beforeDir="false" afterPath="$PROJECT_DIR$/.envrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/microeconometrics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/microeconometrics.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/peisenha.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configurations/jupyter/config.ipy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lectures/06_regression_estimators/auxiliary.py" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/06_regression_estimators/auxiliary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lectures/06_regression_estimators/lecture-canvas.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lectures/06_regression_estimators/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/06_regression_estimators/lecture.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lectures/06_regression_estimators/lecture.ipynb">
           <provider selected="true" editor-type-id="jupyter-editor" />
@@ -38,11 +32,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1280" />
-    <option name="y" value="49" />
-    <option name="width" value="1213" />
-    <option name="height" value="774" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="218" />
+    <option name="y" value="123" />
+    <option name="width" value="911" />
+    <option name="height" value="580" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -50,6 +44,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -68,11 +63,16 @@
               <item name="lectures" type="462c0819:PsiDirectoryNode" />
               <item name="06_regression_estimators" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="microeconometrics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="microeconometrics" type="462c0819:PsiDirectoryNode" />
+              <item name="lectures" type="462c0819:PsiDirectoryNode" />
+              <item name="07_selection_heterogeneity_graphs" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -107,17 +107,19 @@
       <workItem from="1556534362940" duration="3584000" />
       <workItem from="1556631273680" duration="494000" />
       <workItem from="1556777554097" duration="2532000" />
+      <workItem from="1557205348996" duration="1318000" />
+      <workItem from="1557206842401" duration="37000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6610000" />
+    <option name="totallyTimeSpent" value="7965000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="67" y="17" width="1213" height="782" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12451577" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1285347" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -154,6 +156,9 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/lectures/06_regression_estimators/lecture.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
