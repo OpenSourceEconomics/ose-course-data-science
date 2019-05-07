@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3802cf19-0bd9-4638-ba87-569bd6a9af84" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lectures/06_regression_estimators/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/06_regression_estimators/lecture.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture-canvas.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture-canvas.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/peisenha.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/peisenha.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,7 +12,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb">
+          <provider selected="true" editor-type-id="jupyter-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,7 +42,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -54,18 +58,13 @@
               <item name="microeconometrics" type="b2602c69:ProjectViewProjectNode" />
               <item name="microeconometrics" type="462c0819:PsiDirectoryNode" />
               <item name="lectures" type="462c0819:PsiDirectoryNode" />
-              <item name="06_regression_estimators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microeconometrics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microeconometrics" type="462c0819:PsiDirectoryNode" />
-              <item name="lectures" type="462c0819:PsiDirectoryNode" />
               <item name="07_selection_heterogeneity_graphs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -104,16 +103,18 @@
       <workItem from="1557206842401" duration="37000" />
       <workItem from="1557217422966" duration="876000" />
       <workItem from="1557232871307" duration="9000" />
+      <workItem from="1557245026743" duration="558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8850000" />
+    <option name="totallyTimeSpent" value="9408000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="17" width="1213" height="782" extended-state="6" />
+    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1319623" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13281569" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
