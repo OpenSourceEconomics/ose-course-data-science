@@ -12,13 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb">
-          <provider selected="true" editor-type-id="jupyter-editor" />
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -103,16 +97,15 @@
       <workItem from="1557206842401" duration="37000" />
       <workItem from="1557217422966" duration="876000" />
       <workItem from="1557232871307" duration="9000" />
-      <workItem from="1557245026743" duration="558000" />
+      <workItem from="1557245026743" duration="795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9408000" />
+    <option name="totallyTimeSpent" value="9645000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13281569" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
