@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3802cf19-0bd9-4638-ba87-569bd6a9af84" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/peisenha.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/peisenha.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lectures/08_instrumental_variable/lecture-canvas.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/08_instrumental_variable/lecture-canvas.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lectures/08_instrumental_variable/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/08_instrumental_variable/lecture.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,29 +38,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="microeconometrics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microeconometrics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microeconometrics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microeconometrics" type="462c0819:PsiDirectoryNode" />
-              <item name="lectures" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="microeconometrics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="microeconometrics" type="462c0819:PsiDirectoryNode" />
-              <item name="lectures" type="462c0819:PsiDirectoryNode" />
-              <item name="07_selection_heterogeneity_graphs" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -98,16 +79,18 @@
       <workItem from="1557217422966" duration="876000" />
       <workItem from="1557232871307" duration="9000" />
       <workItem from="1557245026743" duration="795000" />
+      <workItem from="1557301274209" duration="185000" />
+      <workItem from="1557333979979" duration="8000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9645000" />
+    <option name="totallyTimeSpent" value="9838000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
+    <frame x="67" y="17" width="1213" height="782" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13281569" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13624679" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -152,6 +135,9 @@
       <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb">
+      <provider selected="true" editor-type-id="jupyter-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lectures/08_instrumental_variable/lecture.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
   </component>
