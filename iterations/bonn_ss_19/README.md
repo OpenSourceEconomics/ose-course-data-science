@@ -24,7 +24,7 @@ We will conduct all course communications using slack, so please be sure to  the
 | 01/05/19  | Labor Day                                                 |
 | 07/05/19  | Self-selection, heterogeneity, and causal graphs          |
 | 08/05/19  | Instrumental variable estimators of causal effects        |
-| 14/05/19  |                                                           |
+| 14/05/19  | Discussion of seminal papers                              |
 | 15/05/19  | Dies Academicus                                           |
 | 21/05/19  |                                                           |
 | 22/05/19  |                                                           |
@@ -56,6 +56,16 @@ I briefly introduce my research background and provide a basic overview on my te
 * [OpenSourceEconomics](https://github.com/OpenSourceEconomics)
 
 We briefly present our efforts around this student run initiative.
+
+## Seminal papers
+
+We discuss several seminal papers in detail that illustrate aspects of the course.
+
+* Angrist (1990)
+
+* Angrist & Krueger (1991)
+
+* Rosenzweig & Wolpin (2000)
 
 ## Guest lecturers
 

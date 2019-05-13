@@ -70,6 +70,10 @@ We lay the groundwork to estimate causal effects if simple conditioning on obser
 
 We study the use of instrumental variable estimators.
 
+#### [Mechanisms and causal explanations](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/09_mechanisms_causal_explanations/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F09_mechanisms_causal_explanations%2Flecture.ipynb)
+
+We study front-door identification that allow (under certain conditions) to provide a causal account of the effect of $D$ of $Y$.
+
 ## Resources <a name="resources"></a>
 
 We provide some additional resources that are useful for our course work.
