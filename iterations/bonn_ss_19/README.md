@@ -61,11 +61,11 @@ We briefly present our efforts around this student run initiative.
 
 We discuss several seminal papers in detail that illustrate aspects of the course.
 
-* Angrist (1990)
+* Angrist, J. D. (1990). [Lifetime earnings and the Vietnam era draft lottery: Evidence from social security administrative records.](https://www.jstor.org/stable/2006669?seq=1#metadata_info_tab_contents) *American Economic Review, 80*(3), 313-336.
 
-* Angrist & Krueger (1991)
+* Angrist, J. D., & Krueger, A. B. (1991). [Does  compulsory  school attendance affect schooling and earnings?](https://www.jstor.org/stable/2937954?seq=1#metadata_info_tab_contents) *The Quarterly Journal of Economics, 106*(4), 979-1014.
 
-* Rosenzweig & Wolpin (2000)
+* Rosenzweig, M. R., & Wolpin, K. I. (2000). [Natural "natural experiments" in economics.](https://www.jstor.org/stable/2698663?seq=1#metadata_info_tab_contents) *Journal of Economic Literature, 38*(4), 827-874.
 
 ## Guest lecturers
 
