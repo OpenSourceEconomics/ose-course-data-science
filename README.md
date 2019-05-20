@@ -58,7 +58,7 @@ We study the basic conditioning strategy for the estimation of causal effects.
 
 We review the fundamental concepts of matching such as stratification of data, weighting to achieve balance, and propensity scores.
 
-#### [Regression Estimators of causal effects](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/06_regression_estimators/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F06_regression_estimators%2Flecture.ipynb)
+#### [Regression estimators of causal effects](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/06_regression_estimators/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F06_regression_estimators%2Flecture.ipynb)
 
 We study the most common form of data analysis.
 
