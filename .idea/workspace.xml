@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3802cf19-0bd9-4638-ba87-569bd6a9af84" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lectures/09_mechanisms_causal_explanation/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/09_mechanisms_causal_explanation/lecture.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lectures/08_instrumental_variable/material/fig-angrist-1990-cover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lectures/08_instrumental_variable/material/fig-angrist-krueger-1991-cover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lectures/08_instrumental_variable/material/fig-rosenzweig-wolpin-2000-cover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/peisenha.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/peisenha.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lectures/08_instrumental_variable/lecture.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/lectures/08_instrumental_variable/lecture.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,9 +16,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lectures/09_mechanisms_causal_explanation/lecture.ipynb">
+        <entry file="file://$PROJECT_DIR$/lectures/08_instrumental_variable/lecture.ipynb">
           <provider selected="true" editor-type-id="jupyter-editor" />
         </entry>
       </file>
@@ -41,6 +46,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -57,18 +63,18 @@
               <item name="microeconometrics" type="b2602c69:ProjectViewProjectNode" />
               <item name="microeconometrics" type="462c0819:PsiDirectoryNode" />
               <item name="lectures" type="462c0819:PsiDirectoryNode" />
-              <item name="09_mechanisms_causal_explanation" type="462c0819:PsiDirectoryNode" />
+              <item name="08_instrumental_variable" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OpenSourceEconomics/respy" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -106,16 +112,19 @@
       <workItem from="1557301274209" duration="185000" />
       <workItem from="1557333979979" duration="8000" />
       <workItem from="1557575540180" duration="751000" />
+      <workItem from="1557806309865" duration="605000" />
+      <workItem from="1557812572963" duration="95000" />
+      <workItem from="1557821596594" duration="77000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10589000" />
+    <option name="totallyTimeSpent" value="11366000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="17" width="1213" height="782" extended-state="6" />
+    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13881747" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1450756" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -162,10 +171,10 @@
     <entry file="file://$PROJECT_DIR$/lectures/07_selection_heterogeneity_graphs/lecture.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lectures/08_instrumental_variable/lecture.ipynb">
+    <entry file="file://$PROJECT_DIR$/lectures/09_mechanisms_causal_explanation/lecture.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lectures/09_mechanisms_causal_explanation/lecture.ipynb">
+    <entry file="file://$PROJECT_DIR$/lectures/08_instrumental_variable/lecture.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
     </entry>
   </component>
