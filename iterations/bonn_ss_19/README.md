@@ -26,7 +26,7 @@ We will conduct all course communications using slack, so please be sure to  the
 | 08/05/19  | Instrumental variable estimators of causal effects        |
 | 14/05/19  | Discussion of seminal papers                              |
 | 15/05/19  | Dies Academicus                                           |
-| 21/05/19  |                                                           |
+| 21/05/19  | Discussion of seminal papers                              |
 | 22/05/19  |                                                           |
 | 28/05/19  |                                                           |
 | 29/05/19  |                                                           |
