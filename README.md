@@ -74,6 +74,10 @@ We study the use of instrumental variable estimators.
 
 We study front-door identification that allow (under certain conditions) to provide a causal account of the effect of D on Y.
 
+#### [Repeated observations and the estimation of causal effects](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/10_repeated_observations/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F10_repeated_observations%2Flecture.ipynb)
+
+We now explore models in which we have multiple observations at different points in time. Due to its similar structure, we also look at the sharp and fuzzy regression discontinuity design.
+
 ## Resources <a name="resources"></a>
 
 We provide some additional resources that are useful for our course work.
