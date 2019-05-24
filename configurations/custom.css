@@ -1,8 +1,6 @@
-<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open Sans:400,700,400italic' rel='stylesheet' type='text/css'>
 
 <style>
 
@@ -24,7 +22,7 @@ div.cell { /* set cell width to about 80 chars */
 
 div.text_cell_render {
 /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
-font-family: "Charis SIL", serif; /* Make non-code text serif. */
+font-family: "Open Sans", sans-serif; /* Make non-code text serif. */
 line-height: 145%; /* added for some line spacing of text. */
 width: 105ex; /* instead of 'inherit' for shorter lines */
 }
@@ -53,10 +51,27 @@ div.cell.code_cell {
     margin-top: 1em;
 }
 
+div.cell {  /* set cell width to about 80 chars, rounds edges, adds left colorerd bracket */
+    width: 1000px;
+    border-radius: 10px;
+    border-left: 5px solid rgb(0,137,183) !important;
+}
+
+div.cell.selected { /* rounds edges, adds left colorerd bracket */
+    border-radius: 10px;
+    border-left: 5px solid rgb(0,137,183) !important;
+}
+
+.edit_mode div.cell.selected {  /* rounds edges, adds left colorerd bracket */
+    border: medium solid rgb(0,137,183);
+    border-radius: 10px;
+}
+
 div.text_cell_render{
-    font-family: 'Arvo' sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 130%;
     font-size: 150%;
+    font-weight: 400;
     width:900px;
     margin-left:auto;
     margin-right:auto;
@@ -64,44 +79,48 @@ div.text_cell_render{
 
 /* Formatting for header cells */
 .text_cell_render h1 {
-    font-family: 'Philosopher', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
     font-size: 32pt;
     line-height: 100%;
-    color: rgb(12,85,97);
+    color: rgb(0,137,183);
     margin-bottom: 0.1em;
     margin-top: 0.1em;
     display: block;
 }
 
 .text_cell_render h2 {
-    font-family: 'Philosopher', serif;
-    font-weight: 700;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
     font-size: 24pt;
     line-height: 100%;
-    color: rgb(171,165,131);
+    color: rgb(0,137,183);
     margin-bottom: 0.1em;
     margin-top: 0.1em;
     display: block;
 }    
 
 .text_cell_render h3 {
-    font-family: 'Philosopher', serif;
-    margin-top:12px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    margin-top:16px;
     margin-bottom: 3px;
     font-style: italic;
-    color: rgb(95,92,72);
+    color: rgb(0,76,102);
 }
 
 .text_cell_render h4 {
-    font-family: 'Philosopher', serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    font-size: 19pt;
+    color: rgb(0,76,102);
 }
 
 .text_cell_render h5 {
-    font-family: 'Alegreya Sans', sans-serif;
-    font-weight: 300;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
     font-size: 16pt;
-    color: grey;
+    color: rgb(0,76,102);
     font-style: italic;
     margin-bottom: .1em;
     margin-top: 0.1em;
@@ -109,10 +128,10 @@ div.text_cell_render{
 }
 
 .text_cell_render h6 {
-    font-family: 'PT Mono', sans-serif;
-    font-weight: 300;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
     font-size: 10pt;
-    color: grey;
+    color: rgb(0,76,102);
     margin-bottom: 1px;
     margin-top: 1px;
 }
@@ -121,6 +140,4 @@ div.text_cell_render{
         font-family: "PT Mono";
         font-size: 120%;
 }
-
 </style>
-
