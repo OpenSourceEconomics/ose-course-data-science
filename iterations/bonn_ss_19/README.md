@@ -25,13 +25,13 @@ We will conduct all course communications using slack, so please be sure to  the
 | 07/05/19  | Self-selection, heterogeneity, and causal graphs          |
 | 08/05/19  | Instrumental variable estimators of causal effects        |
 | 14/05/19  | Discussion of seminal papers                              |
-| 15/05/19  | Dies Academicus                                           |
+| 15/05/19  | Dies academicus                                           |
 | 21/05/19  | Discussion of seminal papers                              |
-| 22/05/19  |                                                           |
-| 28/05/19  |                                                           |
-| 29/05/19  |                                                           |
-| 04/06/19  |                                                           |
-| 05/06/19  |                                                           |
+| 22/05/19  | Mechanisms and causal explanations                        |
+| 28/05/19  | Repeated observations and the estimation of causal effects|
+| 29/05/19  | Repeated observations and the estimation of causal effects|
+| 04/06/19  | Repeated observations and the estimation of causal effects|
+| 05/06/19  | Review session                                            |
 | 11/06/19  | Spring break                                              |
 | 12/06/19  | Spring break                                              |
 | 18/06/19  |                                                           |
