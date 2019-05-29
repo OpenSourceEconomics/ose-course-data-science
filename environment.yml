@@ -9,7 +9,7 @@ dependencies:
 - pandas
 - flake8
 - pytest
-- pandas 
+- scipy=1.2.1
 - jupyterlab
 - matplotlib
 - seaborn
