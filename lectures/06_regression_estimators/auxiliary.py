@@ -189,11 +189,11 @@ def plot_conditional_expectation_demonstration_1(df):
     fig, ax = plt.subplots(1, 1)
     rslt = df[df['D'] == 1].groupby('S')['Y'].mean().to_dict()
     x, y = rslt.keys(), rslt.values()
-    ax.plot(x, y, label='Treated')    
+    ax.plot(list(x), list(y), label='Treated')    
     
     rslt = df[df['D'] == 0].groupby('S')['Y'].mean().to_dict()
     x, y = rslt.keys(), rslt.values()
-    ax.plot(x, y, label='Control')
+    ax.plot(list(x), list(y), label='Control')
 
     # We study the treatment effect heterogeneity.
     plt.plot((1, 1), (2, 4), 'k-'); ax.text(0.95, 6, r'$\Delta Y_{S = 1}$', fontsize=15)
