@@ -88,6 +88,12 @@ We provide some additional resources that are useful for our course work.
 
 * Wooldridge, J. M. (2009). [*Econometric analysis of cross section and panel data*](https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data). Cambridge, MA: The MIT Press.
 
+#### Regression discontinuity design
+
+* Hahn, J., Todd, P. E., and Van der Klaauw, W. (2001). [Identification and estimation of treatment effects with a regression-discontinuity design.](https://www.jstor.org/stable/2692190) *Econometrica, 69*(1), 201-209.
+
+* Imbens, G. W., and Lemieux, T. (2008). [Regression discontinuity designs: A guide to practice.](http://www.sciencedirect.com/science/article/pii/S0304407607001091) *Journal of Econometrics, 142*(2), 615-635.
+
 #### Datasets
 
 The two textbooks above provide an impressive amount of data from research articles. We provide them in a central place [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/datasets).
