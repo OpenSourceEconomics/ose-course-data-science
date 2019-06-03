@@ -1,0 +1,29 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Lee%
+\ \BBA {} Lemieux%
+}{%
+Lee%
+\ \BBA {} Lemieux%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+Lee.2010a}
+\APACinsertmetastar {%
+Lee.2010a}%
+\begin{APACrefauthors}%
+Lee, D\BPBI S.%
+\BCBT {}\ \BBA {} Lemieux, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Regression discontinuity designs in economics}
+  {Regression discontinuity designs in economics}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of economic literature}{48}{2}{281--355}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

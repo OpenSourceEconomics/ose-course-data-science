@@ -25,8 +25,9 @@ Throughout the course we will make heavy use of [Python](https://www.python.org)
 Please use the table of content to navigate the rest of the material.
 
 1. [Lectures](#lectures)
-2. [Resources](#resources)
-3. [Iterations](#iterations)
+2. [Special Focus](#focus)
+3. [Resources](#resources)
+4. [Iterations](#iterations)
 
 We collect a list of additional, more general, reading recommendations [here](https://github.com/HumanCapitalAnalysis/general-resources).
 
@@ -78,6 +79,14 @@ We study front-door identification that allow (under certain conditions) to prov
 
 We now explore models in which we have multiple observations at different points in time. Due to its similar structure, we also look at the sharp and fuzzy regression discontinuity design.
 
+## Special focus <a name="focus"></a>
+
+We discuss selected topics in more details based on student demands.
+
+#### Regression discontinuity design
+
+We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by [Lee & Lemieux (2010)](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281). The slides and notebook are available online.
+
 ## Resources <a name="resources"></a>
 
 We provide some additional resources that are useful for our course work.
@@ -87,12 +96,6 @@ We provide some additional resources that are useful for our course work.
 * Angrist, J. D., and Pischke, J. (2009). [*Mostly harmless econometrics: An empiricists companion*](https://press.princeton.edu/titles/8769.html). Princeton, NJ: Princeton University Press.
 
 * Wooldridge, J. M. (2009). [*Econometric analysis of cross section and panel data*](https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data). Cambridge, MA: The MIT Press.
-
-#### Regression discontinuity design
-
-* Hahn, J., Todd, P. E., and Van der Klaauw, W. (2001). [Identification and estimation of treatment effects with a regression-discontinuity design.](https://www.jstor.org/stable/2692190) *Econometrica, 69*(1), 201-209.
-
-* Imbens, G. W., and Lemieux, T. (2008). [Regression discontinuity designs: A guide to practice.](http://www.sciencedirect.com/science/article/pii/S0304407607001091) *Journal of Econometrics, 142*(2), 615-635.
 
 #### Datasets
 
