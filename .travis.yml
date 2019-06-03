@@ -13,4 +13,6 @@ install:
   - source activate teaching_microeconometrics
 
 script:
+  - source .envrc
   - travis_wait python utils/travis_runner.py
+  - travis_wait create-slides

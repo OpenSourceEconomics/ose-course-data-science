@@ -12,10 +12,11 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ../../../submodules/bibliography/literature.bib
+Warning--I didn't find a database entry for "Lee.2008"
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
 You've used 3 entries,
             6951 wiz_defined-function locations,
-            1292 strings with 11222 characters,
+            1294 strings with 11238 characters,
 and the built_in function-call counts, 5956 in all, are:
 = -- 733
 > -- 47
@@ -54,3 +55,4 @@ warning$ -- 0
 while$ -- 26
 width$ -- 0
 write$ -- 99
+(There was 1 warning)

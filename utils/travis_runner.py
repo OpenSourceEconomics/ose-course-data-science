@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-"""This script manages all tasks for the travis build server."""
+#"""This script manages all tasks for the travis build server."""
 import subprocess as sp
 
 if __name__ == '__main__':

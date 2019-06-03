@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.7)  3 JUN 2019 16:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.7)  3 JUN 2019 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1934,16 +1934,32 @@ File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 ) [39
 
 ])
-(./files/s-appendix.tex
+(./files/s-resources.tex [40
+
+]
+Overfull \hbox (13.11003pt too wide) in paragraph at lines 13--13
+\T1/fav/m/n/10 ca-tion and es-ti-ma-tion of treat-ment ef-fects with a regressi
+on-
+ []
+
+[41
+
+]
+
+LaTeX Warning: Citation `Lee.2008' undefined on input line 22.
+
+[42
+
+]) (./files/s-appendix.tex
 \c@framenumbervorappendix=\count281
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\translate ' on input line 2.
 
-[40
+[43
 
-] [41
+] [44
 
 ]
 *geometry* verbose mode - [ newgeometry ] result:
@@ -1979,7 +1995,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
  (./main.bblpdfTeX warning (ext4): destination with the same identifier (name{c
-ite.Lee.2010a}) has been already used, duplicate ignored
+ite.Hahn.2001}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.12 Hahn.2001}
+               pdfTeX warning (ext4): destination with the same identifier (nam
+e{cite.Lee.2010a}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.40 Lee.2010a}
@@ -1988,7 +2009,7 @@ Underfull \hbox (badness 1946) in paragraph at lines 70--83
 []\T1/fav/m/n/10.95 Thistlethwaite, D. L., & Camp-bell, D. T.  (1960).
  []
 
-) [42
+) [45
 
 
 ])
@@ -2006,18 +2027,22 @@ Underfull \hbox (badness 1946) in paragraph at lines 70--83
 Package caption Warning: Unused \captionsetup[subfigure] on input line 141.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 19.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 19.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 21.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 21.
 (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 19.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 19.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 21.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 21.
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 28264 strings out of 492982
- 564367 string characters out of 6134896
+ 28283 strings out of 492982
+ 564575 string characters out of 6134896
  745513 words of memory out of 5000000
- 30992 multiletter control sequences out of 15000+600000
- 77436 words of font info for 106 fonts, out of 8000000 for 9000
+ 31000 multiletter control sequences out of 15000+600000
+ 77840 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,13n,69p,875b,888s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texliv
@@ -2029,10 +2054,10 @@ ic/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ber
 a/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch
 /md-chb7y.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbc
 h/md-chbma.pfb>
-Output written on main.pdf (42 pages, 371432 bytes).
+Output written on main.pdf (45 pages, 372756 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 246 compressed objects within 3 object streams
- 90 named destinations out of 1000 (max. 500000)
+ 347 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
+ 97 named destinations out of 1000 (max. 500000)
  114 words of extra memory for PDF output out of 10000 (max. 10000000)
 
