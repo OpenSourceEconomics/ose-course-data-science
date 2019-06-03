@@ -83,7 +83,7 @@ We now explore models in which we have multiple observations at different points
 
 We discuss selected topics in more details based on student demands.
 
-#### Regression discontinuity design
+#### [Regression discontinuity design](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/11_regression_discontinuity/slides.pdf)
 
 We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by [Lee & Lemieux (2010)](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281).
 
