@@ -16,4 +16,4 @@ install:
 script:
   - source .envrc
   - travis_wait run-notebook
-  - travis_wait run-slides
+  - travis_wait run-slide
