@@ -2,7 +2,11 @@
 """This module executes all notebooks. It serves the main purpose to ensure that all can be
 executed and work proper independently."""
 import subprocess as sp
+import glob
 import os
+
+from auxiliary import parse_arguments
+from auxiliary import LECTURES_ROOT
 
 
 def run_notebook(notebook):
@@ -12,9 +16,11 @@ def run_notebook(notebook):
 
 if __name__ == '__main__':
 
-    for subdir, dirs, files in os.walk('.'):
-        # We want to skip all hidden directories.
-        dirs[:] = [d for d in dirs if not d[0] == '.']
-        for file in files:
-            if 'ipynb' in file:
-                run_notebook(subdir + '/' + file)
+    request = parse_arguments('Execute notebook')
+    os.chdir(LECTURES_ROOT)
+
+    for dirname in request:
+        os.chdir(dirname)
+        for fname in glob.glob('*.ipynb'):
+            run_notebook(fname)
+        os.chdir('../')
