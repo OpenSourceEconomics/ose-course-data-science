@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.7)  3 JUN 2019 16:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.12.7)  4 JUN 2019 07:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1934,7 +1934,13 @@ File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 ) [39
 
 ])
-(./files/s-resources.tex [40
+(./files/s-checklist.tex [40
+
+] [41
+
+] [42
+
+]) (./files/s-resources.tex [43
 
 ]
 Overfull \hbox (13.11003pt too wide) in paragraph at lines 13--13
@@ -1942,13 +1948,13 @@ Overfull \hbox (13.11003pt too wide) in paragraph at lines 13--13
 on-
  []
 
-[41
+[44
 
 ]
 
 LaTeX Warning: Citation `Lee.2008' undefined on input line 22.
 
-[42
+[45
 
 ]) (./files/s-appendix.tex
 \c@framenumbervorappendix=\count281
@@ -1957,9 +1963,9 @@ LaTeX Warning: Citation `Lee.2008' undefined on input line 22.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\translate ' on input line 2.
 
-[43
+[46
 
-] [44
+] [47
 
 ]
 *geometry* verbose mode - [ newgeometry ] result:
@@ -2009,7 +2015,7 @@ Underfull \hbox (badness 1946) in paragraph at lines 70--83
 []\T1/fav/m/n/10.95 Thistlethwaite, D. L., & Camp-bell, D. T.  (1960).
  []
 
-) [45
+) [48
 
 
 ])
@@ -2027,21 +2033,21 @@ Underfull \hbox (badness 1946) in paragraph at lines 70--83
 Package caption Warning: Unused \captionsetup[subfigure] on input line 141.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 21.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 21.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 23.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 23.
 (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 21.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 21.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 23.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 23.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 28283 strings out of 492982
- 564575 string characters out of 6134896
- 745513 words of memory out of 5000000
- 31000 multiletter control sequences out of 15000+600000
+ 28298 strings out of 492982
+ 564741 string characters out of 6134896
+ 745512 words of memory out of 5000000
+ 31006 multiletter control sequences out of 15000+600000
  77840 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,13n,69p,875b,888s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2054,10 +2060,10 @@ ic/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ber
 a/fvmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbch
 /md-chb7y.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathdesign/mdbc
 h/md-chbma.pfb>
-Output written on main.pdf (45 pages, 372756 bytes).
+Output written on main.pdf (48 pages, 374387 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 262 compressed objects within 3 object streams
- 97 named destinations out of 1000 (max. 500000)
+ 363 PDF objects out of 1000 (max. 8388607)
+ 275 compressed objects within 3 object streams
+ 103 named destinations out of 1000 (max. 500000)
  114 words of extra memory for PDF output out of 10000 (max. 10000000)
 
