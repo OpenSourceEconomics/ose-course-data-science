@@ -30,12 +30,12 @@ We will conduct all course communications using slack, so please be sure to  the
 | 22/05/19  | Mechanisms and causal explanations                        |
 | 28/05/19  | Repeated observations and the estimation of causal effects|
 | 29/05/19  | Repeated observations and the estimation of causal effects|
-| 04/06/19  | Repeated observations and the estimation of causal effects|
-| 05/06/19  | Review session                                            |
+| 04/06/19  | Regression discontinuity design                           |
+| 05/06/19  | Regression discontinuity design                           |
 | 11/06/19  | Spring break                                              |
 | 12/06/19  | Spring break                                              |
-| 18/06/19  |                                                           |
-| 19/06/19  |                                                           |
+| 18/06/19  | no class, but advanced software tutorial                  |
+| 19/06/19  | Review session and other project-related issues           |
 | 25/06/19  |                                                           |
 | 26/06/19  |                                                           |
 | 02/07/19  | Structural microeconometrics                              |
