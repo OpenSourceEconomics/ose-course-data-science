@@ -85,10 +85,10 @@ As discussed in class there will be a small Python challenge. See below for furt
 
 **Challenge**: Production of a minimal working example of the _Simpson's Paradox_ (that is, simulating data etc.) including at least one plot (see [Simpson Paradox Wiki](https://en.wikipedia.org/wiki/Simpson%27s_paradox) for the wikipedia article and see [Simpson Paradox Video](https://www.youtube.com/watch?v=ebEkn-BiW5k) for the tl;dr youtube explanation by minutephysics).
 
-**Submission**: The solutions ought to be submitted as a seperate .py or .ipynb file in your student project repositories. This also means that the deadlines of the challenge and your projects coincide. The metric that will be used for ranking of the solutions is given by some convex combination of brevity and elegance, but will ultimately be decided by Phillip Eisenhauer. 
+**Submission**: The solutions ought to be submitted as a seperate `.py` or `.ipynb` file in your student project repositories. This also means that the deadlines of the challenge and your projects coincide. The metric that will be used for ranking of the solutions is given by some convex combination of brevity and elegance, but will ultimately be decided by Phillip Eisenhauer. 
 
 **Price**: 
-* Copy of ["The Book of Why" (Judea Pearl, 2018)](https://www.amazon.de/Book-Why-Science-Cause-Effect/dp/0141982411/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1560794216&sr=8-1) 
+* Copy of  ["The Book of Why" (Judea Pearl, 2018)](https://www.amazon.de/Book-Why-Science-Cause-Effect/dp/0141982411/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1560794216&sr=8-1) 
 * Drinks on Philipp Eisenhauer at the prize ceremony
 * Code review and potentially a heated debate on the limits of statistics in economics with Phillip Eisenhauer and [Tim Mensinger](https://github.com/timmens)
  
