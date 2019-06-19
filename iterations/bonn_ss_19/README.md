@@ -31,7 +31,7 @@ We will conduct all course communications using slack, so please be sure to  the
 | 28/05/19  | Repeated observations and the estimation of causal effects|
 | 29/05/19  | Repeated observations and the estimation of causal effects|
 | 04/06/19  | Repeated observations and the estimation of causal effects|
-| 05/06/19  | Regression Discontinuity design                           |
+| 05/06/19  | Regression discontinuity design                           |
 | 11/06/19  | Spring break                                              |
 | 12/06/19  | Spring break                                              |
 | 18/06/19  | Technical support for projects                            |
