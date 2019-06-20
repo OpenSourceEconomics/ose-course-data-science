@@ -89,6 +89,10 @@ We discuss selected topics in more details based on student demands.
 
 We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by [Lee & Lemieux (2010)](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281).
 
+#### [Nonstandard standard errors]()
+
+We review issues in the construction of standard errors such as the potential bias of robust standard error estimates, clustering, and serial correlation based on the material presented in [Angrist & Pischke (2009)](https://press.princeton.edu/titles/8769.html).
+
 ## Resources <a name="resources"></a>
 
 We provide some additional resources that are useful for our course work.
@@ -102,6 +106,16 @@ We provide some additional resources that are useful for our course work.
 #### Datasets
 
 The two textbooks above provide an impressive amount of data from research articles. We provide them in a central place [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/datasets).
+
+#### Articles
+
+We repeatedly touch on some selected articles throughout the class.
+
+* Angrist, J. D. (1990). [Lifetime earnings and the Vietnam era draft lottery: Evidence from social security administrative records.](https://www.jstor.org/stable/2006669?seq=1#metadata_info_tab_contents) *American Economic Review, 80*(3), 313-336.
+
+* Angrist, J. D., & Krueger, A. B. (1991). [Does  compulsory  school attendance affect schooling and earnings?](https://www.jstor.org/stable/2937954?seq=1#metadata_info_tab_contents) *The Quarterly Journal of Economics, 106*(4), 979-1014.
+
+* Rosenzweig, M. R., & Wolpin, K. I. (2000). [Natural "natural experiments" in economics.](https://www.jstor.org/stable/2698663?seq=1#metadata_info_tab_contents) *Journal of Economic Literature, 38*(4), 827-874.
 
 #### Tools
 

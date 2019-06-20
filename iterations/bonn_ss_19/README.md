@@ -57,16 +57,6 @@ I briefly introduce my research background and provide a basic overview on my te
 
 We briefly present our efforts around this student run initiative.
 
-## Seminal papers
-
-We discuss several seminal papers in detail that illustrate aspects of the course.
-
-* Angrist, J. D. (1990). [Lifetime earnings and the Vietnam era draft lottery: Evidence from social security administrative records.](https://www.jstor.org/stable/2006669?seq=1#metadata_info_tab_contents) *American Economic Review, 80*(3), 313-336.
-
-* Angrist, J. D., & Krueger, A. B. (1991). [Does  compulsory  school attendance affect schooling and earnings?](https://www.jstor.org/stable/2937954?seq=1#metadata_info_tab_contents) *The Quarterly Journal of Economics, 106*(4), 979-1014.
-
-* Rosenzweig, M. R., & Wolpin, K. I. (2000). [Natural "natural experiments" in economics.](https://www.jstor.org/stable/2698663?seq=1#metadata_info_tab_contents) *Journal of Economic Literature, 38*(4), 827-874.
-
 ## Guest lecturers
 
 We are lucky to draw on a set of guest lecturers for our different topics.
@@ -79,19 +69,19 @@ Sebastian will present on the efforts around the OpenSourceEconomics Initiative 
 
 Janos will present on structural microeconometrics models and his work on the `respy` package.
 
-## Python Challenge 
+## Python Challenge
 
-As discussed in class there will be a small Python challenge. See below for further details. 
+As discussed in class there will be a small Python challenge. See below for further details.
 
 **Challenge**: Production of a minimal working example of the _Simpson's Paradox_ (that is, simulating data etc.) including at least one plot (see [Simpson Paradox Wiki](https://en.wikipedia.org/wiki/Simpson%27s_paradox) for the wikipedia article and see [Simpson Paradox Video](https://www.youtube.com/watch?v=ebEkn-BiW5k) for the tl;dr youtube explanation by minutephysics).
 
-**Submission**: The solutions ought to be submitted as a seperate `.py` or `.ipynb` file in your student project repositories. This also means that the deadlines of the challenge and your projects coincide. The metric that will be used for ranking of the solutions is given by some convex combination of brevity and elegance, but will ultimately be decided by Phillip Eisenhauer. 
+**Submission**: The solutions ought to be submitted as a seperate `.py` or `.ipynb` file in your student project repositories. This also means that the deadlines of the challenge and your projects coincide. The metric that will be used for ranking of the solutions is given by some convex combination of brevity and elegance, but will ultimately be decided by Phillip Eisenhauer.
 
-**Price**: 
-* Copy of  ["The Book of Why" (Judea Pearl, 2018)](https://www.amazon.de/Book-Why-Science-Cause-Effect/dp/0141982411/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1560794216&sr=8-1) 
+**Price**:
+* Copy of  ["The Book of Why" (Judea Pearl, 2018)](https://www.amazon.de/Book-Why-Science-Cause-Effect/dp/0141982411/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1560794216&sr=8-1)
 * Drinks on Philipp Eisenhauer at the prize ceremony
 * Code review and potentially a heated debate on the limits of statistics in economics with Phillip Eisenhauer and [Tim Mensinger](https://github.com/timmens)
- 
+
 
 ## Student projects
 
