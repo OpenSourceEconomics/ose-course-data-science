@@ -105,7 +105,7 @@ We provide some additional resources that are useful for our course work.
 
 #### Datasets
 
-The two textbooks above provide an impressive amount of data from research articles. We provide them in a central place [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/datasets).
+The textbooks above provide an impressive amount of data from research articles. We provide them in a central place [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/datasets).
 
 #### Articles
 
