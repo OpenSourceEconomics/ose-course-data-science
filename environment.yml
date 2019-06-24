@@ -22,5 +22,6 @@ dependencies:
 - rise
 - r-essentials
 - rpy2
+- simplegeneric
 - pip:
       - wbdata  
