@@ -21,5 +21,6 @@ dependencies:
 - pygraphviz
 - rise
 - r-essentials
+- rpy2
 - pip:
       - wbdata  
