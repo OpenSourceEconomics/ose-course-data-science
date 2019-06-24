@@ -3,6 +3,7 @@ name: teaching_microeconometrics
 channels:
 - conda
 - conda-forge
+- r
 
 dependencies:
 - numpy
@@ -19,5 +20,6 @@ dependencies:
 - pip
 - pygraphviz
 - rise
+- r-essentials
 - pip:
       - wbdata  
