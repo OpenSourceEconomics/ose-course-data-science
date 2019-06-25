@@ -103,6 +103,8 @@ We provide some additional resources that are useful for our course work.
 
 * Angrist, J. D., & Pischke, J. (2014). [*Mastering 'metrics*](http://masteringmetrics.com). Princeton, NJ: Princeton University Press.
 
+* Stock, J.H., & Watson, M.W. (2003). [*Introduction to econometrics*](https://scholar.harvard.edu/stock/pages/introduction-econometrics). Pearson.
+
 #### Datasets
 
 The textbooks above provide an impressive amount of data from research articles. We provide them in a central place [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/datasets).
