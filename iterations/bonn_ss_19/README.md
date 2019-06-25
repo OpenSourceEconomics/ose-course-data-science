@@ -35,8 +35,8 @@ We will conduct all course communications using slack, so please be sure to  the
 | 11/06/19  | Spring break                                              |
 | 12/06/19  | Spring break                                              |
 | 18/06/19  | Technical support for projects                            |
-| 19/06/19  | Review sesssion                                           |
-| 25/06/19  |                                                           |
+| 19/06/19  | Review session                                            |
+| 25/06/19  | [Tyranny of metrics](https://github.com/HumanCapitalAnalysis/talks/blob/master/distribution/overviews/03_tyranny_of_metrics.pdf), Nonstandard standard errors                                                          |
 | 26/06/19  |                                                           |
 | 02/07/19  | Structural microeconometrics                              |
 | 03/07/19  | Structural microeconometrics                              |
