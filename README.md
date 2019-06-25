@@ -117,9 +117,9 @@ We repeatedly touch on some selected articles throughout the class.
 
 * Bertrand, M; Duflo E., & Mullainathan, S. (2004). [How much should we trust differences-in-differences estimates?](https://academic.oup.com/qje/article-abstract/119/1/249/1876068?redirectedFrom=fulltext) *The Quarterly Journal of Economics, 119*, 249-275.
 
-* Krueger, A. B. (1999). [Experimental estimates of education prodcution functions](http://piketty.pse.ens.fr/files/Krueger1999.pdf) *The Quarterly Journal of Economics, 114*, 497-532.
+* Krueger, A. B. (1999). [Experimental estimates of education prodcution functions.](http://piketty.pse.ens.fr/files/Krueger1999.pdf) *The Quarterly Journal of Economics, 114*, 497-532.
 
-* Lee, D. S, & Lemieux, T. (2010). [Regressuib discontinuity designs in economics](https://www.princeton.edu/~davidlee/wp/RDDEconomics.pdf) *Journal of Economic Literature, 48*, 281-355.
+* Lee, D. S, & Lemieux, T. (2010). [Regression discontinuity designs in economics.](https://www.princeton.edu/~davidlee/wp/RDDEconomics.pdf) *Journal of Economic Literature, 48*, 281-355.
 
 * Rosenzweig, M. R., & Wolpin, K. I. (2000). [Natural "natural experiments" in economics.](https://www.jstor.org/stable/2698663?seq=1#metadata_info_tab_contents) *Journal of Economic Literature, 38*(4), 827-874.
 
