@@ -7,7 +7,7 @@ channels:
 
 dependencies:
 - numpy
-- gfortran  
+- libgfortran 
 - pandas
 - flake8
 - pytest
