@@ -9,6 +9,7 @@ dependencies:
 - numpy
 - libgfortran 
 - pandas
+- pandas-datareader
 - flake8
 - pytest
 - scipy=1.2.1
@@ -24,5 +25,3 @@ dependencies:
 - r-essentials
 - rpy2
 - simplegeneric
-- pip:
-      - wbdata  
