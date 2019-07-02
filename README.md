@@ -89,7 +89,7 @@ We discuss selected topics in more details based on student demands.
 
 We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by [Lee & Lemieux (2010)](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281).
 
-#### [Nonstandard standard errors]()
+#### [Nonstandard standard errors](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/12_nonstandard_standard/notebook.ipynb)
 
 We review issues in the construction of standard errors such as the potential bias of robust standard error estimates, clustering, and serial correlation based on the material presented in [Angrist & Pischke (2009)](https://press.princeton.edu/titles/8769.html). We use this opportunity to discuss the research reported in [Krueger (1999)](https://academic.oup.com/qje/article/114/2/497/1844226).
 
