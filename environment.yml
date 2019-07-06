@@ -25,4 +25,5 @@ dependencies:
 - r-essentials
 - rpy2
 - simplegeneric
-- linearmodels
+- pip:
+        - linearmodels
