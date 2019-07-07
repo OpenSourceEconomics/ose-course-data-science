@@ -81,7 +81,7 @@ We study front-door identification that allow (under certain conditions) to prov
 
 We now explore models in which we have multiple observations at different points in time. Due to its similar structure, we also look at the sharp and fuzzy regression discontinuity design.
 
-#### [Generalized Method of Moments](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/13_generalized_moments/lecture.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F13_generalized_moments%2Flecture.ipynb)
+#### [Generalized method of moments](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/13_generalized_moments/slides.pdf) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F13_generalized_moments%2Flecture.ipynb)
 
 We review the theory behind the generalized method of moments and implement some of its basic ideas in a notebook.
 
