@@ -81,6 +81,10 @@ We study front-door identification that allow (under certain conditions) to prov
 
 We now explore models in which we have multiple observations at different points in time. Due to its similar structure, we also look at the sharp and fuzzy regression discontinuity design.
 
+#### [Regression discontinuity design](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/11_regression_discontinuity/slides.pdf) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F1111_regression_discontinuity%2Flecture.ipynb)
+
+We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by [Lee & Lemieux (2010)](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281). We reproduce and check the robustness of some of the results in Lee (2008).
+
 #### [Generalized method of moments](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/13_generalized_moments/slides.pdf) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F13_generalized_moments%2Flecture.ipynb)
 
 We review the theory behind the generalized method of moments and implement some of its basic ideas in a notebook.
@@ -89,11 +93,7 @@ We review the theory behind the generalized method of moments and implement some
 
 We discuss selected topics in more details based on student demands.
 
-#### [Regression discontinuity design](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/11_regression_discontinuity/slides.pdf)
-
-We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by [Lee & Lemieux (2010)](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281).
-
-#### [Nonstandard standard errors](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/12_nonstandard_standard/notebook.ipynb)
+#### Nonstandard standard errors  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F11_nonstandard_standard%2Flecture.ipynb)
 
 We review issues in the construction of standard errors such as the potential bias of robust standard error estimates, clustering, and serial correlation based on the material presented in [Angrist & Pischke (2009)](https://press.princeton.edu/titles/8769.html). We use this opportunity to discuss the research reported in [Krueger (1999)](https://academic.oup.com/qje/article/114/2/497/1844226).
 
