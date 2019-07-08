@@ -87,7 +87,7 @@ We study regression discontinuity design in more detail. We discuss identificati
 
 #### [Generalized method of moments](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/13_generalized_moments/slides.pdf) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F13_generalized_moments%2Flecture.ipynb)
 
-We review the theory behind the generalized method of moments and implement some of its basic ideas in a notebook.
+We review the basic ideas behind the generalized method of moments (GMM) and implement some numerical examples. After introducing its basic setup, we discuss the GMM criterion function and how alternative estimation strategies are cast as GMM estimation problems.  We then turn to the issues of identification and the role of the weighing matrix. Throughout, we practice the basic derivations involved in the GMM approach using an instrumental variables setup.
 
 ## Special focus <a name="focus"></a>
 

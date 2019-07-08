@@ -3,8 +3,7 @@ font.size: 20
 lines.linewidth: 3
 image.cmap: jet
 
-axes.labelsize      : 20
-axes.labelpad: 15
+axes.labelsize      : 12
 
 backend: Agg
 axes.spines.right: False
@@ -15,3 +14,5 @@ axes.spines.bottom: True
 legend.fancybox: True
 legend.frameon: False
 legend.shadow: False
+
+savefig.dpi: 300
