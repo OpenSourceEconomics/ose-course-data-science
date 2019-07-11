@@ -83,7 +83,7 @@ We now explore models in which we have multiple observations at different points
 
 #### [Regression discontinuity design](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/11_regression_discontinuity/slides.pdf) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F1111_regression_discontinuity%2Flecture.ipynb)
 
-We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by [Lee & Lemieux (2010)](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281). We reproduce and check the robustness of some of the results in [Lee (2008)](https://www.princeton.edu/~davidlee/wp/RDrand.pdf).
+We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by [Lee & Lemieux (2010)](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281). We reproduce and check the robustness of some of the results in [Lee (2008)](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065).
 
 #### [Generalized method of moments](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/13_generalized_moments/slides.pdf) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F13_generalized_moments%2Flecture.ipynb)
 
@@ -125,7 +125,7 @@ We repeatedly touch on some selected articles throughout the class.
 
 * Krueger, A. B. (1999). [Experimental estimates of education prodcution functions.](http://piketty.pse.ens.fr/files/Krueger1999.pdf) *The Quarterly Journal of Economics, 114*, 497-532.
 
-* Lee, D. S. (2008). [Randomized experiments from non-random selection in us house elections](https://www.princeton.edu/~davidlee/wp/RDrand.pdf). *Journal of Econometrics, 142*(2), 675–697. 
+* Lee, D. S. (2008). [Randomized experiments from non-random selection in us house elections](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065). *Journal of Econometrics, 142*(2), 675–697. 
 
 * Lee, D. S, & Lemieux, T. (2010). [Regression discontinuity designs in economics.](https://www.princeton.edu/~davidlee/wp/RDDEconomics.pdf) *Journal of Economic Literature, 48*, 281-355.
 
