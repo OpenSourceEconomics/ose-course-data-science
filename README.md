@@ -137,7 +137,7 @@ We repeatedly touch on some selected articles throughout the class.
 
 * VanderPlas, J. (2016). [*Python data science handbook*](https://www.oreilly.com/library/view/python-data-science/9781491912126/). Sebastopol, CA: O'Reilly Media, Inc.
 
-* Varoquaux, G., Haenel, V., Gouillart, E., Jędrzejewski-Szmek, Z., Gommers, R., Pedregosa, F., … yasutomo57jp. (2015). Scipy lecture notes. Retrieved from https://scipy-lectures.org/
+* Varoquaux, G.; Gouillart, Em; Vahtras, O; Haenel, V; Rougier, N; Gommers, R; Pedregosa, F; Jedrzejewski-Szmek, Z; Virtanen, P; Combelles, C; & others. (2015). Scipy lecture notes. Retrieved from https://scipy-lectures.org/
 
 #### Software packages
 
