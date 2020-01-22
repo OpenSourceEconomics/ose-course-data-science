@@ -1,4 +1,4 @@
-name: teaching_microeconometrics
+name: teaching-microeconometrics
 
 channels:
 - conda
@@ -12,7 +12,7 @@ dependencies:
 - pandas-datareader
 - flake8
 - pytest
-- scipy=1.2.1
+- scipy
 - jupyterlab
 - matplotlib
 - seaborn

@@ -1,6 +1,16 @@
 #!/usr/bin/env python
-"""This module executes all notebooks. It serves the main purpose to ensure that all can be
-executed and work proper independently."""
+"""Run notebooks.
+
+This script allows to run the lecture notebooks. One can either run all notebooks at once or just a
+single lecture. It is enough to provide a substring for the name.
+
+Examples
+--------
+
+>> run-notebook             Run all lectures.
+
+>> run-notebook -n 01_      Run lecture 01_introduction.
+"""
 import subprocess as sp
 import glob
 import os
