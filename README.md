@@ -37,7 +37,7 @@ We collect a list of additional, more general, reading recommendations [here](ht
 
 We provide the lectures in the form of a Jupyter notebook.
 
-#### [Introduction](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01_introduction/lecture.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures%2F01_introduction%2Flecture.ipynb)
+#### [Introduction](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01-introduction/lecture.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/01-introduction/lecture.ipynb)
 
 We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference.
 
