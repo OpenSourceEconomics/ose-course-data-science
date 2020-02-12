@@ -94,7 +94,7 @@ We review the basic ideas behind the generalized method of moments (GMM) and imp
 
 We will work on several problem sets throughout the course.
 
-#### [Potential outcome model](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/01-potential-outcome-model/problem-set.pdf)
+#### [Potential outcome model](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/peisenha_integration_problem_set/problem-sets/01-potential-outcome-model/problem-set.pdf)
 
 ...
 
