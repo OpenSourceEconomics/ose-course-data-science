@@ -96,7 +96,7 @@ We will work on several problem sets throughout the course.
 
 #### [Potential outcome model](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/peisenha_integration_problem_set/problem-sets/01-potential-outcome-model/problem-set.pdf)
 
-We explore the potential outcome model using observed and simulated data inspired by the National Health Interview Survey. 
+We explore the potential outcome model using observed and simulated data inspired by the National Health Interview Survey. The accompanying data sets are available here [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/peisenha_integration_problem_set/problem-sets/01-potential-outcome-model/data).
 
 ## Special focus <a name="focus"></a>
 
