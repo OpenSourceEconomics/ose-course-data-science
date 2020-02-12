@@ -1,0 +1,60 @@
+\input{../../../utils/header-problem-sets.tex}
+
+\titleformat{\subsection}{\small\bfseries\large\sffamily}{\hspace{-15pt}}{1em}{Problem \thesubsection.}
+\setcounter{section}{1}
+
+\title{{\bfseries\sffamily Problem Set 1} - \emph{Potential Outcome Model}}
+\date{\vspace{-30pt} Due 17. April 2020}
+\setlength{\droptitle}{-5em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Summer 2020 - University of Bonn}
+\lhead{Microeconometrics - Prof. Philipp Eisenhauer}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\paragraph{Data set:}
+
+The \textit{National Health Interview Survey (NHIS)}\footnote{\href{https://www.cdc.gov/nchs/nhis/index.htm}{https://www.cdc.gov/nchs/nhis/index.htm}} data has been collected on U.S. households since 1957; it covers a broad range of health related topics from medical conditions, health insurance and number of doctor’s visits to measures of physical activity.
+Here we focus on indicators relevant for the POM framework; in particular, we will compare the health status of hospitalized and nonhospitalized individuals in 2018.
+For this purpose, we use answers to the survey question ``During the past 12 months, has the respondent been hospitalized overnight?'' with potential answers ``yes'' and ``no'' which we code as 1 and 0. Further we consider answers to the questions ``Would you say your health in general is excellent, very good, good, fair, poor?'' where answers are coded as 1 for poor health up to 5 for excellent health. The survey also collects data on relevant characteristics as sex, age, level of education, hours worked last week and total earnings.
+
+\subsection{}
+
+\begin{enumerate}[\itshape i.)]
+  \item Open a \texttt{Jupyter Notebook} and import the data set \texttt{nhis-initial.xslx} ---we recommend using the software presented in class (e.g. \texttt{pandas}, \texttt{matplotlib}, etc.).
+    Try to think of ways to answer the following questions: \emph{Are there more females or males?} \emph{Are there more inidividuals who hold a degree or not?}.
+    Now try to relate individual characteristics to the hospitalization status. \emph{Are high or low earners healthier?} \emph{Are more old or young people hospitalized?}
+
+  \item Compute the average health status of hospitalized and nonhospitalized individuals. \emph{Who is healthier on average?} \emph{What could be a reason for this bias?}
+
+  \item Adjust the data set for the POM framework (as seen in the lecture), with health status as the outcome and hospitalization as the treatment status (Hint: rename and drop columns of the data frame).
+
+  \item Compute the naive estimate for the \emph{average treatment effect} (ATE).
+\end{enumerate}
+
+
+\subsection{}
+
+\begin{enumerate}[\itshape i.)]
+  \item As we've seen in the lecture, in reality we can only ever observe one counterfactual; however, when simulating data we can bypass this problem. The (simulated) data set \texttt{nhis-simulated.xslx} contains counterfactual outcomes, i.e. outcomes under the control for individuals who were assigned to the treatment group and vice versa.
+    Derive and compute the average outcomes in the two observable and two nonobservable states; Design them in a similar way as table 2.3 in \href{https://www.cambridge.org/core/books/counterfactuals-and-causal-inference/5CC81E6DF63C5E5A8B88F79D45E1D1B7}{\cite{Morgan.2014}}.
+
+From here on assume that 5$\%$ of the population take the treatment.
+
+\item Derive and explain formula 2.12 from \href{https://www.cambridge.org/core/books/counterfactuals-and-causal-inference/5CC81E6DF63C5E5A8B88F79D45E1D1B7}{Morgan and Winship (2014)} for the naive estimator as a decomposition of true ATE, baseline bias, and differential treatment effect bias (do this with pen and paper).
+
+\item Compute the naive estimate and true value of the ATE for the simulated data. \emph{Is the naive estimator upwardly or downwardly biased?} Calculate the baseline bias and differential treatment effect bias. \emph{How could we interpret these biases in our framework of health status of hospitalized and  nonhospitalized respondents?}
+
+\item Which assumptions must hold (on the data) such that the naive estimator is an \emph{unbiased} and \emph{consistent} estimator for the ATE?
+\end{enumerate}
+
+\nocite{Angrist.2008}
+
+\bibliographystyle{apacite}
+\bibliography{../../../submodules/bibliography/literature}
+
+\end{document}

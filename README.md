@@ -27,9 +27,10 @@ Throughout the course we will make heavy use of [Python](https://www.python.org)
 Please use the table of content to navigate the rest of the material.
 
 1. [Lectures](#lectures)
-2. [Special Focus](#focus)
-3. [Resources](#resources)
-4. [Iterations](#iterations)
+2. [Problem sets](#problems)
+3. [Special focus](#focus)
+4. [Resources](#resources)
+5. [Iterations](#iterations)
 
 We collect a list of additional, more general, reading recommendations [here](https://github.com/HumanCapitalAnalysis/general-resources).
 
@@ -89,11 +90,19 @@ We study regression discontinuity design in more detail. We discuss identificati
 
 We review the basic ideas behind the generalized method of moments (GMM) and implement some numerical examples. After introducing its basic setup, we discuss the GMM criterion function and how alternative estimation strategies are cast as GMM estimation problems.  We then turn to the issues of identification and the role of the weighing matrix. Throughout, we practice the basic derivations involved in the GMM approach using an instrumental variables setup.
 
+## Problem sets <a name="problem sets"></a>
+
+#### [Potential outcome model](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/01-potential-outcome-model/problem-set.pdf)
+
+...
+
+
+
 ## Special focus <a name="focus"></a>
 
 We discuss selected topics in more details based on student demands.
 
-#### [Nonstandard standard errors](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/12-nonstandard-standard/notebook.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/12-nonstandard-standard/notebook.ipynb) 
+#### [Nonstandard standard errors](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/12-nonstandard-standard/notebook.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/12-nonstandard-standard/notebook.ipynb)
 
 We review issues in the construction of standard errors such as the potential bias of robust standard error estimates, clustering, and serial correlation based on the material presented in [Angrist & Pischke (2009)](https://press.princeton.edu/titles/8769.html). We use this opportunity to discuss the research reported in [Krueger (1999)](https://academic.oup.com/qje/article/114/2/497/1844226).
 
@@ -125,7 +134,7 @@ We repeatedly touch on some selected articles throughout the class.
 
 * Krueger, A. B. (1999). [Experimental estimates of education prodcution functions.](http://piketty.pse.ens.fr/files/Krueger1999.pdf) *The Quarterly Journal of Economics, 114*, 497-532.
 
-* Lee, D. S. (2008). [Randomized experiments from non-random selection in us house elections](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065). *Journal of Econometrics, 142*(2), 675–697. 
+* Lee, D. S. (2008). [Randomized experiments from non-random selection in us house elections](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065). *Journal of Econometrics, 142*(2), 675–697.
 
 * Lee, D. S, & Lemieux, T. (2010). [Regression discontinuity designs in economics.](https://www.princeton.edu/~davidlee/wp/RDDEconomics.pdf) *Journal of Economic Literature, 48*, 281-355.
 
