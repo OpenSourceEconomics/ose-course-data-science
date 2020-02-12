@@ -90,7 +90,7 @@ We study regression discontinuity design in more detail. We discuss identificati
 
 We review the basic ideas behind the generalized method of moments (GMM) and implement some numerical examples. After introducing its basic setup, we discuss the GMM criterion function and how alternative estimation strategies are cast as GMM estimation problems.  We then turn to the issues of identification and the role of the weighing matrix. Throughout, we practice the basic derivations involved in the GMM approach using an instrumental variables setup.
 
-## Problem sets <a name="problem"></a>
+## Problem sets <a name="problems"></a>
 
 We will work on several problem sets throughout the course.
 
