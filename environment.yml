@@ -1,7 +1,7 @@
 name: teaching-microeconometrics
 
 channels:
-- conda
+- defaults
 - conda-forge
 - r
 
@@ -26,4 +26,4 @@ dependencies:
 - rpy2
 - simplegeneric
 - pip:
-        - linearmodels
+    - linearmodels
