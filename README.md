@@ -142,7 +142,7 @@ We repeatedly touch on some selected articles throughout the class.
 
 #### Tools
 
-We maintain a list of useful resources around the tooling used in the course (here)[https://github.com/HumanCapitalAnalysis/general-resources#scientific-software-development].
+We maintain a list of useful resources around the tooling used in the course [here](https://github.com/HumanCapitalAnalysis/general-resources#scientific-software-development).
 
 #### Software packages
 
