@@ -23,6 +23,7 @@ dependencies:
 - pygraphviz
 - rise
 - r-essentials
+- r-icc
 - rpy2
 - simplegeneric
 - pip:

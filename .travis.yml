@@ -14,10 +14,6 @@ install:
   - PATH="$HOME/miniconda/bin:$PATH"
   - conda env create -f environment.yml
   
-  - wget https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz 
-  - R CMD INSTALL ICC_2.3.0.tar.gz
-
 script:
   - source .envrc
-  - travis_wait run-notebook
-  - travis_wait run-slide
+  - travis_wait run-project
