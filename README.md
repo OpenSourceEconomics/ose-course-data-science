@@ -6,7 +6,7 @@ Throughout the course we will make heavy use of [Python](https://www.python.org)
 
 ## Counterfactual approach to causal analysis
 
-* Winship, C., and Morgan, S. L. (2014). [*Counterfactuals and causal inference: Methods and principles for social research (Analytical methods for social research)*](https://www.cambridge.org/de/academic/subjects/sociology/sociology-general-interest/counterfactuals-and-causal-inference-methods-and-principles-social-research-2nd-edition?format=PB). Cambridge, England: Cambridge University Press.
+* Winship, C., and Morgan, S. L. (2014). [*Counterfactuals and causal inference: Methods and principles for social research*](https://www.cambridge.org/de/academic/subjects/sociology/sociology-general-interest/counterfactuals-and-causal-inference-methods-and-principles-social-research-2nd-edition?format=PB). Cambridge, England: Cambridge University Press.
 
 * Frölich, M., and Sperlich, S. (2019). [*Impact evaluation: Treatment effects and causal analysis*](https://www.cambridge.org/core/books/impact-evaluation/F07A859F06FF131D78DA7FC81939A6DC). Cambridge, England: Cambridge University Press.
 
@@ -142,11 +142,7 @@ We repeatedly touch on some selected articles throughout the class.
 
 #### Tools
 
-* Rossant, C. (2018). [*IPython interactive computing and visualization cookbook*](https://www.packtpub.com/big-data-and-business-intelligence/ipython-interactive-computing-and-visualization-cookbook-second-e). Birmingham, England: Packt Publishing.
-
-* VanderPlas, J. (2016). [*Python data science handbook*](https://www.oreilly.com/library/view/python-data-science/9781491912126/). Sebastopol, CA: O'Reilly Media, Inc.
-
-* Varoquaux, G.; Gouillart, E.; Vahtras, O.; Haenel, V.; Rougier, N.; Gommers, R.; Pedregosa, F.; Jedrzejewski-Szmek, Z.; Virtanen, P.; Combelles, C.; & others. (2015). Scipy lecture notes. Retrieved from https://scipy-lectures.org/
+We maintain a list of useful resources around the tooling used in the course (here)[https://github.com/HumanCapitalAnalysis/general-resources#scientific-software-development].
 
 #### Software packages
 
