@@ -2,7 +2,7 @@
 
 ... introductory course to microeconmetrics. The course is designed as to supplement and emphasize selected topics from the two textbooks below. As such, it is important that students read the relevant chapters in advance to get most out of the class.
 
-Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) and [Jupyter Notebooks](https://jupyter.org) throughout the course and so we provide some useful resources below. For further information, please do not hesitate to [contact us](https://join.slack.com/t/humancapitalanalysis/shared_invite/enQtNDQ0ODkyODYyODA2LWEyZjdlNWYwYmUyNzlkOWFkNWJkMGI5M2M4ZWUyMThhNWNiMmJhY2ZjY2E4YzE3NGQ5MzcxZTRhN2QxYjgxYWY).
+Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) and [Jupyter Notebooks](https://jupyter.org) throughout the course and so we provide some useful resources below. For further information, please do not hesitate to [contact us](https://hca.zulipchat.com/join/84tlhl1nmm4fke4dpg5mo74u/).
 
 ## Counterfactual approach to causal analysis
 
