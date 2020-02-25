@@ -6,6 +6,7 @@ python:
 bundler_args: --retry 3
 
 install:
+  - travis_wait mvn install
   - sudo apt-get update
   - sudo apt-get install gfortran
   - sudo apt-get install texlive texlive-science texlive-latex-extra texlive-bibtex-extra texlive-fonts-extra
