@@ -6,7 +6,6 @@ python:
 bundler_args: --retry 3
 
 install:
-  - travis_wait mvn install
   - sudo apt-get update
   - sudo apt-get install gfortran
   - sudo apt-get install texlive texlive-science texlive-latex-extra texlive-bibtex-extra texlive-fonts-extra
@@ -14,6 +13,7 @@ install:
   - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
   - conda env create -f environment.yml
+  - travis_wait mvn install
   
   - wget https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz 
   - R CMD INSTALL ICC_2.3.0.tar.gz
