@@ -13,7 +13,6 @@ install:
   - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
   - conda env create -f environment.yml
-  - travis_wait mvn install
   
   - wget https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz 
   - R CMD INSTALL ICC_2.3.0.tar.gz
