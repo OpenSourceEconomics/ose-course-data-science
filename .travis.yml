@@ -15,7 +15,7 @@ install:
   - conda env create -f environment.yml
   
   - wget https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz 
-  - R CMD INSTALL ICC_2.3.0.tar.gz
+  - R CMD INSTALL --no-lock ICC_2.3.0.tar.gz
 
 script:
   - source .envrc
