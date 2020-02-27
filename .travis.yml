@@ -13,7 +13,7 @@ install:
   - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
   - wget https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz 
-  - R CMD INSTALL --no-lock ICC_2.3.0.tar.gz
+  - R CMD INSTALL -- build ICC_2.3.0.tar.gz
 
 script:
   - source .envrc
