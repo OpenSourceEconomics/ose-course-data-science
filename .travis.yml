@@ -12,6 +12,7 @@ install:
   - sudo apt-get install r-base
   - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
+  - sudo su - -c "R -e \"install.packages('icc', repos='https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz')\""
   - wget https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz 
   - R CMD INSTALL -- build ICC_2.3.0.tar.gz
 
