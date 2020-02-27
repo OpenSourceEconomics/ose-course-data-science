@@ -10,14 +10,12 @@ install:
   - sudo apt-get install gfortran
   - sudo apt-get install texlive texlive-science texlive-latex-extra texlive-bibtex-extra texlive-fonts-extra
   - sudo apt-get install r-base
+  - sudo su - -c "R -e \"install.packages('icc', repos='https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz')\""
   - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
-  - sudo su - -c "R -e \"install.packages('icc', repos='https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz')\""
-  - wget https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz 
-  - R CMD INSTALL -- build ICC_2.3.0.tar.gz
+  - conda env create -f environment.yml
 
 script:
   - source .envrc
   - travis_wait run-notebook
   - travis_wait run-slide
-  - .travis/test.sh
