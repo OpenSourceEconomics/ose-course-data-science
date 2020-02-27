@@ -12,7 +12,6 @@ install:
   - sudo apt-get install r-base
   - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
-  - .libPaths('C:/Users/liudm/OneDrive/Documents/R/win-library/3.3')
   - wget https://cran.r-project.org/src/contrib/ICC_2.3.0.tar.gz 
   - R CMD INSTALL --no-lock ICC_2.3.0.tar.gz
 
