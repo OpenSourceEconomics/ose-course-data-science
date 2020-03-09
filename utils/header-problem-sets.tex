@@ -1,0 +1,35 @@
+\documentclass[a4paper,12pt,bold,leqno,fleqn,a4]{scrartcl}
+
+\renewcommand{\baselinestretch}{1.5}\normalsize
+
+\usepackage{apacite}
+\usepackage[round,longnamesfirst]{natbib}
+\usepackage{bm}																									%matrix symbol
+\usepackage{setspace}																						%Fu�noten (allgm.
+\usepackage{hyperref}
+%Zeilenabst�nde)
+\usepackage{threeparttable}
+\usepackage{lscape}																							%Querformat
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancybox}																						%Boxen und Rahmen
+\usepackage{appendix}
+\usepackage{enumerate}
+																					%EURO Symbol
+\usepackage{tabularx}
+\usepackage{longtable}																					%Mehrseitige Tabellen
+\usepackage{color,colortbl}																			%Farbige Tabellen
+\usepackage[left=2.5cm, right=2.5cm, top=2cm, bottom=3cm]{geometry} %Seitenr�nder
+%\usepackage[normal]{caption2}[2002/08/03]												%Titel ohne float - Umgebung
+
+\setlength{\skip\footins}{1.0cm}
+\deffootnote[1em]{1.1em}{0em}{\textsuperscript{\thefootnotemark}}
+\renewcommand{\arraystretch}{1.05}
+
+
+
+\newenvironment{boenumerate}
+{\begin{enumerate}\renewcommand\labelenumi{\textbf{(\theenumi)}}}
+{\end{enumerate}}
+\parindent0pt

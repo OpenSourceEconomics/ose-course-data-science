@@ -14,8 +14,12 @@ install:
   - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
   - conda env create -f environment.yml
-
+  
 script:
   - source .envrc
-  - travis_wait run-notebook
-  - travis_wait run-slide
+  - travis_wait run-project
+
+notifications:
+  email:
+     on_success: change
+     on_failure: change 

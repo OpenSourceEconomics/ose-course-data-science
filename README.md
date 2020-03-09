@@ -6,7 +6,7 @@ Throughout the course we will make heavy use of [Python](https://www.python.org)
 
 ## Counterfactual approach to causal analysis
 
-* Winship, C., and Morgan, S. L. (2014). [*Counterfactuals and causal inference: Methods and principles for social research (Analytical methods for social research)*](https://www.cambridge.org/de/academic/subjects/sociology/sociology-general-interest/counterfactuals-and-causal-inference-methods-and-principles-social-research-2nd-edition?format=PB). Cambridge, England: Cambridge University Press.
+* Winship, C., and Morgan, S. L. (2014). [*Counterfactuals and causal inference: Methods and principles for social research*](https://www.cambridge.org/de/academic/subjects/sociology/sociology-general-interest/counterfactuals-and-causal-inference-methods-and-principles-social-research-2nd-edition?format=PB). Cambridge, England: Cambridge University Press.
 
 * Frölich, M., and Sperlich, S. (2019). [*Impact evaluation: Treatment effects and causal analysis*](https://www.cambridge.org/core/books/impact-evaluation/F07A859F06FF131D78DA7FC81939A6DC). Cambridge, England: Cambridge University Press.
 
@@ -27,9 +27,10 @@ Throughout the course we will make heavy use of [Python](https://www.python.org)
 Please use the table of content to navigate the rest of the material.
 
 1. [Lectures](#lectures)
-2. [Special Focus](#focus)
-3. [Resources](#resources)
-4. [Iterations](#iterations)
+2. [Problem sets](#problems)
+3. [Special focus](#focus)
+4. [Resources](#resources)
+5. [Iterations](#iterations)
 
 We collect a list of additional, more general, reading recommendations [here](https://github.com/HumanCapitalAnalysis/general-resources).
 
@@ -89,11 +90,19 @@ We study regression discontinuity design in more detail. We discuss identificati
 
 We review the basic ideas behind the generalized method of moments (GMM) and implement some numerical examples. After introducing its basic setup, we discuss the GMM criterion function and how alternative estimation strategies are cast as GMM estimation problems.  We then turn to the issues of identification and the role of the weighing matrix. Throughout, we practice the basic derivations involved in the GMM approach using an instrumental variables setup.
 
+## Problem sets <a name="problems"></a>
+
+We will work on several problem sets throughout the course.
+
+#### [Potential outcome model](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/peisenha_integration_problem_set/problem-sets/01-potential-outcome-model/problem-set.pdf)
+
+We explore the potential outcome model using observed and simulated data inspired by the [National Health Interview Survey](https://www.cdc.gov/nchs/nhis/index.htm). The accompanying data sets are available here [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/peisenha_integration_problem_set/problem-sets/01-potential-outcome-model/data).
+
 ## Special focus <a name="focus"></a>
 
 We discuss selected topics in more details based on student demands.
 
-#### [Nonstandard standard errors](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/12-nonstandard-standard/notebook.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/12-nonstandard-standard/notebook.ipynb) 
+#### [Nonstandard standard errors](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/12-nonstandard-standard/notebook.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/12-nonstandard-standard/notebook.ipynb)
 
 We review issues in the construction of standard errors such as the potential bias of robust standard error estimates, clustering, and serial correlation based on the material presented in [Angrist & Pischke (2009)](https://press.princeton.edu/titles/8769.html). We use this opportunity to discuss the research reported in [Krueger (1999)](https://academic.oup.com/qje/article/114/2/497/1844226).
 
@@ -125,7 +134,7 @@ We repeatedly touch on some selected articles throughout the class.
 
 * Krueger, A. B. (1999). [Experimental estimates of education prodcution functions.](http://piketty.pse.ens.fr/files/Krueger1999.pdf) *The Quarterly Journal of Economics, 114*, 497-532.
 
-* Lee, D. S. (2008). [Randomized experiments from non-random selection in us house elections](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065). *Journal of Econometrics, 142*(2), 675–697. 
+* Lee, D. S. (2008). [Randomized experiments from non-random selection in us house elections](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065). *Journal of Econometrics, 142*(2), 675–697.
 
 * Lee, D. S, & Lemieux, T. (2010). [Regression discontinuity designs in economics.](https://www.princeton.edu/~davidlee/wp/RDDEconomics.pdf) *Journal of Economic Literature, 48*, 281-355.
 
@@ -133,11 +142,7 @@ We repeatedly touch on some selected articles throughout the class.
 
 #### Tools
 
-* Rossant, C. (2018). [*IPython interactive computing and visualization cookbook*](https://www.packtpub.com/big-data-and-business-intelligence/ipython-interactive-computing-and-visualization-cookbook-second-e). Birmingham, England: Packt Publishing.
-
-* VanderPlas, J. (2016). [*Python data science handbook*](https://www.oreilly.com/library/view/python-data-science/9781491912126/). Sebastopol, CA: O'Reilly Media, Inc.
-
-* Varoquaux, G.; Gouillart, E.; Vahtras, O.; Haenel, V.; Rougier, N.; Gommers, R.; Pedregosa, F.; Jedrzejewski-Szmek, Z.; Virtanen, P.; Combelles, C.; & others. (2015). Scipy lecture notes. Retrieved from https://scipy-lectures.org/
+We maintain a list of useful resources around the tooling used in the course [here](https://github.com/HumanCapitalAnalysis/general-resources#scientific-software-development).
 
 #### Software packages
 
