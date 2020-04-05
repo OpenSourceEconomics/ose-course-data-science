@@ -96,9 +96,17 @@ We review the basic ideas behind the generalized method of moments (GMM) and imp
 
 We will work on several problem sets throughout the course.
 
-#### [Potential outcome model](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/peisenha_integration_problem_set/problem-sets/01-potential-outcome-model/problem-set.pdf)
+#### [Potential outcome model](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/01-potential-outcome-model/problem-set-1.pdf)
 
-We explore the potential outcome model using observed and simulated data inspired by the [National Health Interview Survey](https://www.cdc.gov/nchs/nhis/index.htm). The accompanying data sets are available here [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/peisenha_integration_problem_set/problem-sets/01-potential-outcome-model/data).
+We explore the potential outcome model using observed and simulated data inspired by the [National Health Interview Survey](https://www.cdc.gov/nchs/nhis/index.htm). The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/01-potential-outcome-model/data).
+
+#### [Regression and matching estimators of causal effects](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/02-matching-estimators/problem-set-2.pdf)
+
+We compare the consistency of regression and matching estimators using [LaLonde(1986)](http://business.baylor.edu/scott_cunningham/teaching/lalonde-1986.pdf) framework and [Current Population Survey](https://www.census.gov/programs-surveys/cps.html) data. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data)
+
+### [Regression Discontinuity Design (RDD)](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/03-regression-discontinuity-design/problem-set-3.pdf)
+
+We practice RDD with [Lee (2008)](https://www.princeton.edu/~davidlee/wp/RDrand.pdf) framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data)
 
 ## Special focus <a name="focus"></a>
 
