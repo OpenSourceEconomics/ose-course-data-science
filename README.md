@@ -102,11 +102,11 @@ We explore the potential outcome model using observed and simulated data inspire
 
 #### [Regression and matching estimators of causal effects](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/02-matching-estimators/problem-set-2.pdf)
 
-We compare the consistency of regression and matching estimators using [LaLonde(1986)](http://business.baylor.edu/scott_cunningham/teaching/lalonde-1986.pdf) framework and [Current Population Survey](https://www.census.gov/programs-surveys/cps.html) data. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data)
+We compare the consistency of regression and matching estimators using [LaLonde (1986)](http://business.baylor.edu/scott_cunningham/teaching/lalonde-1986.pdf) framework and [the Current Population Survey](https://www.census.gov/programs-surveys/cps.html) data. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data).
 
-### [Regression Discontinuity Design (RDD)](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/03-regression-discontinuity-design/problem-set-3.pdf)
+#### [Regression Discontinuity Design (RDD)](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/03-regression-discontinuity-design/problem-set-3.pdf)
 
-We practice RDD with [Lee (2008)](https://www.princeton.edu/~davidlee/wp/RDrand.pdf) framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data)
+We practice RDD with [Lee (2008)](https://www.princeton.edu/~davidlee/wp/RDrand.pdf) framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data).
 
 ## Special focus <a name="focus"></a>
 
