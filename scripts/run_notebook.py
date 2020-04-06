@@ -9,7 +9,7 @@ Examples
 
 >> run-notebook             Run all lectures.
 
->> run-notebook -n 01_      Run lecture 01_introduction.
+>> run-notebook -n 01      Run lecture 01-introduction.
 """
 import subprocess as sp
 import glob
@@ -32,5 +32,6 @@ if __name__ == '__main__':
     for dirname in request:
         os.chdir(dirname)
         for fname in glob.glob('*.ipynb'):
+            print(f"\n {os.getcwd().split('/')[-1]}\n")
             run_notebook(fname)
         os.chdir('../')

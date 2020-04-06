@@ -33,6 +33,8 @@ def parse_arguments(description):
     else:
         request = get_list_tasks(task_dir)
 
+    request.sort()
+
     return request
 
 
