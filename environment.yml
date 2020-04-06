@@ -9,7 +9,6 @@ dependencies:
 - numpy
 - libgfortran 
 - pandas
-- pandas-datareader
 - flake8
 - pytest
 - scipy
