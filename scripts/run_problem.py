@@ -9,7 +9,7 @@ Examples
 
 >> run-problem             Run all problem set.
 
->> run-problem -n 01_      Run slide 01-potential-outcome-model.
+>> run-problem -n 01      Run slide 01-potential-outcome-model.
 """
 import os
 

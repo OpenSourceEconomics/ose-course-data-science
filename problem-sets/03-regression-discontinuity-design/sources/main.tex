@@ -1,6 +1,6 @@
 \input{../../../utils/header-problem-sets.tex}
 
-\title{Regression Discontinuity Design (RDD)}
+\title{Regression Discontinuity Design (RDD)\thanks{We are indebted to Liudmila Kiseleva for the design of the problem set.}}
 \subtitle{-- Problem Set 3 --}
 \date{}
 
@@ -11,13 +11,13 @@ In the problem set 3 we are going to practice RDD in \cite{Lee.2008} framework p
 The observations of the data set \href{https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data}{\texttt{individ\_final.dta}} are clustered by district and election year. It consists of the following variables:
 \begin{enumerate}
 
-\item \emph{outcome} is a treatment variable; it is coded as 1 if a candidate won the election in the corresponding year and 0 -- otherwise. 
-\item \emph{outcomenext} is an outcome variable. It is coded as 1 if a candidate won the next election; as 0 if he or she did not win the next election; and as -1 if he or she did not participate in the next election. 
+\item \emph{outcome} is a treatment variable; it is coded as 1 if a candidate won the election in the corresponding year and 0 -- otherwise.
+\item \emph{outcomenext} is an outcome variable. It is coded as 1 if a candidate won the next election; as 0 if he or she did not win the next election; and as -1 if he or she did not participate in the next election.
 \item \emph{difshare} is an assignment variable; it is the winning candidate's vote share minus the vote share of the highest performing competitor. Therefore, 0 is the cutoff point: a candidate whose vote share is more than 0 is automatically assigned to treatment.
 
 \end {enumerate}
 
-\section*{Task A. Theoretical foundation} 
+\section*{Task A. Theoretical foundation}
 
 \begin{boenumerate}
 
@@ -30,7 +30,7 @@ The observations of the data set \href{https://github.com/HumanCapitalAnalysis/m
 
 A major advantage of the RD design over competing methods is its transparency, which can be illustrated using graphical methods. A standard way of graphing the data is to divide the assignment variable  into a number of bins, making sure there are two separate bins on each side of the cutoff point. Then, the average value of the outcome variable can be computed for each bin and graphed against the mid-points of the bins.
 
-\begin{boenumerate} 
+\begin{boenumerate}
 
 \item Create a new variable that groups the assignment variable values into 400 bins  with a size of 0.005.
 
