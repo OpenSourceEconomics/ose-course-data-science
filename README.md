@@ -42,11 +42,7 @@ We provide the lectures in the form of a Jupyter notebook.
 
 #### [Introduction](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01-introduction/lecture.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/01-introduction/lecture.ipynb)
 
-We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference.
-
-#### [Tools for data science](https://nbviewer.jupyter.org/github/OpenSourceEconomics/tutorials/blob/master/tools_for_data_science/tutorial.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OpenSourceEconomics/tutorials/master?filepath=tools_for_data_science%2Ftutorial.ipynb)
-
-This guest lecture by the team of [OpenSourceEconomics](https://github.com/OpenSourceEconomics) presents a basic overview on the scientific Python ecosystem as we will heavily rely on it throughout the course.
+We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference. We provide a basic [tutorial](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01-introduction/tools_data_science.ipynb) for some core tools used in data science.
 
 #### [Potential outcome model](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/02-potential-outcome-model/lecture.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/02-potential-outcome-model/lecture.ipynb)
 
