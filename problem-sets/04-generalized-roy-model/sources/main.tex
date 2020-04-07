@@ -1,0 +1,90 @@
+\input{../../../utils/header-problem-sets.tex}
+
+\title{Generalized Roy Model}
+\subtitle{-- Problem Set 4 --}
+\date{}
+
+\begin{document}\maketitle\vspace{-2cm}
+
+In this problem set, we are going to make use of the open-source Python package \href{https://grmpy.readthedocs.io/en/latest/}{\texttt{grmpy}} to gain a practical understanding of the generalized Roy model and the economics behind it. We will employ \href{https://grmpy.readthedocs.io/en/latest/}{\texttt{grmpy}} for both simulation and estimation purposes and, in particular, estimate \emph{marginal treatment effects} (MTE). To become familiar with the capabilities of \href{https://grmpy.readthedocs.io/en/latest/}{\texttt{grmpy}}, we will explore the relationship between college education and income using a toy data set in Task A. 
+In Task B, we will then conduct a Monte Carlo analysis using our own simulated data. Auxiliary functions for Task B are provided in the file \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/sources/auxiliary.py}{\texttt{auxiliary.py}}.
+
+\section*{Task A} 
+
+Suppose we want to estimate the effect of post-secondary education on income. We use a toy model where log earnings ($Y$) is a function of experience ($exp$), experience squared ($expsq$), and mother's education ($momsEdu$). The decision to enroll in college ($D$) is modeled as a function of mother's education and distance to college ($distCol$).
+
+
+\begin{boenumerate}
+
+  \item Open a \texttt{Jupyter Notebook} and import the data set \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/data/education_data_raw.pkl}{\texttt{education-data-raw.pkl}} --- we recommend using the software presented in class (such as \texttt{pandas} and \texttt{seaborn}). 
+  Before analyzing the data and estimating the marginal treatment effect of college attendance, you need to clean the data set. Drop missing values and plot the wage distribution. \emph{Are there any wage outliers?} If so, drop them.
+  When you are done, save the data set as a new \texttt{pickle} file.
+  
+   \item Open the initialization file \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/sources/education.grmpy.yml}{\texttt{education.grmpy.yml}} and put the name of the cleaned data set you just saved in the blank after \texttt{["ESTIMATION"]["file"]:} (Hint: You do not need to do this in your Jupyter Notebook. You can use a simple Text Editor, such as \texttt{Sublime}, instead).
+   
+   \item You are now ready to estimate the marginal treatment effect of college attendance! \texttt{grmpy} offers two ways to do so. First, a parametric normal model. And second, the semiparametric method of \emph{local instrumental variables} (LIV) \citep{Heckman.2006d}.
+   Using both models, estimate the MTE and plot it, while choosing different colors for the parametric and semiparametric plots, respectively. Note that for the semparametric model, the number of bootstrap iterations need to be specified when plotting the MTE. Choose a suitable number.
+
+\end{boenumerate}
+
+
+\section*{Task B}
+
+   To gain more insights into the economic implications behind \texttt{grmpy} and the realm of \emph{marginal treatment effects}, you will now perform a simulated Monte Carlo analysis. 
+   Simulated data allows us to explore additional objects of interest, for which we are not able to obtain reliable information using empirical data sets. With simulated data, we have information on the whole range of potential outcomes for each individual and can bypass the evaluation problem. Hence, we can compute the joint distribution of potential outcomes. Moreover, we can directly construct conventional treatment effect parameters on the population level (e.g. see chapters 2.3, 2.4, and 3.3 in \cite{Heckman.2007e}).\\
+
+   We will stick with our college example from above. For simplicity, however, assume now that log earnings ($Y$) only depend on mother's education ($momsEdu$), and the enrollment decision is solely driven by distance to college ($distCol$). To help you along with the analysis, we have set up some auxiliary functions in  \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/sources/auxiliary.py}{\texttt{auxiliary.py}}.
+
+
+\begin{boenumerate}
+  \item Simulate a data set based on the intialization file \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/sources/sim.grmpy.yml}{\texttt{sim.grmpy.yml}}. 
+  
+  \item Based on this simulated data set, compute the \emph{average treatment effect} (ATE), the \emph{average treatment effect on the treated} (TT), and the \emph{average treatment effect on the untreated} (TUT) by hand (Note: there are no auxiliary functions required so far). \emph{How does the ATE compare with the other treatment effect parameters?} \emph{What does this imply for the marginal treatment effect?}
+  
+  \item Plot the distribution of college-related wage benefits ($Y_1 - Y_0$). \textit{Hint:} You can verify your results in \textbf{2)} by plotting the effects along with the distribution of benefits.
+  
+\end{boenumerate}
+
+  \noindent We now introduce essential heterogeneity to our simulated sample.
+
+\begin{boenumerate}\setcounter{enumi}{3}
+  
+  \item Simulate a new sample based on \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/sources/sim-eh.grmpy.yml}{\texttt{sim-eh.grmpy.yml}}. \emph{How is essential heterogeneity reflected in the distribution of unobservables?} Compare the two simulated data sets.
+  
+  \item \emph{Do the conventional treatment effect parameters differ now?} Construct them again as you did in \textbf{(2)}.
+  
+  \item Investigate the shape of the MTE with and without essential heterogeneity. \emph{What does this imply for our toy model of the monetary effect of college attendance? Which individuals are more inclined to select into college?}
+  
+  \item Let us now begin with our Monte Carlo exploration! Simulate a new sample based on \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/sources/mc.grmpy.yml}{\texttt{mc.grmpy.yml}}. Note that the correlation between $U_1$ and $V$ (\texttt{["DIST"]["params"][2]}) is still zero, i.e. no essential heterogeneity is present so far. \emph{But how do the ATE and TT diverge when the correlation between $U_1$ and $V$ is gradually increased?}
+  
+  \item For three different estimation methods (assumption of random assignment, Ordinary Least Squares, \href{https://bashtage.github.io/linearmodels/doc/iv/introduction.html}{\texttt{Instrumental Variables}}) do the following:
+  \begin{enumerate}
+  	\item Compute the ATE without essential heterogheneity using the data you simulated in \textbf{7)}.
+  	\item Plot the estimated ATE in comparison with the underyling population ATE for incremental positive selection into treatment. 
+  	
+  \end{enumerate}
+
+  \textit{Note}: 
+  \begin{itemize}
+  	\item Random assignment implies a simple comparison of average outcomes between treated and untreated individuals.
+  	\item For the OLS setup, choose a simple regression of $Y$ on $D$ plus a constant. The coefficient on $D$ then captures the ATE. 
+  	
+  	\item In your \href{https://bashtage.github.io/linearmodels/doc/iv/introduction.html}{\texttt{IV/2SLS}} setting, use the full model. \emph{What is the endogeneous regressor? What is the instrument?}
+  \end{itemize} 
+  
+  Additionally, use \texttt{grmpy} to do step \textbf{b)} for both the paramteric and semiparametric MTE approach. Compare wih the estimation results above (for a discussion see chapter 3.1 in \cite{Heckman.2007f}).
+  
+  \item Plot the joint distribution of potential outcomes.
+  
+
+\end{boenumerate}
+
+\nocite{grmpy-1.0}
+%\nocite{Heckman.2006d}
+%\nocite{Heckman.2007e}
+%\nocite{Heckman.2007f}
+
+\bibliographystyle{apacite}
+\bibliography{../../../submodules/bibliography/literature}
+
+\end{document}

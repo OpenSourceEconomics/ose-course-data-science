@@ -1,0 +1,51 @@
+---
+ESTIMATION:
+    file:
+        
+    # parametric model
+    output_file: est.grmpy.info
+    optimizer: SCIPY-BFGS
+    start: auto
+    maxiter: 6383
+    agents: 165
+    dependent: wage
+    indicator: enroll
+    comparison: True
+    print_output: False
+    
+    # semiparametric model
+    show_output: False
+    logit: True
+    nbins: 30
+    rbandwidth: 0.05
+    bandwidth: 0.3
+    gridsize: 500
+    ps_range: [0.005, 0.995]
+TREATED:
+    order:
+    - exp
+    - exp2
+    - momsEdu
+UNTREATED:
+    order:
+    - exp
+    - exp2
+    - momsEdu
+CHOICE:
+    order:
+    - momsEdu
+    - distCol
+DIST:
+    params:
+    - 0.1
+    - 0.0
+    - 0.0
+    - 0.1
+    - 0.0
+    - 1.0
+SCIPY-BFGS:
+    gtol: 1.0e-05
+    eps: 1.4901161193847655e-08
+SCIPY-POWELL:
+    xtol: 9.147777614048603e-05
+    ftol: 9.749582129043358e-05
