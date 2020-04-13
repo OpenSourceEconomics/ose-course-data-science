@@ -109,7 +109,7 @@ We practice RDD with [Lee (2008)](https://www.princeton.edu/~davidlee/wp/RDrand.
 
 We curate list of handouts that summarize selected issues.
 
-* [Causal graphs: Definitions, patterns, and strategies](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data)
+* [Causal graphs: Definitions, patterns, and strategies](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/handouts/01-causal-graphs/handout-1.pdf)
 
 ## Special focus <a name="focus"></a>
 
