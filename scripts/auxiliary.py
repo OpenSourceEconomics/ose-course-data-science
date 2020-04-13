@@ -17,12 +17,13 @@ def parse_arguments(description):
 
     if "problem set" in description:
         task, task_dir = "problem set", PROBLEM_SETS_ROOT
-    elif "lecture" in description:
+    elif "lecture" in description or "notebook" in description:
         task, task_dir = "lecture", LECTURES_ROOT
     elif "handout" in description:
         task, task_dir = "handout", HANDOUTS_ROOT
     else:
         raise NotImplementedError
+
     parser.add_argument("-n", "--name", type=str, help=f"name of {task}", default="all",
                         dest="name")
 

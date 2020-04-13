@@ -27,5 +27,5 @@ if __name__ == "__main__":
     for dirname in request:
         os.chdir(dirname)
         if os.path.exists("sources"):
-            compile_single("sources", "handouts")
+            compile_single("sources", "handout")
         os.chdir("../")

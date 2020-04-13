@@ -30,9 +30,10 @@ Please use the table of content to navigate the rest of the material.
 
 1. [Lectures](#lectures)
 2. [Problem sets](#problems)
-3. [Special focus](#focus)
-4. [Resources](#resources)
-5. [Iterations](#iterations)
+3. [Handouts](#handouts)
+4. [Special focus](#focus)
+5. [Resources](#resources)
+6. [Iterations](#iterations)
 
 We collect a list of additional, more general, reading recommendations [here](https://github.com/HumanCapitalAnalysis/general-resources).
 
@@ -103,6 +104,12 @@ We compare the consistency of regression and matching estimators using [LaLonde 
 #### [Regression discontinuity design (RDD)](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/03-regression-discontinuity-design/problem-set-3.pdf)
 
 We practice RDD with [Lee (2008)](https://www.princeton.edu/~davidlee/wp/RDrand.pdf) framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data).
+
+## Handouts <a name="handouts"></a>
+
+We curate list of handouts that summarize selected issues.
+
+* [Causal graphs: Definitions, patterns, and strategies](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data)
 
 ## Special focus <a name="focus"></a>
 

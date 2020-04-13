@@ -4,13 +4,13 @@
 \newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
 \usepackage[export]{adjustbox}
 
-\title{Causal Graphs}
-\subtitle{-- Handout with definitions--}
+\title{Causal Graphs\thanks{We are indebted to Liudmila Kiseleva for the design of the handout.}}
+\subtitle{Definitions, patterns, and strategies}
 \date{}
 
 \begin{document}\maketitle\vspace{-2cm}
 
-\section*{Basic definitions}
+\section*{Definitions}
 
 \begin{itemize}
 
@@ -36,23 +36,32 @@
 
 \item \textbf{Directed acyclic graph (DAG)} is a graph with only arrows for edges and no feedback loops (i.e. no variable is its own ancestor or its own descendant):\\
 
-\includegraphics[trim=0 0 0 -1cm, center]{../material/fig-graph-with-cycle.png}
+\begin{figure}[htp]\centering
+\caption{Directed acyclical graph}\vspace{0.3cm}
+\scalebox{0.90}{\includegraphics{fig-graph-with-cycle}}
+\end{figure}
 
 \item \textbf{Mutual dependence} of two variables on one or more common causes is shown by a curved and dashed bidirected edge:\\
 \includegraphics[trim=0 -1cm 0 -1cm, center]{../material/fig-graph-shorthand-unobserved-common-cause.png}
 
 \end{itemize}
 
-\section*{Basic patterns and strategies}
+\section*{Patterns}
 
 \textbf{Chain of mediation} is a relationship when A affects B through A's causal effect on C and C's causal effect on B.\\
 \textbf{Mutual dependence} is a relationship when A and B are both caused by  (graph b).\\
 \textbf{Mutual causation} is a relationship when A and B both causes of C. \\
-\includegraphics[trim=0 -1cm 0 -1cm, center]{../material/fig-graph-basic-causal-relationships.png}
+
+\includegraphics[trim=0 -1cm 0 -1cm, center]{fig-graph-basic-causal-relationships}
+
 \textbf{Confounding variable} is a variable that affects both the dependent and independent variable (in our example, variable C on the graph b).\\
 \textbf{Collider} is a variable that has two arrows running into it (in our example, variable C on the graph c).\\
 \textbf{Conditioning} as a modeling strategy means transforming one graph into a simpler set of component graphs where fewer causes are represented.\\
 \textbf{Back-door path} is a path between any causally ordered sequence  of two variables that include a directed edge that points to the first variable. \\
+
+\section*{Strategies}
+
+
 \textbf{Back-door criterion} is a set of conditions used to determine whether or not conditioning on a given set of observed variable will identify the causal effect. The causal effect is identified by conditioning on a set of variables Z if and only if all back-door paths between the causal variable and the outcome variable are blocked after conditioning on Z. All back-door paths are blocked by Z if and only if each back-door path:
 \begin{enumerate}
 \item contains a chain of mediation A $\rightarrow$ C $\rightarrow$  B where the middle variable C is in Z, or
