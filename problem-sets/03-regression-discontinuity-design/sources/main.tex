@@ -43,7 +43,7 @@ A major advantage of the RD design over competing methods is its transparency, w
 
 \section*{Task C. Local linear regression (LLR)}
 
- LLR as a method restricts the estimation to observations close to the cutoff. It is based on the assumption that  regression lines within the bins around the cutoff point are close to linear. That helps to avoid some of the drawbacks of other parametric/non-parametrics approaches (\cite{Lee.2010})
+ LLR as a method restricts the estimation to observations close to the cutoff. It is based on the assumption that  regression lines within the bins around the cutoff point are close to linear. That helps to avoid some of the drawbacks of other parametric/non-parametrics approaches (\cite{Lee.2010a})
 
 \begin{boenumerate}
 
@@ -53,7 +53,7 @@ A major advantage of the RD design over competing methods is its transparency, w
 
 \section*{Task D. Cross-validation}
 
-As you might find, the treatment effect result is sensitive to the bandwidth choice. In general, choosing a bandwidth in estimation involves finding an optimal balance between precision and bias. One the one hand, using a larger bandwidth yields more precise estimates as more observations are available to estimate the regression. On the other hand, the linear specification is less likely to be accurate (\cite{Lee.2010})\\
+As you might find, the treatment effect result is sensitive to the bandwidth choice. In general, choosing a bandwidth in estimation involves finding an optimal balance between precision and bias. One the one hand, using a larger bandwidth yields more precise estimates as more observations are available to estimate the regression. On the other hand, the linear specification is less likely to be accurate (\cite{Lee.2010a})\\
 \\
 We are going to review one of the approaches for choosing a bandwidth --  cross-validation “leave one out” procedure. The main idea is to take an observation $i$ in the data, leave it out, run LLR, and use the estimates to predict the value of $Y$ at $X = X_i$.  Proceeding with each observation separately on each side of the cutoff, we obtain the predicted values of $Y$ that can be compared to the actual values. The optimal bandwidth is then a value of $h$ that minimizes the mean square of the difference between the predicted and actual values of $Y$. And overall mean square error is simply the average of the squares of the prediction errors  on each side of the cutoff.
 
