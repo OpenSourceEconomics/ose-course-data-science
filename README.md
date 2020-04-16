@@ -1,8 +1,6 @@
 # Microeconometrics
 
-... introductory course to microeconmetrics. The course is designed as to supplement and emphasize selected topics from the two textbooks below. As such, it is important that students read the relevant chapters in advance to get most out of the class.
-
-Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) and [Jupyter Notebooks](https://jupyter.org) throughout the course and so we provide some useful resources below. For further information, please do not hesitate to contact us.
+This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should to able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) and [Jupyter Notebooks](https://jupyter.org) and so we provide some useful resources below. For further information, please do not hesitate to contact us.
 
 [![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://hca.zulipchat.com/)
 
