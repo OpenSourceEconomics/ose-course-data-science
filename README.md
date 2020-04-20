@@ -163,6 +163,8 @@ We maintain a list of useful resources around the tooling used in the course [he
 
 ## Iterations <a name="iterations"></a>
 
+* **Summer Quarter 2020**, Graduate Program at the University of Bonn, please see [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn-ss-20) for details.
+
 * **Summer Quarter 2019**, Graduate Program at the University of Bonn, please see [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn-ss-19) for details.
 
 [![Build Status](https://travis-ci.org/HumanCapitalAnalysis/microeconometrics.svg?branch=master)](https://travis-ci.org/HumanCapitalAnalysis/microeconometrics) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/LICENSE)
