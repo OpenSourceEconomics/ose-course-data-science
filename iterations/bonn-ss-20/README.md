@@ -33,7 +33,9 @@ We briefly present our efforts around this student run initiative that offers nu
 
 We will run student projects for grading and heavily rely on [GitHub Classroom](https://classroom.github.com). In this project you are asked to summarize and reproduce core results of an empirical paper of your choice. Please select an article that interests you but also allows you to access the data used in the analysis. Also, for a good grade you need to add some analysis of your own. This can take very different forms. For example, you could create some visualizations that make the paper more accessible to interested readers, investigate the sensitivity of results to the author's modeling choices, or add some additional robustness checks.
 
-All details regarding the projects are available [here](https://github.com/HumanCapitalAnalysis/student-project-template).
+All details regarding the general setup are available [here](https://github.com/HumanCapitalAnalysis/student-project-template).
+
+Here is a collection of frequently asked questions:
 
 * **Do we need to report on the progress of our project?**
 
