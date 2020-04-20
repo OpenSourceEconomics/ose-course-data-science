@@ -12,7 +12,7 @@ We will conduct all course communications using [Zulip](https://zulip.com/), so 
 
 | Date      | Topic                                                     |
 | ----------| --------------------------------------------------------- |
-| 02/04/19  | Kickoff                                                   |
+| 02/04/19  | Kickoff, Introduction                                     |
 | 03/04/19  | Tools for data tools for data science                     |
 | 09/04/19  | Counterfactuals and the potential outcome model           |
 | 10/04/19  | Counterfactuals and the potential outcome model           |
@@ -25,13 +25,9 @@ The core lectures are available [here](https://github.com/HumanCapitalAnalysis/m
 
 #### Kickoff
 
-* [Introduction to students](https://github.com/peisenha/intro_to_students/blob/master/dist/eisenhauer-introduction.pdf)
+* [OpenSourceEconomics](https://opensourceeconomics.github.io/)
 
-I briefly introduce my research background and provide a basic overview on my teaching efforts.
-
-* [OpenSourceEconomics](https://github.com/OpenSourceEconomics)
-
-We briefly present our efforts around this student run initiative.
+We briefly present our efforts around this student run initiative that offers numerous opportunities to get involved.
 
 ## Student projects
 
@@ -41,10 +37,14 @@ All details regarding the projects are available [here](https://github.com/Human
 
 * **Do we need to report on the progress of our project?** Yes, I will frequently select a student project at random to report on their current state at the end of a lecture.
 
-* **When is the student project due?** TBD
+* **When is the student project due?** The project is due on the 17th of July.
 
 * **Why are the projects public?** Transparency and reproducibility is a core value in research. Also, we want to learn from each other.
 
 * **When do I need to sign up for the project?** You need to register with the examination office between the 28th of April and 4th of March.
 
-* **How can I initialize the repository for my student project?** Please just follow this invitation [link](https://classroom.github.com/a/KaOMTvKj).
+* **How can I initialize the repository for my student project?** Please just follow this invitation [link](https://classroom.github.com/a/AIR1HxcC).
+
+* **Can we work in groups?** No, everybody has to work on their own project.
+
+* **Do I get any extra credit for ensuring full reproducibility of my project using Travis CI?** Yes, everybody who successfully sets up a continuous integration workflow will get an extra bump in their grade.
