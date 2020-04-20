@@ -35,16 +35,36 @@ We will run student projects for grading and heavily rely on [GitHub Classroom](
 
 All details regarding the projects are available [here](https://github.com/HumanCapitalAnalysis/student-project-template).
 
-* **Do we need to report on the progress of our project?** Yes, I will frequently select a student project at random to report on their current state at the end of a lecture.
+* **Do we need to report on the progress of our project?**
 
-* **When is the student project due?** The project is due on the 17th of July.
+  * Yes, I will frequently select a student project at random to report on their current state at the end of a lecture.
 
-* **Why are the projects public?** Transparency and reproducibility is a core value in research. Also, we want to learn from each other.
 
-* **When do I need to sign up for the project?** You need to register with the examination office between the 28th of April and 4th of March.
+* **When is the student project due?**
 
-* **How can I initialize the repository for my student project?** Please just follow this invitation [link](https://classroom.github.com/a/AIR1HxcC).
+  * The project is due on the 17th of July.
 
-* **Can we work in groups?** No, everybody has to work on their own project.
 
-* **Do I get any extra credit for ensuring full reproducibility of my project using Travis CI?** Yes, everybody who successfully sets up a continuous integration workflow will get an extra bump in their grade.
+* **Why are the projects public?**
+
+  * Transparency and reproducibility is a core value in research. Also, we want to learn from each other.
+
+
+* **When do I need to sign up for the project?**
+
+  * You need to register with the examination office between the 28th of April and 4th of March.
+
+
+* **How can I initialize the repository for my student project?**
+
+  * Please just follow this invitation [link](https://classroom.github.com/a/AIR1HxcC).
+
+
+* **Can we work in groups?**
+
+  * No, everybody has to work on their own project.
+
+
+* **Do I get any extra credit for ensuring full reproducibility of my project using Travis CI?**
+
+  * Yes, everybody who successfully sets up a continuous integration workflow will get an extra bump in their grade.
