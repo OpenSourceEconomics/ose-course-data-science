@@ -45,6 +45,6 @@ All details regarding the projects are available [here](https://github.com/Human
 
 * **Why are the projects public?** Transparency and reproducibility is a core value in research. Also, we want to learn from each other.
 
-* **When do I need to sign up for the project?** TBD
+* **When do I need to sign up for the project?** You need to register with the examination office between the 28th of April and 4th of March.
 
 * **How can I initialize the repository for my student project?** Please just follow this invitation [link](https://classroom.github.com/a/KaOMTvKj).

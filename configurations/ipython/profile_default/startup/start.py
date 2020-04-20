@@ -1,3 +1,6 @@
+import os
+
+from IPython.core.display import HTML
 from IPython import get_ipython
 import pandas as pd
 
@@ -7,3 +10,4 @@ ipython.magic('load_ext autoreload')
 ipython.magic('autoreload 2')
 
 pd.options.mode.chained_assignment = None
+

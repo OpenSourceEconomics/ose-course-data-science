@@ -23,6 +23,7 @@ dependencies:
 - rise
 - r-essentials
 - r-icc
+- libiconv 
 - rpy2
 - simplegeneric
 - pip:

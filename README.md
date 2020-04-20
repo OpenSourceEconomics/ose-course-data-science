@@ -41,7 +41,7 @@ We provide the lectures in the form of a Jupyter notebook.
 
 #### [Introduction](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01-introduction/lecture.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/01-introduction/lecture.ipynb)
 
-We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference. We provide a basic [tutorial](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01-introduction/tools_data_science.ipynb) for some core tools used in data science.
+We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference. We touch on the two pillars of the counterfactual approach to casusal analysis. We first explore the basic ideas of the potential outcome model and then preview the use of causal graphs. In addition, we provide a basic [tutorial](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01-introduction/tools_data_science.ipynb) for some core tools used in data science.
 
 #### [Potential outcome model](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/02-potential-outcome-model/lecture.ipynb) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/02-potential-outcome-model/lecture.ipynb)
 
