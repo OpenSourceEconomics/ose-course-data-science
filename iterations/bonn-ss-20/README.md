@@ -35,7 +35,9 @@ We will run student projects for grading and heavily rely on [GitHub Classroom](
 
 All details regarding the general setup are available [here](https://github.com/HumanCapitalAnalysis/student-project-template).
 
-Here is a collection of frequently asked questions:
+### Frequently asked questions
+
+We collect a set up of questions here as well:
 
 * **Do we need to report on the progress of our project?**
 
