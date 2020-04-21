@@ -149,6 +149,8 @@ We repeatedly touch on some selected articles throughout the class.
 
 * Krueger, A. B. (1999). [Experimental estimates of education prodcution functions.](http://piketty.pse.ens.fr/files/Krueger1999.pdf) *The Quarterly Journal of Economics, 114*, 497-532.
 
+* LaLonde, R. (1986). [Evaluating the econometric evaluations of training programs with experimental data.](https://www.jstor.org/stable/1806062?seq=1#metadata_info_tab_contents) *The American Economic Review, 76*(4), 604-620.
+
 * Lee, D. S. (2008). [Randomized experiments from non-random selection in us house elections](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065). *Journal of Econometrics, 142*(2), 675–697.
 
 * Lee, D. S, & Lemieux, T. (2010). [Regression discontinuity designs in economics.](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281) *Journal of Economic Literature, 48*, 281-355.
