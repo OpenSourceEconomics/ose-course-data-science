@@ -1,6 +1,6 @@
 We start on April 21st 2020 and meet on Tuesdays (14:15-15:45pm) and Wednesdays (10:15-11:45pm).
 
-**Lecturer** [Philipp Eisenhauer](https://peisenha.github.iol)
+**Lecturer** [Philipp Eisenhauer](https://peisenha.github.io)
 
 We will conduct all course communications using [Zulip](https://zulip.com/), so please be sure to join us there. Simply clicking the button below will take you to the proper channels. There I also post the link to the online lectures using [ZOOM](https://zoom.us/).
 
