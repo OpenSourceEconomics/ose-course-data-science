@@ -9,6 +9,7 @@ import os
 PROBLEM_SETS_ROOT = os.environ["PROJECT_ROOT"] + "/problem-sets"
 HANDOUTS_ROOT = os.environ["PROJECT_ROOT"] + "/handouts"
 LECTURES_ROOT = os.environ["PROJECT_ROOT"] + "/lectures"
+DATASETS_ROOT = os.environ["PROJECT_ROOT"] + "/datasets"
 
 
 def parse_arguments(description):
