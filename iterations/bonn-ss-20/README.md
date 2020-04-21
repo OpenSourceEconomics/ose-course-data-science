@@ -2,7 +2,7 @@ We start on April 21st 2020 and meet on Tuesdays (14:15-15:45pm) and Wednesdays 
 
 **Lecturer** [Philipp Eisenhauer](https://peisenha.github.iol)
 
-We will conduct all course communications using [Zulip](https://zulip.com/), so please be sure to join us there. Simply by clicking the button below will take you to the proper channels.
+We will conduct all course communications using [Zulip](https://zulip.com/), so please be sure to join us there. Simply clicking the button below will take you to the proper channels. There I also post the link to the [ZOOM](https://zoom.us/) meetings.
 
 [![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://hca.zulipchat.com/)
 
