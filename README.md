@@ -1,6 +1,6 @@
 # Microeconometrics
 
-This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should to able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) and [Jupyter Notebooks](https://jupyter.org) and so we provide some useful resources below. For further information, please do not hesitate to contact us.
+This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should be able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) as well as [Jupyter Notebooks](https://jupyter.org). We provide some useful resources below. For further information, please do not hesitate to contact us.
 
 [![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://hca.zulipchat.com/)
 
@@ -102,6 +102,10 @@ We compare the consistency of regression and matching estimators using [LaLonde 
 #### [Regression discontinuity design (RDD)](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/03-regression-discontinuity-design/problem-set-3.pdf)
 
 We practice RDD with [Lee (2008)](https://www.princeton.edu/~davidlee/wp/RDrand.pdf) framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data).
+
+#### [Generalized Roy model](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/04-generalized-roy-model/problem-set-4.pdf)
+
+We explore the Generalized Roy framework and practice estimation of marginal treatment effects using the open-source software package [grmpy](https://grmpy.readthedocs.io/en/latest/). Moreover, we simulate our own data set to conduct a Monte Carlo analysis and compare the performance of different estimators in the presence of essential heterogeneity. The accompanying files are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/04-generalized-roy-model/sources) and data [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/04-generalized-roy-model/data).
 
 ## Handouts <a name="handouts"></a>
 
