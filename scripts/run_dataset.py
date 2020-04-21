@@ -52,6 +52,7 @@ from_dta_to_csv('dehejia_waba', 'nsw')
 # DW(2002).
 nsw_1 = pd.read_csv("processed/angrist_pischke/nswre74.csv")
 nsw_1.rename(columns={"ed": "education", "hisp": "hispanic", "nodeg": "nodegree"}, inplace=True)
+nsw_1.drop("age2", axis=1, inplace=True)
 nsw_2 = pd.read_csv("processed/dehejia_waba/nsw.csv")
 overlap = ["treat", "age", "education", "black", "hispanic", "married", "nodegree", "re75", "re78"]
 
