@@ -31,8 +31,6 @@ df.to_csv('processed/msc/house.csv', index=False)
 df = from_dta_to_csv('angrist_pischke', 'webstar')
 df.head()
 
-
-
 ## nswre74.dta https://users.nber.org/~rdehejia/nswdata.html
 df = from_dta_to_csv('angrist_pischke', 'nswre74')
 
@@ -41,9 +39,21 @@ for num in range(1, 11):
     fname = 'mw_cath{}'.format(num)
     df = from_dta_to_csv('morgan_winship', fname)
 
-# This is the data for the re-analysis of the LaLonde Paper as (temporarily published on the Dehaja website)
-from_dta_to_csv('dehejia_waba', 'nsw')
+# This is the data for the re-analysis of the LaLonde Paper as (temporarily published on the Dehaja website).
 for source in ['psid', 'cps']:
     for num in range(1, 4):
         fname = f'{source}_controls{num}'
         from_dta_to_csv('dehejia_waba', fname)
+from_dta_to_csv('dehejia_waba', 'nsw')
+
+# We need to do some extra work to construct a complete NSW sample. The data posted on the MHE website is restricted to
+# the sample where re74 is available. The data from the DW website includes the full sample of LaLonde's original
+# analysis but not the earnings information. So we merge both here. The justification is discussed in DW(1999) and
+# DW(2002).
+nsw_1 = pd.read_csv("processed/angrist_pischke/nswre74.csv")
+nsw_1.rename(columns={"ed": "education", "hisp": "hispanic", "nodeg": "nodegree"}, inplace=True)
+nsw_2 = pd.read_csv("processed/dehejia_waba/nsw.csv")
+overlap = ["treat", "age", "education", "black", "hispanic", "married", "nodegree", "re75", "re78"]
+
+nsw_3 = nsw_2.merge(nsw_1, on=overlap, how="left")
+nsw_3.to_csv('processed/msc/nsw_full.csv', index=False)
