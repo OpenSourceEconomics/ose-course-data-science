@@ -7,3 +7,5 @@ We maintain several auxiliary scripts to ease workflow.
 * `run-notebook` runs the notebook of selected lectures
 
 * `run-problem` compiles selected problem sets
+
+* `run-update` updates the repository, including its submodules
