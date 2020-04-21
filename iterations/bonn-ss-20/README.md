@@ -2,7 +2,7 @@ We start on April 21st 2020 and meet on Tuesdays (14:15-15:45pm) and Wednesdays 
 
 **Lecturer** [Philipp Eisenhauer](https://peisenha.github.iol)
 
-We will conduct all course communications using [Zulip](https://zulip.com/), so please be sure to join us there. Simply clicking the button below will take you to the proper channels. There I also post the link to the online lectures using [ZOOM](https://zoom.us/). 
+We will conduct all course communications using [Zulip](https://zulip.com/), so please be sure to join us there. Simply clicking the button below will take you to the proper channels. There I also post the link to the online lectures using [ZOOM](https://zoom.us/).
 
 [![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://hca.zulipchat.com/)
 
@@ -12,11 +12,11 @@ We will conduct all course communications using [Zulip](https://zulip.com/), so 
 
 | Date      | Topic                                                     |
 | ----------| --------------------------------------------------------- |
-| 02/04/19  | Kickoff, Introduction                                     |
-| 03/04/19  | Tools for data tools for data science                     |
-| 09/04/19  | Counterfactuals and the potential outcome model           |
-| 10/04/19  | Counterfactuals and the potential outcome model           |
-| 16/04/19  | Causal graphs                                             |
+| 21/04/20  | Kickoff, Introduction                                     |
+| 22/04/20  | Tools for data tools for data science                     |
+| 28/04/20  | Counterfactuals and the potential outcome model           |
+| 29/04/20  | Counterfactuals and the potential outcome model           |
+| 05/05/20  | Causal graphs                                             |
 | ...       | ...                                                       |
 
 ## Lectures
