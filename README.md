@@ -1,6 +1,6 @@
 # Microeconometrics
 
-This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should to able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) and [Jupyter Notebooks](https://jupyter.org) and so we provide some useful resources below. For further information, please do not hesitate to contact us.
+This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should be able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) as well as [Jupyter Notebooks](https://jupyter.org). We provide some useful resources below. For further information, please do not hesitate to contact us.
 
 [![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://hca.zulipchat.com/)
 
@@ -97,11 +97,15 @@ We explore the potential outcome model using observed and simulated data inspire
 
 #### [Regression and matching estimators of causal effects](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/02-matching-estimators/problem-set-2.pdf)
 
-We compare the consistency of regression and matching estimators using [LaLonde (1986)](http://business.baylor.edu/scott_cunningham/teaching/lalonde-1986.pdf) framework and [the Current Population Survey](https://www.census.gov/programs-surveys/cps.html) data. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data).
+We compare the consistency of regression and matching estimators using [LaLonde (1986)](https://www.jstor.org/stable/1806062) framework and [the Current Population Survey](https://www.census.gov/programs-surveys/cps.html) data. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data).
 
 #### [Regression discontinuity design (RDD)](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/03-regression-discontinuity-design/problem-set-3.pdf)
 
-We practice RDD with [Lee (2008)](https://www.princeton.edu/~davidlee/wp/RDrand.pdf) framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data).
+We practice RDD with [Lee (2008)](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065) framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data).
+
+#### [Generalized Roy model](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/04-generalized-roy-model/problem-set-4.pdf)
+
+We explore the Generalized Roy framework and practice estimation of marginal treatment effects using the open-source software package [grmpy](https://grmpy.readthedocs.io/en/latest/). Moreover, we simulate our own data set to conduct a Monte Carlo analysis and compare the performance of different estimators in the presence of essential heterogeneity. The accompanying files are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/04-generalized-roy-model/sources) and data [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/04-generalized-roy-model/data).
 
 ## Handouts <a name="handouts"></a>
 
@@ -145,9 +149,11 @@ We repeatedly touch on some selected articles throughout the class.
 
 * Krueger, A. B. (1999). [Experimental estimates of education prodcution functions.](http://piketty.pse.ens.fr/files/Krueger1999.pdf) *The Quarterly Journal of Economics, 114*, 497-532.
 
+* LaLonde, R. (1986). [Evaluating the econometric evaluations of training programs with experimental data.](https://www.jstor.org/stable/1806062?seq=1#metadata_info_tab_contents) *The American Economic Review, 76*(4), 604-620.
+
 * Lee, D. S. (2008). [Randomized experiments from non-random selection in us house elections](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065). *Journal of Econometrics, 142*(2), 675–697.
 
-* Lee, D. S, & Lemieux, T. (2010). [Regression discontinuity designs in economics.](https://www.princeton.edu/~davidlee/wp/RDDEconomics.pdf) *Journal of Economic Literature, 48*, 281-355.
+* Lee, D. S, & Lemieux, T. (2010). [Regression discontinuity designs in economics.](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281) *Journal of Economic Literature, 48*, 281-355.
 
 * Rosenzweig, M. R., & Wolpin, K. I. (2000). [Natural "natural experiments" in economics.](https://www.jstor.org/stable/2698663?seq=1#metadata_info_tab_contents) *Journal of Economic Literature, 38*(4), 827-874.
 
