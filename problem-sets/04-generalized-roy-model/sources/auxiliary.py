@@ -97,8 +97,8 @@ def monte_carlo(file, which, grid_points=10):
     original_correlation = model_dict["DIST"]["params"][2]
 
     model_dict["DIST"]["params"][2] = -0.191
-    print_dict(model_dict, "mc")
-    grmpy.simulate('mc.grmpy.yml')
+    print_dict(model_dict, file.replace(".grmpy.yml", ""))
+    grmpy.simulate(file)
 
     effects = []
 
@@ -108,7 +108,7 @@ def monte_carlo(file, which, grid_points=10):
         # Readjust the initialization file values to add correlation
         model_spec = read(file)
         X = model_spec["TREATED"]["order"]
-        update_correlation_structure(model_spec, rho)
+        update_correlation_structure(file, model_spec, rho)
         sim_spec = read(file)
         # Simulate a Data set and specify exogeneous and endogeneous variables
         df_mc = create_data(file)
@@ -171,8 +171,8 @@ def monte_carlo(file, which, grid_points=10):
     # Restore original init file
     model_dict = read(file)
     model_dict["DIST"]["params"][2] = original_correlation
-    print_dict(model_dict, "mc")
-    grmpy.simulate('mc.grmpy.yml') 
+    print_dict(model_dict, file.replace(".grmpy.yml", ""))
+    grmpy.simulate(file) 
 
     return effects
 
@@ -264,7 +264,7 @@ def create_data(file):
     return df
 
 
-def update_correlation_structure(model_dict, rho):
+def update_correlation_structure(file, model_dict, rho):
     """This function takes a valid model specification and updates the correlation
     structure among the unobservables."""
 
@@ -280,7 +280,7 @@ def update_correlation_structure(model_dict, rho):
 
     # We print out the specification to an initialization file with the name
     # mc_init.grmpy.ini.
-    print_dict(model_dict, "mc")
+    print_dict(model_dict, file.replace(".grmpy.yml", ""))
 
 
 def get_effect_grmpy(file):
