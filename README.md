@@ -123,7 +123,7 @@ We review issues in the construction of standard errors such as the potential bi
 
 ## Resources <a name="resources"></a>
 
-We provide some additional resources that are useful for our course work.
+We provide some additional resources that are useful for our course work in general.
 
 #### Textbooks
 
@@ -136,26 +136,6 @@ We provide some additional resources that are useful for our course work.
 #### Datasets
 
 The textbooks above provide an impressive amount of data from research articles. We provide them in a central place [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/datasets).
-
-#### Articles
-
-We repeatedly touch on some selected articles throughout the class.
-
-* Angrist, J. D. (1990). [Lifetime earnings and the Vietnam era draft lottery: Evidence from social security administrative records.](https://www.jstor.org/stable/2006669?seq=1#metadata_info_tab_contents) *American Economic Review, 80*(3), 313-336.
-
-* Angrist, J. D., & Krueger, A. B. (1991). [Does  compulsory  school attendance affect schooling and earnings?](https://www.jstor.org/stable/2937954?seq=1#metadata_info_tab_contents) *The Quarterly Journal of Economics, 106*(4), 979-1014.
-
-* Bertrand, M; Duflo E., & Mullainathan, S. (2004). [How much should we trust differences-in-differences estimates?](https://academic.oup.com/qje/article-abstract/119/1/249/1876068?redirectedFrom=fulltext) *The Quarterly Journal of Economics, 119*, 249-275.
-
-* Krueger, A. B. (1999). [Experimental estimates of education prodcution functions.](http://piketty.pse.ens.fr/files/Krueger1999.pdf) *The Quarterly Journal of Economics, 114*, 497-532.
-
-* LaLonde, R. (1986). [Evaluating the econometric evaluations of training programs with experimental data.](https://www.jstor.org/stable/1806062?seq=1#metadata_info_tab_contents) *The American Economic Review, 76*(4), 604-620.
-
-* Lee, D. S. (2008). [Randomized experiments from non-random selection in us house elections](https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065). *Journal of Econometrics, 142*(2), 675–697.
-
-* Lee, D. S, & Lemieux, T. (2010). [Regression discontinuity designs in economics.](https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281) *Journal of Economic Literature, 48*, 281-355.
-
-* Rosenzweig, M. R., & Wolpin, K. I. (2000). [Natural "natural experiments" in economics.](https://www.jstor.org/stable/2698663?seq=1#metadata_info_tab_contents) *Journal of Economic Literature, 38*(4), 827-874.
 
 #### Tools
 
