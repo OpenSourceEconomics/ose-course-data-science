@@ -1,8 +1,13 @@
 # Microeconometrics
 
-This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should be able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) as well as [Jupyter Notebooks](https://jupyter.org). We provide some useful resources below. For further information, please do not hesitate to contact us.
+<p align="left">
+<a href="https://travis-ci.org/HumanCapitalAnalysis/microeconometrics"><img alt="Build Status" src="https://travis-ci.org/HumanCapitalAnalysis/microeconometrics.svg?branch=master"></a>
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+<a href="https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+<a href="https://hca.zulipchat.com/"><img alt="License: MIT" src="https://img.shields.io/badge/zulip-join_chat-brightgreen.svg"></a>
+</p>
 
-[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://hca.zulipchat.com/)
+This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should be able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) as well as [Jupyter Notebooks](https://jupyter.org). We provide some useful resources below. For further information, please do not hesitate to contact us.
 
 ## Counterfactual approach to causal analysis
 
@@ -141,16 +146,8 @@ The textbooks above provide an impressive amount of data from research articles.
 
 We maintain a list of useful resources around the tooling used in the course [here](https://github.com/HumanCapitalAnalysis/general-resources#scientific-software-development).
 
-#### Software packages
-
-* grmpy (2018). *grmpy: A Python package for the simulation and estimation of the generalized Roy model.* Retrieved from http://doi.org/10.5281/zenodo.1162640
-
-* respy (2018). *respy: A Python package for the simulation and estimation of a prototypical finite-horizon dynamic discrete choice model.* Retrieved from http://doi.org/10.5281/zenodo.1189209
-
 ## Iterations <a name="iterations"></a>
 
 * **Summer Quarter 2020**, Graduate Program at the University of Bonn, please see [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn-ss-20) for details.
 
 * **Summer Quarter 2019**, Graduate Program at the University of Bonn, please see [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn-ss-19) for details.
-
-[![Build Status](https://travis-ci.org/HumanCapitalAnalysis/microeconometrics.svg?branch=master)](https://travis-ci.org/HumanCapitalAnalysis/microeconometrics) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/LICENSE)

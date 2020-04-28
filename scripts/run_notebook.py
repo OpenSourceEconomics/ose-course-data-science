@@ -20,18 +20,20 @@ from auxiliary import LECTURES_ROOT
 
 
 def run_notebook(notebook):
-    cmd = ' jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1'.format(notebook)
+    cmd = " jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1".format(
+        notebook
+    )
     sp.check_call(cmd, shell=True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
-    request = parse_arguments('Execute notebook')
+    request = parse_arguments("Execute notebook")
     os.chdir(LECTURES_ROOT)
 
     for dirname in request:
         os.chdir(dirname)
-        for fname in glob.glob('*.ipynb'):
+        for fname in glob.glob("*.ipynb"):
             print(f"\n {os.getcwd().split('/')[-1]}\n")
             run_notebook(fname)
-        os.chdir('../')
+        os.chdir("../")

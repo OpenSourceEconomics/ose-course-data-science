@@ -19,12 +19,12 @@ from auxiliary import LECTURES_ROOT
 
 if __name__ == "__main__":
 
-    request = parse_arguments('Create lecture slides')
+    request = parse_arguments("Create lecture slides")
 
     os.chdir(LECTURES_ROOT)
 
     for dirname in request:
         os.chdir(dirname)
-        if os.path.exists('slides'):
-            compile_single('slides', "slides")
-        os.chdir('../')
+        if os.path.exists("slides"):
+            compile_single("slides", "slides")
+        os.chdir("../")

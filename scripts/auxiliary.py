@@ -25,15 +25,18 @@ def parse_arguments(description):
     else:
         raise NotImplementedError
 
-    parser.add_argument("-n", "--name", type=str, help=f"name of {task}", default="all",
-                        dest="name")
+    parser.add_argument(
+        "-n", "--name", type=str, help=f"name of {task}", default="all", dest="name"
+    )
 
     args = parser.parse_args()
 
     # We can either request a single lecture or just act on all of them. We use string matching
     # to ease workflow.
     if args.name != "all":
-        request = difflib.get_close_matches(args.name, get_list_tasks(task_dir), n=1, cutoff=0.1)
+        request = difflib.get_close_matches(
+            args.name, get_list_tasks(task_dir), n=1, cutoff=0.1
+        )
         if not request:
             raise AssertionError(f"unable to match {task}")
     else:
