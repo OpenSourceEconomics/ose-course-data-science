@@ -28,5 +28,6 @@ dependencies:
 - libiconv 
 - rpy2
 - simplegeneric
+- nb_black
 - pip:
     - linearmodels
