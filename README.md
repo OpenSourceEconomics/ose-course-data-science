@@ -4,13 +4,12 @@
 <a href="https://travis-ci.org/HumanCapitalAnalysis/microeconometrics"><img alt="Build Status" src="https://travis-ci.org/HumanCapitalAnalysis/microeconometrics.svg?branch=master"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 <a href="https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+<a href="https://hca.zulipchat.com/"><img alt="License: MIT" src="https://img.shields.io/badge/zulip-join_chat-brightgreen.svg"></a>
 </p>
-
----
 
 This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should be able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) as well as [Jupyter Notebooks](https://jupyter.org). We provide some useful resources below. For further information, please do not hesitate to contact us.
 
-[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://hca.zulipchat.com/)
+---
 
 ## Counterfactual approach to causal analysis
 
