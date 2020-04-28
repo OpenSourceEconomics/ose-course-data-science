@@ -7,7 +7,7 @@
 <a href="https://hca.zulipchat.com/"><img alt="License: MIT" src="https://img.shields.io/badge/zulip-join_chat-brightgreen.svg"></a>
 </p>
 
-This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should be able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) as well as [Jupyter Notebooks](https://jupyter.org). We provide some useful resources below. For further information, please do not hesitate to contact us.
+This course introduces students to basic microeconmetric methods. The objective is to learn how to make and evaluate causal claims. By the end of the course, students should be able to apply each of the methods discussed and critically evaluate research based on them. Throughout the course we will make heavy use of [Python](https://www.python.org) and its [SciPy ecosystem](https://www.scipy.org) as well as [Jupyter Notebooks](https://jupyter.org). 
 
 ## Counterfactual approach to causal analysis
 
