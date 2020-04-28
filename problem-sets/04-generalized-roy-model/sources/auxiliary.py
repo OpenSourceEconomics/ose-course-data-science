@@ -28,7 +28,6 @@ from grmpy.estimate.estimate_output import calculate_mte
 from grmpy.simulate.simulate_auxiliary import simulate_unobservables
 
 
-
 def plot_benefits(data):
     """This function plots the distribution of benefits
     effects.
@@ -172,7 +171,7 @@ def monte_carlo(file, which, grid_points=10):
     model_dict = read(file)
     model_dict["DIST"]["params"][2] = original_correlation
     print_dict(model_dict, file.replace(".grmpy.yml", ""))
-    grmpy.simulate(file) 
+    grmpy.simulate(file)
 
     return effects
 
@@ -191,7 +190,7 @@ def plot_effects(effects):
     ax.set_xlabel(r"$\rho_{U_1, V}$", fontsize=18)
     ax.tick_params(labelsize=14)
 
-    ax.plot(grid, effects[:, 0], label=r"$ATE$", linewidth=4) 
+    ax.plot(grid, effects[:, 0], label=r"$ATE$", linewidth=4)
     ax.plot(grid, effects[:, 1], label=r"$TT$", linewidth=4)
 
     ax.yaxis.get_major_ticks()[0].set_visible(False)

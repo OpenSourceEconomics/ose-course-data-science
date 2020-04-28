@@ -11,6 +11,8 @@ dependencies:
 - pandas
 - flake8
 - pytest
+- pytest-black 
+- black
 - scipy
 - jupyterlab
 - matplotlib
