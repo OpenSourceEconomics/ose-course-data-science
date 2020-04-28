@@ -146,12 +146,6 @@ The textbooks above provide an impressive amount of data from research articles.
 
 We maintain a list of useful resources around the tooling used in the course [here](https://github.com/HumanCapitalAnalysis/general-resources#scientific-software-development).
 
-#### Software packages
-
-* grmpy (2018). *grmpy: A Python package for the simulation and estimation of the generalized Roy model.* Retrieved from http://doi.org/10.5281/zenodo.1162640
-
-* respy (2018). *respy: A Python package for the simulation and estimation of a prototypical finite-horizon dynamic discrete choice model.* Retrieved from http://doi.org/10.5281/zenodo.1189209
-
 ## Iterations <a name="iterations"></a>
 
 * **Summer Quarter 2020**, Graduate Program at the University of Bonn, please see [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn-ss-20) for details.
