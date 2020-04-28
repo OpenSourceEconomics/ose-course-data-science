@@ -155,7 +155,8 @@ We maintain a list of useful resources around the tooling used in the course [he
 
 ---
 
-<p align="center">
+<p align="left">
 <a href="https://travis-ci.org/HumanCapitalAnalysis/microeconometrics"><img alt="Build Status" src="https://travis-ci.org/HumanCapitalAnalysis/microeconometrics.svg?branch=master"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+<a href="https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
 </p>
