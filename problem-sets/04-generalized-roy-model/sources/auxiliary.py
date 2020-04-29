@@ -1,7 +1,7 @@
 """
 This module contains auxiliary functions for Task B of the grmpy problem set.
 
-Functions beginning with an underscore("_") are internal functions and 
+Functions beginning with an underscore("_") are internal functions and
 are not meant to be run by the user.
 
 The following functions will help you answer the questions in TASK B
@@ -14,43 +14,34 @@ The following functions will help you answer the questions in TASK B
 - plot_estimates
 - plot_joint_distribution_outcomes
 - plot_joint_distribution_unobservables
-
 """
-import linecache
+
 import shlex
-import json
+import linecache
 
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
-import matplotlib.ticker as ticker
-import matplotlib.patches as mpatches
-
-import json
-import shlex
-import linecache
 
 from pylab import rcParams
-from scipy.stats import norm
 from linearmodels.iv import IV2SLS
 
 import grmpy
 
 from grmpy.read.read import read
 from grmpy.test.random_init import print_dict
-from grmpy.estimate.estimate_output import calculate_mte
 from grmpy.simulate.simulate_auxiliary import simulate_unobservables
 
 
-
 def investigate_mte(info_file):
-    """This function reads the info file of a simulated data set
+    """
+    This function reads the info file of a simulated data set
     and plots the corresponding marginal treatment effect (MTE).
 
     The info file is prodcued when running grmpy.simulate(init).
-    It is saved in the same directory where the init file 
+    It is saved in the same directory where the init file
     (required for the simulation) is located.
     If "test.yml" is the relevant init file, the
     corresponding info file will be named "test.info".
@@ -58,7 +49,7 @@ def investigate_mte(info_file):
     Parameters
     ----------
     info_file: info
-        Info file, which is created automatically 
+        Info file, which is created automatically
         when grmpy.simulate() is run.
     """
     ax = plt.figure(figsize=(10, 8)).add_subplot(111)
@@ -89,22 +80,22 @@ def investigate_mte(info_file):
 
 def monte_carlo(file, which, grid_points=10):
     """
-    This function conducts a Monte Carlo simulation to compare 
-    the true and estimated treatment parameters for increasing 
+    This function conducts a Monte Carlo simulation to compare
+    the true and estimated treatment parameters for increasing
     (absolute) correlation between U_1 and V (i.e essential
     heterogeneity).
 
-    In the example here, the correlation between U_1 and V becomes 
-    increasingly more negative. As we consider the absolute value 
-    of the correlation coefficient, values closer to -1 
-    (or in the analogous case closer to +1) 
+    In the example here, the correlation between U_1 and V becomes
+    increasingly more negative. As we consider the absolute value
+    of the correlation coefficient, values closer to -1
+    (or in the analogous case closer to +1)
     denote a higher degree of essential heterogeneity.
 
-    The results of the Monte Carlo simulation can be used 
-    to evaluate the performance of different estimation strategies 
+    The results of the Monte Carlo simulation can be used
+    to evaluate the performance of different estimation strategies
     in the presence of essential heterogeneity.
 
-    Depending on the specification of *which*, either the true ATE 
+    Depending on the specification of *which*, either the true ATE
     and TT, or an estimate of the ATE are returned.
 
     Options for *which*:
@@ -119,8 +110,8 @@ def monte_carlo(file, which, grid_points=10):
         - "grmpy_par" ("grmpy")
         - "grmpy_semipar"("grmpy-liv")
 
-    Post-estimation: To plot the comparison between the true ATE 
-    and the respective parameter, use the function 
+    Post-estimation: To plot the comparison between the true ATE
+    and the respective parameter, use the function
     - plot_effects() for *which* = "conventional_average_effects", and
     - plot_estimates() else.
 
@@ -132,18 +123,17 @@ def monte_carlo(file, which, grid_points=10):
         String denoting whether conventional average effects shall be computed
         or, alternatively, which estimation approach shall be implemented for the ATE.
     grid_points: int, default 10
-        Number of different values for rho, the correlation coefficient 
-        between U_1 and V, on the interval [0, -1), along which the parameters 
+        Number of different values for rho, the correlation coefficient
+        between U_1 and V, on the interval [0, -1), along which the parameters
         shall be evaluated.
 
     Returns
     -------
     effects: list
-        If *which* = "conventional_average_effects", 
+        If *which* = "conventional_average_effects",
             list of lenght *grid_points* x 2 containing the true ATE and TT.
         Else, list of length *grid_points* x 1 containing an estimate
             of the ATE.
-
     """
     # simulate a new data set with essential heterogeneity present
     model_dict = read(file)
@@ -225,7 +215,7 @@ def monte_carlo(file, which, grid_points=10):
     model_dict = read(file)
     model_dict["DIST"]["params"][2] = original_correlation
     print_dict(model_dict, file.replace(".grmpy.yml", ""))
-    grmpy.simulate(file) 
+    grmpy.simulate(file)
 
     return effects
 
@@ -260,8 +250,8 @@ def plot_benefits(data):
 
 def plot_benefits_and_effects(data):
     """
-    This function plots the distribution of benefits and the related 
-    conventional average treatment effects (ATE, TT, TUT) 
+    This function plots the distribution of benefits and the related
+    conventional average treatment effects (ATE, TT, TUT)
     for a data set that has been simulated via grmpy.
 
     Parameters
@@ -306,16 +296,16 @@ def plot_effects(effects):
     This function plots the population ATE along with the TT
     for increasing levels of essential heterogeneity.
 
-    In the example here, the correlation between U_1 and V 
-    becomes increasingly more negative. Note that we consider 
-    the absolute value of the correlation coefficient. 
-    Hence, values closer to -1 (or in the analogous case 
+    In the example here, the correlation between U_1 and V
+    becomes increasingly more negative. Note that we consider
+    the absolute value of the correlation coefficient.
+    Hence, values closer to -1 (or in the analogous case
     closer to +1) denote a higher degree of essential heterogeneity.
 
     Parameters
     ----------
     effects: list
-        List containing values of the population ATE and TT 
+        List containing values of the population ATE and TT
         for increasing (absolute) correlation between U_1 and V.
     """
     effects = np.array(effects)
@@ -330,7 +320,7 @@ def plot_effects(effects):
     ax.set_xlabel(r"$\rho_{U_1, V}$", fontsize=18)
     ax.tick_params(labelsize=14)
 
-    ax.plot(grid, effects[:, 0], label=r"$ATE$", linewidth=4) 
+    ax.plot(grid, effects[:, 0], label=r"$ATE$", linewidth=4)
     ax.plot(grid, effects[:, 1], label=r"$TT$", linewidth=4)
 
     ax.yaxis.get_major_ticks()[0].set_visible(False)
@@ -342,13 +332,13 @@ def plot_effects(effects):
 
 def plot_estimates(true, estimates):
     """
-    This function plots the true ATE parameter along with its 
+    This function plots the true ATE parameter along with its
     estimates for increasing levels of essential heterogeneity.
 
-    In the example here, the correlation between U_1 and V 
-    becomes increasingly more negative. Note that we consider 
-    the absolute value of the correlation coefficient. 
-    Hence, values closer to -1 (or in the analogous case 
+    In the example here, the correlation between U_1 and V
+    becomes increasingly more negative. Note that we consider
+    the absolute value of the correlation coefficient.
+    Hence, values closer to -1 (or in the analogous case
     closer to +1) denote a higher degree of essential heterogeneity.
 
     Parameters
@@ -381,7 +371,8 @@ def plot_estimates(true, estimates):
 
 
 def plot_joint_distribution_outcomes(df):
-    """This function plots the joint distribution of potential outcomes.
+    """
+    This function plots the joint distribution of potential outcomes.
 
     Parameters
     ----------
@@ -394,7 +385,8 @@ def plot_joint_distribution_outcomes(df):
 
 
 def plot_joint_distribution_unobservables(df):
-    """This function plots the joint distribution of the unobservables.
+    """
+    This function plots the joint distribution of the unobservables.
 
     Parameters
     ----------
@@ -413,9 +405,8 @@ def _create_data(file):
 
     In particular, the unobservables, choice, and output are simulated for
     each indiviudal based on the grmpy initialization file.
-    Thereafter, the data is both returned as a pandas.DataFrame 
+    Thereafter, the data is both returned as a pandas.DataFrame
     and saved locally in pickle format.
-
 
     Parameters
     ----------
@@ -425,7 +416,7 @@ def _create_data(file):
     Returns
     -------
     df: pandas.DataFrame
-        DataFrame 
+        DataFrame
     """
     # Read in initialization file and the data set
     init_dict = read(file)
@@ -484,7 +475,7 @@ def _update_correlation_structure(file, model_dict, rho):
     sd_v = model_dict["DIST"]["params"][-1]
     sd_u1 = model_dict["DIST"]["params"][0]
 
-    # Now we construct the implied covariance, which is relevant for the 
+    # Now we construct the implied covariance, which is relevant for the
     # initialization file.
     cov1v = rho * sd_v * sd_u1
 
