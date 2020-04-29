@@ -1,4 +1,20 @@
-"""This module contains auxiliary functions for Task B of the grmpy problem set.
+"""
+This module contains auxiliary functions for Task B of the grmpy problem set.
+
+Functions beginning with an underscore("_") are internal functions and 
+are not meant to be run by the user.
+
+The following functions will help you answer the questions in TASK B
+(sorted alhphabetically):
+- investigate_mte
+- monte_carlo
+- plot_benefits
+- plot_benefits_and_effects
+- plot_effects
+- plot_estimates
+- plot_joint_distribution_outcomes
+- plot_joint_distribution_unobservables
+
 """
 import linecache
 import shlex
@@ -28,68 +44,106 @@ from grmpy.estimate.estimate_output import calculate_mte
 from grmpy.simulate.simulate_auxiliary import simulate_unobservables
 
 
-def plot_benefits(data):
-    """This function plots the distribution of benefits
-    effects.
+
+def investigate_mte(info_file):
+    """This function reads the info file of a simulated data set
+    and plots the corresponding marginal treatment effect (MTE).
+
+    The info file is prodcued when running grmpy.simulate(init).
+    It is saved in the same directory where the init file 
+    (required for the simulation) is located.
+    If "test.yml" is the relevant init file, the
+    corresponding info file will be named "test.info".
+
+    Parameters
+    ----------
+    info_file: info
+        Info file, which is created automatically 
+        when grmpy.simulate() is run.
     """
-    rcParams["figure.figsize"] = 10, 8
+    ax = plt.figure(figsize=(10, 8)).add_subplot(111)
 
-    benefit = data["Y1"] - data["Y0"]
+    ax.set_xlim(0, 1)
+    ax.set_ylabel("$MTE$", fontsize=18)
+    ax.set_xlabel("$u_D$", fontsize=18)
+    ax.tick_params(labelsize=14)
 
-    ay = plt.figure().add_subplot(111)
+    parameter = []
+    linecache.clearcache()
+    for num in range(40, 60):
+        line = linecache.getline(info_file, num)
+        parameter += [float(shlex.split(line)[1])]
 
-    sns.distplot(benefit, kde=True, hist=False)
+    if parameter.count(parameter[0]) == len(parameter):
+        label = "Absence"
+    else:
+        label = "Presence"
 
-    ay.set_xlim(-1.5, 2.5)
-    ay.set_ylim(0.0, None)
-    ay.set_yticks([])
-    ay.tick_params(labelsize=14)
+    grid = np.linspace(0.01, 1, num=20, endpoint=True)
+    ax.plot(grid, parameter, label=label)
 
-    # Rename axes
-    ay.set_ylabel("$f_{Y_1 - Y_0}$", fontsize=18)
-    ay.set_xlabel("$Y_1 - Y_0$", fontsize=18)
+    plt.legend(prop={"size": 18})
 
-
-def plot_benefits_and_effects(data):
-    """This function plots the distribution of benefits and the related conventional
-    effects.
-    """
-    rcParams["figure.figsize"] = 10, 8
-
-    benefit = data["Y1"] - data["Y0"]
-    TT = np.mean(data[data.D == 1]["Y1"] - data[data.D == 1]["Y0"])
-    TUT = np.mean(data[data.D == 0]["Y1"] - data[data.D == 0]["Y0"])
-    ATE = np.mean(benefit)
-    fmt = "ATE: {}\nTT:  {}\nTUT: {} \n"
-    print(fmt.format(ATE, TT, TUT))
-    ay = plt.figure().add_subplot(111)
-
-    sns.distplot(benefit, kde=True, hist=False)
-
-    ay.set_xlim(-1.5, 2.5)
-    ay.set_ylim(0.0, None)
-    ay.set_yticks([])
-    ay.tick_params(labelsize=14)
-
-    # Rename axes
-    ay.set_ylabel("$f_{Y_1 - Y_0}$", fontsize=18)
-    ay.set_xlabel("$Y_1 - Y_0$", fontsize=18)
-
-    for effect in [ATE, TT, TUT]:
-        if effect == ATE:
-            label = "$ATE$"
-        elif effect == TT:
-            label = "$TT$"
-        else:
-            label = "$TUT$"
-        ay.plot([effect, effect], [0, 5], label=label)
-    plt.legend(prop={"size": 15})
+    plt.show()
 
 
 def monte_carlo(file, which, grid_points=10):
-    """This function estimates various effect parameters for
-    increasing presence of essential heterogeneity, which is reflected
-    by increasing correlation between U_1 and V.
+    """
+    This function conducts a Monte Carlo simulation to compare 
+    the true and estimated treatment parameters for increasing 
+    (absolute) correlation between U_1 and V (i.e essential
+    heterogeneity).
+
+    In the example here, the correlation between U_1 and V becomes 
+    increasingly more negative. As we consider the absolute value 
+    of the correlation coefficient, values closer to -1 
+    (or in the analogous case closer to +1) 
+    denote a higher degree of essential heterogeneity.
+
+    The results of the Monte Carlo simulation can be used 
+    to evaluate the performance of different estimation strategies 
+    in the presence of essential heterogeneity.
+
+    Depending on the specification of *which*, either the true ATE 
+    and TT, or an estimate of the ATE are returned.
+
+    Options for *which*:
+
+        Comparison of ATE and TT
+        - "conventional_average_effects"
+
+        Different estimation strategies for ATE
+        - "randomization" ("random")
+        - "ordinary_least_squares" ("ols")
+        - "instrumental_variables" ("iv")
+        - "grmpy_par" ("grmpy")
+        - "grmpy_semipar"("grmpy-liv")
+
+    Post-estimation: To plot the comparison between the true ATE 
+    and the respective parameter, use the function 
+    - plot_effects() for *which* = "conventional_average_effects", and
+    - plot_estimates() else.
+
+    Parameters
+    ----------
+    file: yaml
+        grmpy initialization file, provides information for the simulation process.
+    which: string
+        String denoting whether conventional average effects shall be computed
+        or, alternatively, which estimation approach shall be implemented for the ATE.
+    grid_points: int, default 10
+        Number of different values for rho, the correlation coefficient 
+        between U_1 and V, on the interval [0, -1), along which the parameters 
+        shall be evaluated.
+
+    Returns
+    -------
+    effects: list
+        If *which* = "conventional_average_effects", 
+            list of lenght *grid_points* x 2 containing the true ATE and TT.
+        Else, list of length *grid_points* x 1 containing an estimate
+            of the ATE.
+
     """
     # simulate a new data set with essential heterogeneity present
     model_dict = read(file)
@@ -101,16 +155,16 @@ def monte_carlo(file, which, grid_points=10):
 
     effects = []
 
-    # Loop over different correlations between V and U_1
+    # Loop over different correlations between U_1 and V
     for rho in np.linspace(0.00, -0.99, grid_points):
         # effects["rho"] += [rho]
         # Readjust the initialization file values to add correlation
         model_spec = read(file)
         X = model_spec["TREATED"]["order"]
-        update_correlation_structure(file, model_spec, rho)
+        _update_correlation_structure(file, model_spec, rho)
         sim_spec = read(file)
         # Simulate a Data set and specify exogeneous and endogeneous variables
-        df_mc = create_data(file)
+        df_mc = _create_data(file)
         treated = df_mc["D"] == 1
         Xvar = df_mc[X]
         instr = sim_spec["CHOICE"]["order"]
@@ -124,7 +178,7 @@ def monte_carlo(file, which, grid_points=10):
             TT = np.mean(df_mc["Y1"].loc[treated] - df_mc["Y0"].loc[treated])
             stat = (ATE, TT)
 
-        elif label in ["random", "randomization"]:
+        elif label in ["randomization", "random"]:
             random = np.mean(df_mc[df_mc.D == 1]["Y"]) - np.mean(
                 df_mc[df_mc.D == 0]["Y"]
             )
@@ -171,13 +225,99 @@ def monte_carlo(file, which, grid_points=10):
     model_dict = read(file)
     model_dict["DIST"]["params"][2] = original_correlation
     print_dict(model_dict, file.replace(".grmpy.yml", ""))
-    grmpy.simulate(file)
+    grmpy.simulate(file) 
 
     return effects
 
 
+def plot_benefits(data):
+    """
+    This function plots the distribution of benefits for a data set
+    that has been simulated via grmpy.
+
+    Parameters
+    ----------
+    data: pandas.DataFrame
+        Output of grmpy.simulate().
+    """
+    rcParams["figure.figsize"] = 10, 8
+
+    benefit = data["Y1"] - data["Y0"]
+
+    ay = plt.figure().add_subplot(111)
+
+    sns.distplot(benefit, kde=True, hist=False)
+
+    ay.set_xlim(-1.5, 2.5)
+    ay.set_ylim(0.0, None)
+    ay.set_yticks([])
+    ay.tick_params(labelsize=14)
+
+    # Rename axes
+    ay.set_ylabel("$f_{Y_1 - Y_0}$", fontsize=18)
+    ay.set_xlabel("$Y_1 - Y_0$", fontsize=18)
+
+
+def plot_benefits_and_effects(data):
+    """
+    This function plots the distribution of benefits and the related 
+    conventional average treatment effects (ATE, TT, TUT) 
+    for a data set that has been simulated via grmpy.
+
+    Parameters
+    ----------
+    data: pandas.DataFrame
+        Output of grmpy.simulate().
+    """
+    rcParams["figure.figsize"] = 10, 8
+
+    benefit = data["Y1"] - data["Y0"]
+    TT = np.mean(data[data.D == 1]["Y1"] - data[data.D == 1]["Y0"])
+    TUT = np.mean(data[data.D == 0]["Y1"] - data[data.D == 0]["Y0"])
+    ATE = np.mean(benefit)
+    fmt = "ATE: {}\nTT:  {}\nTUT: {} \n"
+    print(fmt.format(ATE, TT, TUT))
+    ay = plt.figure().add_subplot(111)
+
+    sns.distplot(benefit, kde=True, hist=False)
+
+    ay.set_xlim(-1.5, 2.5)
+    ay.set_ylim(0.0, None)
+    ay.set_yticks([])
+    ay.tick_params(labelsize=14)
+
+    # Rename axes
+    ay.set_ylabel("$f_{Y_1 - Y_0}$", fontsize=18)
+    ay.set_xlabel("$Y_1 - Y_0$", fontsize=18)
+
+    for effect in [ATE, TT, TUT]:
+        if effect == ATE:
+            label = "$ATE$"
+        elif effect == TT:
+            label = "$TT$"
+        else:
+            label = "$TUT$"
+        ay.plot([effect, effect], [0, 5], label=label)
+    plt.legend(prop={"size": 15})
+
+
 def plot_effects(effects):
-    """This function plots the effects of treatment."""
+    """
+    This function plots the population ATE along with the TT
+    for increasing levels of essential heterogeneity.
+
+    In the example here, the correlation between U_1 and V 
+    becomes increasingly more negative. Note that we consider 
+    the absolute value of the correlation coefficient. 
+    Hence, values closer to -1 (or in the analogous case 
+    closer to +1) denote a higher degree of essential heterogeneity.
+
+    Parameters
+    ----------
+    effects: list
+        List containing values of the population ATE and TT 
+        for increasing (absolute) correlation between U_1 and V.
+    """
     effects = np.array(effects)
 
     ax = plt.figure(figsize=(10, 8)).add_subplot(111)
@@ -190,7 +330,7 @@ def plot_effects(effects):
     ax.set_xlabel(r"$\rho_{U_1, V}$", fontsize=18)
     ax.tick_params(labelsize=14)
 
-    ax.plot(grid, effects[:, 0], label=r"$ATE$", linewidth=4)
+    ax.plot(grid, effects[:, 0], label=r"$ATE$", linewidth=4) 
     ax.plot(grid, effects[:, 1], label=r"$TT$", linewidth=4)
 
     ax.yaxis.get_major_ticks()[0].set_visible(False)
@@ -201,8 +341,24 @@ def plot_effects(effects):
 
 
 def plot_estimates(true, estimates):
-    """This function plots the estimates of the ATE along with its
-    true parameter for increasing levels of essential heterogeneity."""
+    """
+    This function plots the true ATE parameter along with its 
+    estimates for increasing levels of essential heterogeneity.
+
+    In the example here, the correlation between U_1 and V 
+    becomes increasingly more negative. Note that we consider 
+    the absolute value of the correlation coefficient. 
+    Hence, values closer to -1 (or in the analogous case 
+    closer to +1) denote a higher degree of essential heterogeneity.
+
+    Parameters
+    ----------
+    true: float
+        The true population parameter of the ATE.
+    estimates: list
+        List containing estimates of the ATE for increasing
+        (absolute) correlation between U_1 and V.
+    """
     ax = plt.figure(figsize=(10, 8)).add_subplot(111)
 
     grid = np.linspace(0.0, 0.99, len(estimates))
@@ -224,9 +380,52 @@ def plot_estimates(true, estimates):
     plt.show()
 
 
-def create_data(file):
-    """This function creates a data set based for the monte carlo simulation
-    setup.
+def plot_joint_distribution_outcomes(df):
+    """This function plots the joint distribution of potential outcomes.
+
+    Parameters
+    ----------
+    df: pandas.DataFrame
+        Output of grmpy.simulate().
+    """
+    sns.jointplot(df["Y1"], df["Y0"], stat_func=None).set_axis_labels(
+        "$Y_1$", r"$Y_0$", fontsize=18
+    )
+
+
+def plot_joint_distribution_unobservables(df):
+    """This function plots the joint distribution of the unobservables.
+
+    Parameters
+    ----------
+    df: pandas.DataFrame
+        Output of grmpy.simulate().
+    """
+    g = sns.jointplot(df["V"], df["U1"], stat_func=None).set_axis_labels(
+        "$V$", "$U_1$", fontsize=18
+    )
+    g.fig.subplots_adjust(top=0.9)
+
+
+def _create_data(file):
+    """
+    This function creates the data set used in the Monte Carlo simulation.
+
+    In particular, the unobservables, choice, and output are simulated for
+    each indiviudal based on the grmpy initialization file.
+    Thereafter, the data is both returned as a pandas.DataFrame 
+    and saved locally in pickle format.
+
+
+    Parameters
+    ----------
+    file: yaml
+        grmpy initialization file.
+
+    Returns
+    -------
+    df: pandas.DataFrame
+        DataFrame 
     """
     # Read in initialization file and the data set
     init_dict = read(file)
@@ -263,122 +462,34 @@ def create_data(file):
     return df
 
 
-def update_correlation_structure(file, model_dict, rho):
-    """This function takes a valid model specification and updates the correlation
-    structure among the unobservables."""
+def _update_correlation_structure(file, model_dict, rho):
+    """
+    This function takes a valid model specification and updates the correlation
+    structure among the unobservables.
 
+    The information is saved to a new init file replacing the input file.
+
+    Parameters
+    ----------
+    file: yaml
+        grmpy initialization file.
+    model_dict: dict
+        grmpy initialization dictionary, the output of grmpy.read()
+    rho: float
+        The correlation coefficient between U_1 and V, which
+        takes values between [0, -1). Values closer to -1 denote a larger
+        degree of essential heterogeneity in the sample.
+    """
     # We first extract the baseline information from the model dictionary.
     sd_v = model_dict["DIST"]["params"][-1]
     sd_u1 = model_dict["DIST"]["params"][0]
 
-    # Now we construct the implied covariance, which is relevant for the initialization
-    # file.
+    # Now we construct the implied covariance, which is relevant for the 
+    # initialization file.
     cov1v = rho * sd_v * sd_u1
 
     model_dict["DIST"]["params"][2] = cov1v
 
-    # We print out the specification to an initialization file with the name
-    # mc_init.grmpy.ini.
+    # We print the specification of the covariance to a new init file,
+    # which has the same name as the input file and replaces the original one.
     print_dict(model_dict, file.replace(".grmpy.yml", ""))
-
-
-def get_effect_grmpy(file):
-    """This function simply returns the ATE of the data set."""
-    dict_ = read(file)
-    df = pd.read_pickle(dict_["SIMULATION"]["source"] + ".grmpy.pkl")
-    beta_diff = dict_["TREATED"]["params"] - dict_["UNTREATED"]["params"]
-    covars = dict_["TREATED"]["order"]
-    ATE = np.dot(np.mean(df[covars]), beta_diff)
-
-    return ATE
-
-
-def create_plots(effects, true):
-    """The function creates the figures that illustrates the behavior of each estimator
-    of the ATE when the correlation structure changes from 0 to 1."""
-
-    grid = np.linspace(0.00, 0.99, len(effects["ols"]))
-
-    # Plot all graphs in one plot
-    ax2 = plt.figure(figsize=(17.5, 10)).add_subplot(111)
-    ax2.set_xlim([-0.005, 1.005])
-    ax2.set_ylim(0.375, 0.575)
-    ax2.tick_params(axis="both", which="major", labelsize=18)
-    ax2.yaxis.set_major_locator(ticker.MultipleLocator(0.05))
-    ax2.set_ylabel(r"$ATE$", fontsize=20)
-    ax2.set_xlabel(r"$\rho_{U_1, V}$", fontsize=20)
-    ax2.plot(grid, true, label="True", color="blue", linewidth=3.0)
-    ax2.plot(grid, effects["grmpy"], label="grmpy", color="orange", linewidth=3.0)
-    ax2.plot(
-        grid, effects["random"], label="Naive comparison", color="green", linewidth=3.0
-    )
-    ax2.plot(
-        grid, effects["iv"], label="Instrumental variables", color="red", linewidth=3.0
-    )
-    ax2.plot(
-        grid,
-        effects["ols"],
-        label="Ordinary Least Squares",
-        color="purple",
-        linewidth=3.0,
-    )
-    plt.rc("xtick", labelsize=18)
-    plt.rc("ytick", labelsize=18)
-
-    blue_patch = mpatches.Patch(color="blue", label="True")
-    orange_patch = mpatches.Patch(color="orange", label="grmpy")
-    green_patch = mpatches.Patch(color="green", label="Naive comparison")
-    red_patch = mpatches.Patch(color="red", label="Instrumental Variables")
-    purple_patch = mpatches.Patch(color="purple", label="Ordinary Least Squares")
-
-    plt.legend(
-        handles=[blue_patch, orange_patch, green_patch, red_patch, purple_patch],
-        prop={"size": 13},
-    )
-
-    plt.show()
-
-
-def plot_joint_distribution_unobservables(df):
-    """This function plots the joint distribution of the relevant unobservables."""
-    g = sns.jointplot(df["V"], df["U1"], stat_func=None).set_axis_labels(
-        "$V$", "$U_1$", fontsize=18
-    )
-    g.fig.subplots_adjust(top=0.9)
-
-
-def investigate_mte(info_file):
-    """This function reads the info file of a simulated data set
-    and plots the corresponding marginal treatment effect (MTE).
-    """
-    ax = plt.figure(figsize=(10, 8)).add_subplot(111)
-
-    ax.set_xlim(0, 1)
-    ax.set_ylabel("$MTE$", fontsize=18)
-    ax.set_xlabel("$u_D$", fontsize=18)
-    ax.tick_params(labelsize=14)
-
-    parameter = []
-    linecache.clearcache()
-    for num in range(40, 60):
-        line = linecache.getline(info_file, num)
-        parameter += [float(shlex.split(line)[1])]
-
-    if parameter.count(parameter[0]) == len(parameter):
-        label = "Absence"
-    else:
-        label = "Presence"
-
-    grid = np.linspace(0.01, 1, num=20, endpoint=True)
-    ax.plot(grid, parameter, label=label)
-
-    plt.legend(prop={"size": 18})
-
-    plt.show()
-
-
-def plot_joint_distribution_outcomes(df):
-    """This function plots the joint distribution of potential outcomes."""
-    sns.jointplot(df["Y1"], df["Y0"], stat_func=None).set_axis_labels(
-        "$Y_1$", r"$Y_0$", fontsize=18
-    )

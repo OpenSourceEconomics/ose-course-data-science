@@ -23,7 +23,7 @@ Suppose we want to estimate the effect of post-secondary education on income. We
    \item Open the initialization file \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/sources/education.grmpy.yml}{\texttt{education.grmpy.yml}} and put the name of the cleaned data set you just saved in the blank after \texttt{["ESTIMATION"]["file"]:} (Hint: You do not need to do this in your Jupyter Notebook. You can use a simple Text Editor, such as \texttt{Sublime}, instead).
    
    \item You are now ready to estimate the marginal treatment effect of college attendance! \texttt{grmpy} offers two ways to do so. First, a parametric normal model. And second, the semiparametric method of \emph{local instrumental variables} (LIV) \citep{Heckman.2006d}.
-   Using both models, estimate the MTE and plot it, while choosing different colors for the parametric and semiparametric plots, respectively. Note that for the semparametric model, the number of bootstrap iterations need to be specified when plotting the MTE. Choose a suitable number.
+   Using both models, estimate the MTE and plot it, while choosing different colors for the parametric and semiparametric plots, respectively. Note that for the semparametric model, the number of bootstrap iterations needs to be specified when plotting the MTE. Choose a suitable number.
 
 \end{boenumerate}
 
@@ -55,7 +55,7 @@ Suppose we want to estimate the effect of post-secondary education on income. We
   
   \item Investigate the shape of the MTE with and without essential heterogeneity. \emph{What does this imply for our toy model of the monetary effect of college attendance? Which individuals are more inclined to select into college?}
   
-  \item Let us now begin with our Monte Carlo exploration! Simulate a new sample based on \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/sources/mc.grmpy.yml}{\texttt{mc.grmpy.yml}}. Note that the correlation between $U_1$ and $V$ (\texttt{["DIST"]["params"][2]}) is still zero, i.e. no essential heterogeneity is present so far. \emph{But how do the ATE and TT diverge when the correlation between $U_1$ and $V$ is gradually increased?}
+  \item Let us now begin with our Monte Carlo exploration! Simulate a new sample based on \href{https://github.com/HumanCapitalAnalysis/microeconometrics/blob/prset_grmpy/problem-sets/04-generalized-roy-model/sources/mc.grmpy.yml}{\texttt{mc.grmpy.yml}}. Note that the correlation between $U_1$ and $V$ (\texttt{["DIST"]["params"][2]}) is still zero, i.e. no essential heterogeneity is present so far. \emph{But how do the ATE and TT diverge when the (absolute) correlation between $U_1$ and $V$ is gradually increased?} Note that we consider the absolute value of the correlation coefficient. In the example here, the correlation becomes actually more negative.
   
   \item For three different estimation methods (assumption of random assignment, Ordinary Least Squares, \href{https://bashtage.github.io/linearmodels/doc/iv/introduction.html}{\texttt{Instrumental Variables}}) do the following:
   \begin{enumerate}
