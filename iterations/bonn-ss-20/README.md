@@ -56,7 +56,7 @@ We collect a set up of questions here as well:
 
 * **When do I need to sign up for the project?**
 
-  * You need to register with the examination office between the 28th of April and 4th of March.
+  * You need to register with the examination office between the 28th of April and 4th of May.
 
 
 * **How can I initialize the repository for my student project?**
