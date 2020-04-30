@@ -25,6 +25,8 @@ This course introduces students to basic microeconmetric methods. The objective 
 
 ### Directed graphs
 
+* Pearl, J. and Mackenzie, D. (2018) [The Book of Why: The New Science of Cause and Effect](https://www.basicbooks.com/titles/judea-pearl/the-book-of-why/9780465097609/). New York, US: Basic Books.
+
 * Pearl, J. (2014). [*Causality*](https://www.cambridge.org/core/books/causality/B0046844FAE10CBF274D4ACBDAEB5F5B). Cambridge, England: Cambridge University Press.
 
 * Peters, J., Janzig, D., and Schölkopf, B. (2018) [Elements of causal inference: Foundations and learning algorithms](https://mitpress.mit.edu/books/elements-causal-inference). Cambridge, MA: The MIT Press.
