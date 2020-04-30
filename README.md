@@ -23,11 +23,13 @@ This course introduces students to basic microeconmetric methods. The objective 
 
 *  Imbens G. W., and Rubin D. B. (2015). [*Causal inference for statistics, social, and biomedical sciences: An introduction*](https://www.cambridge.org/core/books/causal-inference-for-statistics-social-and-biomedical-sciences/71126BE90C58F1A431FE9B2DD07938AB). Cambridge, England: Cambridge University Press.
 
+* Rosenbaum, P. R. (2017). [*Observation and experiment : An introduction to causal inference*](https://www.hup.harvard.edu/catalog.php?isbn=9780674975576). Cambridge, MA: Harvard University Press.
+
 ### Directed graphs
 
-* Pearl, J. and Mackenzie, D. (2018). [*The book of why: The new science of cause and effect*](https://www.basicbooks.com/titles/judea-pearl/the-book-of-why/9780465097609/). New York, NY: Basic Books.
-
 * Pearl, J. (2014). [*Causality*](https://www.cambridge.org/core/books/causality/B0046844FAE10CBF274D4ACBDAEB5F5B). Cambridge, England: Cambridge University Press.
+
+* Pearl, J. and Mackenzie, D. (2018). [*The book of why: The new science of cause and effect*](https://www.basicbooks.com/titles/judea-pearl/the-book-of-why/9780465097609/). New York, NY: Basic Books.
 
 * Peters, J., Janzig, D., and Schölkopf, B. (2018). [*Elements of causal inference: Foundations and learning algorithms*](https://mitpress.mit.edu/books/elements-causal-inference). Cambridge, MA: The MIT Press.
 
