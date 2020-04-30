@@ -2,9 +2,9 @@ We start on April 21st 2020 and meet on Tuesdays (14:15-15:45pm) and Wednesdays 
 
 **Lecturer** [Philipp Eisenhauer](https://peisenha.github.io)
 
-We will conduct all course communications using [Zulip](https://zulip.com/), so please be sure to join us there. Simply clicking the button below will take you to the proper channels. There I also post the link to the online lectures using [ZOOM](https://zoom.us/).
+We will conduct all course communications using the bonn-econ-teaching [Zulip](https://zulip.com/) chat, so please be sure to join us there. To join the Zulip organization, please click on the button below. By default, you will already be subscribed to Q&A and tech support streams (=chatrooms). You need to **manually subscribe to the microeconometrics stream** to receive all the messages for this course. There I also post the link to the online lectures using [ZOOM](https://zoom.us/). Find out how to join a stream on Zulip [here](https://bonn-econ-teaching.zulipchat.com).
 
-[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://hca.zulipchat.com/)
+[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://bonn-econ-teaching.zulipchat.com)
 
 ## Course overview
 
