@@ -19,17 +19,17 @@ This course introduces students to basic microeconmetric methods. The objective 
 
 ### Potential outcome model
 
-*  Heckman, J. J., and Vytlacil, E. J. (2007a). [Econometric evaluation of social programs, part I: Causal effects, structural models and econometric policy evaluation.](https://www.sciencedirect.com/science/article/pii/S1573441207060709) In J. J. Heckman, and E. E. Leamer (Eds.), *Handbook of Econometrics* (Vol. 6B, pp. 4779–4874). Amsterdam, Netherlands: Elsevier Science.
+*  Heckman, J. J., and Vytlacil, E. J. (2007a). [*Econometric evaluation of social programs, part I: Causal effects, structural models and econometric policy evaluation*](https://www.sciencedirect.com/science/article/pii/S1573441207060709) In J. J. Heckman, and E. E. Leamer (Eds.), *Handbook of Econometrics* (Vol. 6B, pp. 4779–4874). Amsterdam, Netherlands: Elsevier Science.
 
-*  Imbens G. W., and Rubin D. B. (2015). [Causal inference for statistics, social, and biomedical sciences: An introduction.](https://www.cambridge.org/core/books/causal-inference-for-statistics-social-and-biomedical-sciences/71126BE90C58F1A431FE9B2DD07938AB). Cambridge, England: Cambridge University Press.
+*  Imbens G. W., and Rubin D. B. (2015). [*Causal inference for statistics, social, and biomedical sciences: An introduction*](https://www.cambridge.org/core/books/causal-inference-for-statistics-social-and-biomedical-sciences/71126BE90C58F1A431FE9B2DD07938AB). Cambridge, England: Cambridge University Press.
 
 ### Directed graphs
 
-* Pearl, J. and Mackenzie, D. (2018) [The Book of Why: The New Science of Cause and Effect](https://www.basicbooks.com/titles/judea-pearl/the-book-of-why/9780465097609/). New York, US: Basic Books.
+* Pearl, J. and Mackenzie, D. (2018). [*The book of why: The new science of cause and effect*](https://www.basicbooks.com/titles/judea-pearl/the-book-of-why/9780465097609/). New York, NY: Basic Books.
 
 * Pearl, J. (2014). [*Causality*](https://www.cambridge.org/core/books/causality/B0046844FAE10CBF274D4ACBDAEB5F5B). Cambridge, England: Cambridge University Press.
 
-* Peters, J., Janzig, D., and Schölkopf, B. (2018) [Elements of causal inference: Foundations and learning algorithms](https://mitpress.mit.edu/books/elements-causal-inference). Cambridge, MA: The MIT Press.
+* Peters, J., Janzig, D., and Schölkopf, B. (2018). [*Elements of causal inference: Foundations and learning algorithms*](https://mitpress.mit.edu/books/elements-causal-inference). Cambridge, MA: The MIT Press.
 
 Please use the table of content to navigate the rest of the material.
 
