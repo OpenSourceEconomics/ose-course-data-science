@@ -27,7 +27,9 @@ dependencies:
 - r-icc
 - libiconv 
 - rpy2
+- xlrd
 - simplegeneric
 - nb_black
+- nbdime
 - pip:
     - linearmodels
