@@ -39,8 +39,8 @@ def get_lalonde_data():
     df = df[["treat", "re78"]].sample(frac=1)
 
     df["Y"] = df["re78"]
-    df["Y_0"] = df.loc[df["treat"] == 0, "re78"]
-    df["Y_1"] = df.loc[df["treat"] == 1, "re78"]
+    df["Y_0"] = df.query("treat == 0")["re78"]
+    df["Y_1"] = df.query("treat == 1")["re78"]
 
     df["D"] = 0
     df.loc[df["treat"] == 1, "D"] = 1
