@@ -5,8 +5,8 @@ def plot_conditional_distribution(df):
 
     fig, (ax1, ax2) = plt.subplots(1, 2)
     fig.suptitle("Conditional distribution")
-    ax1.hist(df[df["D"] == 1]["Y"], density=True)
-    ax2.hist(df[df["D"] == 0]["Y"], density=True)
+    ax1.hist(df.query("D == 1")["Y"], density=True)
+    ax2.hist(df.query("D == 0")["Y"], density=True)
 
     ax1.set_xlabel("$Y | D = 1$")
     ax2.set_xlabel("$Y | D = 0$")
