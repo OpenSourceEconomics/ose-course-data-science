@@ -15,7 +15,7 @@ install:
 script:
   - source .envrc
   - travis_wait run-project
-  - py.test --black
+  - py.test
 
 notifications:
   email:
