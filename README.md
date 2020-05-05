@@ -140,7 +140,7 @@ We provide some additional resources that are useful for our course work in gene
 
 * Angrist, J. D., & Pischke, J. (2014). [*Mastering 'metrics*](http://masteringmetrics.com). Princeton, NJ: Princeton University Press.
 
-* Stock, J.H., & Watson, M.W. (2019). [*Introduction to econometrics*](https://www.pearson.com/us/higher-education/program/Stock-Introduction-to-Econometrics-Plus-My-Lab-Economics-with-Pearson-e-Text-Access-Card-Package-4th-Edition/PGM2416966.html). New York, NY: Pearson.
+* Stock, J. H., & Watson, M. W. (2019). [*Introduction to econometrics*](https://www.pearson.com/us/higher-education/program/Stock-Introduction-to-Econometrics-Plus-My-Lab-Economics-with-Pearson-e-Text-Access-Card-Package-4th-Edition/PGM2416966.html). New York, NY: Pearson.
 
 #### Datasets
 
