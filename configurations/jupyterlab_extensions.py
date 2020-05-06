@@ -1,5 +1,3 @@
-
-
 import subprocess as sp
 
 extensions = ["@ijmbarr/jupyterlab_spellchecker", "@jupyterlab/toc"]
