@@ -31,7 +31,7 @@ This course introduces students to basic microeconmetric methods. The objective 
 
 * Pearl, J. and Mackenzie, D. (2018). [*The book of why: The new science of cause and effect*](https://www.basicbooks.com/titles/judea-pearl/the-book-of-why/9780465097609/). New York, NY: Basic Books.
 
-* Peters, J., Janzig, D., and Schölkopf, B. (2018). [*Elements of causal inference: Foundations and learning algorithms*](https://mitpress.mit.edu/books/elements-causal-inference). Cambridge, MA: The MIT Press.
+* Pearl J., Glymour M. and Jewell N. P. (2016). [*Causal inference in statistics: A primer*](https://www.wiley.com/en-us/Causal+Inference+in+Statistics%3A+A+Primer-p-9781119186847). Chichester, UK: Wiley.
 
 Please use the table of content to navigate the rest of the material.
 
