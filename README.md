@@ -29,9 +29,9 @@ This course introduces students to basic microeconmetric methods. The objective 
 
 * Pearl, J. (2014). [*Causality*](https://www.cambridge.org/core/books/causality/B0046844FAE10CBF274D4ACBDAEB5F5B). Cambridge, England: Cambridge University Press.
 
-* Pearl, J. and Mackenzie, D. (2018). [*The book of why: The new science of cause and effect*](https://www.basicbooks.com/titles/judea-pearl/the-book-of-why/9780465097609/). New York, NY: Basic Books.
+* Pearl, J., and Mackenzie, D. (2018). [*The book of why: The new science of cause and effect*](https://www.basicbooks.com/titles/judea-pearl/the-book-of-why/9780465097609/). New York, NY: Basic Books.
 
-* Pearl J., Glymour M. and Jewell N. P. (2016). [*Causal inference in statistics: A primer*](https://www.wiley.com/en-us/Causal+Inference+in+Statistics%3A+A+Primer-p-9781119186847). Chichester, UK: Wiley.
+* Pearl J., Glymour M., and Jewell N. P. (2016). [*Causal inference in statistics: A primer*](https://www.wiley.com/en-us/Causal+Inference+in+Statistics%3A+A+Primer-p-9781119186847). Chichester, UK: Wiley.
 
 Please use the table of content to navigate the rest of the material.
 
