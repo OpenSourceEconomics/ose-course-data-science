@@ -221,7 +221,7 @@ def get_common_support(df, label="d"):
 
 
 def get_lalonde_data():
-    df = pd.read_csv("../../datasets/processed/angrist_pischke/nswre74.csv")
+    df = pd.read_csv("../../datasets/processed/dehejia_waba/nsw_lalonde.csv")
 
     df["Y"] = df["re78"]
     df["Y_0"] = df.loc[df["treat"] == 0, "re78"]
