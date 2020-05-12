@@ -33,5 +33,7 @@ dependencies:
 - nb_black
 - nbdime
 - pip:
+    - black-nb
+    - flake8-nb
     - linearmodels
     - openpyxl
