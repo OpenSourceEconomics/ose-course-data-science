@@ -13,7 +13,7 @@ def plot_individual_specific_effects(with_parameters=None):
     pdf = ss.norm.pdf(x, 0, 1)
     ax.plot(x, pdf)
 
-    ax.set_xlabel("$\delta$")
+    ax.set_xlabel(r"$\delta$")
     ax.set_ylabel("Density")
     ax.set_xticklabels(["", "", "", 0.5, "", "", ""])
     ax.set_xlim([-3, 3])

@@ -1,6 +1,5 @@
 from collections import OrderedDict
 
-from mpl_toolkits.mplot3d import Axes3D
 import statsmodels.formula.api as smf
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -9,14 +8,14 @@ import numpy as np
 
 def get_potential_outcomes(a, b):
     """ Get potential outcomes.
-    
-    This function calculates the potential outcomes based on the 
-    functional from as described in our textbook on p. 153.
-    
+
+    This function calculates the potential outcomes based on the functional from as described in
+    our textbook on p. 153.
+
     Args:
         a: a float
         b: a float
-    
+
     Returns:
         A list with the individuals potential outcomes.
     """
@@ -73,14 +72,14 @@ def get_sample_matching_demonstration_3(a_grid, b_grid):
 
 def get_propensity_score(a, b):
     """ Get probensity score.
-    
-    This function calculates the propensity based on the
-    functional form as described in our textbook on p. 153.
-    
+
+    This function calculates the propensity based on the functional form as described in our
+    textbook on p. 153.
+
     Args:
         a: a float
         b: a float
-    
+
     Returns:
         A float with the individuals propensity score.
     """
@@ -101,7 +100,6 @@ def plot_propensity_score(a_grid, b_grid):
     X, Y = np.meshgrid(*(a_grid, b_grid))
     Z = get_propensity_score(X, Y)
 
-    fig = plt.figure()
     ax = plt.axes(projection="3d")
     ax.contour3D(X, Y, Z, 500)
     ax.set_xlabel("a")
@@ -164,11 +162,7 @@ def get_sample_matching_demonstration_2(num_agents):
 def get_sample_matching_demonstration_4():
     # This allows to run it locally but also check out the files from an online
     # repository.
-    try:
-        df = pd.read_csv("../../datasets/processed/morgan_winship/mw_cath1.csv")
-    except:
-        url = "https://raw.githubusercontent.com/HumanCapitalAnalysis/microeconometrics/master/datasets/processed/morgan_winship/mw_cath1.csv"
-        df = pd.read_csv(url)
+    df = pd.read_csv("../../datasets/processed/morgan_winship/mw_cath1.csv")
     return df
 
 
@@ -213,8 +207,6 @@ def get_sparsity_pattern_by_treatment(counts):
 
 
 def get_common_support(df, label="d"):
-
-    prob = df["p"]
 
     prob_untreated = df["p"][df[label] == 0]
     prob_treated = df["p"][df[label] == 1]

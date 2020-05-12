@@ -12,6 +12,7 @@ dependencies:
 - flake8
 - pytest
 - pytest-black 
+- pytest-flake8
 - black
 - scipy
 - jupyterlab
