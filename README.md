@@ -100,7 +100,7 @@ We review the basic ideas behind the generalized method of moments (GMM) and imp
 
 We will work on several problem sets throughout the course.
 
-#### [Potential outcome model](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/01-potential-outcome-model/problem-set-01-potential-outcome-model.pdf)
+#### [Potential outcome model](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/01-potential-outcome-model/problem-set-01-potential-outcome-model.ipynb)
 
 We explore the potential outcome model using observed and simulated data inspired by the [National Health Interview Survey](https://www.cdc.gov/nchs/nhis/index.htm). The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/01-potential-outcome-model/data).
 

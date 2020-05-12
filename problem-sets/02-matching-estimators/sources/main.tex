@@ -8,7 +8,7 @@
 
 In this problem set we are going to compare the consistency of regression and matching estimators of causal effects based on \cite{Dehejia.1999}. For that we employ the experimental study from \cite{LaLonde.1986}, which provides an opportunity to estimate true treatment effects. We then use these results to evaluate the performance of (treatment effect) estimators one can usuallly obtain in observational studies. \\
 \\
-\cite{LaLonde.1986}) implements the data from the National Supported Work program (NSW) -- temporary employment program designed to help disadvantaged workers lacking basic job skills move into the labor market by giving them work experience and counseling in sheltered environment. Unlike other federally sponsored employment programs, the NSW program assigned qualified applications randomly. Those assigned to the treatment group received all the benefits of the NSW program, while those assigned to the control group were left to fend for themselves.\\
+\cite{LaLonde.1986} implements the data from the National Supported Work program (NSW) -- temporary employment program designed to help disadvantaged workers lacking basic job skills move into the labor market by giving them work experience and counseling in sheltered environment. Unlike other federally sponsored employment programs, the NSW program assigned qualified applications randomly. Those assigned to the treatment group received all the benefits of the NSW program, while those assigned to the control group were left to fend for themselves.\\
 \\
 To produce the observational study, we select the sample from \href{https://www.census.gov/programs-surveys/cps.html}{\texttt{the Current Population Survey (CPS)}} as the comparison group and merge it with the treatment group.
 We do this to obtain a data set which resembles the data which is commonly used in scientific practice.
@@ -16,7 +16,7 @@ The two data sets are explained below.
 
 \begin{enumerate}
  
-\item \href{https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data}{\texttt{nsw$\_$full.csv}} is field-experiment data from the NSW.  It contains variables as education, age, ethnicity, marital status, preintervention (1974, 1975) and postintervention (1978) earnings of the eligible male applicants.  
+\item \href{https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data}{\texttt{nsw$\_$dehejia.csv}} is field-experiment data from the NSW.  It contains variables as education, age, ethnicity, marital status, preintervention (1975) and postintervention (1978) earnings of the eligible male applicants. \cite{Dehejia.1999} also transform the \cite{LaLonde.1986} data set to have observations on preintervention 1974 earnings; motivation is explained in their paper.
 
 \item \href{https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data}{\texttt{cps.csv}} is a non-experimental sample from the CPS which selects all males under age 55 and contains the same range of variables.
 
