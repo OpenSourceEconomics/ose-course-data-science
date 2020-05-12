@@ -18,9 +18,8 @@ script:
   - py.test
 
   # We want to enforce a proper formatting of the notebooks.
-  # TODO: Also add black-nb
-  - cd lectures/05-matching-estimators; flake8-nb; [ $? -eq 0 ] || exit 1; cd $PROJECT_ROOT
-  - cd lectures/06-regression-estimators; flake8-nb; [ $? -eq 0 ] || exit 1; cd $PROJECT_ROOT
+  - cd flake8-nb; [ $? -eq 0 ] || exit 1; cd $PROJECT_ROOT
+  - cd black-nb; [ $? -eq 0 ] || exit 1; cd $PROJECT_ROOT
 
   # We also want to run selected scripts
   - cd problem-sets/01-potential-outcome-model/data; python data-generation.py
