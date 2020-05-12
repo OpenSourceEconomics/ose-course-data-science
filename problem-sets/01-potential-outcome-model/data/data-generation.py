@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import scipy.stats
 
+np.random.seed(123)
+
 # clean the initial data set
 df = pd.read_csv(
     "ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHIS/2018/personsxcsv.zip"
