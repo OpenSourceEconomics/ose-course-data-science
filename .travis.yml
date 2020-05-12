@@ -18,8 +18,7 @@ script:
   - py.test
 
   # We also want to run selected scripts
-  cd problem-sets/01-potential-outcome-model/data
-  python data-generation.py
+  - cd problem-sets/01-potential-outcome-model/data; python data-generation.py
 
 notifications:
   email:
