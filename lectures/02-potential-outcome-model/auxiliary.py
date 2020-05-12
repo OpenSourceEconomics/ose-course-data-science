@@ -35,7 +35,7 @@ def plot_individual_specific_effects(with_parameters=None):
 
 def get_lalonde_data():
 
-    df = pd.read_csv("../../datasets/processed/msc/nsw_full.csv")
+    df = pd.read_csv("../../datasets/processed/dehejia_waba/nsw_lalonde.csv")
     df = df[["treat", "re78"]].sample(frac=1)
 
     df["Y"] = df["re78"]
