@@ -196,7 +196,6 @@ def monte_carlo(file, which, grid_points=10):
             mte_x_ = y1_fitted - y0_fitted
             mte_u = rslt["mte_u"]
 
-            us = np.linspace(0.005, 0.995, len(rslt["quantiles"]))
             mte_mat = np.zeros((len(mte_x_), len(mte_u)))
 
             for i in range(len(mte_x_)):

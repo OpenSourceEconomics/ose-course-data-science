@@ -11,13 +11,17 @@ install:
   - ./utils/travis_miniconda.sh
   - PATH="$HOME/miniconda/bin:$PATH"
   - conda env create -f environment.yml
-  
+
 script:
   - source .envrc
   - travis_wait run-project
   - py.test
 
+  # We also want to run selected scripts
+  cd problem-sets/01-potential-outcome-model/data
+  python data-generation.py
+
 notifications:
   email:
      on_success: change
-     on_failure: change 
+     on_failure: change

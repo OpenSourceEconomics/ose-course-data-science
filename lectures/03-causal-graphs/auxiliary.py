@@ -25,8 +25,8 @@ def plot_interventional_distribution(Y_do_1, Y_do_0):
     ax1.hist(Y_do_1, density=True)
     ax2.hist(Y_do_0, density=True)
 
-    ax1.set_xlabel("$Y \mid do(D = 1)$")
-    ax2.set_xlabel("$Y \mid do(D = 0)$")
+    ax1.set_xlabel(r"$Y \mid do(D = 1)$")
+    ax2.set_xlabel(r"$Y \mid do(D = 0)$")
 
     ax1.set_xlim([0, 3])
     ax2.set_xlim([0, 3])
