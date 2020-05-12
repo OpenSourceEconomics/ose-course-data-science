@@ -20,7 +20,11 @@ By default, you will already be subscribed to Q&A and tech support streams (= ch
 | 29/04/20  | Counterfactuals and the potential outcome model           |
 | 05/05/20  | Problem set 1                                             |
 | 06/05/20  | Causal graphs                                             |
-| ...       | ...                                                       |
+| 12/05/20  | Identification criteria for conditioning estimators       |
+| 13/05/20  | Matching estimators for causal effects                    |
+| 19/05/20  | Matching estimators for causal effects                    |
+| 20/05/20  | Problem set 2                                             |
+
 
 ## Lectures
 
