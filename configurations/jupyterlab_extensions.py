@@ -1,6 +1,10 @@
 import subprocess as sp
 
-extensions = ["@ijmbarr/jupyterlab_spellchecker", "@jupyterlab/toc"]
+extensions = [
+    "@ijmbarr/jupyterlab_spellchecker",
+    "@jupyterlab/toc",
+    "jupyterlab-flake8",
+]
 
 
 for extension in extensions:
