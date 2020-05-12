@@ -5,9 +5,8 @@ import scipy.stats
 np.random.seed(123)
 
 # clean the initial data set
-df = pd.read_csv(
-    "ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHIS/2018/personsxcsv.zip"
-)
+# "ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHIS/2018/personsxcsv.zip"
+df = pd.read_csv("personsx.csv")
 pd.options.display.float_format = "{:,.0f}".format
 
 df = df[["SEX", "AGE_P", "EDUC1", "WRKHRS2", "ERNYR_P", "PHOSPYR2", "PHSTAT"]]
