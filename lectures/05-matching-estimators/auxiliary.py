@@ -1,4 +1,4 @@
-from collections import OrderedDict
+import collections
 
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 import statsmodels.formula.api as smf
@@ -146,7 +146,7 @@ def get_sample_matching_demonstration_2(num_agents):
 
         data[i, :] = y, d, s, y_1, y_0
 
-    info = OrderedDict()
+    info = collections.OrderedDict()
     info["Y"] = np.float
     info["D"] = np.int
     info["S"] = np.int
