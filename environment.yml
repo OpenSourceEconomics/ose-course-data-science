@@ -15,7 +15,6 @@ dependencies:
 - pytest-flake8
 - black
 - scipy
-- scipy.stats
 - jupyterlab
 - matplotlib
 - seaborn
