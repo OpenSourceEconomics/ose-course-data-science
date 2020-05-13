@@ -1,6 +1,8 @@
 ---
 ESTIMATION:
     file:
+    dependent: wage
+    indicator: enroll
         
     # parametric model
     output_file: est.grmpy.info
@@ -8,8 +10,6 @@ ESTIMATION:
     start: auto
     maxiter: 6383
     agents: 165
-    dependent: wage
-    indicator: enroll
     comparison: True
     print_output: False
     
