@@ -14,25 +14,23 @@ The following functions will help you answer the questions in TASK B
 - plot_estimates
 - plot_joint_distribution_outcomes
 - plot_joint_distribution_unobservables
+
 """
-
-import shlex
 import linecache
+import shlex
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import statsmodels.api as sm
-import matplotlib.pyplot as plt
-
-from pylab import rcParams
 from linearmodels.iv import IV2SLS
+from pylab import rcParams
 
 import grmpy
-
 from grmpy.read.read import read
-from grmpy.test.random_init import print_dict
 from grmpy.simulate.simulate_auxiliary import simulate_unobservables
+from grmpy.test.random_init import print_dict
 
 
 def investigate_mte(info_file):
