@@ -5,14 +5,14 @@ SIMULATION:
     source: data_mc
 ESTIMATION:
     file: data_mc.grmpy.txt
+    dependent: Y
+    indicator: D
 
     # parametric model
     agents: 165
     optimizer: SCIPY-BFGS
     start: auto
     maxiter: 6383
-    dependent: Y
-    indicator: D
     comparison: True
     print_output: False
 
