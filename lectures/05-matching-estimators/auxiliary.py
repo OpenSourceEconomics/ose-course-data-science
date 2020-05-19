@@ -40,23 +40,27 @@ def get_propensity_score_3(df, specification="true"):
 
 
 def get_sample_matching_demonstration_3(a_grid, b_grid):
-    sample = list()
+    """Matching demonstration 3
 
-    counts = np.tile(np.nan, (3, 100, 100))
+    This function implements the third matching demonstration. It's key feature lies in the
+    sparsity patterns.
+
+    """
+    sample, counts = list(), np.tile(np.nan, (3, 100, 100))
 
     for i, a in enumerate(a_grid):
         for j, b in enumerate(b_grid):
 
             prob = get_propensity_score(a, b)
 
-            # Now we determine the number of observed individuals
-            for k, is_treat in enumerate([True, False]):
-                if is_treat:
-                    lambda_ = prob
-                else:
-                    lambda_ = 1.0 - prob
+            lambda_ = dict()
+            lambda_["treat"] = prob
+            lambda_["contr"] = 1 - prob
 
-                num_sample = np.random.poisson(lambda_)
+            # Now we determine the number of observed individuals
+            for k, group in enumerate(["treat", "contr"]):
+
+                num_sample = np.random.poisson(lambda_[group])
                 counts[k, i, j] = num_sample
 
                 for _ in range(num_sample):
@@ -65,14 +69,19 @@ def get_sample_matching_demonstration_3(a_grid, b_grid):
                     y = d * y_1 + (1 - d) * y_0
 
                     sample += [[a, b, d, y, y_1, y_0, prob]]
+
+            # Here we construct the overall count for each cell consisting of treated and
+            # untreated individuals.
             counts[2, i, j] = np.sum(counts[:2, i, j])
 
-    df = pd.DataFrame(sample, columns=["a", "b", "d", "y", "y_1", "y_0", "p"])
+    columns = ["a", "b", "d", "y", "y_1", "y_0", "p"]
+    df = pd.DataFrame(sample, columns=columns)
+
     return df, counts
 
 
 def get_propensity_score(a, b):
-    """ Get probensity score.
+    """ Get propensity score.
 
     This function calculates the propensity based on the functional form as described in our
     textbook on p. 153.
