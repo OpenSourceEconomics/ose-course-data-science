@@ -23,7 +23,7 @@ script:
 
   # We also want to run selected scripts
   - cd problem-sets/01-potential-outcome-model/data; python data-generation.py
-  - cd problem-sets/03-regression-discontinuity-design/sources; python auxiliary.py
+  - cd ../../03-regression-discontinuity-design/sources; python auxiliary.py
 
 notifications:
   email:
