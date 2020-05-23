@@ -37,15 +37,15 @@
 \item A \textbf{directed acyclic graph (DAG)} is a graph with only arrows for edges and no feedback loops (i.e. no variable is its own ancestor or its own descendant):
 
 \begin{figure}[htp]\centering
-\caption{Directed acyclical graph}\vspace{0.3cm}
-\scalebox{0.90}{\includegraphics{fig-graph-with-cycle}}
+\caption{Directed acyclical graph}
+\scalebox{0.05}{\includegraphics{../materials/fig-1-handout}}
 \end{figure}
 
 \item \textbf{Mutual dependence} of two variables on one or more common causes is shown by a curved and dashed bidirected edge:
 
 \begin{figure}[htp]\centering
-\caption{Mutual dependence}\vspace{0.3cm}
-\scalebox{0.90}{\includegraphics{fig-graph-shorthand-unobserved-common-cause}}
+\caption{Mutual dependence}\
+\scalebox{0.05}{\includegraphics{../materials/fig-2-b-handout}}
 \end{figure}
 
 \end{itemize}
@@ -56,18 +56,28 @@
 
 \item \textbf{Chain of mediation} is a relationship when A affects B through A's causal effect on C and C's causal effect on B.
 
-\item \textbf{Mutual dependence} is a relationship when A and B are both caused by C.
-
-\item \textbf{Mutual causation} is a relationship when A and B arer both causes of C. 
-
 \begin{figure}[htp]\centering
-\caption{Main patterns}\vspace{0.3cm}
-\scalebox{0.90}{\includegraphics{fig-graph-basic-causal-relationships}}
+\caption{Mediation}\
+\scalebox{0.05}{\includegraphics{../materials/fig-3-handout}}
 \end{figure}
 
-\item A \textbf{confounding variable} is a variable that affects both the dependent and independent variable (in our example, variable C on the figure 3.b).
+\item \textbf{Mutual dependence} is a relationship when A and B are both caused by C.
 
-\item A \textbf{collider} is a variable that has two arrows running into it (in our example, variable C on the figure 3.c).
+\item A \textbf{confounding variable} is a variable that affects both the dependent and independent variable.
+
+\begin{figure}[htp]\centering
+\caption{Mutual dependence}\
+\scalebox{0.05}{\includegraphics{../materials/fig-4-handout}}
+\end{figure}
+
+\item \textbf{Mutual causation} is a relationship when A and B are both causes of C. 
+
+\item A \textbf{collider} is a variable that has two arrows running into it.
+
+\begin{figure}[htp]\centering
+\caption{Mutual causation}\
+\scalebox{0.05}{\includegraphics{../materials/fig-5-handout}}
+\end{figure}
 
 \item A \textbf{back-door path} is a path between any causally ordered sequence  of two variables that include a directed edge that points to the first variable. 
 
@@ -88,6 +98,25 @@ A \textbf{back-door criterion} is a set of conditions used to determine whether 
 \item contains an inverted fork of mutual causation A $\rightarrow$ C $\leftarrow$  B, where the middle variable C and all of C's decendents are not in Z.
 
 \end{itemize}
+
+A \textbf{front-door criterion} is an empirical strategy used to identify the causal relationship flowing from A to B if one can find a mechanism C which:
+
+\begin{itemize}
+
+\item  lies on the causal path between A and B, and 
+
+\item it is the only such mechanism, and 
+
+\item it is not affected by the unobserved confounder U.
+
+\end{itemize}
+
+\begin{figure}[htp]\centering
+\caption{Mutual causation}\
+\scalebox{0.05}{\includegraphics{../materials/fig-6-handout}}
+\end{figure}
+
+You can find more on front-door criterion application in the \cite{Bellemare.2020} paper.
 
 \nocite{Morgan.2014}
 \nocite{Pearl.2009}
