@@ -37,3 +37,4 @@ dependencies:
     - flake8-nb
     - linearmodels
     - openpyxl
+    - scikit-learn
