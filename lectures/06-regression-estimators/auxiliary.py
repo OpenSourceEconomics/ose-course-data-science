@@ -6,7 +6,6 @@ import statsmodels.formula.api as smf
 import seaborn as sns
 
 
-
 def get_quick_sample(num_samples):
 
     df = pd.DataFrame(columns=["Y", "D", "X"])
@@ -16,7 +15,7 @@ def get_quick_sample(num_samples):
         d = (x + np.random.normal()) > 0
         y = d + x + np.random.normal()
         df.loc[i] = [y, d, x]
-    
+
     df = df.astype({"D": int})
     return df
 
