@@ -23,8 +23,23 @@ By default, you will already be subscribed to Q&A and tech support streams (= ch
 | 12/05/20  | Identification criteria for conditioning estimators       |
 | 13/05/20  | Matching estimators for causal effects                    |
 | 19/05/20  | Matching estimators for causal effects                    |
-| 20/05/20  | Problem set 2                                             |
-
+| 20/05/20  | Matching estimators for causal effects                    |
+| 26/05/20  | Regression estimators for causal effects                  |
+| 27/05/20  | Dies Academicus, office hours                             |
+| 02/06/20  | Problem set 2                                             |
+| 03/06/20  | Self-selection, heterogeneity, and causal graphs          |
+| 09/06/20  | Instrumental variable estimators of causal effects        |
+| 10/06/20  | Instrumental variable estimators of causal effects        |
+| 16/06/20  | Generalized Roy model                                     |
+| 17/06/20  | Problem set 3                                             |
+| 23/06/20  |                                                           |
+| 24/06/20  |                                                           |
+| 30/06/20  |                                                           |
+| 01/07/20  |                                                           |
+| 07/07/20  |                                                           |
+| 08/07/20  |                                                           |
+| 14/07/20  |                                                           |
+| 15/07/20  |                                                           |
 
 ## Lectures
 
