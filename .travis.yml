@@ -19,7 +19,7 @@ script:
 
   # We want to enforce a proper formatting of the notebooks.
   - flake8-nb; [ $? -eq 0 ] || exit 1
-  - black-nb .; [ $? -eq 0 ] || exit 1
+  - black-nb --check .; [ $? -eq 0 ] || exit 1
 
   # We also want to run selected scripts
   - cd problem-sets/01-potential-outcome-model/data; python data-generation.py
