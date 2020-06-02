@@ -18,12 +18,11 @@ os.chdir(DATASETS_ROOT)
 # This is a  cross-sectional dataset on low birth weight from the Wooldrige textbook.
 df = from_dta_to_csv("wooldrige", "lowbrth")
 
-
-# Lee (2008), regression discontinutiy design, https://rdrr.io/cran/rddtools/man/house.html,
-# required transfered the `rda` file manually to `csv`.
+# Lee (2008), regression discontinuity design, https://rdrr.io/cran/rddtools/man/house.html,
+# required transferred the `rda` file manually to `csv`.
 df = pd.read_csv("sources/msc/house.csv", index_col=0)
 
-# We want more interpretable columnn names.
+# We want more interpretable column names.
 df.rename(columns={"x": "vote_last", "y": "vote_next"}, inplace=True)
 df.to_csv("processed/msc/house.csv", index=False)
 
@@ -32,13 +31,13 @@ df.to_csv("processed/msc/house.csv", index=False)
 df = from_dta_to_csv("angrist_pischke", "webstar")
 df.head()
 
-# nswre74.dta https://users.nber.org/~rdehejia/nswdata.html
-df = from_dta_to_csv("dehejia_waba", "nsw_lalonde")
-
-# Morgan & Winship # These are the datasets for the matching illustration in Chapter 5.
+# Morgan & Winship tese are the datasets for the matching illustration in Chapter 5.
 for num in range(1, 11):
     fname = "mw_cath{}".format(num)
     df = from_dta_to_csv("morgan_winship", fname)
+
+# nswre74.dta https://users.nber.org/~rdehejia/nswdata.html
+df = from_dta_to_csv("dehejia_waba", "nsw_lalonde")
 
 # This is the data for the re-analysis of the LaLonde Paper as (temporarily published on the
 # Dehaja website).

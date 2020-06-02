@@ -74,7 +74,8 @@ We study the most common form of data analysis by looking at simple regression e
 
 #### [Self-selection, heterogeneity, and causal graphs](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/07-selection-heterogeneity-graphs/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/07-selection-heterogeneity-graphs/lecture.ipynb)
 
-We lay the groundwork to estimate causal effects if simple conditioning on observed variables that lie along all back-door paths will not suffice.
+We revisit the issues of treatment effect heterogeneity and individuals' selecting their treatment status based on gains unobserved by the econometrician. We lay the groundwork to estimate causal effects using instrumental variables, front-door identification with causal mechanisms, and conditioning estimators using pretreatment variables. We work through an elaborate panel data demonstration that illustrates the shortcoming of conditioning estimators in the presence of self-selection.
+
 
 #### [Instrumental variable estimators of causal effects](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/08-instrumental-variable/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/08-instrumental-variable/lecture.ipynb)
 
@@ -104,7 +105,7 @@ We will work on several problem sets throughout the course.
 
 We explore the potential outcome model using observed and simulated data inspired by the [National Health Interview Survey](https://www.cdc.gov/nchs/nhis/index.htm). The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/01-potential-outcome-model/data).
 
-#### [Regression and matching estimators of causal effects](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/02-matching-estimators/problem-set-02-matching-estimators.pdf)
+#### [Regression and matching estimators of causal effects](https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/02-matching-estimators/problem-set-02-matching-estimators.ipynb)
 
 We compare the consistency of regression and matching estimators using [LaLonde (1986)](https://www.jstor.org/stable/1806062) framework and [the Current Population Survey](https://www.census.gov/programs-surveys/cps.html) data. The accompanying data sets are available [here](https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data).
 
