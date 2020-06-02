@@ -32,6 +32,7 @@ dependencies:
 - simplegeneric
 - nb_black
 - nbdime
+- scikit-learn
 - pip:
     - black-nb
     - flake8-nb
