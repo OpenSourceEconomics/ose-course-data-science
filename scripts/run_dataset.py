@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from itertools import product
 import os
 
 import pandas as pd
@@ -26,23 +27,22 @@ df = pd.read_csv("sources/msc/house.csv", index_col=0)
 df.rename(columns={"x": "vote_last", "y": "vote_next"}, inplace=True)
 df.to_csv("processed/msc/house.csv", index=False)
 
-# Krueger (1999), STAR experiment, clustering on group level. There was a lot of pre-processig
+# Krueger (1999), STAR experiment, clustering on group level. There was a lot of pre-processing
 # required using the replication material from the MHE website.
 df = from_dta_to_csv("angrist_pischke", "webstar")
 df.head()
 
-# Morgan & Winship tese are the datasets for the matching illustration in Chapter 5.
+# Morgan & Winship, these are the datasets for the matching illustration in Chapter 5.
 for num in range(1, 11):
     fname = "mw_cath{}".format(num)
     df = from_dta_to_csv("morgan_winship", fname)
 
-# nswre74.dta https://users.nber.org/~rdehejia/nswdata.html
-df = from_dta_to_csv("dehejia_waba", "nsw_lalonde")
+# All data related to LaLonde (1986) and Dehejia and Waba (1999) is available on the following
+# NBER website: https://users.nber.org/~rdehejia/nswdata.html. The sample originally used by
+# LaLonde is larger as it does not require information on earnings in 1974, while this is used
+# as a pre-treatment variable in the follow-up work.
+from_dta_to_csv("dehejia_waba", "nsw_lalonde")
 
-# This is the data for the re-analysis of the LaLonde Paper as (temporarily published on the
-# Dehaja website).
-for source in ["psid", "cps"]:
-    for num in range(1, 4):
-        fname = f"{source}_controls{num}"
-        from_dta_to_csv("dehejia_waba", fname)
 from_dta_to_csv("dehejia_waba", "nsw_dehejia")
+for source, num in product(["psid", "cps"], range(1, 4)):
+    from_dta_to_csv("dehejia_waba", f"{source}_controls{num}")
