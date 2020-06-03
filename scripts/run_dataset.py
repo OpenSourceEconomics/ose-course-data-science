@@ -27,12 +27,12 @@ df = pd.read_csv("sources/msc/house.csv", index_col=0)
 df.rename(columns={"x": "vote_last", "y": "vote_next"}, inplace=True)
 df.to_csv("processed/msc/house.csv", index=False)
 
-# Krueger (1999), STAR experiment, clustering on group level. There was a lot of pre-processig
+# Krueger (1999), STAR experiment, clustering on group level. There was a lot of pre-processing
 # required using the replication material from the MHE website.
 df = from_dta_to_csv("angrist_pischke", "webstar")
 df.head()
 
-# Morgan & Winship tese are the datasets for the matching illustration in Chapter 5.
+# Morgan & Winship, these are the datasets for the matching illustration in Chapter 5.
 for num in range(1, 11):
     fname = "mw_cath{}".format(num)
     df = from_dta_to_csv("morgan_winship", fname)
