@@ -9,4 +9,4 @@
 </a>
 </p>
 
-You can find more information about the course includng all lectures in the [course documentation](https://readthedocs.org/projects/microeconometrics/badge/?version=latest).
+You can find all information about the course includng all lectures in the [course documentation](https://readthedocs.org/projects/microeconometrics/badge/?version=latest).
