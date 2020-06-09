@@ -79,7 +79,7 @@ We revisit the issues of treatment effect heterogeneity and individuals' selecti
 
 #### [Instrumental variable estimators of causal effects](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/08-instrumental-variable/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/08-instrumental-variable/lecture.ipynb)
 
-We study the use of instrumental variable estimators.
+We review basic instrumental variables estimation using a simulated example inspired by random assignment of school vouchers. We look at the Wald and 2SLS estimator and discuss its interpretation as a Local Average Treatment Effect in the presence of treatment effect heterogeneity. We conclude with a discussion of seminal papers in the literature and also elevate a more critical assessment to discussion. 
 
 #### [Mechanisms and causal explanation](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/09-mechanisms-causal-explanation/lecture.ipynb)  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath=lectures/09-mechanisms-causal-explanation/lecture.ipynb)
 
