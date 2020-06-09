@@ -23,7 +23,7 @@ This course introduces students to basic microeconmetric methods. The objective 
 
 *  Imbens G. W., and Rubin D. B. (2015). [*Causal inference for statistics, social, and biomedical sciences: An introduction*](https://www.cambridge.org/core/books/causal-inference-for-statistics-social-and-biomedical-sciences/71126BE90C58F1A431FE9B2DD07938AB). Cambridge, England: Cambridge University Press.
 
-* Rosenbaum, P. R. (2017). [*Observation and experiment : An introduction to causal inference*](https://www.hup.harvard.edu/catalog.php?isbn=9780674975576). Cambridge, MA: Harvard University Press.
+* Rosenbaum, P. R. (2017). [*Observation and experiment: An introduction to causal inference*](https://www.hup.harvard.edu/catalog.php?isbn=9780674975576). Cambridge, MA: Harvard University Press.
 
 ### Directed graphs
 
