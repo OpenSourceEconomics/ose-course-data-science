@@ -8,4 +8,4 @@ python:
   version: 3.7
 
 conda:
-  environment: lectures/rtd_environment.yml
+  environment: environment.yml

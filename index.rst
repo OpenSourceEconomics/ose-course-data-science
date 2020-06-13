@@ -50,54 +50,29 @@ Directed graphs
 
 .. toctree::
    :maxdepth: 1
-   :caption: Lectures:
 
-   01-introduction/lecture.ipynb
-   01-introduction/tools_data_science.ipynb
-   02-potential-outcome-model/lecture.ipynb
-   03-causal-graphs/lecture.ipynb
-   04-criteria-conditioning-estimators/lecture.ipynb
-   04-criteria-conditioning-estimators/back-door-identification.ipynb
-   05-matching-estimators/lecture.ipynb
-   06-regression-estimators/lecture.ipynb
-   07-selection-heterogeneity-graphs/lecture.ipynb
-   08-instrumental-variable/lecture.ipynb
-   09-mechanisms-causal-explanation/lecture.ipynb
-   09-mechanisms-causal-explanation/front-door-identification.ipynb
-   10-repeated-observations/lecture.ipynb
-   11-regression-discontinuity/notebook.ipynb
-   12-nonstandard-standard/notebook.ipynb
-   13-generalized-moments/notebook.ipynb
+   lectures/01-introduction/lecture.ipynb
+   lectures/01-introduction/tools_data_science.ipynb
+   lectures/02-potential-outcome-model/lecture.ipynb
+   lectures/03-causal-graphs/lecture.ipynb
+   lectures/04-criteria-conditioning-estimators/lecture.ipynb
+   lectures/04-criteria-conditioning-estimators/back-door-identification.ipynb
+   lectures/05-matching-estimators/lecture.ipynb
+   lectures/06-regression-estimators/lecture.ipynb
+   lectures/07-selection-heterogeneity-graphs/lecture.ipynb
+   lectures/08-instrumental-variable/lecture.ipynb
+   lectures/09-mechanisms-causal-explanation/lecture.ipynb
+   lectures/09-mechanisms-causal-explanation/front-door-identification.ipynb
+   lectures/10-repeated-observations/lecture.ipynb
+   lectures/11-regression-discontinuity/notebook.ipynb
+   lectures/12-nonstandard-standard/notebook.ipynb
+   lectures/13-generalized-moments/notebook.ipynb
+   problem-sets/01-potential-outcome-model/problem-set-01-potential-outcome-model.ipynb
+   problem-sets/02-matching-estimators/problem-set-02-matching-estimators.ipynb
+   
 
 We collect a list of additional, more general, reading recommendations `here <https://github.com/HumanCapitalAnalysis/general-resources>`__.
 
-
-
-Problem sets
-************
-
-We will work on several problem sets throughout the course.
-
-`Potential outcome model <https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/01-potential-outcome-model/problem-set-01-potential-outcome-model.ipynb>`_
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-We explore the potential outcome model using observed and simulated data inspired by the `National Health Interview Survey <https://www.cdc.gov/nchs/nhis/index.htm>`_. The accompanying data sets are available `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/01-potential-outcome-model/data>`__.
-
-`Regression and matching estimators of causal effects <https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/02-matching-estimators/problem-set-02-matching-estimators.ipynb>`_
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-We compare the consistency of regression and matching estimators using `LaLonde (1986) <https://www.jstor.org/stable/1806062>`_ framework and the `Current Population Survey <https://www.census.gov/programs-surveys/cps.html>`_ data. The accompanying data sets are available `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/02-matching-estimators/data>`__.
-
-`Regression discontinuity design (RDD) <https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/03-regression-discontinuity-design/problem-set-03-regression-discontinuity-design.pdf>`_
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-We practice RDD with `Lee (2008) <https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065>`_ framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/03-regression-discontinuity-design/data>`__.
-
-`Generalized Roy model <https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/04-generalized-roy-model/problem-set-04-generalized-roy-model.pdf>`_
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-We explore the Generalized Roy framework and practice estimation of marginal treatment effects using the open-source software package `grmpy <https://grmpy.readthedocs.io/en/latest/>`_. Moreover, we simulate our own data set to conduct a Monte Carlo analysis and compare the performance of different estimators in the presence of essential heterogeneity. The accompanying files are available `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/04-generalized-roy-model/sources>`__ and data `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/04-generalized-roy-model/data>`__.
 
 Handouts
 ********
