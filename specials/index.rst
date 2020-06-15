@@ -9,4 +9,4 @@ We discuss selected topics in more details based on student demands.
 
    nonstandard-standard-errors/notebook.ipynb
 
-We review issues in the construction of standard errors such as the potential bias of robust standard error estimates, clustering, and serial correlation based on the material presented in [Angrist & Pischke (2009)](https://press.princeton.edu/titles/8769.html). We use this opportunity to discuss the research reported in [Krueger (1999)](https://academic.oup.com/qje/article/114/2/497/1844226).
+We review issues in the construction of standard errors such as the potential bias of robust standard error estimates, clustering, and serial correlation based on the material presented in `Angrist & Pischke (2009) <https://press.princeton.edu/titles/8769.html>`_. We use this opportunity to discuss the research reported in `Krueger (1999) <https://academic.oup.com/qje/article/114/2/497/1844226>`_.

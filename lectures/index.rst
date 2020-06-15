@@ -7,7 +7,7 @@ Lectures
 
    01-introduction/lecture.ipynb
 
-We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference. We touch on the two pillars of the counterfactual approach to casusal analysis. We first explore the basic ideas of the potential outcome model and then preview the use of causal graphs. In addition, we provide a basic [tutorial](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01-introduction/tools_data_science.ipynb) for some core tools used in data science.
+We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference. We touch on the two pillars of the counterfactual approach to casusal analysis. We first explore the basic ideas of the potential outcome model and then preview the use of causal graphs. In addition, we provide a basic `tutorial <https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01-introduction/tools_data_science.ipynb>`_ for some core tools used in data science.
 
 .. toctree::
    :maxdepth: 1
@@ -87,7 +87,7 @@ We now explore models in which we have multiple observations at different points
 
    11-regression-discontinuity/notebook.ipynb
 
-We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by Lee & Lemieux (2010). We reproduce and check the robustness of some of the results in Lee (2008).
+We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by `Lee & Lemieux (2010) <https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281>`_. We reproduce and check the robustness of some of the results in `Lee (2008) <https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065>`_.
 
 
 .. toctree::
