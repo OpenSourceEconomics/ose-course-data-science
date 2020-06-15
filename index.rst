@@ -51,60 +51,9 @@ Directed graphs
 .. toctree::
    :maxdepth: 1
 
-   lectures/01-introduction/lecture.ipynb
-   lectures/01-introduction/tools_data_science.ipynb
-   lectures/02-potential-outcome-model/lecture.ipynb
-   lectures/03-causal-graphs/lecture.ipynb
-   lectures/04-criteria-conditioning-estimators/lecture.ipynb
-   lectures/04-criteria-conditioning-estimators/back-door-identification.ipynb
-   lectures/05-matching-estimators/lecture.ipynb
-   lectures/06-regression-estimators/lecture.ipynb
-   lectures/07-selection-heterogeneity-graphs/lecture.ipynb
-   lectures/08-instrumental-variable/lecture.ipynb
-   lectures/09-mechanisms-causal-explanation/lecture.ipynb
-   lectures/09-mechanisms-causal-explanation/front-door-identification.ipynb
-   lectures/10-repeated-observations/lecture.ipynb
-   lectures/11-regression-discontinuity/notebook.ipynb
-   lectures/12-nonstandard-standard/notebook.ipynb
-   lectures/13-generalized-moments/notebook.ipynb
-   problem-sets/01-potential-outcome-model/problem-set-01-potential-outcome-model.ipynb
-   problem-sets/02-matching-estimators/problem-set-02-matching-estimators.ipynb
-   
-
-We collect a list of additional, more general, reading recommendations `here <https://github.com/HumanCapitalAnalysis/general-resources>`__.
-
-
-Handouts
-********
-
-We curate a list of handouts that summarize selected issues.
-
-* `Causal graphs: Definitions, patterns, and strategies <https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/handouts/01-causal-graphs/handout-1-casual-graphs.pdf>`_
-
-Resources
-**********
-
-We provide some additional resources that are useful for our course work in general.
-
-**Textbooks**
-
-* Wooldridge, J. M. (2009). `Econometric analysis of cross section and panel data <https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data>`_. Cambridge, MA: The MIT Press.
-
-* Angrist, J. D., and Pischke, J. (2014). `Mastering 'metrics <http://masteringmetrics.com>`_. Princeton, NJ: Princeton University Press.
-
-* Stock, J. H., and Watson, M. W. (2019). `Introduction to econometrics <https://www.pearson.com/us/higher-education/program/Stock-Introduction-to-Econometrics-Plus-My-Lab-Economics-with-Pearson-e-Text-Access-Card-Package-4th-Edition/PGM2416966.html>`_. New York, NY: Pearson.
-
-**Datasets**
-
-The textbooks above provide an impressive amount of data from research articles. We provide them in a central place `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/datasets>`__.
-
-**Tools**
-
-We maintain a list of useful resources around the tooling used in the course `here <https://github.com/HumanCapitalAnalysis/general-resources#scientific-software-development>`__.
-
-Iterations
-***********
-
-* **Summer Quarter 2020**, Graduate Program at the University of Bonn, please see `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn-ss-20>`__ for details.
-
-* **Summer Quarter 2019**, Graduate Program at the University of Bonn, please see `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/iterations/bonn-ss-19>`__ for details.
+   lectures/index
+   specials/index
+   problem-sets/index
+   handouts/index
+   resources/index
+   iterations/index
