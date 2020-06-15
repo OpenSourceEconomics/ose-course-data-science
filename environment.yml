@@ -39,3 +39,4 @@ dependencies:
     - linearmodels
     - openpyxl
     - scikit-learn
+    - grmpy
