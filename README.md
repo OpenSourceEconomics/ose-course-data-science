@@ -81,7 +81,7 @@ We revisit the issues of treatment effect heterogeneity and individuals' selecti
 
 We review basic instrumental variables estimation using a simulated example inspired by random assignment of school vouchers. We look at the Wald and 2SLS estimator and discuss its interpretation as a Local Average Treatment Effect in the presence of treatment effect heterogeneity. We conclude with a discussion of seminal papers in the literature and also elevate a more critical assessment to discussion.
 
-#### [The generalized Roy model]
+#### [The generalized Roy model](https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/tree/master/lectures/14-generalized-roy-model/)
 
 The section provides an overview of several important issues that are essential for the evaluation of treatment effects. For this purpose we get familiar with the framework of the generalized Roy model.
 
