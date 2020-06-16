@@ -9,5 +9,9 @@
     "overrides": {
         "ui-font-size1": "10px",
         "content-font-size1": "16px"
-    }
+    },
+
+    // Selected Theme
+    // Application-level visual styling theme
+    "theme": "JupyterLab Light"
 }

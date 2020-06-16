@@ -9,6 +9,7 @@ dependencies:
 - numpy
 - libgfortran 
 - pandas
+- sphinx>=1.4
 - flake8
 - pytest
 - pytest-black 
@@ -21,6 +22,8 @@ dependencies:
 - jupyter
 - jupyter_contrib_nbextensions
 - jupyter_nbextensions_configurator
+- ipython
+- ipykernel
 - pip
 - pygraphviz
 - rise
@@ -29,6 +32,7 @@ dependencies:
 - libiconv 
 - rpy2
 - xlrd
+- nbsphinx
 - simplegeneric
 - nb_black
 - nbdime
@@ -39,3 +43,6 @@ dependencies:
     - linearmodels
     - openpyxl
     - scikit-learn
+    - sphinx_rtd_theme
+    - nbsphinx
+    - sphinxcontrib-bibtex
