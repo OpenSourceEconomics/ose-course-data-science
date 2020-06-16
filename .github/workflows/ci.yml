@@ -42,5 +42,5 @@ jobs:
       run: |
         export PATH="$PATH:/usr/share/miniconda/bin"
         source .envrc
-        cd problem-sets/01-potential-outcome-model/data; python data-generation.py
-        cd ../../03-regression-discontinuity-design/sources; python auxiliary.py
+        cd problem-sets/potential-outcome-model/data; python data-generation.py
+        cd ../../regression-discontinuity-design/sources; python auxiliary.py
