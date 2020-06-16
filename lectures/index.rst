@@ -5,14 +5,13 @@ Lectures
 .. toctree::
    :maxdepth: 1
 
-   01-introduction/lecture.ipynb
+   introduction/notebook.ipynb
 
-We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference. We touch on the two pillars of the counterfactual approach to casusal analysis. We first explore the basic ideas of the potential outcome model and then preview the use of causal graphs. In addition, we provide a basic `tutorial <https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/lectures/01-introduction/tools_data_science.ipynb>`_ for some core tools used in data science.
+We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference. We touch on the two pillars of the counterfactual approach to casusal analysis. We first explore the basic ideas of the potential outcome model and then preview the use of causal graphs.
 
 .. toctree::
    :maxdepth: 1
 
-   01-introduction/tools_data_science.ipynb
    02-potential-outcome-model/lecture.ipynb
 
 We discuss the core conceptual model of the course. We initially discuss the individual-level treatment effect but then quickly scale back our ambitions to learn about population-level parameters instead. Then we turn to the stable-unit treatment assumption and address the challenges to the naive estimation of average causal effects in observational studies. We conclude with some examples that illustrate the flexibility of the potential outcome model to more than a simple binary treatment.
