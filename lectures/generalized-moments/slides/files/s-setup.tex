@@ -1,0 +1,134 @@
+\begin{frame}\begin{center}
+		\LARGE\textbf{Setup}
+\end{center}\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}\textbf{Notation}\vspace{0.3cm}
+
+\begin{align*}\begin{matrix*}[l]
+\beta           &\quad p \times 1     & \text{parameter vector} \\
+w_i             &\quad i = 1, \hdots, n & \text{data points}      \\
+g_i(w_i, \beta) &\quad m \times 1 & \text{moment}
+\end{matrix*}\end{align*}
+
+\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}
+
+\begin{itemize}\setlength\itemsep{1em}
+\item The GMM estimator is based on a model where, for the true parameter value $\beta_0$ the moment conditions
+$E[g_i (\beta_0)] = 0$ are satisfied.
+\item The estimator is formed by choosing $\beta$ so that the sample average of $g_i(\beta)$ is close to
+its zero population value.
+\end{itemize}
+
+\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}
+
+The estimator is formed by choosing $\beta$ so that the sample average of $g_i(\beta)$ is close to its zero population value. Let
+
+\begin{align*}
+\hat{g}(\beta) = \frac{1}{n} \sum_{i=1}^n g_i(\beta)
+\end{align*}
+
+\begin{itemize}\setlength\itemsep{1em}
+\item theoretical moments
+\item empirical moments
+\end{itemize}
+
+\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}
+Let $\hat{A}$ denote a $m \times m$ positive semi-definite matrix, then the GMM estimator is given by
+
+\begin{align*}
+\hat{\beta} = \argmin_\beta \hat{g}(\beta)^\prime\,\hat{A}\,\hat{g}(\beta)
+\end{align*}
+
+The GMM estimator chooses $\hat{\beta}$ so the sample average $\hat{g}(\beta)$ is close to zero.
+
+\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}\textbf{Instrumental variables}\vspace{1cm}
+
+\begin{center}
+Let's work through an example on the blackboard.
+\end{center}
+
+\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}\textbf{Unifying framework}\vspace{1cm}
+
+Many other popular estimation strategies can be analyzed in a GMM setup.
+
+\begin{align*}\begin{array}{ll}
+\text{Ordinary least squares} & E[x_i (y_i - x_i \beta_0)] = 0 \\
+\text{Instrumental variables} & E[z_i (y_i - x_i \beta_0)] = 0 \\
+\text{Maximum likelihood}     & E[\partial \ln f(x_i, \beta_0) / \partial\beta] = 0
+\end{array}
+\end{align*}
+
+\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}
+
+If moments cannot be evaluated analytically then we have an application of the method of simulated moments.
+\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}\textbf{Distance and weighing matrix}\vspace{0.3cm}
+
+Let's look at the role of the weighing matrix for a two dimensional example.\vspace{0.3cm}
+
+\begin{itemize}
+\item identity matrix
+\begin{align*}Q(\beta) =
+\left(\begin{matrix}
+g_1 & g_2
+\end{matrix}\right)
+\left(\begin{matrix}
+1 & 0 \\
+0 & 1
+\end{matrix}\right)
+\left(\begin{matrix}
+g_1 \\
+g_2
+\end{matrix}\right) = g_1^2 + g_2^2
+\end{align*}
+\end{itemize}
+\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\begin{frame}
+
+\begin{itemize}
+\item alternative
+\begin{align*}Q(\beta) =
+\left(\begin{matrix}
+g_1 & g_2
+\end{matrix}\right)
+\left(\begin{matrix}
+2 & 0 \\
+0 & 1
+\end{matrix}\right)
+\left(\begin{matrix}
+g_1 \\
+g_2
+\end{matrix}\right) = 2 \dot g_1^2 + g_2^2
+\end{align*}
+\end{itemize}
+
+Our alternative attaches more weight to the first coordinate in the distance.
+
+\end{frame}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
