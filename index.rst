@@ -34,7 +34,7 @@ This course introduces students to basic microeconmetric methods. The objective 
    replications/index
    projects/index
    resources/index
-   iterations/index
+   iteration/index
 
 **Supported by**
 
