@@ -12,7 +12,4 @@ Examples
 """
 import subprocess as sp
 
-[
-    sp.check_call(f"run-{task}")
-    for task in ["slide", "notebook", "problem", "dataset"]
-]
+[sp.check_call(f"run-{task}") for task in ["slide", "notebook", "problem", "dataset"]]
