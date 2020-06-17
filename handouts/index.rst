@@ -10,5 +10,5 @@ We curate a list of handouts that summarize selected issues.
 .. toctree::
    :maxdepth: 1
 
-   back-door-identification/notebook.ipynb
-   front-door-identification/notebook.ipynb
+   back-door-identification.ipynb
+   front-door-identification.ipynb
