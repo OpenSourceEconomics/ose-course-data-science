@@ -1,8 +1,9 @@
 \input{../../../utils/header_article.tex}
-
+\usepackage{subfig}
 \usepackage{graphicx}
 \newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
 \usepackage[export]{adjustbox}
+
 
 \title{Causal Graphs\thanks{We are indebted to Liudmila Kiseleva for the design of the handout.}}
 \subtitle{Definitions, patterns, and strategies}
@@ -41,11 +42,12 @@
 \scalebox{0.05}{\includegraphics{../materials/fig-1-handout}}
 \end{figure}
 
-\item \textbf{Mutual dependence} of two variables on one or more common causes is shown:
+\item \textbf{Mutual dependence} of two variables on one or more common causes is shown with bidirected dashed curved edge:
 
 \begin{figure}[htp]\centering
-\caption{Mutual dependence}\
+\caption{Mediation}\
 \scalebox{0.05}{\includegraphics{../materials/fig-2-b-handout}}
+\scalebox{0.05}{\includegraphics{../materials/fig-2-a-handout}}
 \end{figure}
 
 \end{itemize}
@@ -115,6 +117,7 @@ A \textbf{front-door criterion} is an empirical strategy used to identify the ca
 \caption{Front-door criterion}\
 \scalebox{0.05}{\includegraphics{../materials/fig-6-handout}}
 \end{figure}
+
 
 You can find more on front-door criterion application in the \cite{Bellemare.2020} paper.
 
