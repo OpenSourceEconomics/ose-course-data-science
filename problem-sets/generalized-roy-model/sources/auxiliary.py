@@ -16,21 +16,20 @@ The following functions will help you answer the questions in TASK B
 - plot_joint_distribution_unobservables
 
 """
+
 import linecache
 import shlex
 
+import grmpy
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import statsmodels.api as sm
-from linearmodels.iv import IV2SLS
-from pylab import rcParams
-
-import grmpy
 from grmpy.read.read import read
 from grmpy.simulate.simulate_auxiliary import simulate_unobservables
 from grmpy.test.random_init import print_dict
+from linearmodels.iv import IV2SLS
 
 
 def investigate_mte(info_file):
@@ -50,12 +49,11 @@ def investigate_mte(info_file):
         Info file, which is created automatically
         when grmpy.simulate() is run.
     """
-    ax = plt.figure(figsize=(10, 8)).add_subplot(111)
+    ax = plt.figure().add_subplot(111)
 
     ax.set_xlim(0, 1)
-    ax.set_ylabel("$MTE$", fontsize=18)
-    ax.set_xlabel("$u_D$", fontsize=18)
-    ax.tick_params(labelsize=14)
+    ax.set_ylabel("$MTE$")
+    ax.set_xlabel("$u_D$")
 
     parameter = []
     linecache.clearcache()
@@ -71,7 +69,7 @@ def investigate_mte(info_file):
     grid = np.linspace(0.01, 1, num=20, endpoint=True)
     ax.plot(grid, parameter, label=label)
 
-    plt.legend(prop={"size": 18})
+    plt.legend()
 
     plt.show()
 
@@ -129,8 +127,8 @@ def monte_carlo(file, which, grid_points=10):
     -------
     effects: list
         If *which* = "conventional_average_effects",
-            list of lenght *grid_points* x 2 containing the true ATE and TT.
-        Else, list of length *grid_points* x 1 containing an estimate
+            list of lenght *grid_points* * 2 containing the true ATE and TT.
+        Else, list of length *grid_points* * 1 containing an estimate
             of the ATE.
     """
     # simulate a new data set with essential heterogeneity present
@@ -227,8 +225,6 @@ def plot_benefits(data):
     data: pandas.DataFrame
         Output of grmpy.simulate().
     """
-    rcParams["figure.figsize"] = 10, 8
-
     benefit = data["Y1"] - data["Y0"]
 
     ay = plt.figure().add_subplot(111)
@@ -238,11 +234,10 @@ def plot_benefits(data):
     ay.set_xlim(-1.5, 2.5)
     ay.set_ylim(0.0, None)
     ay.set_yticks([])
-    ay.tick_params(labelsize=14)
 
     # Rename axes
-    ay.set_ylabel("$f_{Y_1 - Y_0}$", fontsize=18)
-    ay.set_xlabel("$Y_1 - Y_0$", fontsize=18)
+    ay.set_ylabel("$f_{Y_1 - Y_0}$")
+    ay.set_xlabel("$Y_1 - Y_0$")
 
 
 def plot_benefits_and_effects(data):
@@ -256,8 +251,6 @@ def plot_benefits_and_effects(data):
     data: pandas.DataFrame
         Output of grmpy.simulate().
     """
-    rcParams["figure.figsize"] = 10, 8
-
     benefit = data["Y1"] - data["Y0"]
     TT = np.mean(data[data.D == 1]["Y1"] - data[data.D == 1]["Y0"])
     TUT = np.mean(data[data.D == 0]["Y1"] - data[data.D == 0]["Y0"])
@@ -271,11 +264,10 @@ def plot_benefits_and_effects(data):
     ay.set_xlim(-1.5, 2.5)
     ay.set_ylim(0.0, None)
     ay.set_yticks([])
-    ay.tick_params(labelsize=14)
 
     # Rename axes
-    ay.set_ylabel("$f_{Y_1 - Y_0}$", fontsize=18)
-    ay.set_xlabel("$Y_1 - Y_0$", fontsize=18)
+    ay.set_ylabel("$f_{Y_1 - Y_0}$")
+    ay.set_xlabel("$Y_1 - Y_0$")
 
     for effect in [ATE, TT, TUT]:
         if effect == ATE:
@@ -285,7 +277,7 @@ def plot_benefits_and_effects(data):
         else:
             label = "$TUT$"
         ay.plot([effect, effect], [0, 5], label=label)
-    plt.legend(prop={"size": 15})
+    plt.legend()
 
 
 def plot_effects(effects):
@@ -307,22 +299,22 @@ def plot_effects(effects):
     """
     effects = np.array(effects)
 
-    ax = plt.figure(figsize=(10, 8)).add_subplot(111)
+    ax = plt.figure().add_subplot(111)
 
     grid = np.linspace(0.0, 0.99, len(effects[:, 0]))
 
     ax.set_xlim(0, 1)
     ax.set_ylim(0.35, 0.65)
-    ax.set_ylabel(r"Effect", fontsize=18)
-    ax.set_xlabel(r"$\rho_{U_1, V}$", fontsize=18)
-    ax.tick_params(labelsize=14)
+    ax.set_ylabel(r"Effect")
+    ax.set_xlabel(r"$\rho_{U_1, V}$")
+    # ax.tick_params(labelsize=14)
 
     ax.plot(grid, effects[:, 0], label=r"$ATE$", linewidth=4)
     ax.plot(grid, effects[:, 1], label=r"$TT$", linewidth=4)
 
     ax.yaxis.get_major_ticks()[0].set_visible(False)
 
-    plt.legend(loc="upper right", prop={"size": 14})
+    plt.legend(loc="upper center")
 
     plt.show()
 
@@ -346,23 +338,23 @@ def plot_estimates(true, estimates):
         List containing estimates of the ATE for increasing
         (absolute) correlation between U_1 and V.
     """
-    ax = plt.figure(figsize=(10, 8)).add_subplot(111)
+    ax = plt.figure().add_subplot(111)
 
     grid = np.linspace(0.0, 0.99, len(estimates))
     true = np.tile(true, len(estimates))
 
     ax.set_xlim(0, 1)
     ax.set_ylim(0.35, 0.65)
-    ax.set_ylabel(r"ATE", fontsize=18)
-    ax.set_xlabel(r"$\rho_{U_1, V}$", fontsize=18)
-    ax.tick_params(labelsize=14)
+    ax.set_ylabel(r"ATE")
+    ax.set_xlabel(r"$\rho_{U_1, V}$")
+    # ax.tick_params(labelsize=14)
 
     ax.plot(grid, estimates, label="Estimate", linewidth=4)
     ax.plot(grid, true, label="True", linewidth=4)
 
     ax.yaxis.get_major_ticks()[0].set_visible(False)
 
-    plt.legend(loc="upper right", prop={"size": 14})
+    plt.legend(loc="upper center")
 
     plt.show()
 
@@ -376,9 +368,7 @@ def plot_joint_distribution_outcomes(df):
     df: pandas.DataFrame
         Output of grmpy.simulate().
     """
-    sns.jointplot(df["Y1"], df["Y0"], stat_func=None).set_axis_labels(
-        "$Y_1$", r"$Y_0$", fontsize=18
-    )
+    sns.jointplot(df["Y1"], df["Y0"], height=8).set_axis_labels("$Y_1$", r"$Y_0$")
 
 
 def plot_joint_distribution_unobservables(df):
@@ -390,9 +380,7 @@ def plot_joint_distribution_unobservables(df):
     df: pandas.DataFrame
         Output of grmpy.simulate().
     """
-    g = sns.jointplot(df["V"], df["U1"], stat_func=None).set_axis_labels(
-        "$V$", "$U_1$", fontsize=18
-    )
+    g = sns.jointplot(df["V"], df["U1"], height=8).set_axis_labels("$V$", "$U_1$")
     g.fig.subplots_adjust(top=0.9)
 
 
