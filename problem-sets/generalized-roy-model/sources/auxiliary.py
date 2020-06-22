@@ -16,20 +16,20 @@ The following functions will help you answer the questions in TASK B
 - plot_joint_distribution_unobservables
 
 """
+
 import linecache
 import shlex
 
+import grmpy
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import statsmodels.api as sm
-from linearmodels.iv import IV2SLS
-
-import grmpy
 from grmpy.read.read import read
 from grmpy.simulate.simulate_auxiliary import simulate_unobservables
 from grmpy.test.random_init import print_dict
+from linearmodels.iv import IV2SLS
 
 
 def investigate_mte(info_file):
