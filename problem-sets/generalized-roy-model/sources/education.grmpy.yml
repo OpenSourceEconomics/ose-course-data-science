@@ -1,6 +1,6 @@
 ---
 ESTIMATION:
-    file:
+    file: data/education_data_clean.pkl
     dependent: wage
     indicator: enroll
         
