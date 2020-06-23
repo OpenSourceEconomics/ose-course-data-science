@@ -1,3 +1,6 @@
 [submodule "submodules/bibliography"]
 	path = submodules/bibliography
 	url = https://github.com/eisenhauerIO/bibliography.git
+[submodule "submodules/respy"]
+	path = submodules/respy
+	url = https://github.com/OpenSourceEconomics/respy.git
