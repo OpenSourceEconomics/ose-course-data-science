@@ -1,3 +1,3 @@
 # Microeconometrics
 
-Please see for all [course materials](https://microeconometrics.readthedocs.io).
+Please see our [course materials](https://microeconometrics.readthedocs.io) for details.
