@@ -7,23 +7,21 @@ ESTIMATION:
     file: data_mc.grmpy.txt
     dependent: Y
     indicator: D
-
-    # parametric model
     agents: 165
     optimizer: SCIPY-BFGS
     start: auto
     maxiter: 6383
-    comparison: True
-    print_output: False
-
-    # semiparametric model
-    show_output: False
-    logit: True
+    comparison: true
+    print_output: false
+    show_output: false
+    logit: true
     nbins: 30
     rbandwidth: 0.05
     bandwidth: 0.5
     gridsize: 500
-    ps_range: [0.005, 0.995]
+    ps_range:
+    - 0.005
+    - 0.995
 TREATED:
     params:
     - 1.0
