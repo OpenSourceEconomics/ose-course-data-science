@@ -21,6 +21,3 @@ params_pol = params.copy()
 params_pol.loc[label, "value"] += 2000
 df_pol = simulate_func(params_pol)
 df_pol.to_pickle("df_pol.pkl")
-
-
-

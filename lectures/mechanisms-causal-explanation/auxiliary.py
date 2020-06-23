@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns, numpy as np
 import pandas as pd
 
+
 def plot_choices(df, label):
-    
+
     fig, ax = plt.subplots()
 
     df.groupby("Period")["Choice"].value_counts(normalize=True).loc[
@@ -16,7 +17,7 @@ def plot_choices(df, label):
     ax.legend(loc="lower center", bbox_to_anchor=(0.5, -0.275), ncol=5)
 
     plt.show()
-    
+
 
 def plot_wage_distribution(df_sim, df_pol):
 
@@ -32,27 +33,25 @@ def plot_wage_distribution(df_sim, df_pol):
 
         plt.show()
 
-            
-                
+
 def plot_final_human_capital(df_sim, df_pol):
-    
+
     columns = [
-    "Experience_Blue_Collar",
-    "Experience_Military",
-    "Experience_White_Collar",
-    "Experience_School",
+        "Experience_Blue_Collar",
+        "Experience_Military",
+        "Experience_White_Collar",
+        "Experience_School",
     ]
-    
+
     x = [
-    "Blue Collar",
-    "Military",
-    "White Collar",
-    "School",
+        "Blue Collar",
+        "Military",
+        "White Collar",
+        "School",
     ]
-    
+
     for label, df in [("Simulated", df_sim), ("Policy", df_pol)]:
 
-        
         fig, ax = plt.subplots()
 
         ax.bar(x, df.groupby("Identifier").last()[columns].mean())
