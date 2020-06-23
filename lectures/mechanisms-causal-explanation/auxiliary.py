@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
-import seaborn as sns, numpy as np
-import pandas as pd
+import seaborn as sns
 
 
 def plot_choices(df, label):
