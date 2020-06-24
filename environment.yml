@@ -39,6 +39,8 @@ dependencies:
 - nb_black
 - nbdime
 - scikit-learn
+- chaospy
+- estimagic
 - pip:
     - black-nb
     - flake8-nb

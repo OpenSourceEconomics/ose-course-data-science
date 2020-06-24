@@ -6,9 +6,9 @@ def plot_choices(df, label):
 
     fig, ax = plt.subplots()
 
-    df.groupby("Period")["Choice"].value_counts(normalize=True).loc[
-        :10
-    ].unstack().plot.bar(stacked=True, ax=ax)
+    df.groupby("Period")["Choice"].value_counts(normalize=True).loc[:10].unstack().plot.bar(
+        stacked=True, ax=ax
+    )
 
     ax.xaxis.set_tick_params(rotation=0)
 

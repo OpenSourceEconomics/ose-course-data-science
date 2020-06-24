@@ -165,9 +165,7 @@ def monte_carlo(file, which, grid_points=10):
             stat = (ATE, TT)
 
         elif label in ["randomization", "random"]:
-            random = np.mean(df_mc[df_mc.D == 1]["Y"]) - np.mean(
-                df_mc[df_mc.D == 0]["Y"]
-            )
+            random = np.mean(df_mc[df_mc.D == 1]["Y"]) - np.mean(df_mc[df_mc.D == 0]["Y"])
             stat = random
 
         elif label in ["ordinary_least_squares", "ols"]:
