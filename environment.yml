@@ -7,12 +7,12 @@ channels:
 
 dependencies:
 - numpy
-- libgfortran 
+- libgfortran
 - pandas
 - sphinx>=1.4
 - flake8
 - pytest
-- pytest-black 
+- pytest-black
 - pytest-flake8
 - black
 - scipy
@@ -29,7 +29,7 @@ dependencies:
 - rise
 - r-essentials
 - r-icc
-- libiconv 
+- libiconv
 - rpy2
 - xlrd
 - nbsphinx
@@ -45,5 +45,7 @@ dependencies:
     - scikit-learn
     - sphinx_rtd_theme
     - nbsphinx
+    - cairosvg
     - sphinxcontrib-bibtex
+    - sphinxcontrib-svg2pdfconverter[CairoSVG]
     - grmpy
