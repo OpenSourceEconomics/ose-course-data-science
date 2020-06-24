@@ -45,5 +45,7 @@ dependencies:
     - scikit-learn
     - sphinx_rtd_theme
     - nbsphinx
+    - cairosvg
     - sphinxcontrib-bibtex
+    - sphinxcontrib-svg2pdfconverter[CairoSVG]
     - grmpy
