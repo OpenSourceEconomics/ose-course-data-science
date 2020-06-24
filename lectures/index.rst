@@ -135,3 +135,14 @@ We review the basic ideas behind the generalized method of moments (GMM) and imp
    :maxdepth: 1
 
    generalized-moments/notebook.ipynb
+
+======================
+Generalized Roy model
+======================
+
+The section provides an overview of several important issues that are essential for the evaluation of treatment effects. For this purpose we get familiar with the framework of the generalized Roy model.
+
+.. toctree::
+   :maxdepth: 1
+
+   generalized-roy-model/notebook.ipynb
