@@ -67,7 +67,10 @@ def get_sample_panel_demonstration(num_agents, selection, trajectory):
         d = np.random.choice([1, 0], p=[p, 1 - p])
 
         # If the trajectories are diverging, we need to determine the shift here. This is a
-        # violation of the common trend assumption.
+        # violation of the common trend assumption. Students who select into public 
+        # schools would have ahad a boost in achievement even if they had remained in public
+        # schools, net of all other determinants of the potential outcome in the 
+        # absence of treatment.
         if trajectory == "divergent" and d == 1:
             y0[-1] += 0.5
         elif trajectory == "divergent" and d == 0:
