@@ -34,6 +34,7 @@ extensions = [
     "sphinx_rtd_theme",
     "sphinx.ext.doctest",
     "sphinxcontrib.bibtex",
+    "sphinxcontrib.cairosvgconverter",
 ]
 
 master_doc = "index"
@@ -49,12 +50,16 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 nbsphinx_execute = "auto"
 
 nbsphinx_prolog = r"""
-{% set docname = 'docs/source/' + env.doc2path(env.docname, base=None) %}
+{% set docname = env.doc2path(env.docname, base=None) %}
+.. |binder| image:: https://mybinder.org/badge_logo.svg
+    :target: https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath={{ docname|e }}
 
 .. only:: html
 
     .. nbinfo::
-        Download the notebook :download:`here <https://nbviewer.jupyter.org/github/OpenSourceEconomics/econsa/blob/master/{{ docname }}>`!
+        Download the notebook :download:`here <https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/{{ docname }}>`!
+        Interactive online version: |binder|
+
 """
 # -- Options for HTML output -------------------------------------------------
 
