@@ -8,7 +8,7 @@ ESTIMATION:
     output_file: est.grmpy.info
     dependent: Y
     indicator: D
-    print_output: False
+    print_output: false
     start: auto
     maxiter: 10000
     optimizer: SCIPY-BFGS
@@ -55,7 +55,7 @@ DIST:
     params:
     - 0.5
     - 0.0
-    - 0.0
+    - -0.495
     - 0.5
     - 0.0
     - 1.0
@@ -74,4 +74,4 @@ SCIPY-BFGS:
     eps: 1.4901161193847655e-08
 SCIPY-POWELL:
     xtol: 0.0001
-    ftol: 0.00001
+    ftol: 1.0e-05
