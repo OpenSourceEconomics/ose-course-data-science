@@ -40,4 +40,7 @@ Generalized Roy model
 
 We explore the Generalized Roy framework and practice estimation of marginal treatment effects using the open-source software package `grmpy <https://grmpy.readthedocs.io/en/latest/>`_. Moreover, we simulate our own data set to conduct a Monte Carlo analysis and compare the performance of different estimators in the presence of essential heterogeneity. The accompanying files are available `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/generalized-roy-model/sources>`__ and data `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/generalized-roy-model/data>`__.
 
-* `Generalized Roy model <https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/generalized-roy-model/problem-set-04-generalized-roy-model.pdf>`_
+.. toctree::
+   :maxdepth: 1
+
+   generalized-roy-model/notebook.ipynb
