@@ -234,16 +234,10 @@ def plot_conditional_expectation_demonstration_1(df):
 def get_predictions_demonstration_1(df):
 
     df_extend = df.join(pd.get_dummies(df["S"], prefix="S"))
-    df_extend["predict_1"] = (
-        smf.ols(formula="Y ~ D + S", data=df_extend).fit().predict()
-    )
-    df_extend["predict_2"] = (
-        smf.ols(formula="Y ~ D + S_2 + S_3", data=df_extend).fit().predict()
-    )
+    df_extend["predict_1"] = smf.ols(formula="Y ~ D + S", data=df_extend).fit().predict()
+    df_extend["predict_2"] = smf.ols(formula="Y ~ D + S_2 + S_3", data=df_extend).fit().predict()
     df_extend["predict_3"] = (
-        smf.ols(formula="Y ~ D + S_2 + S_3 + S_2 * D + S_3 * D", data=df_extend)
-        .fit()
-        .predict()
+        smf.ols(formula="Y ~ D + S_2 + S_3 + S_2 * D + S_3 * D", data=df_extend).fit().predict()
     )
 
     rslt = dict()

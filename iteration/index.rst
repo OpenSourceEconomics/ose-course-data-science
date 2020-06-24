@@ -43,9 +43,9 @@ Date      Topic
 30/06/20   Regression discontinuity design
 01/07/20   Regression discontinuity design
 07/07/20   Problem set: Regression discontinuity design
-08/07/20
-14/07/20
-15/07/20
+08/07/20   Introduction to structural econometrics
+14/07/20   Maximum likelihood estimation
+15/07/20   Simulated method of moments
 ========  ======================================================================
 
 
