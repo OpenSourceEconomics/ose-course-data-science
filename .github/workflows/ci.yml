@@ -43,6 +43,6 @@ jobs:
         export PATH="$PATH:/usr/share/miniconda/bin"
         source .envrc
         cd problem-sets/potential-outcome-model/data; python data-generation.py; cd $PROJECT_ROOT
-        cd problem-sets/regression-discontinuity-design/sources; python auxiliary.py; cd $PROJECT_ROOT
+        cd problem-sets/regression-discontinuity-design; python auxiliary.py; cd $PROJECT_ROOT
         cd lectures/mechanisms-causal-explanation/material; python run_respy.py; cd $PROJECT_ROOT
 
