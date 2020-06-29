@@ -10,6 +10,7 @@ PROBLEM_SETS_ROOT = os.environ["PROJECT_ROOT"] + "/problem-sets"
 HANDOUTS_ROOT = os.environ["PROJECT_ROOT"] + "/handouts"
 LECTURES_ROOT = os.environ["PROJECT_ROOT"] + "/lectures"
 DATASETS_ROOT = os.environ["PROJECT_ROOT"] + "/datasets"
+SPECIALS_ROOT = os.environ["PROJECT_ROOT"] + "/specials"
 
 
 def parse_arguments(description):
@@ -22,6 +23,8 @@ def parse_arguments(description):
         task, task_dir = "lecture", LECTURES_ROOT
     elif "handout" in description:
         task, task_dir = "handout", HANDOUTS_ROOT
+    elif "special" in description:
+        task, task_dir = "special", SPECIALS_ROOT
     else:
         raise NotImplementedError
 
