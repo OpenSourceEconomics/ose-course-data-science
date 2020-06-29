@@ -6,7 +6,7 @@ from sklearn.model_selection import LeaveOneOut
 from sklearn.model_selection import cross_val_score
 
 # create two dataframes on either side of the cutoff alligned with your code
-df = pd.read_stata("../data/individ_final.dta")
+df = pd.read_stata("data/individ_final.dta")
 bins = np.linspace(-1, 1, num=401)
 labels = np.linspace(0, 399, num=400)
 df["bin"] = pd.cut(df.difshare, bins, labels=labels, include_lowest=True)
