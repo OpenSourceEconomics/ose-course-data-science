@@ -1,3 +1,2 @@
 [tool.black]
-exclude = "submodules"
 line-length = 100
