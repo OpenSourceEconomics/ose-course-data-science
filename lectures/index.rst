@@ -2,7 +2,7 @@
 Lectures
 ########
 
-We provide a set of lectures that are all provided as Jupyter Notebooks. 
+We provide a set of lectures that are all provided as Jupyter Notebooks.
 
 ============
 Introduction
@@ -92,11 +92,22 @@ We review basic instrumental variables estimation using a simulated example insp
 
    instrumental-variable/notebook.ipynb
 
+======================
+Generalized Roy model
+======================
+
+We use the generalized Roy model to discuss a variety of issues in the econometrics of policy evaluation. We outline the model setup, discuss different source of heterogeneity in the benefit of treatment, define the common treatment effect parameters, and explore the marginal benefit of treatment as the the unifying framework. We showcase the software package `grmpy` which allows to simulate and estimate the generalized Roy model.
+
+.. toctree::
+   :maxdepth: 1
+
+   generalized-roy-model/notebook.ipynb
+
 ===================
 Causal explanations
 ===================
 
-We study front-door identification that allow (under certain conditions) to provide a causal account of the effect of D on Y.
+We study front-door identification that allow (under certain conditions) to provide a causal account of the effect of D on Y. As an example, we look at the seminal work in `Keane & Wolpin (1997) <https://www.jstor.org/stable/10.1086/262080>`_ who analyze a structural microeconometric model that allows to investigate the importance of competing economic mechanisms determining human capital accumulation decisions and is also used to predict the impact of a tuition subsidy on educational attainment.
 
 .. toctree::
    :maxdepth: 1
@@ -107,7 +118,7 @@ We study front-door identification that allow (under certain conditions) to prov
 Repeated observations
 =====================
 
-We now explore models in which we have multiple observations at different points in time. Due to its similar structure, we also look at the sharp and fuzzy regression discontinuity design.
+We now explore models in which we have multiple observations at different points in time. We start with the interrupted time series model and then explore difference-in-difference estimation using `Card & Krueger (1994) <https://www.jstor.org/stable/2118030>`_. Due to its similar structure, we also preview the sharp and fuzzy regression discontinuity design.  We then return to the earlier example of school choice to benchmark the performance of alternative estimators as we vary the economics of individual decision-making.
 
 .. toctree::
    :maxdepth: 1
@@ -118,7 +129,7 @@ We now explore models in which we have multiple observations at different points
 Regression discontinuity design
 ===============================
 
-We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to application based on the seminal review by `Lee & Lemieux (2010) <https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281>`_. We reproduce and check the robustness of some of the results in `Lee (2008) <https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065>`_.
+We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to its application based on the seminal review by `Lee & Lemieux (2010) <https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281>`_. We look at different conditional mean functions and the issue of bandwidth choice. We reproduce and check the robustness of some of the results in `Lee (2008) <https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065>`_.
 
 .. toctree::
    :maxdepth: 1

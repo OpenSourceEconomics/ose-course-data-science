@@ -7,9 +7,10 @@ the slides, notebooks, problem sets, handouts, and data.
 Examples
 --------
 
->> run-project           Run all slides, notebooks, problems sets, handouts, and data.
+>> run-project           Run all slides, notebooks, problems sets, handouts, data, and specials.
 
 """
 import subprocess as sp
 
-[sp.check_call(f"run-{task}") for task in ["slide", "notebook", "problem", "dataset"]]
+tasks = ["slide", "notebook", "problem", "dataset", "special"]
+[sp.check_call(f"run-{task}") for task in tasks]

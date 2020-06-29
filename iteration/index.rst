@@ -8,10 +8,10 @@ We start on April 21st 2020 and meet on Tuesdays (14:15-15:45pm) and Wednesdays 
 
 We will conduct all course communications using the bonn-econ-teaching `Zulip <https://zulip.com>`_ chat, so please be sure to join us there. To join the Zulip organization, please click on the button below.
 
-.. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+.. image:: ../images/zulip.svg
     :target: https://bonn-econ-teaching.zulipchat.com
 
-By default, you will already be subscribed to Q&A and tech support streams (= chatrooms). You need to **manually subscribe to the microeconometrics stream** to receive all the messages for this course. There I also post the link to the online lectures using `ZOOM <https://zoom.us>`_. Find out how to subscribe to a stream on Zulip `here <https://zulipchat.com/help/browse-and-subscribe-to-streams>`_.
+By default, you will already be subscribed to Q&A and tech support streams (= chatrooms). You need to **manually subscribe to the microeconometrics stream** to receive all the messages for this course. There I also post the link to the online lectures using `ZOOM <https://zoom.us>`_. Find out how to subscribe to a stream on Zulip `here <https://zulipchat.com/help/browse-and-subscribe-to-streams>`__.
 
 Lecture plan
 """"""""""""
@@ -43,16 +43,16 @@ Date      Topic
 30/06/20   Regression discontinuity design
 01/07/20   Regression discontinuity design
 07/07/20   Problem set: Regression discontinuity design
-08/07/20
-14/07/20
-15/07/20
+08/07/20   Introduction to structural econometrics
+14/07/20   Maximum likelihood estimation
+15/07/20   Simulated method of moments
 ========  ======================================================================
 
 
 Student projects
 """"""""""""""""
 
-We will run student projects for grading and heavily rely on `GitHub Classroom <https://classroom.github.com>`_. In this project you are asked to summarize and reproduce core results of an empirical paper of your choice. Please select an article that interests you but also allows you to access the data used in the analysis. Also, for a good grade you need to add some analysis of your own. This can take very different forms. For example, you could create some visualizations that make the paper more accessible to interested readers, investigate the sensitivity of results to the author's modeling choices, or add some additional robustness checks. All details regarding the general setup are available `here <https://github.com/HumanCapitalAnalysis/student-project-template>`_.
+We will run student projects for grading and heavily rely on `GitHub Classroom <https://classroom.github.com>`_. In this project you are asked to summarize and reproduce core results of an empirical paper of your choice. Please select an article that interests you but also allows you to access the data used in the analysis. Also, for a good grade you need to add some analysis of your own. This can take very different forms. For example, you could create some visualizations that make the paper more accessible to interested readers, investigate the sensitivity of results to the author's modeling choices, or add some additional robustness checks. All details regarding the general setup are available `here <https://github.com/HumanCapitalAnalysis/student-project-template>`__.
 
 * **Do we need to report on the progress of our project?** Yes, I will frequently select a student project at random to report on their current state at the end of a lecture.
 

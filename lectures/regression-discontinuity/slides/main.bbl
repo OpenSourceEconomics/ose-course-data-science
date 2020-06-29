@@ -1,0 +1,108 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Hahn%
+, Todd%
+\BCBL {}\ \BBA {} van~der Klaauw%
+}{%
+Hahn%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2001}}%
+}]{%
+Hahn.2001}
+\APACinsertmetastar {%
+Hahn.2001}%
+\begin{APACrefauthors}%
+Hahn, J.%
+, Todd, P\BPBI E.%
+\BCBL {}\ \BBA {} van~der Klaauw, W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Identification and Estimation of Treatment Effects with
+  a Regression-Discontinuity Design} {Identification and estimation of
+  treatment effects with a regression-discontinuity design}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Econometrica}{69}{1}{201--209}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lee%
+}{%
+Lee%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+Lee.2008}
+\APACinsertmetastar {%
+Lee.2008}%
+\begin{APACrefauthors}%
+Lee, D\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Randomized experiments from non-random selection in {US}
+  {H}ouse elections} {Randomized experiments from non-random selection in {US}
+  {H}ouse elections}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Econometrics}{142}{2}{675--697}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lee%
+\ \BBA {} Lemieux%
+}{%
+Lee%
+\ \BBA {} Lemieux%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+Lee.2010a}
+\APACinsertmetastar {%
+Lee.2010a}%
+\begin{APACrefauthors}%
+Lee, D\BPBI S.%
+\BCBT {}\ \BBA {} Lemieux, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Regression discontinuity designs in economics}
+  {Regression discontinuity designs in economics}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of economic literature}{48}{2}{281--355}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Thistlethwaite%
+\ \BBA {} Campbell%
+}{%
+Thistlethwaite%
+\ \BBA {} Campbell%
+}{%
+{\protect \APACyear {1960}}%
+}]{%
+Thistlethwaite.1960}
+\APACinsertmetastar {%
+Thistlethwaite.1960}%
+\begin{APACrefauthors}%
+Thistlethwaite, D\BPBI L.%
+\BCBT {}\ \BBA {} Campbell, D\BPBI T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1960}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Regression-Discontinuity Analysis: An Alternative to the
+  Ex-Post Facto Experiment} {Regression-discontinuity analysis: An alternative
+  to the ex-post facto experiment}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Educational Psychology}{51}{6}{309--317}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
