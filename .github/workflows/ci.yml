@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: goanpeca/setup-miniconda@v1.0.2
       with:
-           activate-environment: teaching_microeconometrics
+           activate-environment: teaching-microeconometrics
            environment-file: environment.yml
            python-version: 3.6
            auto-activate-base: false
@@ -38,4 +38,5 @@ jobs:
         cd problem-sets/potential-outcome-model/data; python data-generation.py; cd $PROJECT_ROOT
         cd problem-sets/regression-discontinuity-design; python auxiliary.py; cd $PROJECT_ROOT
         cd lectures/mechanisms-causal-explanation/material; python run_respy.py; cd $PROJECT_ROOT
-
+      
+        cd figures; jupyter nbconvert --execute figures.ipynb; cd $PROJECT_ROOT

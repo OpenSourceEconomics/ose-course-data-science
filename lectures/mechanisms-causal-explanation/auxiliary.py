@@ -1,5 +1,46 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
+import pandas as pd
+
+
+def simulate_causal_graph():
+
+    alpha_D = 1
+    alpha_Y = 1
+    alpha_M = 1
+    alpha_N = 1
+
+    beta_G = -0.7
+    beta_F = 0.2
+    beta_A = 0.8
+    beta_B = 0.7
+    beta_C = 0.9
+    beta_DM = 0.4
+    beta_DN = 0.5
+    beta_YM = 0.5
+    beta_YN = 0.6
+
+    # distributional assumptions
+    get_unobservable = np.random.normal
+    get_observable = np.random.uniform
+
+    num_agents = 10000
+    data = np.tile(np.nan, (num_agents, 9))
+    for i in range(num_agents):
+        G = get_observable()
+        F = get_observable()
+        A = get_observable()
+        B = get_observable()
+        C = get_observable()
+        D = alpha_D + beta_A * A + beta_B * B + beta_C * C + get_unobservable()
+        M = alpha_M + beta_DM * D + get_unobservable()
+        N = alpha_N + beta_DN * D + get_unobservable()
+        Y = alpha_Y + beta_YM * M + beta_YN * N + beta_F * F + beta_G * G + get_unobservable()
+        data[i, :] = [Y, D, G, F, A, B, C, M, N]
+
+    df = pd.DataFrame(data, columns=["Y", "D", "G", "F", "A", "B", "C", "M", "N"])
+    return df
 
 
 def plot_choices(df, label):
