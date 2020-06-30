@@ -30,6 +30,11 @@ if __name__ == "__main__":
     os.chdir(LECTURES_ROOT)
 
     for dirname in request:
+
+        # TODO: This requires investigation, ImportError: cannot import name 'cgutils' from 'numba'
+#        if "mechanisms" in dirname:
+#            continue
+
         os.chdir(dirname)
         for fname in glob.glob("*.ipynb"):
             print(f"\n {os.getcwd().split('/')[-1]}\n")

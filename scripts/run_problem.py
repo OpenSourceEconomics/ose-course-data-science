@@ -17,7 +17,6 @@ import os
 from auxiliary import PROBLEM_SETS_ROOT
 from run_notebook import run_notebook
 from auxiliary import parse_arguments
-from auxiliary import compile_single
 
 
 if __name__ == "__main__":
@@ -28,8 +27,6 @@ if __name__ == "__main__":
 
     for dirname in request:
         os.chdir(dirname)
-        if os.path.exists("sources"):
-            compile_single("sources", "problem-set")
         [run_notebook(fname) for fname in glob.glob("*.ipynb")]
 
         os.chdir("../")

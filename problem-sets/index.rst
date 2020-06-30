@@ -32,7 +32,10 @@ Regression discontinuity design
 
 We practice RDD with `Lee (2008) <https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065>`_ framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/problem-sets/regression-discontinuity-design/data>`_.
 
-* `Regression discontinuity design (RDD) <https://github.com/HumanCapitalAnalysis/microeconometrics/blob/master/problem-sets/regression-discontinuity-design/problem-set-03-regression-discontinuity-design.pdf>`_
+.. toctree::
+   :maxdepth: 1
+
+   regression-discontinuity-design/notebook.ipynb
 
 =====================
 Generalized Roy model

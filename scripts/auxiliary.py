@@ -1,8 +1,6 @@
 """This module contains some auxiliary functions shared across the utility scripts."""
-import subprocess
 import argparse
 import difflib
-import shutil
 import glob
 import os
 
@@ -46,16 +44,6 @@ def parse_arguments(description):
     request.sort()
 
     return request
-
-
-def compile_single(dirname, task):
-    """Compile a single lecture."""
-    cwd = os.getcwd()
-    os.chdir(dirname)
-    for cmd in ["pdflatex", "bibtex", "pdflatex", "pdflatex"]:
-        subprocess.check_call(cmd + " main", shell=True)
-    shutil.copy("main.pdf", cwd + f"/{task}.pdf")
-    os.chdir(cwd)
 
 
 def get_list_tasks(task_dir):

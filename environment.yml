@@ -11,7 +11,8 @@ dependencies:
 - libgfortran
 - pandas
 - sphinx>=1.4
-- numba
+- numba==0.48.0
+- linearmodels
 - respy
 - flake8
 - pytest
