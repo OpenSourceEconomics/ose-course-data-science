@@ -15,8 +15,8 @@ import glob
 import os
 
 from auxiliary import PROBLEM_SETS_ROOT
-from run_notebook import run_notebook
 from auxiliary import parse_arguments
+from auxiliary import run_notebook
 
 
 if __name__ == "__main__":

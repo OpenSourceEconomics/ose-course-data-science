@@ -1,4 +1,5 @@
 """This module contains some auxiliary functions shared across the utility scripts."""
+import subprocess as sp
 import argparse
 import difflib
 import glob
@@ -9,6 +10,11 @@ HANDOUTS_ROOT = os.environ["PROJECT_ROOT"] + "/handouts"
 LECTURES_ROOT = os.environ["PROJECT_ROOT"] + "/lectures"
 DATASETS_ROOT = os.environ["PROJECT_ROOT"] + "/datasets"
 SPECIALS_ROOT = os.environ["PROJECT_ROOT"] + "/specials"
+
+
+def run_notebook(notebook):
+    cmd = " jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1".format(notebook)
+    sp.check_call(cmd, shell=True)
 
 
 def parse_arguments(description):

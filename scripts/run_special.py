@@ -11,17 +11,12 @@ Examples
 
 >> run-special -n 01      Run special nonstandard-standard_errors.
 """
-import subprocess as sp
 import glob
 import os
 
 from auxiliary import parse_arguments
 from auxiliary import SPECIALS_ROOT
-
-
-def run_notebook(notebook):
-    cmd = " jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1".format(notebook)
-    sp.check_call(cmd, shell=True)
+from auxiliary import run_notebook
 
 
 if __name__ == "__main__":

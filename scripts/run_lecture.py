@@ -11,17 +11,12 @@ Examples
 
 >> run-notebook -n 01      Run lecture 01-introduction.
 """
-import subprocess as sp
 import glob
 import os
 
 from auxiliary import parse_arguments
 from auxiliary import LECTURES_ROOT
-
-
-def run_notebook(notebook):
-    cmd = " jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1".format(notebook)
-    sp.check_call(cmd, shell=True)
+from auxiliary import run_notebook
 
 
 if __name__ == "__main__":
@@ -30,10 +25,6 @@ if __name__ == "__main__":
     os.chdir(LECTURES_ROOT)
 
     for dirname in request:
-
-        # TODO: This requires investigation, ImportError: cannot import name 'cgutils' from 'numba'
-#        if "mechanisms" in dirname:
-#            continue
 
         os.chdir(dirname)
         for fname in glob.glob("*.ipynb"):
