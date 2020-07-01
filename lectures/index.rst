@@ -118,7 +118,7 @@ We study front-door identification that allow (under certain conditions) to prov
 Repeated observations
 =====================
 
-We now explore models in which we have multiple observations at different points in time. We start with the interrupted time series model and then explore difference-in-difference estimation using `Card & Krueger (1994) <https://www.jstor.org/stable/2118030>`_. Due to its similar structure, we also preview the sharp and fuzzy regression discontinuity design.  We then return to the earlier example of school choice to benchmark the performance of alternative estimators as we vary the economics of individual decision-making.
+We now explore models in which we have multiple observations at different points in time. We start with the interrupted time series model and then explore difference-in-difference estimation using `Card & Krueger (1994) <https://www.jstor.org/stable/2118030>`_.  We then return to the earlier example of school choice to benchmark the performance of alternative estimators as we vary the economics of individual decision-making.
 
 .. toctree::
    :maxdepth: 1
