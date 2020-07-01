@@ -42,5 +42,5 @@ This course introduces students to basic microeconmetric methods. The objective 
 **Supported by**
 
 .. image:: images/OSE_sb_web.svg
-    :width: 30 %
+    :width: 22 %
     :target: http://open-econ.org

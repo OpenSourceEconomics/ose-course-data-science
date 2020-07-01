@@ -18,3 +18,4 @@ We collect a set up of questions here as well:
 * **Can we work in groups?** No, everybody has to work on their own project.
 
 * **Do I get any extra credit for ensuring full reproducibility of my project using Travis CI?** Yes, everybody who successfully sets up a continuous integration workflow will get an extra bump in their grade.
+
