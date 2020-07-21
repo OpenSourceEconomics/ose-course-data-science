@@ -14,4 +14,4 @@ We provide some additional resources that are useful for our course work in gene
 
 **Datasets**
 
-The textbooks above provide an impressive amount of data from research articles. We provide them in a central place `here <https://github.com/HumanCapitalAnalysis/microeconometrics/tree/master/datasets>`__.
+The textbooks above provide an impressive amount of data from research articles. We provide them in a central place `here <https://github.com/HumanCapitalAnalysis/ose-data-science/tree/master/datasets>`__.
