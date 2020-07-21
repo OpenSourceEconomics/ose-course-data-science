@@ -52,12 +52,12 @@ nbsphinx_execute = "auto"
 nbsphinx_prolog = r"""
 {% set docname = env.doc2path(env.docname, base=None) %}
 .. |binder| image:: https://mybinder.org/badge_logo.svg
-    :target: https://mybinder.org/v2/gh/HumanCapitalAnalysis/microeconometrics/master?filepath={{ docname|e }}
+    :target: https://mybinder.org/v2/gh/HumanCapitalAnalysis/ose-data-science/master?filepath={{ docname|e }}
 
 .. only:: html
 
     .. nbinfo::
-        Download the notebook :download:`here <https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/microeconometrics/blob/master/{{ docname }}>`!
+        Download the notebook :download:`here <https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/ose-data-science/blob/master/{{ docname }}>`!
         Interactive online version: |binder|
 
 """
