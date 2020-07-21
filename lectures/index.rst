@@ -52,12 +52,12 @@ We study the basic conditioning strategy for the estimation of causal effects. W
 Matching estimators
 ===================
 
+We review the fundamental concepts of matching such as stratification of data, weighting to achieve balance, and propensity scores. We explore several alternative implementations as we consider matching as conditioning via stratification, matching as a weighing approach, and matching as a data analysis algorithm. Throughout we heavily rely on simulated examples to explore some practical issues such as sparsity of data.
+
 .. toctree::
    :maxdepth: 1
 
    matching-estimators/notebook.ipynb
-
-We review the fundamental concepts of matching such as stratification of data, weighting to achieve balance, and propensity scores. We explore several alternative implementations as we consider matching as conditioning via stratification, matching as a weighing approach, and matching as a data analysis algorithm. Throughout we heavily rely on simulated examples to explore some practical issues such as sparsity of data.
 
 =====================
 Regression estimators
