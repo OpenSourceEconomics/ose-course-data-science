@@ -1,3 +1,3 @@
-# Microeconometrics
+# OSE data science
 
-Please see our [course materials](https://ose-data-science.readthedocs.io) for details.
+Please see our [online materials](https://ose-data-science.readthedocs.io) for details.
