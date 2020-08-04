@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-OSE-Data-Science
+OSE data science
 =================
 
 .. image:: https://github.com/HumanCapitalAnalysis/ose-data-science/workflows/Continuous%20Integration/badge.svg
@@ -63,4 +63,3 @@ Powered by
      </embed>
 
 We gratefully acknowledge funding by the Federal Ministry of Education and Research (BMBF) and the Ministry of Culture and Science of the State of North Rhine-Westphalia (MKW) as part of the Excellence Strategy of the federal and state governments.
-

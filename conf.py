@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "OSE-data-science"
+project = "OSE data science"
 copyright = "2020, Prof. Dr. Philipp Eisenhauer"
 author = "Prof. Dr. Philipp Eisenhauer"
 
