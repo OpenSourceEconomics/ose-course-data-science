@@ -9,13 +9,13 @@ OSE data science
 .. image:: https://github.com/HumanCapitalAnalysis/ose-data-science/workflows/Continuous%20Integration/badge.svg
     :target: https://github.com/HumanCapitalAnalysis/ose-data-science/actions
 
-.. image:: images/code-style-black.svg
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
 
-.. image:: images/zulip.svg
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :target: https://bonn-econ-teaching.zulipchat.com
 
-.. image:: images/License-MIT.svg
+.. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
     :target: https://github.com/HumanCapitalAnalysis/ose-data-science/blob/master/LICENSE
 
 .. image: https://readthedocs.org/projects/ose-data-science/badge/?version=latest
@@ -44,7 +44,7 @@ Powered by
 
 |OSE| |space| |Nuvolos| |space| |TRA|
 
-.. |OSE| image:: images/fig-ose.svg
+.. |OSE| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-corporate-design/master/logos/OSE_logo_RGB.svg
   :width: 22 %
   :target: https://open-econ.org
 
