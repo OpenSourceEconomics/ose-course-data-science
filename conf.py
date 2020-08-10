@@ -34,7 +34,6 @@ extensions = [
     "sphinx_rtd_theme",
     "sphinx.ext.doctest",
     "sphinxcontrib.bibtex",
-    "sphinxcontrib.cairosvgconverter",
 ]
 
 master_doc = "index"
