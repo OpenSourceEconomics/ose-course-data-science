@@ -15,7 +15,7 @@ dependencies:
 - linearmodels
 - respy
 - flake8
-- pytest
+- pytest==5.4.3
 - pytest-black
 - pytest-flake8
 - black

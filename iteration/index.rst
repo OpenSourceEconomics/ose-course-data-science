@@ -8,7 +8,7 @@ We start on April 21st 2020 and meet on Tuesdays (14:15-15:45pm) and Wednesdays 
 
 We will conduct all course communications using the bonn-econ-teaching `Zulip <https://zulip.com>`_ chat, so please be sure to join us there. To join the Zulip organization, please click on the button below.
 
-.. image:: ../images/zulip.svg
+.. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
     :target: https://bonn-econ-teaching.zulipchat.com
 
 By default, you will already be subscribed to Q&A and tech support streams (= chatrooms). You need to **manually subscribe to the microeconometrics stream** to receive all the messages for this course. There I also post the link to the online lectures using `ZOOM <https://zoom.us>`_. Find out how to subscribe to a stream on Zulip `here <https://zulipchat.com/help/browse-and-subscribe-to-streams>`__.
