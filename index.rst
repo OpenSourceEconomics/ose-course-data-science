@@ -12,13 +12,13 @@ OSE data science
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
 
-.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
+.. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
     :target: https://bonn-econ-teaching.zulipchat.com
 
-.. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
     :target: https://github.com/HumanCapitalAnalysis/ose-data-science/blob/master/LICENSE
 
-.. image: https://readthedocs.org/projects/ose-data-science/badge/?version=latest
+.. image:: https://readthedocs.org/projects/ose-data-science/badge/?version=latest
     :target: https://ose-data-science.readthedocs.io
 
 
