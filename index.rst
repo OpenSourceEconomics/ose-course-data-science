@@ -3,8 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-OSE data science
-=================
+.. |logo| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-corporate-design/master/logos/OSE_logo_no_type_RGB.svg
+  :width: 4 %
+
+|logo| OSE data science
+========================
 
 .. image:: https://github.com/HumanCapitalAnalysis/ose-data-science/workflows/Continuous%20Integration/badge.svg
     :target: https://github.com/HumanCapitalAnalysis/ose-data-science/actions
