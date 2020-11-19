@@ -13,7 +13,9 @@ SPECIALS_ROOT = os.environ["PROJECT_ROOT"] + "/specials"
 
 
 def run_notebook(notebook):
-    cmd = " jupyter nbconvert --execute {}  --ExecutePreprocessor.timeout=-1".format(notebook)
+    cmd = " jupyter nbconvert --to html --execute {}  --ExecutePreprocessor.timeout=-1".format(
+        notebook
+    )
     sp.check_call(cmd, shell=True)
 
 
