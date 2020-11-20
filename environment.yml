@@ -22,7 +22,7 @@ dependencies:
 - scipy
 - jupyterlab
 - matplotlib
-- seaborn
+- seaborn==0.10.1
 - jupyter
 - jupyter_contrib_nbextensions
 - jupyter_nbextensions_configurator

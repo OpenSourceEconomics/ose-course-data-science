@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: goanpeca/setup-miniconda@v1.0.2
+    - uses: conda-incubator/setup-miniconda@v2
       with:
            activate-environment: ose-course-data-science
            environment-file: environment.yml
@@ -38,5 +38,4 @@ jobs:
         cd problem-sets/potential-outcome-model/data; python data-generation.py; cd $PROJECT_ROOT
         cd problem-sets/regression-discontinuity-design; python auxiliary.py; cd $PROJECT_ROOT
         cd lectures/mechanisms-causal-explanation/material; python run_respy.py; cd $PROJECT_ROOT
-      
-        cd figures; jupyter nbconvert --execute figures.ipynb; cd $PROJECT_ROOT
+        cd figures; jupyter nbconvert --to html --execute figures.ipynb; cd $PROJECT_ROOT
