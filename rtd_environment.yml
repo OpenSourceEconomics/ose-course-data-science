@@ -1,0 +1,14 @@
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python
+  - ipython
+  - nbsphinx
+  - numpydoc
+  - sphinx
+  - sphinx-autoapi
+  - sphinxcontrib-bibtex<2.0.0
+  - sphinx_rtd_theme
+  - parso>=0.8.1
+
