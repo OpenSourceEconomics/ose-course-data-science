@@ -37,7 +37,7 @@ df.loc[(df.PHSTAT == 5), "health"] = 1
 df.drop(df.iloc[:, 0:7], inplace=True, axis=1)
 df.reset_index(drop=True)
 
-df.to_excel("nhis-initial.xlsx")
+df.to_excel("nhis-initial.xls")
 
 # Adjust the data set for the POM framework
 is_treated = df["hospitalized"] == 1
@@ -78,4 +78,4 @@ table = pd.DataFrame(
     }
 )
 
-df.to_excel("nhis-simulated.xlsx")
+df.to_excel("nhis-simulated.xls")
