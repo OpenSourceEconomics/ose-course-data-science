@@ -8,7 +8,7 @@ import numpy as np
 
 
 def get_potential_outcomes(a, b):
-    """ Get potential outcomes.
+    """Get potential outcomes.
 
     This function calculates the potential outcomes based on the functional from as described in
     our textbook on p. 153.
@@ -81,7 +81,7 @@ def get_sample_matching_demonstration_3(a_grid, b_grid):
 
 
 def get_propensity_score(a, b):
-    """ Get propensity score.
+    """Get propensity score.
 
     This function calculates the propensity based on the functional form as described in our
     textbook on p. 153.
