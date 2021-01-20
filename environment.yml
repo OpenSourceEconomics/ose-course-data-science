@@ -43,6 +43,7 @@ dependencies:
 - scikit-learn
 - chaospy
 - estimagic
+- pyarrow
 - pip:
     - black-nb
     - flake8-nb
