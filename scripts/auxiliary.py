@@ -20,7 +20,7 @@ def run_notebook(notebook):
 
 
 def parse_arguments(description):
-    """This function parses the arguments for the scripts."""
+    """Parse the arguments for the scripts."""
     parser = argparse.ArgumentParser(description=description)
 
     if "problem set" in description:

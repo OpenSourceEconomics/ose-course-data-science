@@ -52,9 +52,7 @@ def get_plot_probability(version, grid, probs):
 
 
 def get_treatment_probability(version, grid):
-    """This function assigns a probability of treatment assignment around
-    the example's cutoff.
-    """
+    """Assign a probability of treatment assignment around the example's cutoff."""
     probs = list()
     for z in grid:
         if version == "sharp":

@@ -6,7 +6,6 @@ single lecture. It is enough to provide a substring for the name.
 
 Examples
 --------
-
 >> run-special             Run all specials.
 
 >> run-special -n 01      Run special nonstandard-standard_errors.

@@ -7,7 +7,7 @@ from auxiliary import DATASETS_ROOT
 
 
 def from_dta_to_csv(textbook, dataset):
-    """This function transfers the dataset from *.dta to a csv file."""
+    """Transfer the dataset from *.dta to a csv file."""
     substring = textbook + "/" + dataset
     df = pd.read_stata("sources/" + substring + ".dta")
     df.to_csv("processed/" + substring + ".csv", index=False)

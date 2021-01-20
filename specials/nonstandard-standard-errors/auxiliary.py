@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def get_sample(scale):
-    """This function simulates a sample with different levels of interclass correlation."""
+    """Simulate a sample with different levels of interclass correlation."""
     columns = ["Y", "G", "E"]
     index = pd.Index(range(500), name="Identifier")
     df = pd.DataFrame(columns=columns, index=index)

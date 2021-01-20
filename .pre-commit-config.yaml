@@ -37,7 +37,3 @@ repos:
             flake8-docstrings, flake8-eradicate, flake8-print, flake8-pytest-style,
             flake8-todo, flake8-unused-arguments, pep8-naming, pydocstyle, Pygments,
         ]
--   repo: https://github.com/PyCQA/doc8
-    rev: 0.8.1rc3
-    hooks:
-    -   id: doc8

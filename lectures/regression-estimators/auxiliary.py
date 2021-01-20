@@ -102,7 +102,7 @@ def get_sample_bias_illustration(sample, num_agents=1000):
 
 
 def get_sample_regression_adjustment(sample, num_agents=1000, seed=123):
-    """There exist six different groups in the population with equal shares"""
+    """There exist six different groups in the population with equal shares."""
     np.random.seed(seed)
     columns = ["Y", "D", "X", "Y_1", "Y_0", "V_1", "V_0"]
     df = pd.DataFrame(columns=columns)
