@@ -35,6 +35,7 @@ dependencies:
 - libiconv
 - rpy2
 - xlrd
+- xlwt
 - nbsphinx
 - simplegeneric
 - nb_black
