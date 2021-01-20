@@ -45,6 +45,7 @@ dependencies:
 - estimagic
 - parso>=0.8.0
 - pre-commit
+- pyarrow
 - pip:
     - black-nb
     - flake8-nb
