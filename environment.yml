@@ -18,7 +18,6 @@ dependencies:
 - pytest==5.4.3
 - pytest-black
 - pytest-flake8
-- black
 - scipy
 - jupyterlab
 - matplotlib
@@ -50,6 +49,7 @@ dependencies:
     - flake8-nb
     - linearmodels
     - openpyxl
+    - black==19.10b0
     - scikit-learn
     - sphinx_rtd_theme
     - nbsphinx
