@@ -1,0 +1,25 @@
+name: rtd-ose-course-data-science
+
+channels:
+- defaults
+- conda-forge
+
+dependencies:
+- sphinx>=1.4
+- jupyterlab
+- jupyter
+- jupyter_contrib_nbextensions
+- jupyter_nbextensions_configurator
+- ipython
+- ipykernel
+- pip
+- libiconv
+- nbsphinx
+- nbdime
+- pip:
+    - sphinx_rtd_theme
+    - nbsphinx
+    - cairosvg
+    - sphinxcontrib-bibtex<2.0.0
+    - sphinxcontrib-svg2pdfconverter[CairoSVG]
+    - parso<0.8.0

@@ -6,7 +6,6 @@ the slides, notebooks, problem sets, handouts, and data.
 
 Examples
 --------
-
 >> run-project           Run all notebooks, problems sets, handouts, data, and specials.
 
 """

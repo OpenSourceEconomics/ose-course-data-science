@@ -1,14 +1,14 @@
 import collections
 
-from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-import statsmodels.formula.api as smf
 import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
+import pandas as pd
+import statsmodels.formula.api as smf
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 
 
 def get_potential_outcomes(a, b):
-    """ Get potential outcomes.
+    """Get potential outcomes.
 
     This function calculates the potential outcomes based on the functional from as described in
     our textbook on p. 153.
@@ -40,7 +40,7 @@ def get_propensity_score_3(df, specification="true"):
 
 
 def get_sample_matching_demonstration_3(a_grid, b_grid):
-    """Matching demonstration 3
+    """Match demonstration 3.
 
     This function implements the third matching demonstration. It's key feature lies in the
     sparsity patterns.
@@ -81,7 +81,7 @@ def get_sample_matching_demonstration_3(a_grid, b_grid):
 
 
 def get_propensity_score(a, b):
-    """ Get propensity score.
+    """Get propensity score.
 
     This function calculates the propensity based on the functional form as described in our
     textbook on p. 153.

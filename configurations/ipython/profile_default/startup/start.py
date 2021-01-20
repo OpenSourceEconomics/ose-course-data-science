@@ -1,7 +1,7 @@
 # The basic idea is to NOT have any regular package imports here.
 # This just confuses students.
-from IPython.core.display import HTML
 from IPython import get_ipython
+from IPython.core.display import HTML
 
 ipython = get_ipython()
 

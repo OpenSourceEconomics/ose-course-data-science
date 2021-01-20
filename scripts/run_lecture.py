@@ -6,7 +6,6 @@ single lecture. It is enough to provide a substring for the name.
 
 Examples
 --------
-
 >> run-notebook             Run all lectures.
 
 >> run-notebook -n 01      Run lecture 01-introduction.
@@ -14,8 +13,8 @@ Examples
 import glob
 import os
 
-from auxiliary import parse_arguments
 from auxiliary import LECTURES_ROOT
+from auxiliary import parse_arguments
 from auxiliary import run_notebook
 
 

@@ -6,7 +6,6 @@ single lecture. It is enough to provide a substring for the name.
 
 Examples
 --------
-
 >> run-special             Run all specials.
 
 >> run-special -n 01      Run special nonstandard-standard_errors.
@@ -14,8 +13,8 @@ Examples
 import glob
 import os
 
-from auxiliary import parse_arguments
 from auxiliary import HANDOUTS_ROOT
+from auxiliary import parse_arguments
 from auxiliary import run_notebook
 
 if __name__ == "__main__":
