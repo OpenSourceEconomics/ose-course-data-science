@@ -8,7 +8,7 @@ python:
   version: 3.7
 
 conda:
-  environment: rtd_environment.yml
+  environment: configurations/rtd.yml
   
 formats:
   - pdf
