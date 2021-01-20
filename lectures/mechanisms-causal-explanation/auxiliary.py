@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
 import pandas as pd
+import seaborn as sns
 
 
 def simulate_causal_graph():

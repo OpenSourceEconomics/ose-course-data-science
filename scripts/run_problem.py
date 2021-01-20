@@ -14,8 +14,8 @@ Examples
 import glob
 import os
 
-from auxiliary import PROBLEM_SETS_ROOT
 from auxiliary import parse_arguments
+from auxiliary import PROBLEM_SETS_ROOT
 from auxiliary import run_notebook
 
 

@@ -1,9 +1,9 @@
 """This module contains some auxiliary functions shared across the utility scripts."""
-import subprocess as sp
 import argparse
 import difflib
 import glob
 import os
+import subprocess as sp
 
 PROBLEM_SETS_ROOT = os.environ["PROJECT_ROOT"] + "/problem-sets"
 HANDOUTS_ROOT = os.environ["PROJECT_ROOT"] + "/handouts"

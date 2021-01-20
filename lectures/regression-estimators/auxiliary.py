@@ -1,9 +1,8 @@
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-
-import matplotlib.pyplot as plt
-import statsmodels.formula.api as smf
 import seaborn as sns
+import statsmodels.formula.api as smf
 
 
 def get_quick_sample(num_samples):
@@ -33,7 +32,7 @@ def run_freedman_exercise():
 
     columns = ["Y"]
     for i in range(50):
-        columns.append("X{:}".format(i))
+        columns.append(f"X{i}")
     df = pd.DataFrame(np.random.normal(size=(100, 51)), columns=columns)
 
     formula = "Y ~ " + " + ".join(columns[1:]) + "- 1"

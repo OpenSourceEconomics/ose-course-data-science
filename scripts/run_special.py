@@ -15,8 +15,8 @@ import glob
 import os
 
 from auxiliary import parse_arguments
-from auxiliary import SPECIALS_ROOT
 from auxiliary import run_notebook
+from auxiliary import SPECIALS_ROOT
 
 
 if __name__ == "__main__":

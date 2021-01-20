@@ -1,10 +1,10 @@
 import collections
 
-from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-import statsmodels.formula.api as smf
 import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
+import pandas as pd
+import statsmodels.formula.api as smf
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 
 
 def get_potential_outcomes(a, b):

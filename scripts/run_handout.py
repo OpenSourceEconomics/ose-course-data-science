@@ -14,8 +14,8 @@ Examples
 import glob
 import os
 
-from auxiliary import parse_arguments
 from auxiliary import HANDOUTS_ROOT
+from auxiliary import parse_arguments
 from auxiliary import run_notebook
 
 if __name__ == "__main__":

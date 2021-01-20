@@ -16,7 +16,6 @@ The following functions will help you answer the questions in TASK B
 - plot_joint_distribution_unobservables
 
 """
-
 import linecache
 import shlex
 

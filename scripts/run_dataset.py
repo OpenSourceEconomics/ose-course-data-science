@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from itertools import product
 import os
+from itertools import product
 
 import pandas as pd
 from auxiliary import DATASETS_ROOT
@@ -34,7 +34,7 @@ df.head()
 
 # Morgan & Winship, these are the datasets for the matching illustration in Chapter 5.
 for num in range(1, 11):
-    fname = "mw_cath{}".format(num)
+    fname = f"mw_cath{num}"
     df = from_dta_to_csv("morgan_winship", fname)
 
 # All data related to LaLonde (1986) and Dehejia and Waba (1999) is available on the following
