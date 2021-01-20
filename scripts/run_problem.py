@@ -6,7 +6,6 @@ single one. It is enough to provide a substring for the name.
 
 Examples
 --------
-
 >> run-problem             Run all problem set.
 
 >> run-problem -n 01      Run slide 01-potential-outcome-model.
@@ -14,8 +13,8 @@ Examples
 import glob
 import os
 
-from auxiliary import PROBLEM_SETS_ROOT
 from auxiliary import parse_arguments
+from auxiliary import PROBLEM_SETS_ROOT
 from auxiliary import run_notebook
 
 

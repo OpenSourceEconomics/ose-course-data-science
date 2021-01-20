@@ -1,9 +1,9 @@
 """This module contains some auxiliary functions shared across the utility scripts."""
-import subprocess as sp
 import argparse
 import difflib
 import glob
 import os
+import subprocess as sp
 
 PROBLEM_SETS_ROOT = os.environ["PROJECT_ROOT"] + "/problem-sets"
 HANDOUTS_ROOT = os.environ["PROJECT_ROOT"] + "/handouts"
@@ -20,7 +20,7 @@ def run_notebook(notebook):
 
 
 def parse_arguments(description):
-    """This function parses the arguments for the scripts."""
+    """Parse the arguments for the scripts."""
     parser = argparse.ArgumentParser(description=description)
 
     if "problem set" in description:

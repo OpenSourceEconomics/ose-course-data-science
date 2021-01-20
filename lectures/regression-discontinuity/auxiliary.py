@@ -31,7 +31,7 @@ def plot_outcomes(version, grid):
     y_values = observed_outcome(grid, version)
     ax.plot(grid, y_values, label="Observed", linestyle="--", color="black")
     ax.legend()
-    ax.set_title("{:} design".format(version.capitalize()), fontsize=25)
+    ax.set_title(f"{version.capitalize()} design", fontsize=25)
 
     ax.set_xlabel("Z")
     ax.set_ylabel("Outcomes")
@@ -44,7 +44,7 @@ def get_plot_probability(version, grid, probs):
     ax.plot(grid, probs)
     plt.plot((0.25, 0.25), (0, 1), "--", color="grey")
 
-    ax.set_title("{:} design".format(version.capitalize()), fontsize=25)
+    ax.set_title(f"{version.capitalize()} design", fontsize=25)
     ax.set_xlabel("Z")
     ax.set_ylabel("Probability")
     ax.set_ylim([0.00, 1.09])
@@ -52,9 +52,7 @@ def get_plot_probability(version, grid, probs):
 
 
 def get_treatment_probability(version, grid):
-    """This function assigns a probability of treatment assignment around
-    the example's cutoff.
-    """
+    """Assign a probability of treatment assignment around the example's cutoff."""
     probs = list()
     for z in grid:
         if version == "sharp":
