@@ -20,6 +20,6 @@ dependencies:
     - sphinx_rtd_theme
     - nbsphinx
     - cairosvg
-    - sphinxcontrib-bibtex
+    - sphinxcontrib-bibtex<2.0.0
     - sphinxcontrib-svg2pdfconverter[CairoSVG]
     - parso
