@@ -22,4 +22,4 @@ dependencies:
     - cairosvg
     - sphinxcontrib-bibtex<2.0.0
     - sphinxcontrib-svg2pdfconverter[CairoSVG]
-    - parso
+    - parso<0.8.0
