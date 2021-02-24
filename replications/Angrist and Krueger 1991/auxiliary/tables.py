@@ -1,12 +1,13 @@
-import pandas as pd
-import numpy as np
-import statsmodels.formula.api as smf
-
 from operator import itemgetter
+
+import numpy as np
+import pandas as pd
+import statsmodels.formula.api as smf
 
 from . import regressions
 
-def create_table_qob(results, outcome_variables = None):
+
+def create_table_qob(results, outcome_variables=None):
 
     table = """
     <table>
@@ -31,18 +32,19 @@ def create_table_qob(results, outcome_variables = None):
 
     if outcome_variables:
         for out_var, rslt in zip(outcome_variables, results):
-            table += create_table_row_qob(out_var, rslt['cohort'], rslt['mean'], rslt['ols'])
+            table += create_table_row_qob(out_var, rslt["cohort"], rslt["mean"], rslt["ols"])
 
     else:
         for rslt in results:
-            table += create_table_row_qob(rslt['var'], rslt['cohort'], rslt['mean'], rslt['ols'])
-    
+            table += create_table_row_qob(rslt["var"], rslt["cohort"], rslt["mean"], rslt["ols"])
+
     table += """
         </tbody>
     </table>
     """
 
     return table
+
 
 def create_table_row_qob(outcome_variable, cohort, mean, ols):
 
@@ -65,6 +67,7 @@ def create_table_row_qob(outcome_variable, cohort, mean, ols):
     </tr>
     """
     return table_row
+
 
 def create_table_wald_estimates(title, results):
 
@@ -127,7 +130,8 @@ def create_table_wald_estimates(title, results):
     """
 
     return table
-    
+
+
 def create_table_4_5_6(results):
 
     table = """
@@ -136,13 +140,13 @@ def create_table_4_5_6(results):
             <tr>
                 <th></th>
     """
-    table += '\n'.join([f'<th>({i})</th>' for i in range(1, 9)])
+    table += "\n".join([f"<th>({i})</th>" for i in range(1, 9)])
     table += """
             </tr>
             <tr>
                 <th>Independent variable</th>
     """
-    table += '\n'.join([f'<th>{method}</th>' for method in ['OLS', 'TSLS'] * 4])
+    table += "\n".join([f"<th>{method}</th>" for method in ["OLS", "TSLS"] * 4])
     table += """
             </tr>
         </thead>
@@ -157,79 +161,129 @@ def create_table_4_5_6(results):
                 <td></td>
     """
     table += "\n".join([f'<td>({rslt.bse["EDUC"]:5.4f})</td>' for rslt in results])
-    
-    table +="""
+
+    table += """
             </tr>
             <tr>
                 <td>Race (1 = black)</td>
     """
-    table += '\n'.join([f'<td>{rslt.params["RACE"]:6.4f}</td>' if 'RACE' in rslt.params else '<td>-</td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>{rslt.params["RACE"]:6.4f}</td>' if "RACE" in rslt.params else "<td>-</td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td></td>
     """
-    table += '\n'.join([f'<td>({rslt.bse["RACE"]:6.4f})</td>' if 'RACE' in rslt.bse else '<td></td>' for rslt in results])
-    table +="""
+    table += "\n".join(
+        [
+            f'<td>({rslt.bse["RACE"]:6.4f})</td>' if "RACE" in rslt.bse else "<td></td>"
+            for rslt in results
+        ]
+    )
+    table += """
             </tr>
             <tr>
                 <td>SMSA (1 = center city)</td>
     """
-    table += '\n'.join([f'<td>{rslt.params["SMSA"]:6.4f}</td>' if 'SMSA' in rslt.params else '<td>-</td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>{rslt.params["SMSA"]:6.4f}</td>' if "SMSA" in rslt.params else "<td>-</td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td></td>
     """
-    table += '\n'.join([f'<td>({rslt.bse["SMSA"]:6.4f})</td>' if 'SMSA' in rslt.bse else '<td></td>' for rslt in results])
-    table +="""
+    table += "\n".join(
+        [
+            f'<td>({rslt.bse["SMSA"]:6.4f})</td>' if "SMSA" in rslt.bse else "<td></td>"
+            for rslt in results
+        ]
+    )
+    table += """
             </tr>
             <tr>
                 <td>Married (1 = married)</td>
     """
-    table += '\n'.join([f'<td>{rslt.params["MARRIED"]:6.4f}</td>' if 'MARRIED' in rslt.params else '<td>-</td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>{rslt.params["MARRIED"]:6.4f}</td>' if "MARRIED" in rslt.params else "<td>-</td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td></td>
     """
-    table += '\n'.join([f'<td>({rslt.bse["MARRIED"]:6.4f})</td>' if 'MARRIED' in rslt.bse else '<td></td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>({rslt.bse["MARRIED"]:6.4f})</td>' if "MARRIED" in rslt.bse else "<td></td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td>9 Year-of-birth dummies</td>
     """
-    table += '\n'.join(['<td>Yes</td>'] * 8)
+    table += "\n".join(["<td>Yes</td>"] * 8)
     table += """
             </tr>
             <tr>
                 <td>8 Region-of-residence dummies</td>
     """
-    table += '\n'.join(['<td>No</td>'] * 4 + ['<td>Yes</td>'] * 4)
+    table += "\n".join(["<td>No</td>"] * 4 + ["<td>Yes</td>"] * 4)
     table += """
             </tr>
             <tr>
                 <td>Age</td>
     """
-    table += '\n'.join([f'<td>{rslt.params["AGEQ"]:6.4f}</td>' if 'AGEQ' in rslt.params else '<td>-</td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>{rslt.params["AGEQ"]:6.4f}</td>' if "AGEQ" in rslt.params else "<td>-</td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td></td>
     """
-    table += '\n'.join([f'<td>({rslt.bse["AGEQ"]:6.4f})</td>' if 'AGEQ' in rslt.bse else '<td></td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>({rslt.bse["AGEQ"]:6.4f})</td>' if "AGEQ" in rslt.bse else "<td></td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td>Age Squared</td>
     """
-    table += '\n'.join([f'<td>{rslt.params["AGESQ"]:6.4f}</td>' if 'AGESQ' in rslt.params else '<td>-</td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>{rslt.params["AGESQ"]:6.4f}</td>' if "AGESQ" in rslt.params else "<td>-</td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td></td>
     """
-    table += '\n'.join([f'<td>({rslt.bse["AGESQ"]:6.4f})</td>' if 'AGESQ' in rslt.bse else '<td></td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>({rslt.bse["AGESQ"]:6.4f})</td>' if "AGESQ" in rslt.bse else "<td></td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
         </tbody>
@@ -238,7 +292,8 @@ def create_table_4_5_6(results):
 
     return table
 
-def create_table_7_8(results, race = True):
+
+def create_table_7_8(results, race=True):
 
     table = """
     <table>
@@ -246,13 +301,13 @@ def create_table_7_8(results, race = True):
             <tr>
                 <th></th>
     """
-    table += '\n'.join([f'<th>({i})</th>' for i in range(1, 9)])
+    table += "\n".join([f"<th>({i})</th>" for i in range(1, 9)])
     table += """
             </tr>
             <tr>
                 <th>Independent variable</th>
     """
-    table += '\n'.join([f'<th>{method}</th>' for method in ['OLS', 'TSLS'] * 4])
+    table += "\n".join([f"<th>{method}</th>" for method in ["OLS", "TSLS"] * 4])
     table += """
             </tr>
         </thead>
@@ -268,54 +323,84 @@ def create_table_7_8(results, race = True):
     """
     table += "\n".join([f'<td>({rslt.bse["EDUC"]:5.4f})</td>' for rslt in results])
     if race:
-        table +="""
+        table += """
                 </tr>
                 <tr>
                     <td>Race (1 = black)</td>
         """
-        table += '\n'.join([f'<td>{rslt.params["RACE"]:6.4f}</td>' if 'RACE' in rslt.params else '<td>-</td>' for rslt in results])
+        table += "\n".join(
+            [
+                f'<td>{rslt.params["RACE"]:6.4f}</td>' if "RACE" in rslt.params else "<td>-</td>"
+                for rslt in results
+            ]
+        )
         table += """
                 </tr>
                 <tr>
                     <td></td>
         """
-        table += '\n'.join([f'<td>({rslt.bse["RACE"]:6.4f})</td>' if 'RACE' in rslt.bse else '<td></td>' for rslt in results])
-    table +="""
+        table += "\n".join(
+            [
+                f'<td>({rslt.bse["RACE"]:6.4f})</td>' if "RACE" in rslt.bse else "<td></td>"
+                for rslt in results
+            ]
+        )
+    table += """
             </tr>
             <tr>
                 <td>SMSA (1 = center city)</td>
     """
-    table += '\n'.join([f'<td>{rslt.params["SMSA"]:6.4f}</td>' if 'SMSA' in rslt.params else '<td>-</td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>{rslt.params["SMSA"]:6.4f}</td>' if "SMSA" in rslt.params else "<td>-</td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td></td>
     """
-    table += '\n'.join([f'<td>({rslt.bse["SMSA"]:6.4f})</td>' if 'SMSA' in rslt.bse else '<td></td>' for rslt in results])
-    table +="""
+    table += "\n".join(
+        [
+            f'<td>({rslt.bse["SMSA"]:6.4f})</td>' if "SMSA" in rslt.bse else "<td></td>"
+            for rslt in results
+        ]
+    )
+    table += """
             </tr>
             <tr>
                 <td>Married (1 = married)</td>
     """
-    table += '\n'.join([f'<td>{rslt.params["MARRIED"]:6.4f}</td>' if 'MARRIED' in rslt.params else '<td>-</td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>{rslt.params["MARRIED"]:6.4f}</td>' if "MARRIED" in rslt.params else "<td>-</td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td></td>
     """
-    table += '\n'.join([f'<td>({rslt.bse["MARRIED"]:6.4f})</td>' if 'MARRIED' in rslt.bse else '<td></td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>({rslt.bse["MARRIED"]:6.4f})</td>' if "MARRIED" in rslt.bse else "<td></td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td>9 Year-of-birth dummies</td>
     """
-    table += '\n'.join(['<td>Yes</td>'] * 8)
+    table += "\n".join(["<td>Yes</td>"] * 8)
     table += """
             </tr>
             <tr>
                 <td>8 Region-of-residence dummies</td>
     """
-    table += '\n'.join(['<td>No</td>'] * 4 + ['<td>Yes</td>'] * 4)
+    table += "\n".join(["<td>No</td>"] * 4 + ["<td>Yes</td>"] * 4)
     if race:
         table += """
             </tr>
@@ -328,37 +413,57 @@ def create_table_7_8(results, race = True):
             <tr>
                 <td>49 State-of-birth dummies</td>
             """
-    table += '\n'.join(['<td>Yes</td>'] * 8)
+    table += "\n".join(["<td>Yes</td>"] * 8)
     table += """
             </tr>
             <tr>
                 <td>Age</td>
     """
-    table += '\n'.join([f'<td>{rslt.params["AGEQ"]:6.4f}</td>' if 'AGEQ' in rslt.params else '<td>-</td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>{rslt.params["AGEQ"]:6.4f}</td>' if "AGEQ" in rslt.params else "<td>-</td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td></td>
     """
-    table += '\n'.join([f'<td>({rslt.bse["AGEQ"]:6.4f})</td>' if 'AGEQ' in rslt.bse else '<td></td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>({rslt.bse["AGEQ"]:6.4f})</td>' if "AGEQ" in rslt.bse else "<td></td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td>Age Squared</td>
     """
-    table += '\n'.join([f'<td>{rslt.params["AGESQ"]:6.4f}</td>' if 'AGESQ' in rslt.params else '<td>-</td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>{rslt.params["AGESQ"]:6.4f}</td>' if "AGESQ" in rslt.params else "<td>-</td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
             <tr>
                 <td></td>
     """
-    table += '\n'.join([f'<td>({rslt.bse["AGESQ"]:6.4f})</td>' if 'AGESQ' in rslt.bse else '<td></td>' for rslt in results])
+    table += "\n".join(
+        [
+            f'<td>({rslt.bse["AGESQ"]:6.4f})</td>' if "AGESQ" in rslt.bse else "<td></td>"
+            for rslt in results
+        ]
+    )
     table += """
             </tr>
         </tbody>
     </table>
     """
-    
+
     return table
 
 
@@ -405,7 +510,9 @@ def create_table_mstly_hrmlss_ecnmtrcs_4_6_2(tsls, liml, f_test):
             <tr>
                 <td>F-statistic\n(excluded instruments)</td>
     """
-    table += "\n".join([f'<td>{f.fvalue[0][0]:5.4f}</td>' if f is not None else '<td></td>' for f in f_test])
+    table += "\n".join(
+        [f"<td>{f.fvalue[0][0]:5.4f}</td>" if f is not None else "<td></td>" for f in f_test]
+    )
     table += """
             </tr>
             <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -452,6 +559,7 @@ def create_table_mstly_hrmlss_ecnmtrcs_4_6_2(tsls, liml, f_test):
 
     return table
 
+
 def create_weak_instruments_table_1(results, f_test, partial_rsquared):
 
     table = """
@@ -492,14 +600,21 @@ def create_weak_instruments_table_1(results, f_test, partial_rsquared):
             <tr>
                 <td>F(excluded instruments)</td>
     """
-    table += "\n".join([f'<td>{f.fvalue[0][0]:5.4f}</td>' if f is not None else '<td></td>' for f in f_test])
+    table += "\n".join(
+        [f"<td>{f.fvalue[0][0]:5.4f}</td>" if f is not None else "<td></td>" for f in f_test]
+    )
     table += """
             </tr>
             <tr>
                 <td>Parital R squared (excluded instruments, x100)</td>
     """
-    table += "\n".join([f'<td>{r_sq * 100:5.4f}</td>' if r_sq is not None else '<td></td>' for r_sq in partial_rsquared])
-    table +="""
+    table += "\n".join(
+        [
+            f"<td>{r_sq * 100:5.4f}</td>" if r_sq is not None else "<td></td>"
+            for r_sq in partial_rsquared
+        ]
+    )
+    table += """
             </tr>
             <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
             <tr>
@@ -537,6 +652,7 @@ def create_weak_instruments_table_1(results, f_test, partial_rsquared):
 
     return table
 
+
 def create_weak_instruments_table_2(results, f_test, partial_rsquared):
 
     table = """
@@ -573,14 +689,21 @@ def create_weak_instruments_table_2(results, f_test, partial_rsquared):
             <tr>
                 <td>F(excluded instruments)</td>
     """
-    table += "\n".join([f'<td>{f.fvalue[0][0]:5.4f}</td>' if f is not None else '<td></td>' for f in f_test])
+    table += "\n".join(
+        [f"<td>{f.fvalue[0][0]:5.4f}</td>" if f is not None else "<td></td>" for f in f_test]
+    )
     table += """
             </tr>
             <tr>
                 <td>Parital R squared (excluded instruments, x100)</td>
     """
-    table += "\n".join([f'<td>{r_sq * 100:5.4f}</td>' if r_sq is not None else '<td></td>' for r_sq in partial_rsquared])
-    table +="""
+    table += "\n".join(
+        [
+            f"<td>{r_sq * 100:5.4f}</td>" if r_sq is not None else "<td></td>"
+            for r_sq in partial_rsquared
+        ]
+    )
+    table += """
             </tr>
             <tr>
                 <td>Age Control Variables</td>
