@@ -65,12 +65,8 @@ def get_table1(data_cwhsa, data_cwhsb):
 
     # get the inverse number of total sample size of nonzero earnings by group
     wtmult = pd.DataFrame()
-    wtmult["wtmult"] = (
-        1 / data.groupby(["white", "byr", "year", "eligible", "type"])["wt_nz"].sum()
-    )
-    data = pd.merge(
-        data, wtmult, how="outer", on=["white", "byr", "year", "eligible", "type"]
-    )
+    wtmult["wtmult"] = 1 / data.groupby(["white", "byr", "year", "eligible", "type"])["wt_nz"].sum()
+    data = pd.merge(data, wtmult, how="outer", on=["white", "byr", "year", "eligible", "type"])
 
     # get in group variance
     data["var_cm"] = data["wtmult"] * data["var_nz"]
@@ -80,9 +76,7 @@ def get_table1(data_cwhsa, data_cwhsb):
 
     # drop groups where the weight sums to zero
     sum_group_weights = (
-        data_temp.groupby(["white", "byr", "year", "eligible", "type"])["wt_nz"]
-        .sum()
-        .to_frame()
+        data_temp.groupby(["white", "byr", "year", "eligible", "type"])["wt_nz"].sum().to_frame()
     )
     nonzero_weights_index = sum_group_weights.loc[sum_group_weights["wt_nz"] != 0].index
     data_temp.set_index(["white", "byr", "year", "eligible", "type"], inplace=True)
@@ -120,28 +114,22 @@ def get_table1(data_cwhsa, data_cwhsb):
         )
 
         # get dataframes into the right shape for table 1
-        treatment_effect_temp = treatment_effect_temp.unstack(
-            level=["type", "byr"]
-        ).sort_index(level="type", axis=1)
+        treatment_effect_temp = treatment_effect_temp.unstack(level=["type", "byr"]).sort_index(
+            level="type", axis=1
+        )
         treatment_effect_temp["Statistic"] = "Average"
-        treatment_effect_temp.set_index(
-            "Statistic", drop=True, append=True, inplace=True
-        )
+        treatment_effect_temp.set_index("Statistic", drop=True, append=True, inplace=True)
 
-        standard_errors_temp = standard_errors_temp.unstack(
-            level=["type", "byr"]
-        ).sort_index(level="type", axis=1)
-        standard_errors_temp["Statistic"] = "Standard Error"
-        standard_errors_temp.set_index(
-            "Statistic", drop=True, append=True, inplace=True
+        standard_errors_temp = standard_errors_temp.unstack(level=["type", "byr"]).sort_index(
+            level="type", axis=1
         )
+        standard_errors_temp["Statistic"] = "Standard Error"
+        standard_errors_temp.set_index("Statistic", drop=True, append=True, inplace=True)
 
         # Create table 1
         year = np.arange(66, 85)
         statistic = ["Average", "Standard Error"]
-        index = pd.MultiIndex.from_product(
-            [year, statistic], names=["year", "Statistic"]
-        )
+        index = pd.MultiIndex.from_product([year, statistic], names=["year", "Statistic"])
         table_1_temp = pd.DataFrame(index=index, columns=treatment_effect_temp.columns)
         table_1_temp.loc[(slice(None), "Average"), :] = treatment_effect_temp
         table_1_temp.loc[(slice(None), "Standard Error"), :] = standard_errors_temp
@@ -196,15 +184,10 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
     # create eligibility dummy
     data_cwhsa["eligible"] = 0
     data_cwhsa.loc[
-        (
-            (data_cwhsa["byr"] >= 44)
-            & (data_cwhsa["byr"] <= 50)
-            & (data_cwhsa["interval"] <= 39)
-        )
+        ((data_cwhsa["byr"] >= 44) & (data_cwhsa["byr"] <= 50) & (data_cwhsa["interval"] <= 39))
         | ((data_cwhsa["byr"] == 51) & (data_cwhsa["interval"] <= 25))
         | (
-            ((data_cwhsa["byr"] == 52) | (data_cwhsa["byr"] == 53))
-            & (data_cwhsa["interval"] <= 19)
+            ((data_cwhsa["byr"] == 52) | (data_cwhsa["byr"] == 53)) & (data_cwhsa["interval"] <= 19)
         ),
         "eligible",
     ] = 1
@@ -218,16 +201,9 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
     # create eligibility dummy
     data_dmdc["eligible"] = 0
     data_dmdc.loc[
-        (
-            (data_dmdc["byr"] >= 44)
-            & (data_dmdc["byr"] <= 50)
-            & (data_dmdc["interval"] <= 39)
-        )
+        ((data_dmdc["byr"] >= 44) & (data_dmdc["byr"] <= 50) & (data_dmdc["interval"] <= 39))
         | ((data_dmdc["byr"] == 51) & (data_dmdc["interval"] <= 25))
-        | (
-            ((data_dmdc["byr"] == 52) | (data_dmdc["byr"] == 53))
-            & (data_dmdc["interval"] <= 19)
-        ),
+        | (((data_dmdc["byr"] == 52) | (data_dmdc["byr"] == 53)) & (data_dmdc["interval"] <= 19)),
         "eligible",
     ] = 1
 
@@ -253,26 +229,20 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
         .to_frame()
         .rename(columns={"vnu1": "vnu1_all"})
     )
-    data_dmdc_cwsh = data_dmdc_cwsh.join(
-        pd.merge(nsrvd_all, vnu1_all, on=["byr", "white"])
-    )
+    data_dmdc_cwsh = data_dmdc_cwsh.join(pd.merge(nsrvd_all, vnu1_all, on=["byr", "white"]))
 
     # get probability of being a veteran conditional on eligibility status
     # times 100 because the DMDC data is across the whole population and
     # the CWSH is only a sample of one percent
     data_dmdc_cwsh["p_vet"] = data_dmdc_cwsh["nsrvd"] / (100 * data_dmdc_cwsh["vnu1"])
     # calculate prob of being a veteran in general
-    data_dmdc_cwsh["p_vet_all"] = data_dmdc_cwsh["nsrvd_all"] / (
-        100 * data_dmdc_cwsh["vnu1_all"]
-    )
+    data_dmdc_cwsh["p_vet_all"] = data_dmdc_cwsh["nsrvd_all"] / (100 * data_dmdc_cwsh["vnu1_all"])
     # calculate the standard errors
     data_dmdc_cwsh["se_vet"] = (
         data_dmdc_cwsh["p_vet"] * (1 - data_dmdc_cwsh["p_vet"]) / data_dmdc_cwsh["vnu1"]
     ) ** 0.5
     data_dmdc_cwsh["se_vet_all"] = (
-        data_dmdc_cwsh["p_vet_all"]
-        * (1 - data_dmdc_cwsh["p_vet_all"])
-        / data_dmdc_cwsh["vnu1_all"]
+        data_dmdc_cwsh["p_vet_all"] * (1 - data_dmdc_cwsh["p_vet_all"]) / data_dmdc_cwsh["vnu1_all"]
     ) ** 0.5
 
     table_2 = {}
@@ -311,40 +281,29 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
         table_2_temp.loc[
             ("DMDC/CWHS", slice(None), "Standard Error"),
             ["P(Veteran)", "P(Veteran|eligible)"],
-        ] = data_dmdc_cwsh.loc[
-            (slice(None), new_dummy, 1), ["se_vet_all", "se_vet"]
-        ].values
+        ] = data_dmdc_cwsh.loc[(slice(None), new_dummy, 1), ["se_vet_all", "se_vet"]].values
         table_2_temp.loc[
             ("DMDC/CWHS", slice(None), "Value"), "P(Veteran|ineligible)"
         ] = data_dmdc_cwsh.loc[(slice(None), new_dummy, 0), ["p_vet"]].values
         table_2_temp.loc[
             ("DMDC/CWHS", slice(None), "Standard Error"), "P(Veteran|ineligible)"
         ] = data_dmdc_cwsh.loc[(slice(None), new_dummy, 0), ["se_vet"]].values
-        table_2_temp.loc[
-            ("DMDC/CWHS", slice(None), "Value"), "P(V|eligible) - P(V|ineligible)"
-        ] = (
+        table_2_temp.loc[("DMDC/CWHS", slice(None), "Value"), "P(V|eligible) - P(V|ineligible)"] = (
             table_2_temp.loc[("DMDC/CWHS", slice(None), "Value"), "P(Veteran|eligible)"]
-            - table_2_temp.loc[
-                ("DMDC/CWHS", slice(None), "Value"), "P(Veteran|ineligible)"
-            ]
+            - table_2_temp.loc[("DMDC/CWHS", slice(None), "Value"), "P(Veteran|ineligible)"]
         )
         table_2_temp.loc[
             ("DMDC/CWHS", slice(None), "Standard Error"),
             "P(V|eligible) - P(V|ineligible)",
         ] = (
-            (
-                table_2_temp.loc[
-                    ("DMDC/CWHS", slice(None), "Standard Error"), "P(Veteran|eligible)"
-                ]
-                ** 2
-                + table_2_temp.loc[
-                    ("DMDC/CWHS", slice(None), "Standard Error"),
-                    "P(Veteran|ineligible)",
-                ]
-                ** 2
-            )
-            ** 0.5
-        )
+            table_2_temp.loc[("DMDC/CWHS", slice(None), "Standard Error"), "P(Veteran|eligible)"]
+            ** 2
+            + table_2_temp.loc[
+                ("DMDC/CWHS", slice(None), "Standard Error"),
+                "P(Veteran|ineligible)",
+            ]
+            ** 2
+        ) ** 0.5
 
         # create table 2
         table_2[ethnicity] = table_2_temp
@@ -358,19 +317,13 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
                 & (data_sipp["nrace"] == dummy)
             ]
             # run WLS regression to get probabilitiy of being a veteran per group
-            wls = smf.wls(
-                formula="nvstat ~ 1", data=data_temp, weights=data_temp["fnlwgt_5"]
-            ).fit()
+            wls = smf.wls(formula="nvstat ~ 1", data=data_temp, weights=data_temp["fnlwgt_5"]).fit()
             coefficient = wls.params
             standard_error = wls.bse
             # extract sample size and fill table 2
-            table_2[ethnicity].loc[
-                ("SIPP (84)", year, "Value"), "Sample"
-            ] = data_sipp.loc[
+            table_2[ethnicity].loc[("SIPP (84)", year, "Value"), "Sample"] = data_sipp.loc[
                 (data_sipp["u_brthyr"] == year) & (data_sipp["nrace"] == dummy)
-            ].shape[
-                0
-            ]
+            ].shape[0]
 
             table_2[ethnicity].loc[
                 ("SIPP (84)", year, slice(None)), "P(Veteran)"
@@ -383,9 +336,7 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
                 & (data_sipp["nrace"] == dummy)
                 & (data_sipp["rsncode"] == 1)
             ]
-            wls = smf.wls(
-                formula="nvstat ~ 1", data=data_temp, weights=data_temp["fnlwgt_5"]
-            ).fit()
+            wls = smf.wls(formula="nvstat ~ 1", data=data_temp, weights=data_temp["fnlwgt_5"]).fit()
             coefficient = wls.params
             standard_error = wls.bse
             table_2[ethnicity].loc[
@@ -399,9 +350,7 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
                 & (data_sipp["nrace"] == dummy)
                 & (data_sipp["rsncode"] != 1)
             ]
-            wls = smf.wls(
-                formula="nvstat ~ 1", data=data_temp, weights=data_temp["fnlwgt_5"]
-            ).fit()
+            wls = smf.wls(formula="nvstat ~ 1", data=data_temp, weights=data_temp["fnlwgt_5"]).fit()
             coefficient = wls.params
             standard_error = wls.bse
             table_2[ethnicity].loc[
@@ -412,9 +361,7 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
             table_2[ethnicity].loc[
                 ("SIPP (84)", slice(None), "Value"), "P(V|eligible) - P(V|ineligible)"
             ] = (
-                table_2[ethnicity].loc[
-                    ("SIPP (84)", slice(None), "Value"), "P(Veteran|eligible)"
-                ]
+                table_2[ethnicity].loc[("SIPP (84)", slice(None), "Value"), "P(Veteran|eligible)"]
                 - table_2[ethnicity].loc[
                     ("SIPP (84)", slice(None), "Value"), "P(Veteran|ineligible)"
                 ]
@@ -423,20 +370,17 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
                 ("SIPP (84)", slice(None), "Standard Error"),
                 "P(V|eligible) - P(V|ineligible)",
             ] = (
-                (
-                    table_2[ethnicity].loc[
-                        ("SIPP (84)", slice(None), "Standard Error"),
-                        "P(Veteran|eligible)",
-                    ]
-                    ** 2
-                    + table_2[ethnicity].loc[
-                        ("SIPP (84)", slice(None), "Standard Error"),
-                        "P(Veteran|ineligible)",
-                    ]
-                    ** 2
-                )
-                ** 0.5
-            )
+                table_2[ethnicity].loc[
+                    ("SIPP (84)", slice(None), "Standard Error"),
+                    "P(Veteran|eligible)",
+                ]
+                ** 2
+                + table_2[ethnicity].loc[
+                    ("SIPP (84)", slice(None), "Standard Error"),
+                    "P(Veteran|ineligible)",
+                ]
+                ** 2
+            ) ** 0.5
 
     for ethnicity in ["white", "nonwhite"]:
         table_2[ethnicity] = table_2[ethnicity].astype(float).round(4)
@@ -505,9 +449,7 @@ def get_table3(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new):
     table_1 = get_table1(data_cwhsa, data_cwhsb)
     table_2 = get_table2(data_cwhsa, data_dmdc, data_sipp)
     for ethnicity in ["white", "nonwhite"]:
-        table_3[ethnicity].loc[
-            :, (slice(None), ["FICA Earnings", "Total W-2 Earnings"])
-        ] = (
+        table_3[ethnicity].loc[:, (slice(None), ["FICA Earnings", "Total W-2 Earnings"])] = (
             table_1[ethnicity]
             .loc[(slice(81, 84), slice(None)), (slice(None), slice(50, 52))]
             .values.reshape((24, 2), order="F")
@@ -559,9 +501,7 @@ def get_table3(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new):
         .to_frame()
         .rename(columns={"smplsz": "sumwt"})
     )
-    data = pd.merge(
-        data, sumwt, how="outer", on=["white", "byr", "year", "eligible", "type"]
-    )
+    data = pd.merge(data, sumwt, how="outer", on=["white", "byr", "year", "eligible", "type"])
 
     # get group variance
     data["var_cm"] = 1 / data["sumwt"] * data["var"]
@@ -594,12 +534,9 @@ def get_table3(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new):
             (slice(None), slice(None), "Standard Error"),
             (slice(None), "Adjusted FICA Earnings"),
         ] = (
-            (
-                data.loc[(new_dummy, slice(None), slice(None), 1), "var_cm"].values
-                + data.loc[(new_dummy, slice(None), slice(None), 0), "var_cm"].values
-            )
-            ** 0.5
-        )
+            data.loc[(new_dummy, slice(None), slice(None), 1), "var_cm"].values
+            + data.loc[(new_dummy, slice(None), slice(None), 0), "var_cm"].values
+        ) ** 0.5
 
     # fill the last column with the Wald estimate based on FICA earnings
     for dummy, ethnicity in enumerate(["white", "nonwhite"]):
@@ -638,9 +575,7 @@ def get_table3(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new):
             table_3[ethnicity]
             .loc[
                 :,
-                ~table_3[ethnicity].columns.isin(
-                    [("", "P(V|eligible) - P(V|ineligible)")]
-                ),
+                ~table_3[ethnicity].columns.isin([("", "P(V|eligible) - P(V|ineligible)")]),
             ]
             .astype(float)
             .round(1)
@@ -716,9 +651,7 @@ def get_table4(data_cwhsc_new):
             ).fit()
             for cohort in [50, 51, 52, 53]:
                 data.loc[
-                    (data["race"] == race)
-                    & (data["type"] == source)
-                    & (data["byr"] == cohort),
+                    (data["race"] == race) & (data["type"] == source) & (data["byr"] == cohort),
                     "alpha2",
                 ] = wls_model2.params["ps_r" + str(cohort)]
 
@@ -730,12 +663,8 @@ def get_table4(data_cwhsc_new):
 
     # generate alpha squared times Variance of ps_r for the two models
     # as needed for the GLS tarnsformation on page 325
-    data["term1"] = (
-        data["alpha1"] ** 2 * data["ps_r"] * (1 - data["ps_r"]) * (1 / data["smpl"])
-    )
-    data["term2"] = (
-        data["alpha2"] ** 2 * data["ps_r"] * (1 - data["ps_r"]) * (1 / data["smpl"])
-    )
+    data["term1"] = data["alpha1"] ** 2 * data["ps_r"] * (1 - data["ps_r"]) * (1 / data["smpl"])
+    data["term2"] = data["alpha2"] ** 2 * data["ps_r"] * (1 - data["ps_r"]) * (1 / data["smpl"])
 
     data["intercept"] = 1
     data["wts"] = 1 / data["iweight_old"] ** 0.5
@@ -774,9 +703,7 @@ def get_table4(data_cwhsc_new):
     Y = data["earnings"].values.reshape((int(5304 / 4), 4, 1))
     X1 = data[X1_columns].values.reshape((int(5304 / 4), 4, 8))
     X2 = data[X2_columns].values.reshape((int(5304 / 4), 4, 11))
-    covmtrx = data[["ern81", "ern82", "ern83", "ern84"]].values.reshape(
-        (int(5304 / 4), 4, 4)
-    )
+    covmtrx = data[["ern81", "ern82", "ern83", "ern84"]].values.reshape((int(5304 / 4), 4, 4))
     term1 = data["term1"].values.reshape((int(5304 / 4), 4, 1))
     term2 = data["term2"].values.reshape((int(5304 / 4), 4, 1))
     wtvec = data["wts"].values.reshape((int(5304 / 4), 4, 1))
@@ -817,9 +744,7 @@ def get_table4(data_cwhsc_new):
         pd.MultiIndex.from_tuples([("Model 1", "Chi Squared", "")])
     )
     index_end = pd.MultiIndex.from_product([["Model 2"], ["1950-53"], statistic])
-    index_end = index_end.append(
-        pd.MultiIndex.from_tuples([("Model 2", "Chi Squared", "")])
-    )
+    index_end = index_end.append(pd.MultiIndex.from_tuples([("Model 2", "Chi Squared", "")]))
     index = index_beginning.append(index_end)
     columns = [
         "FICA Taxable Earnings",
@@ -836,32 +761,28 @@ def get_table4(data_cwhsc_new):
         for number, dataset in enumerate(columns):
             model1_result = smf.ols(
                 formula="earnings ~ 0 +" + " + ".join(data1.columns[1:]),
-                data=data1.loc[
-                    (slice(None), number + 1, new_dummy, slice(None), slice(None)), :
-                ],
+                data=data1.loc[(slice(None), number + 1, new_dummy, slice(None), slice(None)), :],
             ).fit()
             table_4[ethnicity].loc[
                 ("Model 1", slice(None), "Value"), dataset
             ] = model1_result.params[-4:].values
-            table_4[ethnicity].loc[
-                ("Model 1", slice(None), "Standard Error"), dataset
-            ] = (model1_result.bse[-4:].values / model1_result.mse_resid ** 0.5)
+            table_4[ethnicity].loc[("Model 1", slice(None), "Standard Error"), dataset] = (
+                model1_result.bse[-4:].values / model1_result.mse_resid ** 0.5
+            )
             table_4[ethnicity].loc[
                 ("Model 1", "Chi Squared", slice(None)), dataset
             ] = model1_result.ssr
 
             model2_result = smf.ols(
                 formula="earnings ~ 0 +" + " + ".join(data2.columns[1:]),
-                data=data2.loc[
-                    (slice(None), number + 1, new_dummy, slice(None), slice(None)), :
-                ],
+                data=data2.loc[(slice(None), number + 1, new_dummy, slice(None), slice(None)), :],
             ).fit()
             table_4[ethnicity].loc[
                 ("Model 2", slice(None), "Value"), dataset
             ] = model2_result.params[-1]
-            table_4[ethnicity].loc[
-                ("Model 2", slice(None), "Standard Error"), dataset
-            ] = (model2_result.bse[-1] / model2_result.mse_resid ** 0.5)
+            table_4[ethnicity].loc[("Model 2", slice(None), "Standard Error"), dataset] = (
+                model2_result.bse[-1] / model2_result.mse_resid ** 0.5
+            )
             table_4[ethnicity].loc[
                 ("Model 2", "Chi Squared", slice(None)), dataset
             ] = model2_result.ssr

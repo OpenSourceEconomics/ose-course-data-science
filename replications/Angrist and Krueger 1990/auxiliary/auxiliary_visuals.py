@@ -70,16 +70,8 @@ def p_value_star(data, rows, columns):
 
         for index in np.arange(0, data_temp.shape[0], 2):
             for column in np.arange(0, data_temp.shape[1]):
-                if (
-                    abs(
-                        data_temp.iloc[index, column]
-                        / data_temp.iloc[index + 1, column]
-                    )
-                    > 1.96
-                ):
-                    data_temp.iloc[index, column] = (
-                        str(data_temp.iloc[index, column]) + "*"
-                    )
+                if abs(data_temp.iloc[index, column] / data_temp.iloc[index + 1, column]) > 1.96:
+                    data_temp.iloc[index, column] = str(data_temp.iloc[index, column]) + "*"
                 else:
                     pass
 

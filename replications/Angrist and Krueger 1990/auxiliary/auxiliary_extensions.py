@@ -10,7 +10,6 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import statsmodels.formula.api as smf
-
 from auxiliary.auxiliary_tables import get_table3
 
 
@@ -53,15 +52,11 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
     if len(data_source) == 1:
         data = data.loc[data["type"] == data_source[0]]
     elif len(data_source) == 2:
-        data = data.loc[
-            (data["type"] == data_source[0]) | (data["type"] == data_source[1])
-        ]
+        data = data.loc[(data["type"] == data_source[0]) | (data["type"] == data_source[1])]
     else:
         pass
 
-    data = data.loc[
-        (data["year"] <= years[-1]) & (data["year"] >= years[0])
-    ].reset_index(drop=True)
+    data = data.loc[(data["year"] <= years[-1]) & (data["year"] >= years[0])].reset_index(drop=True)
 
     # create cohort and year dummies
     year_dummies = pd.get_dummies(data["year"], prefix="year", drop_first=True)
@@ -111,9 +106,7 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
             ).fit()
             for cohort in cohorts:
                 data.loc[
-                    (data["race"] == race)
-                    & (data["type"] == source)
-                    & (data["byr"] == cohort),
+                    (data["race"] == race) & (data["type"] == source) & (data["byr"] == cohort),
                     "alpha2",
                 ] = wls_model2.params["ps_r" + str(cohort)]
 
@@ -129,12 +122,8 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
 
     # generate alpha squared times Variance of ps_r for the two models
     # as needed for the GLS tarnsformation on page 325
-    data["term1"] = (
-        data["alpha1"] ** 2 * data["ps_r"] * (1 - data["ps_r"]) * (1 / data["smpl"])
-    )
-    data["term2"] = (
-        data["alpha2"] ** 2 * data["ps_r"] * (1 - data["ps_r"]) * (1 / data["smpl"])
-    )
+    data["term1"] = data["alpha1"] ** 2 * data["ps_r"] * (1 - data["ps_r"]) * (1 / data["smpl"])
+    data["term2"] = data["alpha2"] ** 2 * data["ps_r"] * (1 - data["ps_r"]) * (1 / data["smpl"])
 
     data["intercept"] = 1
     data["wts"] = 1 / data["iweight_old"] ** 0.5
@@ -166,12 +155,8 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
     ern = list(map(add, ern, years_string))
 
     Y = data["earnings"].values.reshape((int(num_obs / num_years), num_years, 1))
-    X1 = data[X1_columns].values.reshape(
-        (int(num_obs / num_years), num_years, len(X1_columns))
-    )
-    X2 = data[X2_columns].values.reshape(
-        (int(num_obs / num_years), num_years, len(X2_columns))
-    )
+    X1 = data[X1_columns].values.reshape((int(num_obs / num_years), num_years, len(X1_columns)))
+    X2 = data[X2_columns].values.reshape((int(num_obs / num_years), num_years, len(X2_columns)))
     covmtrx = data[ern].values.reshape((int(num_obs / num_years), num_years, num_years))
     term1 = data["term1"].values.reshape((int(num_obs / num_years), num_years, 1))
     term2 = data["term2"].values.reshape((int(num_obs / num_years), num_years, 1))
@@ -187,9 +172,7 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
 
     # transform the data for model 1 and 2 by using the above matrices
     Y1 = np.matmul(np.transpose(final1, (0, 2, 1)), Y).reshape((num_obs, 1))
-    X1 = np.matmul(np.transpose(final1, (0, 2, 1)), X1).reshape(
-        (num_obs, len(X1_columns))
-    )
+    X1 = np.matmul(np.transpose(final1, (0, 2, 1)), X1).reshape((num_obs, len(X1_columns)))
     data2 = pd.DataFrame(
         data=np.concatenate((Y1, X1), axis=1),
         index=data.index,
@@ -197,9 +180,7 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
     )
 
     Y2 = np.matmul(np.transpose(final2, (0, 2, 1)), Y).reshape((num_obs, 1))
-    X2 = np.matmul(np.transpose(final2, (0, 2, 1)), X2).reshape(
-        (num_obs, len(X2_columns))
-    )
+    X2 = np.matmul(np.transpose(final2, (0, 2, 1)), X2).reshape((num_obs, len(X2_columns)))
     data1 = pd.DataFrame(
         data=np.concatenate((Y2, X2), axis=1),
         index=data.index,
@@ -210,15 +191,14 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
     table_4 = {}
     statistic = ["Value", "Standard Error"]
     index_beginning = pd.MultiIndex.from_product(
-        [["Model 1"], cohorts, statistic], names=["Model", "Cohort", "Statistic"],
+        [["Model 1"], cohorts, statistic],
+        names=["Model", "Cohort", "Statistic"],
     )
     index_beginning = index_beginning.append(
         pd.MultiIndex.from_tuples([("Model 1", "Chi Squared", "")])
     )
     index_end = pd.MultiIndex.from_product([["Model 2"], ["All cohorts"], statistic])
-    index_end = index_end.append(
-        pd.MultiIndex.from_tuples([("Model 2", "Chi Squared", "")])
-    )
+    index_end = index_end.append(pd.MultiIndex.from_tuples([("Model 2", "Chi Squared", "")]))
     index = index_beginning.append(index_end)
     columns = data_source
 
@@ -231,32 +211,28 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
         for number, dataset in enumerate(columns):
             model1_result = smf.ols(
                 formula="earnings ~ 0 +" + " + ".join(data1.columns[1:]),
-                data=data1.loc[
-                    (slice(None), number + 1, new_dummy, slice(None), slice(None)), :
-                ],
+                data=data1.loc[(slice(None), number + 1, new_dummy, slice(None), slice(None)), :],
             ).fit()
             table_4[ethnicity].loc[
                 ("Model 1", slice(None), "Value"), dataset
             ] = model1_result.params[-len(psr) :].values
-            table_4[ethnicity].loc[
-                ("Model 1", slice(None), "Standard Error"), dataset
-            ] = (model1_result.bse[-len(psr) :].values / model1_result.mse_resid ** 0.5)
+            table_4[ethnicity].loc[("Model 1", slice(None), "Standard Error"), dataset] = (
+                model1_result.bse[-len(psr) :].values / model1_result.mse_resid ** 0.5
+            )
             table_4[ethnicity].loc[
                 ("Model 1", "Chi Squared", slice(None)), dataset
             ] = model1_result.ssr
 
             model2_result = smf.ols(
                 formula="earnings ~ 0 +" + " + ".join(data2.columns[1:]),
-                data=data2.loc[
-                    (slice(None), number + 1, new_dummy, slice(None), slice(None)), :
-                ],
+                data=data2.loc[(slice(None), number + 1, new_dummy, slice(None), slice(None)), :],
             ).fit()
             table_4[ethnicity].loc[
                 ("Model 2", slice(None), "Value"), dataset
             ] = model2_result.params[-1]
-            table_4[ethnicity].loc[
-                ("Model 2", slice(None), "Standard Error"), dataset
-            ] = (model2_result.bse[-1] / model2_result.mse_resid ** 0.5)
+            table_4[ethnicity].loc[("Model 2", slice(None), "Standard Error"), dataset] = (
+                model2_result.bse[-1] / model2_result.mse_resid ** 0.5
+            )
             table_4[ethnicity].loc[
                 ("Model 2", "Chi Squared", slice(None)), dataset
             ] = model2_result.ssr
@@ -405,7 +381,11 @@ def get_bias(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new, inter
     data = data.groupby(["white", "byr", "year", "type"]).apply(
         lambda x: np.average(x[["earnings"]], weights=x["smplsz"], axis=0)
     )
-    data = pd.DataFrame(data.to_list(), columns=["earnings"], index=data.index,)
+    data = pd.DataFrame(
+        data.to_list(),
+        columns=["earnings"],
+        index=data.index,
+    )
     # only keep adjusted FICA data
     data = data.loc[(1, slice(None), slice(None), "ADJ"), :]
     data.reset_index("type", drop=True, inplace=True)
@@ -480,9 +460,7 @@ def get_figure1_extension2(bias, interval):
                 bias.loc[(cohort, year), :].values.T,
                 color=np.random.choice(np.array([sns.color_palette()]).flatten(), 3),
             )
-        eval("ax" + str(number)).set_title(
-            "Cohort 19" + str(cohort), fontsize=13, weight="bold"
-        )
+        eval("ax" + str(number)).set_title("Cohort 19" + str(cohort), fontsize=13, weight="bold")
         eval("ax" + str(number)).legend(["19" + str(year) for year in [81, 82, 83, 84]])
     ax1.set_xlabel("Effect of Work Experience in Percent", fontsize=13)
     ax0.set_ylabel("Bias", fontsize=13)
