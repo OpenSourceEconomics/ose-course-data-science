@@ -93,9 +93,7 @@ def get_figure2(data_cwhsa, data_cwhsb):
             )
             if ethnicity == 1:
                 axs[row, ethnicity - 1].set_ylabel("19" + str(cohort))
-            axs[row, ethnicity - 1].axhline(
-                0, color="black", linestyle="--", linewidth=1
-            )
+            axs[row, ethnicity - 1].axhline(0, color="black", linestyle="--", linewidth=1)
 
     axs[0, 0].xaxis.set_ticks(np.arange(66, 85, 2))
     axs[0, 0].set_title("Whites")
@@ -121,9 +119,7 @@ def get_figure3(data_cwhsc_new):
     data = data_cwhsc_new
 
     # keep only Total W-2 compensation
-    data = data.loc[
-        (data["year"] >= 81) & (data["race"] == 1) & (data["type"] == "TOTAL")
-    ]
+    data = data.loc[(data["year"] >= 81) & (data["race"] == 1) & (data["type"] == "TOTAL")]
     data.reset_index(inplace=True, drop=True)
 
     # create dummies for year and birth year
@@ -240,18 +236,14 @@ def prepare_data_figure12(data_cwhsa, data_cwhsb):
     sum_group_weights = (
         table.groupby(["race", "byr", "year", "eligible"])["weights"].sum().to_frame()
     )
-    nonzero_weights_index = sum_group_weights.loc[
-        sum_group_weights["weights"] != 0
-    ].index
+    nonzero_weights_index = sum_group_weights.loc[sum_group_weights["weights"] != 0].index
     table.set_index(["race", "byr", "year", "eligible"], inplace=True)
     table = table.loc[nonzero_weights_index]
     # get weighted averages within by groups of ethnicity, cohort, year and draft eligibility
     data_temp = table.groupby(["race", "byr", "year", "eligible"]).apply(
         lambda x: np.average(x[["real_earnings"]], weights=x["weights"], axis=0)
     )
-    data_temp = pd.DataFrame(
-        data_temp.to_list(), columns=["real_earnings"], index=data_temp.index
-    )
+    data_temp = pd.DataFrame(data_temp.to_list(), columns=["real_earnings"], index=data_temp.index)
 
     # create dataframe with the differences in real earnings
     # for the above groups across eligibility
