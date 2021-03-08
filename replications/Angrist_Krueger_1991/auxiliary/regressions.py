@@ -1,3 +1,4 @@
+"""Auxiliary file for regressions."""
 from collections import OrderedDict
 from unittest import mock
 
@@ -286,6 +287,8 @@ def get_regression_results_ols_tsls(df, state_of_birth_dummies=False, race=True)
 
 
 class SmallRegressionResult:
+    """Generate small regression results."""
+
     def __init__(self, regressionResult):
         """Initiate."""
         self.params = regressionResult.params

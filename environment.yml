@@ -36,6 +36,7 @@ dependencies:
 - rpy2
 - xlrd
 - xlwt
+- mock
 - nbsphinx
 - simplegeneric
 - nb_black

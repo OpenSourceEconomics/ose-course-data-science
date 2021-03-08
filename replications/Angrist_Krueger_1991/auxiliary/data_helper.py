@@ -263,7 +263,7 @@ def add_qob_state_interactions(df, state_list):
     return pd.concat((df, interact_qob_state.astype(np.uint8)), axis=1)
 
 
-def get_qob_state_of_birth_interaction_names(state_list, qob_start=1, qob_end=3):
+def get_qob_state_of_birth_interaction_names(state_list):
     return [f"DUMMY_STATE_{i}:DUMMY_QOB_{j}" for j in range(1, 4) for i in state_list]
 
 
@@ -309,7 +309,7 @@ def add_education_dummies(df):
     return df
 
 
-def add_detrended_educational_variables(df, educ_vars=["EDUC"]):
+def add_detrended_educational_variables(df, educ_vars=("EDUC")):
 
     for ev in educ_vars:
 
