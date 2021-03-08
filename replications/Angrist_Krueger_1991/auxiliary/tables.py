@@ -1,12 +1,3 @@
-from operator import itemgetter
-
-import numpy as np
-import pandas as pd
-import statsmodels.formula.api as smf
-
-from . import regressions
-
-
 def create_table_qob(results, outcome_variables=None):
 
     table = """

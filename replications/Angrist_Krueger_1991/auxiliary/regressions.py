@@ -3,7 +3,6 @@ from unittest import mock
 
 import numpy as np
 import pandas as pd
-import patsy
 import statsmodels.formula.api as smf
 from linearmodels.iv.model import IV2SLS
 from linearmodels.iv.model import IVLIML
@@ -288,7 +287,7 @@ def get_regression_results_ols_tsls(df, state_of_birth_dummies=False, race=True)
 
 class SmallRegressionResult:
     def __init__(self, regressionResult):
-
+        """Initiate."""
         self.params = regressionResult.params
         self.bse = regressionResult.bse if hasattr(regressionResult, "bse") else None
         self.std_errors = (
@@ -298,10 +297,7 @@ class SmallRegressionResult:
 
 # wrapper for the IV2SLS method
 def IV2SLS_wrapper(dependent, exog, endog, instruments, small_rslt=False):
-    """
-    If small_rslt is True, the method return a smaller version of the regression result
-    using the SmallRegressionResult class.
-    """
+    """If small_rslt is True, return smaller version of the regression result."""
     # try to run the IV2SLS method without mocking the validation
     try:
         if small_rslt:
@@ -322,15 +318,7 @@ def IV2SLS_wrapper(dependent, exog, endog, instruments, small_rslt=False):
 
 
 def IV2SLS_using_ols(dependent, exog, endog, instruments, small_rslt=False):
-    """
-    If small_rslt is True, the method return a smaller version of the regression result
-    using the SmallRegressionResult class.
-
-
-    The IV2SLS method of the linearmodels module run a simple OLS regression,
-    if only inputs for dependent and exog are provided.
-    To provide a uniform interface this procedure is also implemented for this method.
-    """
+    """If small_rslt is True, return a smaller version of the regression result."""
     # run tsls regression if all required variables are passed, otherwise run ols
     if endog is not None and instruments is not None:
         # predict the endog, using the results from first stage

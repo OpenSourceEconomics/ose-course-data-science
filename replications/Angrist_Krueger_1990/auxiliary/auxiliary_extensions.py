@@ -1,7 +1,4 @@
-"""
-This module contains all the necessary functions for the extensions section in
-the notebook.
-"""
+"""necessary functions for the extensions."""
 import itertools
 from operator import add
 
@@ -14,10 +11,7 @@ from auxiliary.auxiliary_tables import get_table3
 
 
 def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
-    """
-    is a flexible version of the function to create table 4 of the paper.
-    It allows to create table 4 for different ranges of years for the earnings data
-    and for a subset of the three different data sources.
+    """Flexible version of the function to create table 4 of the paper.
 
     Parameters
     ----------
@@ -243,9 +237,7 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
 
 
 def get_figure1_extension1(results_model1, results_model2):
-    """
-    Plot the results of Table 4 for white men in Model 1 and 2 using different
-    years of earnings.
+    """Plot the results of Table 4.
 
     Parameters
     ----------
@@ -290,9 +282,7 @@ def get_figure1_extension1(results_model1, results_model2):
 
 
 def get_figure2_extension1(results_model2, results_model2_53):
-    """
-    Plot comparison of Model 2 results for several different years of earnings
-    when excluding cohort 1953 as opposed to including it.
+    """Plot comparison of Model 2 results.
 
     Parameters
     ----------
@@ -328,10 +318,7 @@ def get_figure2_extension1(results_model2, results_model2_53):
 
 
 def get_bias(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new, interval):
-    """
-    Get the original wald estimates from Table 3. Calculate their bias and the
-    resulting true delta depending on an interval of possible effects of work experience
-    on earnings.
+    """Get the original wald estimates from Table 3.
 
     Parameters
     ----------
@@ -356,9 +343,7 @@ def get_bias(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new, inter
         results of the true delta.
     wald : pd.DataFrame
         the wald estimates from table 3.
-
     """
-
     table_3 = get_table3(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new)
 
     data = data_cwhsc_new.copy()
@@ -467,9 +452,7 @@ def get_figure1_extension2(bias, interval):
 
 
 def get_figure2_extension2(true_delta, wald, interval):
-    """
-    Plot true delta in comparison to the wald estimate depending on the interval
-    chosen in get_bias().
+    """Plot true delta in comparison to the wald estimate.
 
     Parameters
     ----------

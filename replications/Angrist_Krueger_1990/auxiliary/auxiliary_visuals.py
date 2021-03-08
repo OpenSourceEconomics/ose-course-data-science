@@ -1,14 +1,11 @@
-"""
-This module contains the function to create the shades of grey visuals for
-Table 1 and the function to create significance stars.
-"""
+"""Function to create the shades of grey Table 1 and function to create significance stars."""
 import numpy as np
 import pandas as pd
 
 
 def background_negative_green(val):
     """
-    Changes the background color of a cell in DataFrame according to its value.
+    Change the background color of a cell in DataFrame according to its value.
 
     Parameters
     ----------
@@ -41,7 +38,7 @@ def background_negative_green(val):
 
 def p_value_star(data, rows, columns):
     """
-    Adds a star to values that are statistically significant to the 5 percent level.
+    Add a star to values that are statistically significant to the 5 percent level.
 
     Parameters
     ----------

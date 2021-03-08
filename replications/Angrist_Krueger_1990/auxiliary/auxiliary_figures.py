@@ -1,7 +1,4 @@
-"""
-Create Figures 1 until 3 from "Lifetime Earnings and the Vietnam Era Draft Lottery:
-Evidence from Social Security Administrative Records" by J. Angrist (1990).
-"""
+"""Create Figures 1 until 3."""
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -11,7 +8,7 @@ from matplotlib.lines import Line2D
 
 def get_figure1(data_cwhsa, data_cwhsb):
     """
-    Creates Figure 1 of the paper.
+    Create Figure 1 of the paper.
 
     Parameters
     ----------
@@ -60,7 +57,7 @@ def get_figure1(data_cwhsa, data_cwhsb):
 
 def get_figure2(data_cwhsa, data_cwhsb):
     """
-    Creates Figure 2 of the paper.
+    Create Figure 2 of the paper.
 
     Parameters
     ----------
@@ -167,9 +164,7 @@ def get_figure3(data_cwhsc_new):
 
 
 def prepare_data_figure12(data_cwhsa, data_cwhsb):
-    """
-    Take CWHS data set for FICA earnings and prepare it such that it can be used for
-    plotting Figure 1 and 2.
+    """Take CWHS data set for FICA earnings.
 
     Parameters
     ----------

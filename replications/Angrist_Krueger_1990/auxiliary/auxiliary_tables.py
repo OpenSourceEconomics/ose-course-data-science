@@ -1,7 +1,4 @@
-"""
-Create Tables 1 until 4 from "Lifetime Earnings and the Vietnam Era Draft Lottery:
-Evidence from Social Security Administrative Records" by J. Angrist (1990).
-"""
+"""Create Tables 1 until 4 from Angrist (1990)."""
 import itertools
 
 import numpy as np
@@ -151,12 +148,7 @@ def get_table1(data_cwhsa, data_cwhsb):
 # for the SIPP I get different standard errors which is most likely due to the
 # implementation of the WLS. I get the same results as in stata, though.
 def get_table2(data_cwhsa, data_dmdc, data_sipp):
-    """
-    Create Table 2 of the paper.
-    The CWHS data set I have is missing the ingredients to replicate Table 2
-    for those born in 1950.
-    Further I get different standard errors for the SIPP data which is most likely
-    due to my implementation of the Weighted Least Squares.
+    """Create Table 2 of the paper.
 
     Parameters
     ----------
@@ -175,7 +167,6 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
         for the respective ethnicity specified as key.
 
     """
-
     data_cwhsa = data_cwhsa.loc[
         (data_cwhsa["year"] == 70) & (data_cwhsa["byr"] >= 51),
         ["race", "byr", "interval", "vnu1"],
@@ -392,10 +383,7 @@ def get_table2(data_cwhsa, data_dmdc, data_sipp):
 # for the second to last column I get different standard errors as this difference
 # directly transfers from table 2
 def get_table3(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new):
-    """
-    Create Table 3 of the paper.
-    For the second to last column I get different standard errors as those results
-    are taken exactly from Table 2.
+    """Create Table 3 of the paper.
 
     Parameters
     ----------
