@@ -1,0 +1,16 @@
+name: student_project
+
+dependencies:
+- numpy
+- pandas
+- jupyterlab
+- matplotlib
+- mock
+- seaborn
+- scipy
+- statsmodels
+- pip
+- patsy
+- pip:
+  - linearmodels
+  

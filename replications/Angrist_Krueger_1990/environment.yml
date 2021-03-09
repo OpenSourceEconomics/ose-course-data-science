@@ -1,0 +1,14 @@
+name: angrist_1990
+channels:
+  - conda-forge
+dependencies:
+- python
+- numpy
+- pandas
+- jupyterlab
+- matplotlib
+- seaborn
+- statsmodels
+- pip
+- jupyter_contrib_nbextensions
+- pip:
