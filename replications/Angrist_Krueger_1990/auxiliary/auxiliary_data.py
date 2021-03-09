@@ -15,9 +15,7 @@ def process_data(data_name):
             "year",
         ]
         data.set_index(
-            ["ethnicity", "birth year", "year", "lottery interval"],
-            inplace=True,
-            drop=True,
+            ["ethnicity", "birth year", "year", "lottery interval"], inplace=True, drop=True,
         )
     elif data_name == "cwhsb":
         data = pd.read_stata("data/cwhsb.dta").drop(columns=["vnms1", "ltax", "xltax", "ctr1"])
