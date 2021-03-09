@@ -1,1 +1,1 @@
-# auxiliary package
+"""Auxiliary functions."""
