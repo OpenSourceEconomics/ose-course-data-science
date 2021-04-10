@@ -31,15 +31,13 @@ This course introduces students to basic microeconmetric methods. The objective 
 .. toctree::
    :maxdepth: 1
 
-   introduction/index
    lectures/index
-   specials/index
    problem-sets/index
    handouts/index
    replications/index
    projects/index
-   resources/index
-   iteration/index
+   data-sources/index
+   organization/index
 
 
 Powered by

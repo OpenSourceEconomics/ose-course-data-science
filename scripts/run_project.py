@@ -11,5 +11,5 @@ Examples
 """
 import subprocess as sp
 
-tasks = ["lecture", "problem", "dataset", "special", "handout"]
+tasks = ["lecture", "problem", "dataset", "handout"]
 [sp.check_call(f"run-{task}") for task in tasks]
