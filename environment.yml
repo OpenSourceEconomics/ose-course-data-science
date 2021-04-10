@@ -28,6 +28,8 @@ dependencies:
 - respy
 - pip:
   - linearmodels
+  - black-nb
+  - flake8-nb
   - grmpy
   - sphinx_rtd_theme
   - sphinxcontrib-bibtex
