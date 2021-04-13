@@ -19,7 +19,7 @@ We collect a set up of questions here as well:
 
 * **Can we work in groups?** No, everybody has to work on their own project.
 
-* **Do I get any extra credit for ensuring full reproducibility of my project using Travis CI?** Yes, everybody who successfully sets up a continuous integration workflow will get an extra bump in their grade.
+* **Do I get any extra credit for ensuring full reproducibility of my project using GitHub Actions?** Yes, everybody who successfully sets up a continuous integration workflow will get an extra bump in their grade.
 
 * **Where can I look for publications that provide the data behind their research?** Some journals provide the data for their published articles as data supplements directly on their website. In addition, the `Replication Wiki <http://replication.uni-goettingen.de/wiki/index.php/Main_Page>`_  and the `Harvard Dataverse <https://dataverse.harvard.edu>`_ compile a lot such information.
 
