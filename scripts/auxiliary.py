@@ -57,7 +57,7 @@ def parse_arguments(description):
 def get_list_tasks(task_dir):
     cwd = os.getcwd()
     os.chdir(task_dir)
-    lectures = [f.as_posix() for f in Path('./').iterdir() if f.is_dir()]
+    lectures = [f.as_posix() for f in Path("./").iterdir() if f.is_dir()]
 
     os.chdir(cwd)
 
