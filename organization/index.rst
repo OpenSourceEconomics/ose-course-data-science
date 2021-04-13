@@ -13,6 +13,8 @@ We will conduct all course communications using the bonn-econ-teaching `Zulip <h
 .. image:: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
   :target: https://bonn-econ-teaching.zulipchat.com/join/3kmoufznfbqwmdprplbllb4l
 
+The student projects are due on the 23rd of July.
+
 Lecture plan
 """"""""""""
 

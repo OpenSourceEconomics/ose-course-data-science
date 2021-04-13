@@ -4,6 +4,7 @@ import difflib
 import glob
 import os
 import subprocess as sp
+from pathlib import Path
 
 PROBLEM_SETS_ROOT = os.environ["PROJECT_ROOT"] + "/problem-sets"
 HANDOUTS_ROOT = os.environ["PROJECT_ROOT"] + "/handouts"
@@ -48,7 +49,6 @@ def parse_arguments(description):
             raise AssertionError(f"unable to match {task}")
     else:
         request = get_list_tasks(task_dir)
-
     request.sort()
 
     return request
@@ -56,9 +56,9 @@ def parse_arguments(description):
 
 def get_list_tasks(task_dir):
     cwd = os.getcwd()
-
     os.chdir(task_dir)
-    lectures = [name for name in glob.glob("*-*")]
+    lectures = [f.as_posix() for f in Path("./").iterdir() if f.is_dir()]
+
     os.chdir(cwd)
 
     return lectures
