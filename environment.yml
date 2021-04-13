@@ -17,9 +17,7 @@ dependencies:
 - pytest-flake8
 - scipy
 - jupyterlab
-- matplotlib
 - xlrd
-- seaborn
 - jupyter
 - ipython
 - pip
@@ -28,6 +26,7 @@ dependencies:
 - chaospy
 - respy
 - pip:
+  - seaborn
   - statsmodels
   - linearmodels
   - black-nb
