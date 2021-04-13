@@ -8,6 +8,7 @@ channels:
 dependencies:
 - numpy
 - pandas
+- matplotlib
 - sphinx
 - flake8
 - pytest
@@ -27,6 +28,7 @@ dependencies:
 - chaospy
 - respy
 - pip:
+  - statsmodels
   - linearmodels
   - black-nb
   - flake8-nb
