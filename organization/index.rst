@@ -23,7 +23,7 @@ Lecture plan
 Date      Topic
 ========  ======================================================================
 13/04/20  Kickoff, Introduction
-14/04/20  Tools for data tools for data science
+14/04/20  Tools for data science
 
 20/04/20  Counterfactuals and the potential outcome model
 21/04/20  Counterfactuals and the potential outcome model
