@@ -31,6 +31,7 @@ dependencies:
   - linearmodels
   - black-nb
   - flake8-nb
+  - kernreg
   - grmpy
   - sphinx_rtd_theme
   - sphinxcontrib-bibtex
