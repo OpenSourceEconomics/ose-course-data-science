@@ -1,14 +1,14 @@
 ---
 SIMULATION:
     agents: 10000
-    seed: 7878
+    seed: 1234
     source: data_mc
 ESTIMATION:
     file: data_mc.grmpy.txt
     dependent: Y
     indicator: D
     agents: 165
-    optimizer: SCIPY-BFGS
+    optimizer: BFGS
     start: auto
     maxiter: 6383
     comparison: true
@@ -47,7 +47,7 @@ DIST:
     params:
     - 0.2
     - 0.0
-    - -0.11000000000000001
+    - 0.0
     - 0.2
     - 0.0
     - 1.0
@@ -56,7 +56,7 @@ VARTYPES:
     momsEdu: nonbinary
     distCol: nonbinary
 SCIPY-BFGS:
-    gtol: 1.0e-05
+    gtol: 1.0e-08
     eps: 1.4901161193847655e-08
 SCIPY-POWELL:
     xtol: 9.147777614048603e-05

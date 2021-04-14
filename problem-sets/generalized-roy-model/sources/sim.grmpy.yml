@@ -6,7 +6,7 @@ SIMULATION:
 ESTIMATION:
     agents: 165
     file: data.grmpy.txt
-    optimizer: SCIPY-BFGS
+    optimizer: BFGS
     start: auto
     maxiter: 6383
     dependent: Y

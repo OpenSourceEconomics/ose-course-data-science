@@ -1,4 +1,6 @@
 ---
+SIMULATION:
+    seed: 1234
 ESTIMATION:
     file: data/education_data_clean.pkl
     dependent: wage
@@ -6,12 +8,11 @@ ESTIMATION:
         
     # parametric model
     output_file: est.grmpy.info
-    optimizer: SCIPY-BFGS
+    optimizer: BFGS
     start: auto
     maxiter: 6383
     agents: 165
-    comparison: True
-    print_output: False
+    print_output: True
     
     # semiparametric model
     show_output: False
