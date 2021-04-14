@@ -177,7 +177,10 @@ def monte_carlo(file, which, grid_points=10):
 
         elif label in ["grmpy", "grmpy-par"]:
             rslt = grmpy.fit(file)
-            beta_diff = rslt['opt_rslt'].loc["TREATED"].params.values - rslt['opt_rslt'].loc["UNTREATED"].params.values
+            beta_diff = (
+                rslt["opt_rslt"].loc["TREATED"].params.values
+                - rslt["opt_rslt"].loc["UNTREATED"].params.values
+            )
             stat = np.dot(np.mean(Xvar), beta_diff)
 
         elif label in ["grmpy-semipar", "grmpy-liv"]:
