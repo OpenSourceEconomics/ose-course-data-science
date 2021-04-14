@@ -6,6 +6,7 @@ channels:
 - opensourceeconomics
 
 dependencies:
+- python=3.7
 - numpy
 - pandas
 - matplotlib
@@ -31,6 +32,7 @@ dependencies:
   - linearmodels
   - black-nb
   - flake8-nb
+  - kernreg
   - grmpy
   - sphinx_rtd_theme
   - sphinxcontrib-bibtex
