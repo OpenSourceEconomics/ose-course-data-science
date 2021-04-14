@@ -1,7 +1,6 @@
 """This module contains some auxiliary functions shared across the utility scripts."""
 import argparse
 import difflib
-import glob
 import os
 import subprocess as sp
 from pathlib import Path
