@@ -15,13 +15,12 @@ jobs:
            environment-file: environment.yml
            python-version: 3.7
            auto-activate-base: false
-    - name: run project
+    - name: Pytest and submodule
       shell: bash -l {0}
       run: |
         export PATH="$PATH:/usr/share/miniconda/bin"
         source .envrc
         git submodule update --init --recursive
-        run-project
         py.test
     - name: check notebook formatting
       shell: bash -l {0}
@@ -30,6 +29,12 @@ jobs:
         source .envrc
         flake8-nb; [ $? -eq 0 ] || exit 1
         black-nb --check .; [ $? -eq 0 ] || exit 1
+    - name: run project
+      shell: bash -l {0}
+      run: |
+        export PATH="$PATH:/usr/share/miniconda/bin"
+        source .envrc
+        run-project
     - name: execute selected scripts
       shell: bash -l {0}
       run: |
