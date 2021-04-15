@@ -168,25 +168,20 @@ def get_flexible_table4(data_cwhsc_new, years, data_source, cohorts):
     Y1 = np.matmul(np.transpose(final1, (0, 2, 1)), Y).reshape((num_obs, 1))
     X1 = np.matmul(np.transpose(final1, (0, 2, 1)), X1).reshape((num_obs, len(X1_columns)))
     data2 = pd.DataFrame(
-        data=np.concatenate((Y1, X1), axis=1),
-        index=data.index,
-        columns=["earnings"] + X1_columns,
+        data=np.concatenate((Y1, X1), axis=1), index=data.index, columns=["earnings"] + X1_columns,
     )
 
     Y2 = np.matmul(np.transpose(final2, (0, 2, 1)), Y).reshape((num_obs, 1))
     X2 = np.matmul(np.transpose(final2, (0, 2, 1)), X2).reshape((num_obs, len(X2_columns)))
     data1 = pd.DataFrame(
-        data=np.concatenate((Y2, X2), axis=1),
-        index=data.index,
-        columns=["earnings"] + X2_columns,
+        data=np.concatenate((Y2, X2), axis=1), index=data.index, columns=["earnings"] + X2_columns,
     )
 
     # Create empty table 4
     table_4 = {}
     statistic = ["Value", "Standard Error"]
     index_beginning = pd.MultiIndex.from_product(
-        [["Model 1"], cohorts, statistic],
-        names=["Model", "Cohort", "Statistic"],
+        [["Model 1"], cohorts, statistic], names=["Model", "Cohort", "Statistic"],
     )
     index_beginning = index_beginning.append(
         pd.MultiIndex.from_tuples([("Model 1", "Chi Squared", "")])
@@ -366,11 +361,7 @@ def get_bias(data_cwhsa, data_cwhsb, data_dmdc, data_sipp, data_cwhsc_new, inter
     data = data.groupby(["white", "byr", "year", "type"]).apply(
         lambda x: np.average(x[["earnings"]], weights=x["smplsz"], axis=0)
     )
-    data = pd.DataFrame(
-        data.to_list(),
-        columns=["earnings"],
-        index=data.index,
-    )
+    data = pd.DataFrame(data.to_list(), columns=["earnings"], index=data.index,)
     # only keep adjusted FICA data
     data = data.loc[(1, slice(None), slice(None), "ADJ"), :]
     data.reset_index("type", drop=True, inplace=True)
