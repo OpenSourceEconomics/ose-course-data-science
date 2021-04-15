@@ -10,7 +10,8 @@ Frequently asked questions
 --------------------------
 
 We collect a set up of questions here as well:
-<%= octicon "light-bulb", :height => 16 %>
+
+{% octicon light-bulb height:16 %}
 
 * **Do we need to report on the progress of our project?** Yes, I will frequently select a student project at random to report on their current state at the end of a lecture.
 
