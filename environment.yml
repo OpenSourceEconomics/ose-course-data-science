@@ -22,12 +22,11 @@ dependencies:
 - jupyter
 - ipython
 - pip
-- black=20.8b0
 - nbsphinx
-- nb_black
 - chaospy
 - respy
 - pip:
+  - black=20.8b0
   - seaborn
   - statsmodels
   - linearmodels
@@ -37,3 +36,4 @@ dependencies:
   - grmpy
   - sphinx_rtd_theme
   - sphinxcontrib-bibtex
+  - nb_black
