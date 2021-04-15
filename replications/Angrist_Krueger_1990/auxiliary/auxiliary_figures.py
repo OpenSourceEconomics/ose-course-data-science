@@ -76,7 +76,12 @@ def get_figure2(data_cwhsa, data_cwhsb):
 
     # create figure 2
     fig2, axs = plt.subplots(
-        4, 2, sharex=True, sharey=True, gridspec_kw={"hspace": 0}, constrained_layout=True,
+        4,
+        2,
+        sharex=True,
+        sharey=True,
+        gridspec_kw={"hspace": 0},
+        constrained_layout=True,
     )
     for ethnicity in [1, 2]:
         for row, cohort in enumerate([50, 51, 52, 53]):
