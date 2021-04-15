@@ -6,14 +6,15 @@ We will run student projects for grading and heavily rely on `GitHub Classroom <
 
 Excellent projects are kindly provided by `Annica Gehlen <https://github.com/amageh>`_, `Pascal Heid <https://github.com/Pascalheid>`_, `Felix Kirsch <https://github.com/felix0496>`_.
 
-Frequently asked questions
---------------------------
+Frequently Asked Questions (FAQ)
+--------------------------------
 
-We collect a set up of questions here as well:
+Here are some frequently asked questions about the course:
 
-{% octicon light-bulb height:16 %}
+Do we need to report on the progress of our project?
+======================================================================
 
-* **Do we need to report on the progress of our project?** Yes, I will frequently select a student project at random to report on their current state at the end of a lecture.
+Yes, I will frequently select a student project at random to report on their current state at the end of a lecture.
 
 * **Why are the projects public?** Transparency and reproducibility is a core value in research. Also, we want to learn from each other.
 
