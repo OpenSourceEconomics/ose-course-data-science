@@ -9,7 +9,7 @@
 |logo| OSE data science
 ========================
 
-.. image:: https://github.com/HumanCapitalAnalysis/ose-data-science/workflows/continuous_integration.yml/badge.svg
+.. image:: https://github.com/HumanCapitalAnalysis/ose-data-science/workflows/Continuous%20Integration/badge.svg
     :target: https://github.com/HumanCapitalAnalysis/ose-data-science/actions
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
