@@ -27,6 +27,7 @@ dependencies:
 - chaospy
 - respy
 - pip:
+  - xlwt
   - seaborn
   - statsmodels
   - linearmodels
