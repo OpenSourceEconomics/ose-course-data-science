@@ -21,7 +21,7 @@ repos:
     hooks:
     -   id: reorder-python-imports
 -   repo: https://github.com/psf/black
-    rev: 20.8b1
+    rev: 20.8b0
     hooks:
     -   id: black
 -   repo: https://github.com/asottile/blacken-docs

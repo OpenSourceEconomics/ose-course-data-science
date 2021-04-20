@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v2
@@ -15,13 +15,12 @@ jobs:
            environment-file: environment.yml
            python-version: 3.7
            auto-activate-base: false
-    - name: run project
+    - name: Pytest and submodule
       shell: bash -l {0}
       run: |
         export PATH="$PATH:/usr/share/miniconda/bin"
         source .envrc
         git submodule update --init --recursive
-        run-project
         py.test
     - name: check notebook formatting
       shell: bash -l {0}
@@ -29,7 +28,13 @@ jobs:
         export PATH="$PATH:/usr/share/miniconda/bin"
         source .envrc
         flake8-nb; [ $? -eq 0 ] || exit 1
-        black-nb --check .; [ $? -eq 0 ] || exit 1
+        black-nb --check --exclude lectures/generalized-moments/notebook.ipynb lectures/causal-graphs/notebook.ipynb .; [ $? -eq 0 ] || exit 1
+    - name: run project
+      shell: bash -l {0}
+      run: |
+        export PATH="$PATH:/usr/share/miniconda/bin"
+        source .envrc
+        run-project
     - name: execute selected scripts
       shell: bash -l {0}
       run: |
