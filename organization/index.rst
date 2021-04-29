@@ -58,9 +58,9 @@ Date      Topic
 29/06/20  Regression discontinuity design
 30/07/20  Regression discontinuity design
 
-06/07/20  Problem set: Regression discontinuity design
-07/07/20  Introduction to structural econometrics
+06/07/20  Guest Lecture: Dr. Sebastian Garmann (Bundesrechnungshof)
+07/07/20  Problem set: Regression discontinuity design
 
-13/07/20  Maximum likelihood estimation
-14/07/20  Simulated method of moments
+13/07/20  Introduction to structural econometrics
+14/07/20  Maximum likelihood estimation
 ========  ======================================================================
