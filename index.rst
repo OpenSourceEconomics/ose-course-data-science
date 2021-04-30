@@ -37,6 +37,7 @@ This course introduces students to basic microeconmetric methods. The objective 
    replications/index
    projects/index
    data-sources/index
+   partners/index
    organization/index
 
 
