@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.stats as ss
-from matplotlib.ticker import MaxNLocator, FixedLocator, FixedFormatter
+from matplotlib.ticker import FixedLocator, FixedFormatter
 
 
 def plot_individual_specific_effects(with_parameters=None):
@@ -21,7 +21,6 @@ def plot_individual_specific_effects(with_parameters=None):
     ax.set_xlim([-3, 3])
     ax.set_ylim([0, 0.5])
     pos = with_parameters
-    
 
     if with_parameters and len(set(pos)) != 1:
         ax.axvline(x=pos[0], label="ATE", color="red")
