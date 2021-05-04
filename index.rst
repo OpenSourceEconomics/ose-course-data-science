@@ -34,9 +34,8 @@ This course introduces students to basic microeconmetric methods. The objective 
    lectures/index
    problem-sets/index
    handouts/index
-   replications/index
    projects/index
-   data-sources/index
+   datasets/index
    partners/index
    organization/index
 
