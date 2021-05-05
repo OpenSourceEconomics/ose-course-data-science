@@ -46,7 +46,7 @@ We study the basic conditioning strategy for the estimation of causal effects. W
 .. toctree::
    :maxdepth: 1
 
-   criteria-conditioning-estimators/notebook.ipynb
+   conditioning-estimators/notebook.ipynb
 
 ===================
 Matching estimators
