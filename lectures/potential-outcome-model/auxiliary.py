@@ -15,7 +15,7 @@ def plot_individual_specific_effects(with_parameters=None):
     ax.set_xlabel(r"$\delta$")
     ax.set_ylabel("Density")
     x_formatter = FixedFormatter(["", "", "", 0.5, "", "", ""])
-    x_locator = FixedLocator([-3, -2, -1 ,0 ,1 ,2, 3])
+    x_locator = FixedLocator([-3, -2, -1, 0, 1, 2, 3])
     ax.xaxis.set_major_locator(x_locator)
     ax.xaxis.set_major_formatter(x_formatter)
     ax.set_xlim([-3, 3])
