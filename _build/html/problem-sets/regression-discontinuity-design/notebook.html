@@ -1,0 +1,1029 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Regression Discontinuity Design (RDD) &mdash; OSE data science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Handouts" href="../../handouts/index.html" />
+    <link rel="prev" title="Generalized Roy Model" href="../generalized-roy-model/notebook.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> OSE data science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../lectures/index.html">Lectures</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Problem sets</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#potential-outcome-model">Potential outcome model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matching-estimators">Matching estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#generalized-roy-model">Generalized Roy model</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#regression-discontinuity-design">Regression discontinuity design</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Regression Discontinuity Design (RDD)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Task-A">Task A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Task-B">Task B</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Task-B.1">Task B.1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Task-B.2">Task B.2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Task-B.3">Task B.3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Task-B.4">Task B.4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Task-C">Task C</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Task-D">Task D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#References">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../handouts/index.html">Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../datasets/index.html">Data sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../partners/index.html">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../organization/index.html">Organization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OSE data science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Problem sets</a> &raquo;</li>
+        
+      <li>Regression Discontinuity Design (RDD)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/problem-sets/regression-discontinuity-design/notebook.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+<p>Download the notebook <a class="reference download external" download="" href="https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/ose-data-science/blob/master/problem-setsregression-discontinuity-designnotebook.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>!
+Interactive online version: <a class="reference external" href="https://mybinder.org/v2/gh/HumanCapitalAnalysis/ose-data-science/master?filepath=problem-setsregression-discontinuity-designnotebook.ipynb"><img alt="binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">pickle</span> <span class="k">as</span> <span class="nn">pkl</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeaveOneOut</span>
+
+<span class="kn">from</span> <span class="nn">auxiliary</span> <span class="kn">import</span> <span class="n">plot_bandwidth</span>
+<span class="kn">from</span> <span class="nn">auxiliary</span> <span class="kn">import</span> <span class="n">plot_logistic</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Regression-Discontinuity-Design-(RDD)">
+<h1>Regression Discontinuity Design (RDD)<a class="headerlink" href="#Regression-Discontinuity-Design-(RDD)" title="Permalink to this headline">¶</a></h1>
+<p>In the problem set we are going to practice RDD in the Lee (2008) framework. We employ the original simplified data set on the individual candidates for the US House of Representatives from 1946 to 1998. If a candidate obtains more votes than his or her competitors, he or she takes the office. Each elected candidate represents one of 435 congressional districts. The elections are held every two years. We seek the answer to the question whether winning the election has a causal influence on the
+probability that the candidate will win the next election.*</p>
+<p>The observations of the data set <strong>individ_final.dta</strong> are clustered by district and election year. It consists of the following variables:*</p>
+<ul class="simple">
+<li><p><strong>outcome</strong> is a treatment variable; it is coded as 1 if a candidate won the election in the corresponding year and 0 – otherwise.</p></li>
+<li><p><strong>outcomenext</strong> is an outcome variable. It is coded as 1 if a candidate won the next election; as 0 if he or she did not win the next election; and as -1 if he or she did not participate in the next election.</p></li>
+<li><p><strong>difshare</strong> is an assignment variable; it is the winning candidate’s vote share minus the vote share of the highest performing competitor. Therefore, 0 is the cutoff point: a candidate whose vote share is more than 0 is automatically assigned to treatment.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s2">&quot;data/individ_final.dta&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>outcome</th>
+      <th>outcomenext</th>
+      <th>difshare</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1946</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0.061488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1946</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.061488</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1948</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.104869</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1948</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>-0.104869</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1948</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>-0.535721</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="section" id="Task-A">
+<h2>Task A<a class="headerlink" href="#Task-A" title="Permalink to this headline">¶</a></h2>
+<p><em>What is the main assumption that makes RDD possible? Define the local randomization condition in the simplified setup presented in the lecture.</em></p>
+<p>Main assumption: agents are unable to precisely control the assignment variable near the known cutoff what leads to the randomized variation in treatment near the threshold.</p>
+<p>The framework:</p>
+<div class="math notranslate nohighlight">
+\[Y = D \tau + W \delta_1 + U\]</div>
+<div class="math notranslate nohighlight">
+\[D = I(X \geq c)\]</div>
+<div class="math notranslate nohighlight">
+\[X = W \delta_2 + V,\]</div>
+<p>where: - Y is the outcome of interest, - D is the binary treatment indicator, - W is the vector of all predetermined and observable characteristics of the individual that might impact Y and/or X, - X is the assignment variable, - c is the cutoff value</p>
+<p>Individuals have imprecise control over X when conditional on W = w and U = u, the density of V (and hence X) is continuous.</p>
+<p><strong>Definition of Local Randomization:</strong> If individuals have imprecise control over X, then Pr[W = w,U = u|X = x] is continuous in x: the treatment is “as good as” randomly assigned around the cutoff.</p>
+</div>
+<div class="section" id="Task-B">
+<h2>Task B<a class="headerlink" href="#Task-B" title="Permalink to this headline">¶</a></h2>
+<p>A major advantage of the RD design over competing methods is its transparency, which can be illustrated using graphical methods. A standard way of graphing the data is to divide the assignment variable into a number of bins, making sure there are two separate bins on each side of the cutoff point. Then, the average value of the outcome variable can be computed for each bin and graphed against the mid-points of the bins.</p>
+</div>
+<div class="section" id="Task-B.1">
+<h2>Task B.1<a class="headerlink" href="#Task-B.1" title="Permalink to this headline">¶</a></h2>
+<p>Create a new variable that groups the assignment variable values into 400 bins with a size of 0.005.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">401</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;bin&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;difshare&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;bin&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>outcome</th>
+      <th>outcomenext</th>
+      <th>difshare</th>
+      <th>bin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18067</th>
+      <td>1960</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>-0.998273</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>17946</th>
+      <td>1962</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>-0.999653</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>17947</th>
+      <td>1962</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>-0.999653</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>17948</th>
+      <td>1962</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>-0.999653</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>17949</th>
+      <td>1962</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>-0.999653</td>
+      <td>-1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="Task-B.2">
+<h2>Task B.2<a class="headerlink" href="#Task-B.2" title="Permalink to this headline">¶</a></h2>
+<p>Since we are interested in a causal influence on the probability that the candidate will win the next election based on winning the current election, drop the rows that do not have a comparable next election.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;outcomenext&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>outcome</th>
+      <th>outcomenext</th>
+      <th>difshare</th>
+      <th>bin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>13050</th>
+      <td>1952</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.996721</td>
+      <td>-1.000000</td>
+    </tr>
+    <tr>
+      <th>16761</th>
+      <td>1946</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.999268</td>
+      <td>-1.000000</td>
+    </tr>
+    <tr>
+      <th>23171</th>
+      <td>1968</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.901280</td>
+      <td>-0.904762</td>
+    </tr>
+    <tr>
+      <th>15113</th>
+      <td>1968</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.853781</td>
+      <td>-0.854637</td>
+    </tr>
+    <tr>
+      <th>14899</th>
+      <td>1980</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-0.809648</td>
+      <td>-0.809524</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="Task-B.3">
+<h2>Task B.3<a class="headerlink" href="#Task-B.3" title="Permalink to this headline">¶</a></h2>
+<p>Find the mean of the outcome variable for each bin or, in other words, local average. Draw this relationship on the scatterplot.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s2">&quot;outcomenext&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f4e28c49890&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/problem-sets_regression-discontinuity-design_notebook_17_1.png" src="../../_images/problem-sets_regression-discontinuity-design_notebook_17_1.png" />
+</div>
+</div>
+<p>We will now repeatedly split the data at the cutoff.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;difshare&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.00</span><span class="p">),</span> <span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;below&quot;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;difshare&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="o">+</span><span class="mf">0.00</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.25</span><span class="p">),</span> <span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;above&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="Task-B.4">
+<h2>Task B.4<a class="headerlink" href="#Task-B.4" title="Permalink to this headline">¶</a></h2>
+<p>For better visuality we also add to the graph the fitted values of logistic regression around the cutoff. For this apply logistic regression separately on either side of the threshold (we take the bins with the share values from -0.25 to 0.25 and use the package LogisticRegression from sklearn.linear model). Extract probability estimates. Add them to the scatterplot in the proximity of cutoff. Do you observe a discontinuity at the cutoff point?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">probs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">1e20</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;below&quot;</span><span class="p">,</span> <span class="s2">&quot;above&quot;</span><span class="p">]:</span>
+
+    <span class="n">cond</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">label</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cond</span><span class="p">,</span> <span class="s2">&quot;outcomenext&quot;</span><span class="p">]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cond</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;difshare&quot;</span><span class="p">]]</span>
+
+    <span class="n">lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">probs</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plot_logistic</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">probs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/problem-sets_regression-discontinuity-design_notebook_22_0.png" src="../../_images/problem-sets_regression-discontinuity-design_notebook_22_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Task-C">
+<h2>Task C<a class="headerlink" href="#Task-C" title="Permalink to this headline">¶</a></h2>
+<p>LLR as a method restricts the estimation to observations close to the cutoff. It is based on the assumption that regression lines within the bins around the cutoff point are close to linear. That helps to avoid some of the drawbacks of other parametric/non-parametrics approaches (Lee &amp; Lemieux (2010))</p>
+<p>*Run the LLR with a specification $Y = <span class="math">\alpha</span>_r + <span class="math">\tau `D + :nbsphinx-math:</span>beta <cite>X + :nbsphinx-math:</cite>gamma <cite>X D + :nbsphinx-math:</cite>epsilon <cite>$, where :math:`X</cite> is rectricted by a bandwidth: <span class="math notranslate nohighlight">\(-h ≥ X ≥ h\)</span>. Interpret the result. Experiment with few bandwidths on your choice.*</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]:</span>
+    <span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;difshare&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">)]</span>
+    <span class="n">formula</span> <span class="o">=</span> <span class="s2">&quot;outcomenext ~ outcome + difshare + difshare*outcome&quot;</span>
+    <span class="n">rslt</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_subset</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span><span class="p">,</span> <span class="n">rslt</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">rslt</span><span class="o">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Bandwidth: </span><span class="si">{:&gt;4}</span><span class="s2">   Effect </span><span class="si">{:5.3f}</span><span class="s2">%    pvalue </span><span class="si">{:5.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">info</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ Bandwidth: 0.25   Effect 52.439%    pvalue 0.000
+ Bandwidth:  0.2   Effect 49.521%    pvalue 0.000
+ Bandwidth:  0.1   Effect 43.861%    pvalue 0.000
+ Bandwidth: 0.05   Effect 38.910%    pvalue 0.000
+ Bandwidth: 0.01   Effect 25.700%    pvalue 0.069
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Task-D">
+<h2>Task D<a class="headerlink" href="#Task-D" title="Permalink to this headline">¶</a></h2>
+<p>As you might find, the treatment effect result is sensitive to the bandwidth choice. In general, choosing a bandwidth in estimation involves finding an optimal balance between precision and bias. One the one hand, using a larger bandwidth yields more precise estimates as more observations are available to estimate the regression. On the other hand, the linear specification is less likely to be accurate (Lee &amp; Lemieux (2010)).</p>
+<p>We are going to review one of the approaches for choosing a bandwidth – cross-validation “leave one out” procedure. The main idea is to take an observation i in the data, leave it out, run LLR, and use the estimates to predict the value of <span class="math notranslate nohighlight">\(Y\)</span> at <span class="math notranslate nohighlight">\(X = X_i\)</span>. Proceeding with each observation separately on each side of the cutoff, we obtain the predicted values of <span class="math notranslate nohighlight">\(Y\)</span> that can be compared to the actual values. The optimal bandwidth is then a value of <span class="math notranslate nohighlight">\(h\)</span> that minimizes the
+mean square of the difference between the predicted and actual values of <span class="math notranslate nohighlight">\(Y\)</span>. And overall mean square error is simply the average of the squares of the prediction errors on each side of the cutoff.</p>
+<p>Draw the graph showing the relationship between the bandwidth and the mean square error. What is the optimal bandwidth for LLR in our framework?*</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">num_points</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">bandwidth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
+
+<span class="n">scoring</span> <span class="o">=</span> <span class="s2">&quot;neg_mean_squared_error&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">LeaveOneOut</span><span class="p">()</span>
+
+<span class="n">cross_val_score_p</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">cross_val_score</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;rslt.rdd.pkl&quot;</span><span class="p">):</span>
+    <span class="n">rslt_err</span> <span class="o">=</span> <span class="n">pkl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;rslt.rdd.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">rslt_err</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;below&quot;</span><span class="p">,</span> <span class="s2">&quot;above&quot;</span><span class="p">]:</span>
+
+        <span class="n">rslt_err</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">bandwidth</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s2">&quot;below&quot;</span><span class="p">:</span>
+                <span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;difshare&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.00</span><span class="p">)]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">df_subset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;difshare&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="o">+</span><span class="mf">0.00</span><span class="p">,</span> <span class="o">+</span><span class="n">h</span><span class="p">)]</span>
+
+            <span class="n">y</span> <span class="o">=</span> <span class="n">df_subset</span><span class="p">[[</span><span class="s2">&quot;outcomenext&quot;</span><span class="p">]]</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">df_subset</span><span class="p">[[</span><span class="s2">&quot;difshare&quot;</span><span class="p">]]</span>
+
+            <span class="n">results</span> <span class="o">=</span> <span class="n">cross_val_score_p</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">rslt_err</span><span class="p">[</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+    <span class="c1"># Type tranformations</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;below&quot;</span><span class="p">,</span> <span class="s2">&quot;above&quot;</span><span class="p">]:</span>
+        <span class="n">rslt_err</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rslt_err</span><span class="p">[</span><span class="n">label</span><span class="p">])</span>
+    <span class="n">rslt_err</span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">rslt_err</span><span class="p">[</span><span class="s2">&quot;above&quot;</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">rslt_err</span><span class="p">[</span><span class="s2">&quot;below&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="n">pkl</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">rslt_err</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;rslt.rdd.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_bandwidth</span><span class="p">(</span><span class="n">bandwidth</span><span class="p">,</span> <span class="n">rslt_err</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/problem-sets_regression-discontinuity-design_notebook_30_0.png" src="../../_images/problem-sets_regression-discontinuity-design_notebook_30_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Optimal bandwidth: </span><span class="si">{</span><span class="n">bandwidth</span><span class="p">[</span><span class="n">rslt_err</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">argmin</span><span class="p">()]</span><span class="si">:</span><span class="s2">5.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ Optimal bandwidth: 0.282
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lee, D. S. (2008). <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0304407607001121">Randomized experiments from non-random selection in US house elections</a>. <em>Journal of Econometrics, 142</em>(2), 675–697.</p></li>
+<li><p>Lee, D. S., &amp; Lemieux, T. (2010). <a class="reference external" href="https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281">Regression discontinuity designs in economics</a>. <em>Journal of Economic Literature, 48</em>, 281-355.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../handouts/index.html" class="btn btn-neutral float-right" title="Handouts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../generalized-roy-model/notebook.html" class="btn btn-neutral float-left" title="Generalized Roy Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Prof. Dr. Philipp Eisenhauer.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

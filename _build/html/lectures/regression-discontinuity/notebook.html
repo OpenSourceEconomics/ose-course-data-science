@@ -1,0 +1,1257 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Regression discontinuity design &mdash; OSE data science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Generalized method of moments" href="../generalized-moments/notebook.html" />
+    <link rel="prev" title="Repeated observations and the estimation of causal effects" href="../repeated-observations/notebook.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> OSE data science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Lectures</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#potential-outcome-model">Potential outcome model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#causal-graphs">Causal graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#conditioning-estimators">Conditioning estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matching-estimators">Matching estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#regression-estimators">Regression estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#heterogeneity-selection-and-causal-graphs">Heterogeneity, selection, and causal graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#instrumental-variables">Instrumental variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#generalized-roy-model">Generalized Roy model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#causal-explanations">Causal explanations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#repeated-observations">Repeated observations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#regression-discontinuity-design">Regression discontinuity design</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Regression discontinuity design</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Intuition">Intuition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Identification">Identification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Interpretation">Interpretation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Alternative-evaluation-strategies">Alternative evaluation strategies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Estimation">Estimation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Checklist">Checklist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#References">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#generalized-method-of-moments">Generalized method of moments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../problem-sets/index.html">Problem sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../handouts/index.html">Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../datasets/index.html">Data sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../partners/index.html">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../organization/index.html">Organization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OSE data science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Lectures</a> &raquo;</li>
+        
+      <li>Regression discontinuity design</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/lectures/regression-discontinuity/notebook.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+<p>Download the notebook <a class="reference download external" download="" href="https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/ose-data-science/blob/master/lecturesregression-discontinuitynotebook.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>!
+Interactive online version: <a class="reference external" href="https://mybinder.org/v2/gh/HumanCapitalAnalysis/ose-data-science/master?filepath=lecturesregression-discontinuitynotebook.ipynb"><img alt="binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+<div class="section" id="Regression-discontinuity-design">
+<h1>Regression discontinuity design<a class="headerlink" href="#Regression-discontinuity-design" title="Permalink to this headline">¶</a></h1>
+<p>This following material is mostly based on the following review:</p>
+<ul class="simple">
+<li><p>Lee, D. S., and Lemieux, T. (2010). <a class="reference external" href="https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281">Regression discontinuity designs in economics</a>. <em>Journal of Economic Literature, 48</em>(2), 281–355.</p></li>
+</ul>
+<p>The ides of the authors is to throughout contrast RDD to its alternatives. They initially just mention selected features throughout the introduction but then also devote a whole section to it. This clearly is a core strength of the article. I hope to maintain this focus in my lecture. Also, their main selling point for RDD as the close cousin to standard randomized controlled trial is that the behavioral assumption of imprecise control about the assignment variable translates into the
+statistical assumptions of a randomized experiment.</p>
+<div class="section" id="Intuition">
+<h2>Intuition<a class="headerlink" href="#Intuition" title="Permalink to this headline">¶</a></h2>
+<p><strong>Key points:</strong></p>
+<ul class="simple">
+<li><p>RD designs can be invalid if individuals can precisely manipulate the assignment variable - discontinuity rules might generate incentives</p></li>
+<li><p>If individuals - even while having some influence - are unable to precisely manipulate the assignment variable, a consequence of this is that the variation in treatment near the threshold is randomized as though from a randomized experiment - contrast to IV assumption</p></li>
+<li><p>RD designs can be analyzed - and tested - like randomized experiments.</p></li>
+<li><p>Graphical representation of an RD design is helpful and informative, but the visual presentation should not be tilted toward either finding an effect or finding no effect.</p></li>
+<li><p>Nonparametric estimation does not represent a “solution” to functional form issues raised by RD designs. It is therefore helpful to view it as a complement to - rather than a substitute for - parametric estimation.</p></li>
+<li><p>Goodness-of-fit and other statistical tests can help rule out overly restrictive specifications.</p></li>
+</ul>
+<p><strong>Baseline</strong></p>
+<p>A simple way to estimating the treatment effect <span class="math notranslate nohighlight">\(\tau\)</span> is to run the following linear regression.</p>
+<p><span class="math">\begin{align*}
+Y = \alpha + D \tau + X \beta + \epsilon,
+\end{align*}</span></p>
+<p>where <span class="math notranslate nohighlight">\(D \in [0, 1]\)</span> and we have <span class="math notranslate nohighlight">\(D = 1\)</span> if <span class="math notranslate nohighlight">\(X \geq c\)</span> and <span class="math notranslate nohighlight">\(D=0\)</span> otherwise.</p>
+<p><strong>Baseline setup</strong></p>
+<p><img alt="1134adf317c24b6a9adfb1035db1789f" class="no-scaled-link" src="../../_images/fig-1.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p>“all other factors” determining <span class="math notranslate nohighlight">\(Y\)</span> must be evolving “smoothly” (continously) with respect to <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>the estimate will depend on the functional form</p></li>
+</ul>
+<p><strong>Potential outcome framework</strong></p>
+<p><img alt="cd3dbda0ebb24db7b61c75ed217e8915" class="no-scaled-link" src="../../_images/fig-2.png" style="width: 500px;" /></p>
+<p><strong>Potential outcome framework</strong></p>
+<p>Suppose <span class="math notranslate nohighlight">\(D = 1\)</span> if <span class="math notranslate nohighlight">\(Z \geq z_0\)</span>, and <span class="math notranslate nohighlight">\(D=0\)</span> otherwise <span class="math">\begin{align*}
+\Rightarrow\begin{cases}
+E(Y \mid Z = z) = E(Y_0 \mid Z = z) & \text{for}\quad Z < z_0     \\
+E(Y \mid Z = z) = E(Y_1 \mid Z = z) & \text{for}\quad Z \geq z_0
+\end{cases}
+\end{align*}</span></p>
+<p>Suppose <span class="math notranslate nohighlight">\(E(Y_1\mid Z = z), E(Y_0\mid Z = z)\)</span> are continuous in <span class="math notranslate nohighlight">\(x\)</span>. <span class="math">\begin{align*}
+\Rightarrow\begin{cases}
+\lim{\epsilon \searrow 0} E(Y_0\mid Z = z_0 - \epsilon) = E(Y_0\mid Z = z_0) \\
+\lim{\epsilon \searrow 0} E(Y_1\mid Z = z_0 + \epsilon) = E(Y_1\mid Z = z_0) \\
+\end{cases}
+\end{align*}</span></p>
+<p><span class="math">\begin{align*}
+&\lim{\epsilon \searrow 0} E(Y\mid Z = z_0 + \epsilon) - \lim{\epsilon \searrow 0}E(Y\mid Z = z_0 - \epsilon) \\
+&\qquad= \lim{\epsilon \searrow 0} E(Y_1\mid Z = z_0 + \epsilon) - \lim{\epsilon \searrow 0}E(Y_0\mid Z = z_0 - \epsilon) \\
+&\qquad=E(Y_1\mid Z = z_0) - E(Y_0\mid Z = z_0) \\
+&\qquad=E(Y_1 - Y_0\mid Z = z_0)
+\end{align*}</span></p>
+<p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> average treatment effect at the cutoff</p>
+<div class="section" id="Sharp-and-Fuzzy-design">
+<h3>Sharp and Fuzzy design<a class="headerlink" href="#Sharp-and-Fuzzy-design" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">version</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;sharp&quot;</span><span class="p">,</span> <span class="s2">&quot;fuzzy&quot;</span><span class="p">]:</span>
+    <span class="n">probs</span> <span class="o">=</span> <span class="n">get_treatment_probability</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+    <span class="n">get_plot_probability</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">probs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_regression-discontinuity_notebook_10_0.png" src="../../_images/lectures_regression-discontinuity_notebook_10_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_regression-discontinuity_notebook_10_1.png" src="../../_images/lectures_regression-discontinuity_notebook_10_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">version</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;sharp&quot;</span><span class="p">,</span> <span class="s2">&quot;fuzzy&quot;</span><span class="p">]:</span>
+    <span class="n">plot_outcomes</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_regression-discontinuity_notebook_11_0.png" src="../../_images/lectures_regression-discontinuity_notebook_11_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_regression-discontinuity_notebook_11_1.png" src="../../_images/lectures_regression-discontinuity_notebook_11_1.png" />
+</div>
+</div>
+<p><strong>Alternatives</strong></p>
+<p>Consider the standard assumptions for matching:</p>
+<ul class="simple">
+<li><p>ignorability - trivially satisfied by research design as there is no variation left in <span class="math notranslate nohighlight">\(D\)</span> conditional on <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p>common support - cannot be satisfied and replaced by continuity</p></li>
+</ul>
+<p>Lee and Lemieux (2010) emphasize the close connection of RDD to randomized experiments. - How does the graph in the potential outcome framework change?</p>
+<p><img alt="8f4a9453ce52408ba9ba1c29d19d8027" class="no-scaled-link" src="../../_images/fig-3.png" style="width: 500px;" /></p>
+<p>Continuity, the key assumption of RDD, is a consequence of the research design (e.g. randomization) and not simply imposed.</p>
+</div>
+</div>
+<div class="section" id="Identification">
+<h2>Identification<a class="headerlink" href="#Identification" title="Permalink to this headline">¶</a></h2>
+<p><strong>Question</strong></p>
+<p>How do I know whether an RD design is appropriate for my context? When are the identification assumptions plausable or implausable?</p>
+<p><strong>Answers</strong></p>
+<p><span class="math notranslate nohighlight">\(\times\)</span> An RD design will be appropriate if it is plausible that all other unobservable factors are “continuously” related to the assignment variable.</p>
+<p><span class="math notranslate nohighlight">\(\checkmark\)</span> When there is a continuously distributed stochastic error component to the assignment variable - which can occur when optimizing agents do not have <span class="math">\textit{precise}</span> control over the assignment variable - then the variation in the treatment will be as good as randomized in a neighborhood around the discontinuity threshold.</p>
+<p><strong>Question</strong></p>
+<p>Is there any way I can test those assumptions?</p>
+<p><strong>Answers</strong></p>
+<p><span class="math notranslate nohighlight">\(\times\)</span> No, the continuity assumption is necessary so there are no tests for the validity of the design.</p>
+<p><span class="math notranslate nohighlight">\(\checkmark\)</span> Yes. As in randomized experiment, the distribution of observed baseline covariates should not change discontinuously around the threshold.</p>
+<p><strong>Simplified setup</strong></p>
+<p><span class="math">\begin{align*}
+Y & = D \tau + W \delta_1 + U \\
+D & = I [X \geq c] \\
+X & = W \delta_2 + V
+\end{align*}</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(W\)</span> is the vector of all predetermined and observable characteristics.</p></li>
+</ul>
+<p>What are the source of heterogeneity in the outcome and assignment variable?</p>
+<p>The setup for an RD design is more flexible than other estimation strategies. - We allow for <span class="math notranslate nohighlight">\(W\)</span> to be endogenously determined as long as it is determined prior to <span class="math notranslate nohighlight">\(V\)</span>. - We take no stance as to whether some elements <span class="math notranslate nohighlight">\(\delta_1\)</span> and <span class="math notranslate nohighlight">\(\delta_2\)</span> are zero (exclusion restrictions) - We make no assumptions about the correlations between <span class="math notranslate nohighlight">\(W\)</span>, <span class="math notranslate nohighlight">\(U\)</span>, and <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<p><img alt="eb0b91bcf1a846b0b2a1990b1b7cc17b" class="no-scaled-link" src="../../_images/fig-4.png" style="width: 500px;" /></p>
+<p><strong>Local randomization</strong></p>
+<p>We say individuals have imprecise control over <span class="math notranslate nohighlight">\(X\)</span> when conditional on <span class="math notranslate nohighlight">\(W = w\)</span> and <span class="math notranslate nohighlight">\(U = u\)</span> the density of <span class="math notranslate nohighlight">\(V\)</span> (and hence <span class="math notranslate nohighlight">\(X\)</span>) is continuous.</p>
+<p><strong>Applying Baye’s rule</strong></p>
+<p><span class="math">\begin{align*}
+& \Pr[W = w, U = u \mid X = x] \\
+&\qquad\qquad = f(x \mid W = w, U = u) \quad\frac{\Pr[W = w, U = u]}{f(x)}
+\end{align*}</span></p>
+<p><strong>Local randomization:</strong> If individuals have imprecise control over <span class="math notranslate nohighlight">\(X\)</span> as defined above, then <span class="math notranslate nohighlight">\(\Pr[W =w, U = u \mid X = x]\)</span> is continuous in <span class="math notranslate nohighlight">\(x\)</span>: the treatment is “as good as” randomly assigned around the cutoff.</p>
+<p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> the behavioral assumption of imprecise control of <span class="math notranslate nohighlight">\(X\)</span> around the threshold has the prediction that treatment is locally randmized.</p>
+<p><strong>Consequences</strong></p>
+<ul class="simple">
+<li><p>testing prediction that <span class="math notranslate nohighlight">\(\Pr[W =w, U = u \mid X = x]\)</span> is continuous in <span class="math notranslate nohighlight">\(X\)</span> by at least looking at <span class="math notranslate nohighlight">\(\Pr[W =w\mid X = x]\)</span></p></li>
+<li><p>irrelevance of including baseline covariates</p></li>
+</ul>
+</div>
+<div class="section" id="Interpretation">
+<h2>Interpretation<a class="headerlink" href="#Interpretation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Questions</strong></p>
+<p>To what extent are results from RD designs generalizable?</p>
+<p><strong>Answers</strong></p>
+<p><span class="math notranslate nohighlight">\(\times\)</span> The RD estimate of the treatment effect is only applicable to the subpopulation of individuals at the discontinuity threshold and uninformative about the effect everywhere else.</p>
+<p><span class="math notranslate nohighlight">\(\checkmark\)</span> The RD estimand can be interpreted as a weighted average treatment effect, where the weights are relative ex ante probability that the value of an individual’s assignment variable will be in the neighborhood of the threshold.</p>
+</div>
+<div class="section" id="Alternative-evaluation-strategies">
+<h2>Alternative evaluation strategies<a class="headerlink" href="#Alternative-evaluation-strategies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>randomized experiment</p></li>
+<li><p>regression discontinuity design</p></li>
+<li><p>matching on observables</p></li>
+<li><p>instrumental variables</p></li>
+</ul>
+<p>How do the (assumed) relationships between treatment, observables, and unobservable differ across research designs?</p>
+<p><strong>Endogenous dummy variable</strong></p>
+<p><span class="math">\begin{align*}
+Y & = D \tau + W \delta_1 + U \\
+D & = I[X \geq c] \\
+X & = W \delta_2 + V
+\end{align*}</span></p>
+<p><img alt="e695b5cf21f344b7a61cce633313f39d" class="no-scaled-link" src="../../_images/fig-5-a.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p>By construction <span class="math notranslate nohighlight">\(X\)</span> is not related to any other observable or unoservable characteristic.</p></li>
+</ul>
+<p><img alt="4464c908b57a4915a01b495f5216704f" class="no-scaled-link" src="../../_images/fig-5-b.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(D\)</span> might be systematically related to <span class="math notranslate nohighlight">\(X\)</span></p></li>
+</ul>
+<p><img alt="6ca79dc3aff54a9aae795dbfb979beef" class="no-scaled-link" src="../../_images/fig-5-c.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p>The crcial assumptions is that the two lines in the left graph are actually superimposed of each other.</p></li>
+</ul>
+<p><img alt="990d06274c48457db76245ccceb3c751" class="no-scaled-link" src="../../_images/fig-5-d.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p>The instrument must affect treatment probablity.</p></li>
+<li><p>A proper instructment requires the line in the left graph to be flat.</p></li>
+</ul>
+</div>
+<div class="section" id="Estimation">
+<h2>Estimation<a class="headerlink" href="#Estimation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Lee-(2008)">
+<h3>Lee (2008)<a class="headerlink" href="#Lee-(2008)" title="Permalink to this headline">¶</a></h3>
+<p>The author studies the “incumbency advantage”, i.e. the overall causal impact of being the current incumbent party in a district on the votes obtained in the district’s election.</p>
+<ul class="simple">
+<li><p>Lee, David S. (2008). Randomized experiments from non-random selection in U.S. House elections. Journal of Econometrics.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_base</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../datasets/processed/msc/house.csv&quot;</span><span class="p">)</span>
+<span class="n">df_base</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vote_last</th>
+      <th>vote_next</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.1049</td>
+      <td>0.5810</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.1393</td>
+      <td>0.4611</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.0736</td>
+      <td>0.5434</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0868</td>
+      <td>0.5846</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.3994</td>
+      <td>0.5803</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>The column <code class="docutils literal notranslate"><span class="pre">vote_last</span></code> refers to the Democrat’s winning margin and is thus bounded between <span class="math notranslate nohighlight">\(-1\)</span> and <span class="math notranslate nohighlight">\(1\)</span>. So a positive number indicates a Democrat as the incumbent.</p>
+</div>
+<div class="section" id="What-are-the-basic-characteristics-of-the-dataset?">
+<h3>What are the basic characteristics of the dataset?<a class="headerlink" href="#What-are-the-basic-characteristics-of-the-dataset?" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_base</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f109a3869d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_regression-discontinuity_notebook_41_1.png" src="../../_images/lectures_regression-discontinuity_notebook_41_1.png" />
+</div>
+</div>
+<p>What is the re-election rate?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
+    <span class="n">df_base</span><span class="o">.</span><span class="n">vote_last</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">df_base</span><span class="o">.</span><span class="n">vote_next</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>vote_next</th>
+      <th>False</th>
+      <th>True</th>
+      <th>All</th>
+    </tr>
+    <tr>
+      <th>vote_last</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>False</th>
+      <td>0.875131</td>
+      <td>0.064342</td>
+      <td>0.41781</td>
+    </tr>
+    <tr>
+      <th>True</th>
+      <td>0.124869</td>
+      <td>0.935658</td>
+      <td>0.58219</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Regression discontinuity design<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>How does the average vote in the next election look like as we move along last year’s election.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_base</span><span class="p">[</span><span class="s2">&quot;bin&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df_base</span><span class="o">.</span><span class="n">vote_last</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_base</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">vote_next</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f10981cfa50&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_regression-discontinuity_notebook_46_1.png" src="../../_images/lectures_regression-discontinuity_notebook_46_1.png" />
+</div>
+</div>
+<p>Now we turn to an explicit model of the conditional mean.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">fit_regression</span><span class="p">(</span><span class="n">incumbent</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">incumbent</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;republican&quot;</span><span class="p">,</span> <span class="s2">&quot;democratic&quot;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">incumbent</span> <span class="o">==</span> <span class="s2">&quot;republican&quot;</span><span class="p">:</span>
+        <span class="n">df_incumbent</span> <span class="o">=</span> <span class="n">df_base</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_base</span><span class="o">.</span><span class="n">vote_last</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df_incumbent</span> <span class="o">=</span> <span class="n">df_base</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_base</span><span class="o">.</span><span class="n">vote_last</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">formula</span> <span class="o">=</span> <span class="s2">&quot;vote_next ~ vote_last&quot;</span>
+    <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">level</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;vote_last_</span><span class="si">{:}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+        <span class="n">df_incumbent</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_incumbent</span><span class="p">[</span><span class="s2">&quot;vote_last&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="n">level</span>
+        <span class="n">formula</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; + </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">rslt</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_incumbent</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">rslt</span>
+
+
+<span class="n">rslt</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">incumbent</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;republican&quot;</span><span class="p">,</span> <span class="s2">&quot;democratic&quot;</span><span class="p">]:</span>
+    <span class="n">rslt</span> <span class="o">=</span> <span class="n">fit_regression</span><span class="p">(</span><span class="n">incumbent</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> </span><span class="si">{:}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">incumbent</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">rslt</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+
+ Republican
+                             OLS Regression Results
+==============================================================================
+Dep. Variable:              vote_next   R-squared:                       0.271
+Model:                            OLS   Adj. R-squared:                  0.270
+Method:                 Least Squares   F-statistic:                     339.2
+Date:                Wed, 01 Jul 2020   Prob (F-statistic):          3.05e-187
+Time:                        18:08:47   Log-Likelihood:                 1749.4
+No. Observations:                2740   AIC:                            -3491.
+Df Residuals:                    2736   BIC:                            -3467.
+Df Model:                           3
+Covariance Type:            nonrobust
+===============================================================================
+                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept       0.4278      0.007     57.880      0.000       0.413       0.442
+vote_last      -0.0971      0.077     -1.264      0.206      -0.248       0.054
+vote_last_2    -1.7177      0.205     -8.359      0.000      -2.121      -1.315
+vote_last_3    -1.4636      0.142    -10.338      0.000      -1.741      -1.186
+==============================================================================
+Omnibus:                      203.681   Durbin-Watson:                   1.866
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1087.416
+Skew:                          -0.022   Prob(JB):                    7.42e-237
+Kurtosis:                       6.086   Cond. No.                         113.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+ Democratic
+                             OLS Regression Results
+==============================================================================
+Dep. Variable:              vote_next   R-squared:                       0.379
+Model:                            OLS   Adj. R-squared:                  0.379
+Method:                 Least Squares   F-statistic:                     776.5
+Date:                Wed, 01 Jul 2020   Prob (F-statistic):               0.00
+Time:                        18:08:47   Log-Likelihood:                 2055.2
+No. Observations:                3818   AIC:                            -4102.
+Df Residuals:                    3814   BIC:                            -4077.
+Df Model:                           3
+Covariance Type:            nonrobust
+===============================================================================
+                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept       0.5393      0.007     71.995      0.000       0.525       0.554
+vote_last       0.3553      0.071      4.998      0.000       0.216       0.495
+vote_last_2     0.1932      0.174      1.107      0.268      -0.149       0.535
+vote_last_3    -0.2111      0.114     -1.856      0.064      -0.434       0.012
+==============================================================================
+Omnibus:                      439.976   Durbin-Watson:                   2.136
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1993.314
+Skew:                          -0.477   Prob(JB):                         0.00
+Kurtosis:                       6.409   Cond. No.                         114.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div></div>
+</div>
+<p>How does the predictions look like?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">incumbent</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;republican&quot;</span><span class="p">,</span> <span class="s2">&quot;democratic&quot;</span><span class="p">]:</span>
+
+    <span class="n">rslt</span> <span class="o">=</span> <span class="n">fit_regression</span><span class="p">(</span><span class="n">incumbent</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="c1"># For our predictions, we need to set up a grid for the evaluation.</span>
+    <span class="k">if</span> <span class="n">incumbent</span> <span class="o">==</span> <span class="s2">&quot;republican&quot;</span><span class="p">:</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">+</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+    <span class="n">df_grid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;vote_last&quot;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;vote_last_</span><span class="si">{:}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+        <span class="n">df_grid</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_grid</span><span class="p">[</span><span class="s2">&quot;vote_last&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="n">level</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">rslt</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_grid</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">incumbent</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_regression-discontinuity_notebook_50_0.png" src="../../_images/lectures_regression-discontinuity_notebook_50_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_regression-discontinuity_notebook_50_1.png" src="../../_images/lectures_regression-discontinuity_notebook_50_1.png" />
+</div>
+</div>
+<p>We can now compute the difference at the cutoffs to get an estimate for the treatment effect.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">before_cutoff</span> <span class="o">=</span> <span class="n">df_base</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">vote_next</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="mi">99</span><span class="p">]</span>
+<span class="n">after_cutoff</span> <span class="o">=</span> <span class="n">df_base</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">vote_next</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="mi">100</span><span class="p">]</span>
+
+<span class="n">effect</span> <span class="o">=</span> <span class="n">after_cutoff</span> <span class="o">-</span> <span class="n">before_cutoff</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Treatment Effect: </span><span class="si">{:5.3f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">effect</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Treatment Effect: 8.823%
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="How-does-the-estimated-treatment-effect-depend-on-the-choice-of-the-bin-width?">
+<h3>How does the estimated treatment effect depend on the choice of the bin width?<a class="headerlink" href="#How-does-the-estimated-treatment-effect-depend-on-the-choice-of-the-bin-width?" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">num_bins</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df_base</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;bin&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df_base</span><span class="o">.</span><span class="n">vote_last</span><span class="p">,</span> <span class="n">num_bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">vote_next</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="p">(</span><span class="n">num_bins</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">effect</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="n">lower</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">info</span><span class="p">[</span><span class="n">lower</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot; Number of bins: </span><span class="si">{:}</span><span class="s2">, Width </span><span class="si">{:&gt;5}</span><span class="s2">, Effect </span><span class="si">{:5.2f}</span><span class="s2">%&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">num_bins</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">num_bins</span><span class="p">,</span> <span class="n">effect</span> <span class="o">*</span> <span class="mi">100</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ Number of bins: 100, Width  0.01, Effect  8.12%
+ Number of bins: 200, Width 0.005, Effect  8.82%
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Regression">
+<h3>Regression<a class="headerlink" href="#Regression" title="Permalink to this headline">¶</a></h3>
+<p>There are several alternatives to estimate the conditional mean functions.</p>
+<ul class="simple">
+<li><p>pooled regressions</p></li>
+<li><p>local linear regressions</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># It will be useful to split the sample by the cutoff value</span>
+<span class="c1"># for easier access going forward.</span>
+<span class="n">df_base</span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_base</span><span class="o">.</span><span class="n">vote_last</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Pooled-regression">
+<h4>Pooled regression<a class="headerlink" href="#Pooled-regression" title="Permalink to this headline">¶</a></h4>
+<p>We estimate the conditinal mean using the whole function.</p>
+<p><span class="math">\begin{align*}
+Y = \alpha_r + \tau D + \beta X + \epsilon
+\end{align*}</span></p>
+<p>This allows for a difference in levels but not slope.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s2">&quot;vote_next ~ vote_last + D&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_base</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>        <td>vote_next</td>    <th>  R-squared:         </th> <td>   0.670</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.670</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   6658.</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Tue, 30 Jun 2020</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>07:54:33</td>     <th>  Log-Likelihood:    </th> <td>  3661.9</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>  6558</td>      <th>  AIC:               </th> <td>  -7318.</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>  6555</td>      <th>  BIC:               </th> <td>  -7298.</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     2</td>      <th>                     </th>     <td> </td>
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
+</tr>
+<tr>
+  <th>Intercept</th> <td>    0.4427</td> <td>    0.003</td> <td>  139.745</td> <td> 0.000</td> <td>    0.437</td> <td>    0.449</td>
+</tr>
+<tr>
+  <th>D[T.True]</th> <td>    0.1137</td> <td>    0.006</td> <td>   20.572</td> <td> 0.000</td> <td>    0.103</td> <td>    0.125</td>
+</tr>
+<tr>
+  <th>vote_last</th> <td>    0.3305</td> <td>    0.006</td> <td>   55.186</td> <td> 0.000</td> <td>    0.319</td> <td>    0.342</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>595.910</td> <th>  Durbin-Watson:     </th> <td>   2.143</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>3444.243</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.225</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 6.522</td>  <th>  Cond. No.          </th> <td>    5.69</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div>
+</div>
+</div>
+<div class="section" id="Local-linear-regression">
+<h4>Local linear regression<a class="headerlink" href="#Local-linear-regression" title="Permalink to this headline">¶</a></h4>
+<p>We now turn to local regressions by restricting the estimation to observations close to the cutoff.</p>
+<p><span class="math">\begin{align*}
+Y = \alpha_r + \tau D + \beta X + \gamma X D + \epsilon,
+\end{align*}</span></p>
+<p>where <span class="math notranslate nohighlight">\(-h \geq X \geq h\)</span>. This allows for a difference in levels and slope.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]:</span>
+    <span class="c1"># We restrict the sample to observations close</span>
+    <span class="c1"># to the cutoff.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df_base</span><span class="p">[</span><span class="n">df_base</span><span class="o">.</span><span class="n">vote_last</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="p">)]</span>
+
+    <span class="n">formula</span> <span class="o">=</span> <span class="s2">&quot;vote_next ~ D + vote_last + D * vote_last&quot;</span>
+    <span class="n">rslt</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="p">[</span><span class="n">h</span><span class="p">,</span> <span class="n">rslt</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">rslt</span><span class="o">.</span><span class="n">pvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Bandwidth: </span><span class="si">{:&gt;4}</span><span class="s2">   Effect </span><span class="si">{:5.3f}</span><span class="s2">%    pvalue </span><span class="si">{:5.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">info</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ Bandwidth:  0.3   Effect 8.318%    pvalue 0.000
+ Bandwidth:  0.2   Effect 7.818%    pvalue 0.000
+ Bandwidth:  0.1   Effect 6.058%    pvalue 0.000
+ Bandwidth: 0.05   Effect 4.870%    pvalue 0.010
+ Bandwidth: 0.01   Effect 9.585%    pvalue 0.001
+</pre></div></div>
+</div>
+<p>There exists some work that can guide the choice of the bandwidth. Now, let’s summarize the key issues and some review best practices.</p>
+</div>
+</div>
+</div>
+<div class="section" id="Checklist">
+<h2>Checklist<a class="headerlink" href="#Checklist" title="Permalink to this headline">¶</a></h2>
+<p><strong>Recommendations:</strong> - To assess the possibility of manipulations of the assignment variable, show its distribution. - Present the main RD graph using binned local averages. - Graph a benchmark polynomial specification - Explore the sensitivity of the results to a range of bandwidth, and a range of orders to the polynomial. - Conduct a parallel RD analysis on the baseline covariates. - Explore the sensitivity of the results to the inclusion of baseline covariates.</p>
+</div>
+<div class="section" id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Hahn, J., Todd, P. E., and van der Klaauw, W. (2001)</strong>. <a class="reference external" href="https://www.jstor.org/stable/2692190">Identification and estimation of treatment effects with a regression-discontinuity design</a>. <em>Econometrica</em>, 69(1), 201–209.</p></li>
+<li><p><strong>Lee, D. S. (2008)</strong>. <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0304407607001121">Randomized experiments from nonrandom selection in US House elections</a>. <em>Journal of Econometrics</em>, 142(2), 675–697.</p></li>
+<li><p><strong>Lee, D. S., and Lemieux, T. (2010)</strong>. <a class="reference external" href="https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281">Regression discontinuity designs in economics</a>. <em>Journal of economic literature</em>, 48(2), 281–355.</p></li>
+<li><p><strong>Thistlethwaite, D. L., and Campbell, D. T. (1960)</strong>. <a class="reference external" href="https://psycnet.apa.org/record/1962-00061-001">Regression-discontinuity analysis: An alternative to the ex-post facto experiment</a>. <em>Journal of Educational Psychology</em>, 51(6), 309–317.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../generalized-moments/notebook.html" class="btn btn-neutral float-right" title="Generalized method of moments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../repeated-observations/notebook.html" class="btn btn-neutral float-left" title="Repeated observations and the estimation of causal effects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Prof. Dr. Philipp Eisenhauer.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

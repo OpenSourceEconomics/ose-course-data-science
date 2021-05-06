@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Causal Graphs &mdash; OSE data science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Back-door identification" href="back-door-identification.html" />
+    <link rel="prev" title="Handouts" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> OSE data science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lectures/index.html">Lectures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem-sets/index.html">Problem sets</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Handouts</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Causal Graphs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Definitions,-patterns,-and-strategies">Definitions, patterns, and strategies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Definitions">Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Patterns">Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Strategies">Strategies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#References">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="back-door-identification.html">Back-door identification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="front-door-identification.html">Front-door identification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets/index.html">Data sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../partners/index.html">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organization/index.html">Organization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OSE data science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Handouts</a> &raquo;</li>
+        
+      <li>Causal Graphs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/handouts/causal-graphs.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+<p>Download the notebook <a class="reference download external" download="" href="https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/ose-data-science/blob/master/handoutscausal-graphs.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>!
+Interactive online version: <a class="reference external" href="https://mybinder.org/v2/gh/HumanCapitalAnalysis/ose-data-science/master?filepath=handoutscausal-graphs.ipynb"><img alt="binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+<div class="section" id="Causal-Graphs">
+<h1>Causal Graphs<a class="headerlink" href="#Causal-Graphs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Definitions,-patterns,-and-strategies">
+<h2>Definitions, patterns, and strategies<a class="headerlink" href="#Definitions,-patterns,-and-strategies" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="Definitions">
+<h2>Definitions<a class="headerlink" href="#Definitions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A <strong>node</strong> represents a random variable labeled by letter. Observed random variables are marked by solid circle • and unobserved - by hollow circle ◦.</p></li>
+<li><p>An <strong>edge</strong> shows dependence between joining variables.</p></li>
+<li><p>Adjacent variables are connected by an edge.</p></li>
+<li><p><strong>Adjacent edges</strong> meet at a variable.</p></li>
+<li><p>A <strong>directed edge</strong> represents the cause by a single-headed arrow.</p></li>
+<li><p>A <strong>parent/child</strong> is the starting(tail)/ending(head) variable. Therefore, a directed edge represents a direct effect of a parent on a child.</p></li>
+<li><p>A <strong>root</strong> is a variable that has no parent. In other words, it is an exogenous variable determined only by forces outside of the graph.</p></li>
+<li><p>A <strong>sink</strong> is a variable with no children.</p></li>
+<li><p>A <strong>path</strong> is a sequence of adjacent edges.</p></li>
+<li><p>A <strong>directed path</strong> is a path traced out entirely along arrows tail-to-head. If there is a directed path from <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(A\)</span> is an <strong>ancestor</strong> of <span class="math notranslate nohighlight">\(B\)</span>; <span class="math notranslate nohighlight">\(B\)</span> is a <strong>descendant</strong> of <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>A <strong>directed acyclic graph (DAG)</strong> is a graph with only arrows for edges and no feedback loops (i.e. no variable is its own ancestor or its own descendant):</p></li>
+</ul>
+<p><img alt="c74ce63566674cb38139ac25e223fd2b" class="no-scaled-link" src="../_images/fig-causal-graphs-1-handout.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p><strong>Joint dependence</strong> of two variables on one or more common causes is shown either with unobservable variable or with bidirected dashed curved edge:</p></li>
+</ul>
+<p><img alt="b51392ecbfac44c69d770bd9d5791777" class="no-scaled-link" src="../_images/fig-causal-graphs-2-b-handout.png" style="width: 500px;" /></p>
+<p><img alt="619f192dbdfe4f42820136dce4d09d19" class="no-scaled-link" src="../_images/fig-causal-graphs-2-a-handout.png" style="width: 500px;" /></p>
+</div>
+<div class="section" id="Patterns">
+<h2>Patterns<a class="headerlink" href="#Patterns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Chain of mediation</strong> is a relationship when <span class="math notranslate nohighlight">\(A\)</span> affects <span class="math notranslate nohighlight">\(B\)</span> through <span class="math notranslate nohighlight">\(A\)</span>’s causal effect on <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(C\)</span>’s causal effect on <span class="math notranslate nohighlight">\(B\)</span>:</p></li>
+</ul>
+<p><img alt="d9068a4d48f2470bb5c8069d73d36d20" class="no-scaled-link" src="../_images/fig-causal-graphs-3-handout.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p><strong>Mutual dependence</strong> is a relationship when <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are both caused by <span class="math notranslate nohighlight">\(C\)</span> (a variable <span class="math notranslate nohighlight">\(C\)</span> that affects both the dependent and independent variable is called a <strong>confounding variable</strong>):</p></li>
+</ul>
+<p><img alt="1493b8beb30a4185b088110f456cbe57" class="no-scaled-link" src="../_images/fig-causal-graphs-4-handout.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p><strong>Mutual causation</strong> is a relationship when <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are both causes of <span class="math notranslate nohighlight">\(C\)</span> (a variable <span class="math notranslate nohighlight">\(C\)</span> that has two arrows running into it is called a <strong>collider</strong>):</p></li>
+</ul>
+<p><img alt="68eeb856c51240588733072832500c11" class="no-scaled-link" src="../_images/fig-causal-graphs-5-handout.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p>A <strong>back-door path</strong> is a path between any causally ordered sequence of two variables that include a directed edge that points to the first variable.</p></li>
+<li><p><strong>Conditioning</strong> as a modeling strategy means transforming one graph into a simpler set of component graphs where fewer causes are represented.</p></li>
+</ul>
+</div>
+<div class="section" id="Strategies">
+<h2>Strategies<a class="headerlink" href="#Strategies" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>back-door criterion</strong> is a set of conditions used to determine whether or not conditioning on a given set of observed variable will identify the causal effect. The causal effect is identified by conditioning on a set of variables <span class="math notranslate nohighlight">\(Z\)</span> if and only if all back-door paths between the causal variable and the outcome variable are blocked after conditioning on <span class="math notranslate nohighlight">\(Z\)</span>. All back-door paths are blocked by <span class="math notranslate nohighlight">\(Z\)</span> if and only if each back-door path: - contains a chain of mediation
+<span class="math notranslate nohighlight">\(A → C → B\)</span> where the middle variable <span class="math notranslate nohighlight">\(C\)</span> is in <span class="math notranslate nohighlight">\(Z\)</span>, or - contains a fork of mutual dependence <span class="math notranslate nohighlight">\(A ← C → B\)</span>, where the middle variable <span class="math notranslate nohighlight">\(C\)</span> is in <span class="math notranslate nohighlight">\(Z\)</span>, or - contains an inverted fork of mutual causation <span class="math notranslate nohighlight">\(A → C ← B\)</span>, where the middle variable <span class="math notranslate nohighlight">\(C\)</span> and all of <span class="math notranslate nohighlight">\(C\)</span>’s decendents are not in <span class="math notranslate nohighlight">\(Z\)</span>.</p>
+<p>A <strong>front-door criterion</strong> is an empirical strategy used to identify the causal relationship flowing from <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(B\)</span> if one can find a mechanism C which: - lies on the causal path between <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, and - it is the only such mechanism, and - it is not affected by the unobserved confounder <span class="math notranslate nohighlight">\(U\)</span>:</p>
+<p><img alt="716d297c5cb6491e911527993c160790" class="no-scaled-link" src="../_images/fig-causal-graphs-6-handout.png" style="width: 500px;" /></p>
+<p>You can find more on front-door criterion application in the Bellemare &amp; Bloem (2020) paper.</p>
+</div>
+<div class="section" id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Bellemare, M., &amp; Bloem, J. (2020). <a class="reference external" href="http://marcfbellemare.com/wordpress/wp-content/uploads/2019/08/BellemareBloemFDCAugust2019.pdf">The paper of how: Estimating treatment effects using the front-door criterion</a>. Working Paper.</p></li>
+<li><p>Morgan, S. L., &amp; Winship, C. (2014). <a class="reference external" href="https://www.cambridge.org/core/books/counterfactuals-and-causal-inference/5CC81E6DF63C5E5A8B88F79D45E1D1B7">Counterfactuals and causal inference</a>. Cambridge, England: Cambridge University Press.</p></li>
+<li><p>Pearl, J. (2009). <a class="reference external" href="https://www.cambridge.org/core/books/causality/B0046844FAE10CBF274D4ACBDAEB5F5B">Causality</a>. Cambridge, England: Cambridge University Press.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="back-door-identification.html" class="btn btn-neutral float-right" title="Back-door identification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Handouts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Prof. Dr. Philipp Eisenhauer.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,923 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "nbsphinx": "hidden",
+    "slideshow": {
+     "slide_type": "skip"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "from itertools import product\n",
+    "\n",
+    "import statsmodels.formula.api as smf\n",
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "from auxiliary import plot_interventional_distribution\n",
+    "from auxiliary import plot_conditional_distribution"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# Causal graphs"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Introduction"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "Graph notation less general than potential outcome framework, but \n",
+    "\n",
+    "* thinking about causal systems\n",
+    "* uncover identification strategies\n",
+    "\n",
+    "> It is useful to separate the inferential problem into statistical and identification components. Studies of identification seek to characterize the conclusions that could be drawn if one could use the sampling process to obtain an unlimited number of observations. (Manski, 1995)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "The two most crucial ingredients for an identification analysis are:\n",
+    "\n",
+    "* The set of assumptions about causal relationships that the analysis is willing to assert based on theory and past research, including assumptions about relationships between variables that have not been observed but that are related both to the cause and outcome of interest.\n",
+    "\n",
+    "* The pattern of information one can assume would be contained in the joint distribution of the variables (**associations**) in the observed dataset if all members of the population had been included in the sample that generated the dataset.\n",
+    "\n",
+    "$\\rightarrow$ causal graphs offer an effective and efficient representation for both"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "### Basic elements of causal graphs"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "* nodes\n",
+    "* edges\n",
+    "* directed paths\n",
+    "    * parent and child\n",
+    "    * descendant"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "-"
+    }
+   },
+   "source": [
+    "<img src=\"material/fig-graph-with-cycle.png\" width=200 />"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "Two representations of the joint dependence of $A$ and $B$ on an unobserved common cause.\n",
+    "\n",
+    "<img src=\"material/fig-graph-shorthand-unobserved-common-cause.png\" width=500 />"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "Let's look at some basic patterns that will turn out to appear frequently.\n",
+    "\n",
+    "* chain of mediation\n",
+    "* fork of mutual causation\n",
+    "* inverted fork of mutual dependence\n",
+    "\n",
+    "<img src=\"material/fig-basic-causal-relationships.png\" width=200 />\n",
+    "\n",
+    "What about the unconditional and conditional association of $A$ and $B$ in each of these cases?\n",
+    "\n",
+    "* While there is unconditional dependence between them in the first two cases, there is not in the third.\n",
+    "\n",
+    "The **collider variable** $C$ in the third setting does not generate an unconditional association between $A$ and $B$. However, as we will revisit in more detail later, it can create a conditional association that needs to be handled with care."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "#### Conditioning and confounding"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "<img src=\"material/fig-confounding-variable.png\" width=500 />\n",
+    "\n",
+    "\n",
+    "The causal effects $C \\rightarrow D$ and $C \\rightarrow Y$ render the total association between $D$ and $Y$ unequal to the causal effect $D \\rightarrow Y$.\n",
+    "\n",
+    "* $C$ is a **confounding variable** that affects both the dependent and independent variable.\n",
+    "\n",
+    "* Conditioning is a modelig strategy that allows to determine causal effects in the presence of observed confounders.\n",
+    "\n",
+    "$\\rightarrow$ What happens if $C$ is unobserved?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "How about an example from educational choice where we have observed and unobserved confounders?\n",
+    "\n",
+    "<img src=\"material/fig-confounders-education.png\" width=500 />\n",
+    "\n",
+    "What identification strategies come to mind?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "### Link to structural equations"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "Let's look at another example and assume we are interested in the effect of parental background (P), charter schools (D), and neighborhoods (N) on test scores (Y).\n",
+    "\n",
+    "We could set up the following **linear** regression equations:\n",
+    "\n",
+    "\\begin{align*}\n",
+    "D & = \\alpha_D + b_P P + \\epsilon_2 \\\\\n",
+    "Y & = \\alpha_Y + b_D D + b_P P + + b_N N + \\epsilon_4\n",
+    "\\end{align*}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "<img src=\"material/fig-equivalent-representations-standard.png\" width=500 />"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "<img src=\"material/fig-equivalent-representations-magnified.png\" width=500 />"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "We can set up the same *nonparametric* structural equations for both representations:\n",
+    "\n",
+    "\\begin{align*}\n",
+    "P & = f_P(\\epsilon_1)    \\\\\n",
+    "N & = f_N(\\epsilon_3) \\\\\n",
+    "D & = f_D(P, \\epsilon_2) \\\\\n",
+    "Y & = f_Y(P, D, N, \\epsilon_4)\n",
+    "\\end{align*}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "How to simulate a sample from a set of structural equations?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Y</th>\n",
+       "      <th>D</th>\n",
+       "      <th>P</th>\n",
+       "      <th>N</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1.248681</td>\n",
+       "      <td>3.289100</td>\n",
+       "      <td>0.928133</td>\n",
+       "      <td>0.297718</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1.791849</td>\n",
+       "      <td>1.665443</td>\n",
+       "      <td>0.221006</td>\n",
+       "      <td>0.472631</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>1.181537</td>\n",
+       "      <td>0.400000</td>\n",
+       "      <td>0.366633</td>\n",
+       "      <td>0.706849</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>1.875180</td>\n",
+       "      <td>1.226666</td>\n",
+       "      <td>0.189232</td>\n",
+       "      <td>0.916127</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>3.442131</td>\n",
+       "      <td>1.271353</td>\n",
+       "      <td>0.025105</td>\n",
+       "      <td>0.976486</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "          Y         D         P         N\n",
+       "0  1.248681  3.289100  0.928133  0.297718\n",
+       "1  1.791849  1.665443  0.221006  0.472631\n",
+       "2  1.181537  0.400000  0.366633  0.706849\n",
+       "3  1.875180  1.226666  0.189232  0.916127\n",
+       "4  3.442131  1.271353  0.025105  0.976486"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "indices = list()\n",
+    "[indices.append(label) for label in product([(\"alpha\")], (\"D\", \"Y\"))]\n",
+    "[indices.append(label) for label in product([(\"beta\")], (\"P\", \"N\", \"D\"))]\n",
+    "index = pd.MultiIndex.from_tuples(indices, names=[\"group\", \"element\"])\n",
+    "\n",
+    "values = [1, 1, 0.8, 0.7, -0.3]\n",
+    "params = pd.Series(values, index=index)\n",
+    "\n",
+    "# distributional assumptions\n",
+    "get_unobservable = np.random.normal\n",
+    "get_observable = np.random.uniform\n",
+    "\n",
+    "\n",
+    "num_agents = 10000\n",
+    "\n",
+    "df = pd.DataFrame(columns=[\"Y\", \"D\", \"P\", \"N\"])\n",
+    "\n",
+    "for i in range(num_agents):\n",
+    "    P, N = get_observable(size=2)\n",
+    "\n",
+    "    D = params.loc[\"alpha\", \"D\"] + params.loc[\"beta\", \"P\"] * P + get_unobservable()\n",
+    "\n",
+    "    Y = (\n",
+    "        params.loc[\"alpha\", \"Y\"]\n",
+    "        + params.loc[\"beta\", \"D\"] * D\n",
+    "        + params.loc[\"beta\", \"P\"] * P\n",
+    "        + params.loc[\"beta\", \"N\"] * N\n",
+    "        + get_unobservable()\n",
+    "    )\n",
+    "\n",
+    "    df.loc[i] = [Y, D, P, N]\n",
+    "\n",
+    "\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "Now lets see if we can uncover the structural parameters by a simple ordinary-least-squares regression and thus go full circle from a parametric structural equation model to a causal graph."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "group  element\n",
+       "alpha  D          1.0\n",
+       "       Y          1.0\n",
+       "beta   P          0.8\n",
+       "       N          0.7\n",
+       "       D         -0.3\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "params"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<table class=\"simpletable\">\n",
+       "<caption>OLS Regression Results</caption>\n",
+       "<tr>\n",
+       "  <th>Dep. Variable:</th>            <td>Y</td>        <th>  R-squared:         </th> <td>   0.143</td> \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.143</td> \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   556.2</td> \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Date:</th>             <td>Tue, 04 May 2021</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>  \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Time:</th>                 <td>21:05:08</td>     <th>  Log-Likelihood:    </th> <td> -14101.</td> \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>No. Observations:</th>      <td> 10000</td>      <th>  AIC:               </th> <td>2.821e+04</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Df Residuals:</th>          <td>  9996</td>      <th>  BIC:               </th> <td>2.824e+04</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Df Model:</th>              <td>     3</td>      <th>                     </th>     <td> </td>    \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>    \n",
+       "</tr>\n",
+       "</table>\n",
+       "<table class=\"simpletable\">\n",
+       "<tr>\n",
+       "      <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  \n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Intercept</th> <td>    0.9686</td> <td>    0.028</td> <td>   34.853</td> <td> 0.000</td> <td>    0.914</td> <td>    1.023</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>D</th>         <td>   -0.2997</td> <td>    0.010</td> <td>  -30.384</td> <td> 0.000</td> <td>   -0.319</td> <td>   -0.280</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>P</th>         <td>    0.8276</td> <td>    0.035</td> <td>   23.439</td> <td> 0.000</td> <td>    0.758</td> <td>    0.897</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>N</th>         <td>    0.7401</td> <td>    0.034</td> <td>   21.574</td> <td> 0.000</td> <td>    0.673</td> <td>    0.807</td>\n",
+       "</tr>\n",
+       "</table>\n",
+       "<table class=\"simpletable\">\n",
+       "<tr>\n",
+       "  <th>Omnibus:</th>       <td> 2.466</td> <th>  Durbin-Watson:     </th> <td>   1.998</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Prob(Omnibus):</th> <td> 0.291</td> <th>  Jarque-Bera (JB):  </th> <td>   2.400</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Skew:</th>          <td>-0.010</td> <th>  Prob(JB):          </th> <td>   0.301</td>\n",
+       "</tr>\n",
+       "<tr>\n",
+       "  <th>Kurtosis:</th>      <td> 2.927</td> <th>  Cond. No.          </th> <td>    8.68</td>\n",
+       "</tr>\n",
+       "</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified."
+      ],
+      "text/plain": [
+       "<class 'statsmodels.iolib.summary.Summary'>\n",
+       "\"\"\"\n",
+       "                            OLS Regression Results                            \n",
+       "==============================================================================\n",
+       "Dep. Variable:                      Y   R-squared:                       0.143\n",
+       "Model:                            OLS   Adj. R-squared:                  0.143\n",
+       "Method:                 Least Squares   F-statistic:                     556.2\n",
+       "Date:                Tue, 04 May 2021   Prob (F-statistic):               0.00\n",
+       "Time:                        21:05:08   Log-Likelihood:                -14101.\n",
+       "No. Observations:               10000   AIC:                         2.821e+04\n",
+       "Df Residuals:                    9996   BIC:                         2.824e+04\n",
+       "Df Model:                           3                                         \n",
+       "Covariance Type:            nonrobust                                         \n",
+       "==============================================================================\n",
+       "                 coef    std err          t      P>|t|      [0.025      0.975]\n",
+       "------------------------------------------------------------------------------\n",
+       "Intercept      0.9686      0.028     34.853      0.000       0.914       1.023\n",
+       "D             -0.2997      0.010    -30.384      0.000      -0.319      -0.280\n",
+       "P              0.8276      0.035     23.439      0.000       0.758       0.897\n",
+       "N              0.7401      0.034     21.574      0.000       0.673       0.807\n",
+       "==============================================================================\n",
+       "Omnibus:                        2.466   Durbin-Watson:                   1.998\n",
+       "Prob(Omnibus):                  0.291   Jarque-Bera (JB):                2.400\n",
+       "Skew:                          -0.010   Prob(JB):                        0.301\n",
+       "Kurtosis:                       2.927   Cond. No.                         8.68\n",
+       "==============================================================================\n",
+       "\n",
+       "Notes:\n",
+       "[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.\n",
+       "\"\"\""
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "smf.ols(formula=\"Y ~ D + P + N\", data=df).fit().summary()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "### Link to potential outcome model"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "Advantages of the potential outcome model\n",
+    "\n",
+    "* definition of causal effects\n",
+    "* individual effects as first principle\n",
+    "* decomposition of sources of inconsistency\n",
+    "* ...\n",
+    "\n",
+    "However, it is hard to manage the notion for larger causal systems with many confounding variables and treatments."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "<img src=\"material/fig-observed-confounding-variable.png\" width=500 />\n",
+    "\n",
+    "Based on our previous discussion, unfortunately, $E[Y_1 - Y_0] \\neq E[Y\\mid D = 1] - E[Y\\mid D = 0]$. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "How can we define the treatment effects from the potential outcome model in here?\n",
+    "\n",
+    "> Interventions and counterfactuals are defined through a mathematical operator called $do(\\cdot)$, which simulates physical interventions by deleting certain functions from the model, replacing them with a constant. (Pearl, 2012)\n",
+    "\n",
+    "\\begin{align*}\n",
+    "E[Y_1 - Y_0 ]\\quad\\text{corresponds to}\\quad E[Y \\mid do(D=1)] - E[Y \\mid do(D=0)]\n",
+    "\\end{align*}\n",
+    "\n",
+    "The $do(\\cdot)$ operator is the exact analog to the superscripts given to potential outcomes in order to designate the underlying causal states that define them."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "Graphical presentation of $do(\\cdot)$ operator\n",
+    "\n",
+    "<img src=\"material/fig-mutilated-graph.png\" width=500 />"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "The $do(\\cdot)$ operator induces a key distinction between the **conditional distribution** of the endogenous variable and its **interventional distribution**.\n",
+    "\n",
+    "Let's simulate a sample from a parametrized version of the graph above."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Y</th>\n",
+       "      <th>D</th>\n",
+       "      <th>C</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1.696469</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.696469</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1.226851</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>0.226851</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>1.719469</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.719469</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>1.980764</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.980764</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>1.480932</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.480932</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "          Y    D         C\n",
+       "0  1.696469  0.0  0.696469\n",
+       "1  1.226851  1.0  0.226851\n",
+       "2  1.719469  0.0  0.719469\n",
+       "3  1.980764  0.0  0.980764\n",
+       "4  1.480932  0.0  0.480932"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "np.random.seed(123)\n",
+    "\n",
+    "num_agents = 1000\n",
+    "df = pd.DataFrame(columns=[\"Y\", \"D\", \"C\"])\n",
+    "\n",
+    "\n",
+    "def calculate_outcome(C, D):\n",
+    "    \"\"\"We compute the observed outcome.\"\"\"\n",
+    "    # If you would like to have it in potential\n",
+    "    # outcome notation.\n",
+    "    Y_1 = 1 + C\n",
+    "    Y_0 = 0 + C\n",
+    "    Y = D * Y_1 + (1 - D) * Y_0\n",
+    "\n",
+    "    # So what is the individual treatment effect?\n",
+    "\n",
+    "    return Y\n",
+    "\n",
+    "\n",
+    "for i in range(num_agents):\n",
+    "    C = np.random.uniform()\n",
+    "    D = np.random.choice([0, 1], p=[C, 1 - C])\n",
+    "    Y = calculate_outcome(C, D)\n",
+    "    df.loc[i] = [Y, D, C]\n",
+    "\n",
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "We know how to compute and plot a **conditional distribution**."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 2 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "plot_conditional_distribution(df)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "How can we compute the **interventional distribution**? What do we need to know to do that?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<Figure size 432x288 with 2 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "Y_do_1, Y_do_0 = list(), list()\n",
+    "for i, row in df.iterrows():\n",
+    "    # Note that we calculate the outcome using the\n",
+    "    # individual\"s actual C put simply set D to\n",
+    "    # its value unter the intervetion.\n",
+    "    C, D = row[\"C\"], 1\n",
+    "    Y_do_1 += [calculate_outcome(C, D)]\n",
+    "\n",
+    "    C, D = row[\"C\"], 0\n",
+    "    Y_do_0 += [calculate_outcome(C, D)]\n",
+    "\n",
+    "plot_interventional_distribution(Y_do_1, Y_do_0)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Resources"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "* **Manski, C. F. (1995)**. [Identification problems in the social sciences](https://www.hup.harvard.edu/catalog.php?isbn=9780674442849). Cambridge, UK: *Harvard University Press*.  \n",
+    "\n",
+    "\n",
+    "* **Pearl, J. (2012)**. [The do-calculus revisited](https://arxiv.org/ftp/arxiv/papers/1210/1210.4852.pdf).\n",
+    "\n",
+    "* **Peters, J., Janzig, D., and Schölkopf, B. (2018)**. [Elements of causal inference: Foundations and learning algorithms](https://mitpress.mit.edu/books/elements-causal-inference). Cambridge, MA: *The MIT Press*.\n",
+    "\n",
+    "\n",
+    "* **Imbens, G. W. (2020)**. [Potential outcome and directed acyclic graph approaches to causality: Relevance for empirical practice in economics](https://www.aeaweb.org/articles?id=10.1257/jel.20191597). *Journal of Economic Literature*, 58(4).\n",
+    "\n",
+    "\n",
+    "* **Hünermund, P. and Bareinboim, E. (2019)**. [Causal inference and data-fusion in econometrics](https://arxiv.org/abs/1912.09104). *arXiv preprint arXiv:1912.09104*.\n",
+    "\n",
+    "* **Pearl, J. (2009)**. [Causal inference in statistics: An overview](https://ftp.cs.ucla.edu/pub/stat_ser/r350.pdf). *Statistics Surveys*, 3, 96-146."
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Slideshow",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  },
+  "pycharm": {
+   "stem_cell": {
+    "cell_type": "raw",
+    "metadata": {
+     "collapsed": false
+    },
+    "source": []
+   }
+  },
+  "varInspector": {
+   "cols": {
+    "lenName": 16,
+    "lenType": 16,
+    "lenVar": 40
+   },
+   "kernels_config": {
+    "python": {
+     "delete_cmd_postfix": "",
+     "delete_cmd_prefix": "del ",
+     "library": "var_list.py",
+     "varRefreshCmd": "print(var_dic_list())"
+    },
+    "r": {
+     "delete_cmd_postfix": ") ",
+     "delete_cmd_prefix": "rm(",
+     "library": "var_list.r",
+     "varRefreshCmd": "cat(var_dic_list()) "
+    }
+   },
+   "types_to_exclude": [
+    "module",
+    "function",
+    "builtin_function_or_method",
+    "instance",
+    "_Feature"
+   ],
+   "window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

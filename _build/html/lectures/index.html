@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Lectures &mdash; OSE data science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction" href="introduction/notebook.html" />
+    <link rel="prev" title="OSE data science" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> OSE data science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lectures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction/notebook.html">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#potential-outcome-model">Potential outcome model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="potential-outcome-model/notebook.html">Potential outcome model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#causal-graphs">Causal graphs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="causal-graphs/notebook.html">Causal graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conditioning-estimators">Conditioning estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="conditioning-estimators/notebook.html">Conditioning estimators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#matching-estimators">Matching estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="matching-estimators/notebook.html">Matching estimators of causal effects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#regression-estimators">Regression estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="regression-estimators/notebook.html">Regression estimators of causal effects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#heterogeneity-selection-and-causal-graphs">Heterogeneity, selection, and causal graphs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="selection-heterogeneity-graphs/notebook.html">Self-selection, heterogeneity, and causal graphs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#instrumental-variables">Instrumental variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="instrumental-variable/notebook.html">Instrumental variable estimators of causal effects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#generalized-roy-model">Generalized Roy model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generalized-roy-model/notebook.html">The Generalized Roy Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#causal-explanations">Causal explanations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mechanisms-causal-explanation/notebook.html">Mechanisms and causal explanation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#repeated-observations">Repeated observations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="repeated-observations/notebook.html">Repeated observations and the estimation of causal effects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#regression-discontinuity-design">Regression discontinuity design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="regression-discontinuity/notebook.html">Regression discontinuity design</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#generalized-method-of-moments">Generalized method of moments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generalized-moments/notebook.html">Generalized method of moments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../problem-sets/index.html">Problem sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../handouts/index.html">Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets/index.html">Data sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../partners/index.html">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organization/index.html">Organization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OSE data science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lectures</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/lectures/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="lectures">
+<h1>Lectures<a class="headerlink" href="#lectures" title="Permalink to this headline">¶</a></h1>
+<p>We provide a set of lectures that are all provided as Jupyter Notebooks.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>We briefly introduce the course and discuss some basic ideas about counterfactuals and causal inference. We touch on the two pillars of the counterfactual approach to casusal analysis. We first explore the basic ideas of the potential outcome model and then preview the use of causal graphs.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction/notebook.html">Introduction</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="potential-outcome-model">
+<h2>Potential outcome model<a class="headerlink" href="#potential-outcome-model" title="Permalink to this headline">¶</a></h2>
+<p>We discuss the core conceptual model of the course. We initially discuss the individual-level treatment effect but then quickly scale back our ambitions to learn about population-level parameters instead. Then we turn to the stable-unit treatment assumption and address the challenges to the naive estimation of average causal effects in observational studies. We conclude with some examples that illustrate the flexibility of the potential outcome model to more than a simple binary treatment.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="potential-outcome-model/notebook.html">Potential outcome model</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="causal-graphs">
+<h2>Causal graphs<a class="headerlink" href="#causal-graphs" title="Permalink to this headline">¶</a></h2>
+<p>We explore the usefulness of causal graphs for the visualization of complex causal systems and the clarification of alternative identification strategies for causal effects. After establishing their basic notation and some key concepts, we link them to structural equations and the potential outcome model.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="causal-graphs/notebook.html">Causal graphs</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="conditioning-estimators">
+<h2>Conditioning estimators<a class="headerlink" href="#conditioning-estimators" title="Permalink to this headline">¶</a></h2>
+<p>We study the basic conditioning strategy for the estimation of causal effects. We first link the concept of conditioning to direct graphs and start discussing the concept of a back-door path. Then we illustrate in a simulated example how collider variables induce a conditional association between two independent variables. Finally, we discuss the back-door criterion and work through some examples.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conditioning-estimators/notebook.html">Conditioning estimators</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="matching-estimators">
+<h2>Matching estimators<a class="headerlink" href="#matching-estimators" title="Permalink to this headline">¶</a></h2>
+<p>We review the fundamental concepts of matching such as stratification of data, weighting to achieve balance, and propensity scores. We explore several alternative implementations as we consider matching as conditioning via stratification, matching as a weighing approach, and matching as a data analysis algorithm. Throughout we heavily rely on simulated examples to explore some practical issues such as sparsity of data.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matching-estimators/notebook.html">Matching estimators of causal effects</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="regression-estimators">
+<h2>Regression estimators<a class="headerlink" href="#regression-estimators" title="Permalink to this headline">¶</a></h2>
+<p>We study the most common form of data analysis by looking at simple regression estimators. We first study them as a basic descriptive tool that provides the best linear approximation to the conditional expectation function. Then we turn to the more demanding interpretation that it allows to determine causal effects. We contrast the issues of omitted-variable bias and selection bias. Finally, we conclude with an illustration of Freedman’s paradox to showcase some of the challenges in applied empirical work.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="regression-estimators/notebook.html">Regression estimators of causal effects</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="heterogeneity-selection-and-causal-graphs">
+<h2>Heterogeneity, selection, and causal graphs<a class="headerlink" href="#heterogeneity-selection-and-causal-graphs" title="Permalink to this headline">¶</a></h2>
+<p>We revisit the issues of treatment effect heterogeneity and individuals’ selecting their treatment status based on gains unobserved by the econometrician. We lay the groundwork to estimate causal effects using instrumental variables, front-door identification with causal mechanisms, and conditioning estimators using pretreatment variables. We work through an elaborate panel data demonstration that illustrates the shortcoming of conditioning estimators in the presence of self-selection.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="selection-heterogeneity-graphs/notebook.html">Self-selection, heterogeneity, and causal graphs</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="instrumental-variables">
+<h2>Instrumental variables<a class="headerlink" href="#instrumental-variables" title="Permalink to this headline">¶</a></h2>
+<p>We review basic instrumental variables estimation using a simulated example inspired by random assignment of school vouchers. We look at the Wald and 2SLS estimator and discuss its interpretation as a Local Average Treatment Effect in the presence of treatment effect heterogeneity. We conclude with a discussion of seminal papers in the literature and also elevate a more critical assessment to discussion.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="instrumental-variable/notebook.html">Instrumental variable estimators of causal effects</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="generalized-roy-model">
+<h2>Generalized Roy model<a class="headerlink" href="#generalized-roy-model" title="Permalink to this headline">¶</a></h2>
+<p>We use the generalized Roy model to discuss a variety of issues in the econometrics of policy evaluation. We outline the model setup, discuss different source of heterogeneity in the benefit of treatment, define the common treatment effect parameters, and explore the marginal benefit of treatment as the the unifying framework. We showcase the software package <cite>grmpy</cite> which allows to simulate and estimate the generalized Roy model.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="generalized-roy-model/notebook.html">The Generalized Roy Model</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="causal-explanations">
+<h2>Causal explanations<a class="headerlink" href="#causal-explanations" title="Permalink to this headline">¶</a></h2>
+<p>We study front-door identification that allow (under certain conditions) to provide a causal account of the effect of D on Y. As an example, we look at the seminal work in <a class="reference external" href="https://www.jstor.org/stable/10.1086/262080">Keane &amp; Wolpin (1997)</a> who analyze a structural microeconometric model that allows to investigate the importance of competing economic mechanisms determining human capital accumulation decisions and is also used to predict the impact of a tuition subsidy on educational attainment.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mechanisms-causal-explanation/notebook.html">Mechanisms and causal explanation</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="repeated-observations">
+<h2>Repeated observations<a class="headerlink" href="#repeated-observations" title="Permalink to this headline">¶</a></h2>
+<p>We now explore models in which we have multiple observations at different points in time. We start with the interrupted time series model and then explore difference-in-difference estimation using <a class="reference external" href="https://www.jstor.org/stable/2118030">Card &amp; Krueger (1994)</a>.  We then return to the earlier example of school choice to benchmark the performance of alternative estimators as we vary the economics of individual decision-making.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="repeated-observations/notebook.html">Repeated observations and the estimation of causal effects</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="regression-discontinuity-design">
+<h2>Regression discontinuity design<a class="headerlink" href="#regression-discontinuity-design" title="Permalink to this headline">¶</a></h2>
+<p>We study regression discontinuity design in more detail. We discuss identification, issues in interpretation, and challenges to its application based on the seminal review by <a class="reference external" href="https://www.aeaweb.org/articles?id=10.1257/jel.48.2.281">Lee &amp; Lemieux (2010)</a>. We look at different conditional mean functions and the issue of bandwidth choice. We reproduce and check the robustness of some of the results in <a class="reference external" href="https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065">Lee (2008)</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="regression-discontinuity/notebook.html">Regression discontinuity design</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="generalized-method-of-moments">
+<h2>Generalized method of moments<a class="headerlink" href="#generalized-method-of-moments" title="Permalink to this headline">¶</a></h2>
+<p>We review the basic ideas behind the generalized method of moments (GMM) and implement some numerical examples. After introducing its basic setup, we discuss the GMM criterion function and how alternative estimation strategies are cast as GMM estimation problems. We then turn to the issues of identification and the role of the weighing matrix. Throughout, we practice the basic derivations involved in the GMM approach using an instrumental variables setup.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="generalized-moments/notebook.html">Generalized method of moments</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="introduction/notebook.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="OSE data science" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Prof. Dr. Philipp Eisenhauer.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

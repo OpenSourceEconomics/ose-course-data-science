@@ -1,0 +1,1538 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Potential outcome model &mdash; OSE data science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Causal graphs" href="../causal-graphs/notebook.html" />
+    <link rel="prev" title="Introduction" href="../introduction/notebook.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> OSE data science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Lectures</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#introduction">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#potential-outcome-model">Potential outcome model</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Potential outcome model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Individual-specific-effect-of-treatment">Individual-specific effect of treatment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Population-level-parameters">Population-level parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Stable-unit-treatment-value-assumption">Stable unit treatment value assumption</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Treatment-assignment-and-observational-studies">Treatment assignment and observational studies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Naive-estimation-of-average-causal-effects">Naive estimation of average causal effects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Missing-data-and-imputation">Missing data and imputation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Extensions-of-the-binary-potential-outcome-model">Extensions of the binary potential outcome model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Additional-resources">Additional resources</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#causal-graphs">Causal graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#conditioning-estimators">Conditioning estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#matching-estimators">Matching estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#regression-estimators">Regression estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#heterogeneity-selection-and-causal-graphs">Heterogeneity, selection, and causal graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#instrumental-variables">Instrumental variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#generalized-roy-model">Generalized Roy model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#causal-explanations">Causal explanations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#repeated-observations">Repeated observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#regression-discontinuity-design">Regression discontinuity design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#generalized-method-of-moments">Generalized method of moments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../problem-sets/index.html">Problem sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../handouts/index.html">Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../datasets/index.html">Data sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../partners/index.html">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../organization/index.html">Organization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OSE data science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Lectures</a> &raquo;</li>
+        
+      <li>Potential outcome model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/lectures/potential-outcome-model/notebook.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+<p>Download the notebook <a class="reference download external" download="" href="https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/ose-data-science/blob/master/lecturespotential-outcome-modelnotebook.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>!
+Interactive online version: <a class="reference external" href="https://mybinder.org/v2/gh/HumanCapitalAnalysis/ose-data-science/master?filepath=lecturespotential-outcome-modelnotebook.ipynb"><img alt="binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+<div class="section" id="Potential-outcome-model">
+<h1>Potential outcome model<a class="headerlink" href="#Potential-outcome-model" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Introduction">
+<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline">¶</a></h2>
+<p>Given what we know from the introduction about the potential outcome model, we will initially prepare the Lalonde Dataset to fit the framework and use it as a running example going forward.</p>
+<p>What are this example’s …</p>
+<ul class="simple">
+<li><p>potential outcomes</p></li>
+<li><p>counterfactual state</p></li>
+<li><p>treatment</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_lalonde_data</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>treat</th>
+      <th>re78</th>
+      <th>Y</th>
+      <th>Y_0</th>
+      <th>Y_1</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>101</th>
+      <td>1</td>
+      <td>9970.681</td>
+      <td>9970.681</td>
+      <td>NaN</td>
+      <td>9970.681</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>611</th>
+      <td>0</td>
+      <td>7094.920</td>
+      <td>7094.920</td>
+      <td>7094.920</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>0</td>
+      <td>11223.720</td>
+      <td>11223.720</td>
+      <td>11223.720</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>681</th>
+      <td>0</td>
+      <td>4687.937</td>
+      <td>4687.937</td>
+      <td>4687.937</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>0</td>
+      <td>5088.760</td>
+      <td>5088.760</td>
+      <td>5088.760</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>We are dealing with a binary treatment here: <span class="math notranslate nohighlight">\(D = 1\)</span> if the individual did participate in the training program and <span class="math notranslate nohighlight">\(D = 0\)</span> if it did not. However, in practice assigning <strong>treatment</strong> is never that easy. We lump a lot of heterogeneity together (e.g. different sites, content of curriculum) that might affect the success of program participation. Maybe we should stratify the analysis by site?</p>
+</div>
+<div class="section" id="Individual-specific-effect-of-treatment">
+<h2>Individual-specific effect of treatment<a class="headerlink" href="#Individual-specific-effect-of-treatment" title="Permalink to this headline">¶</a></h2>
+<p>It would be great if we could get our hands on the individual-specific effect of treatment.</p>
+<p><span class="math">\begin{align*}
+\delta_i = y_i^1 - y_i^0
+\end{align*}</span></p>
+<ul class="simple">
+<li><p>Why do individuals have potentially different effects of treatment?</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\delta = Y^1 - Y^0$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+<span class="n">x_formatter</span> <span class="o">=</span> <span class="n">FixedFormatter</span><span class="p">([</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">])</span>
+<span class="n">x_locator</span> <span class="o">=</span> <span class="n">FixedLocator</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="p">,</span><span class="mi">0</span> <span class="p">,</span><span class="mi">1</span> <span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">x_locator</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">x_formatter</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(0.0, 0.5)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_potential-outcome-model_notebook_8_1.png" src="../../_images/lectures_potential-outcome-model_notebook_8_1.png" />
+</div>
+</div>
+<p>There might be considerable heterogeneity in the benefits of treatment among the population. And summarizing the distribution of benefits with a single number, for example <span class="math notranslate nohighlight">\(E[\delta]\)</span>, might result in a loss of information.</p>
+<p><strong>Examples</strong></p>
+<ul class="simple">
+<li><p>medical treatment</p></li>
+<li></li>
+</ul>
+<p>Give our definitions of <span class="math notranslate nohighlight">\((Y^1, Y^0, D)\)</span> and their individual realizations <span class="math notranslate nohighlight">\((y^1_i, y^0_i, d_i)\)</span> we can now define the observed outcome <span class="math notranslate nohighlight">\(Y\)</span> in terms of them.</p>
+<p><span class="math">\begin{align*}
+Y = \begin{cases}
+Y^1 & \quad\text{if}\quad D = 1 \\
+Y^0 & \quad\text{if}\quad D = 0
+\end{cases}
+\end{align*}</span></p>
+<p>or more compactly in switching-regime notation</p>
+<p><span class="math">\begin{align*}
+Y = D Y^1 + (1 - D) Y^0.
+\end{align*}</span></p>
+<p>This leads Holland (1986) to describe the fundamental problem of causal inference:</p>
+<p><img alt="f979a26cca3c475b8f21cbb5e2acd825" class="no-scaled-link" src="../../_images/fig-fundamental-problem.png" style="width: 500px;" /></p>
+<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> as only the diagonal of the table is observable we cannot simply compute <span class="math notranslate nohighlight">\(\delta_i\)</span> by taking the difference in potential outcomes <span class="math notranslate nohighlight">\((y^1_i, y^0_i)\)</span>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>treat</th>
+      <th>re78</th>
+      <th>Y</th>
+      <th>Y_0</th>
+      <th>Y_1</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>101</th>
+      <td>1</td>
+      <td>9970.681</td>
+      <td>9970.681</td>
+      <td>NaN</td>
+      <td>9970.681</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>611</th>
+      <td>0</td>
+      <td>7094.920</td>
+      <td>7094.920</td>
+      <td>7094.920</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>0</td>
+      <td>11223.720</td>
+      <td>11223.720</td>
+      <td>11223.720</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>681</th>
+      <td>0</td>
+      <td>4687.937</td>
+      <td>4687.937</td>
+      <td>4687.937</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>0</td>
+      <td>5088.760</td>
+      <td>5088.760</td>
+      <td>5088.760</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="Population-level-parameters">
+<h2>Population-level parameters<a class="headerlink" href="#Population-level-parameters" title="Permalink to this headline">¶</a></h2>
+<p>It looks like we need to give up any hope of obtaining the individual-specific effect of treatment. But what can we still hope for?</p>
+<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> population-level parameters</p>
+<ul class="simple">
+<li><p>What are common examples?</p></li>
+<li><p>What are the policy questions they address?</p></li>
+<li><p>What is their relationship to each other?</p></li>
+</ul>
+<p><span class="math">\begin{align*}
+\begin{array}{lll}
+E[Y^1 - Y^0] & \qquad ATE & \qquad\text{average effect of treatment} \\
+E[Y^1 - Y^0 \mid D = 1] & \qquad ATT & \qquad\text{average effect on treated} \\
+E[Y^1 - Y^0 \mid D = 0] & \qquad ATC & \qquad\text{average effect on control}
+\end{array}
+\end{align*}</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_individual_specific_effects</span><span class="p">(</span><span class="n">with_parameters</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_potential-outcome-model_notebook_16_0.png" src="../../_images/lectures_potential-outcome-model_notebook_16_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_individual_specific_effects</span><span class="p">(</span><span class="n">with_parameters</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_potential-outcome-model_notebook_17_0.png" src="../../_images/lectures_potential-outcome-model_notebook_17_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_individual_specific_effects</span><span class="p">(</span><span class="n">with_parameters</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_potential-outcome-model_notebook_18_0.png" src="../../_images/lectures_potential-outcome-model_notebook_18_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Stable-unit-treatment-value-assumption">
+<h2>Stable unit treatment value assumption<a class="headerlink" href="#Stable-unit-treatment-value-assumption" title="Permalink to this headline">¶</a></h2>
+<p>The potential outcome model gets its empirical tractability when combined with the <strong>Stable Unit Treatment Value Assumption (SUTVA)</strong> of which there exist many formulations. We will go with the one from Imbens and Rubin (2015):</p>
+<blockquote>
+<div><p>The potential outcomes for any unit do not vary with the treatments assigned to other units, and, for each unit there are no different forms or versions of each treatment level, which lead to different potential outcomes.</p>
+</div></blockquote>
+<p>The table below shows all possible assignment patterns for a hypothetical treatment where the only constraint is that at least one individual remains in the treatment and control group. As we increase participation from one to two individuals, the potential outcome <span class="math notranslate nohighlight">\(Y_1\)</span> declines.</p>
+<p><img alt="c104ff5a5f62454387f9a4be3ca9c6f2" class="no-scaled-link" src="../../_images/fig-stable-unit-treatment.png" style="width: 500px;" /></p>
+<ul class="simple">
+<li><p>When do we need to expect this is violated?</p>
+<ul>
+<li><p><strong>influence patterns</strong> that result from contact across individuals in social or physical space</p></li>
+<li><p><strong>dilution / concentration patterns</strong> that one can assume would result from changes in the prevalence of treatment</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="Treatment-assignment-and-observational-studies">
+<h2>Treatment assignment and observational studies<a class="headerlink" href="#Treatment-assignment-and-observational-studies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>randomized experiment</p></li>
+</ul>
+<p><span class="math">\begin{align*}
+(Y^0, Y^1)  \perp \!\!\! \perp D
+\end{align*}</span></p>
+<ul class="simple">
+<li><p>observational study</p></li>
+</ul>
+<blockquote>
+<div><p>A <em>observational study</em> is an empirical investigation of treatments, policies, or exposures and the effects they cause, but it differs from an experiment in that the investigator cannot control the assignment of treatments to subjects. (Rosenbaum (2002))</p>
+</div></blockquote>
+</div>
+<div class="section" id="Naive-estimation-of-average-causal-effects">
+<h2>Naive estimation of average causal effects<a class="headerlink" href="#Naive-estimation-of-average-causal-effects" title="Permalink to this headline">¶</a></h2>
+<p>We will now first outline the problem with the naive estimation of average causal effects. Then we take a closer look at the different sources of biases involved and finally discuss the set of assumptions used to <strong>solve</strong> these issues.</p>
+<p><span class="math">\begin{align*}
+\hat{\delta}_{NAIVE} \equiv E_N[y_i\mid d_i = 1] - E_N[y_i\mid d_i = 0]
+\end{align*}</span></p>
+<p>We can further decompose the average treatment effect by treatment status as the individual assignment is mutually exclusive.</p>
+<p><span class="math">\begin{align*}
+E[Y^1 - Y^0] & = E[\delta] & = \{\pi E[Y^1\mid D = 1] + (1 - \pi)E[Y^1\mid D = 0]\} \\
+&&- \{\pi E[Y^0\mid D = 1] + (1 - \pi)E[Y^0\mid D = 0]\}
+\end{align*}</span></p>
+<p>The average treatment effect is a function of five unknowns. Which components can be easily computed from data?</p>
+<p><span class="math">\begin{align*}
+E_N[y_i\mid d_i = 1] \xrightarrow{p} E[Y^1\mid D = 1] \neq E[Y^1]\\
+E_N[y_i\mid d_i = 0] \xrightarrow{p} E[Y^0\mid D = 0] \neq E[Y^0]
+\end{align*}</span></p>
+<div class="section" id="Biases">
+<h3>Biases<a class="headerlink" href="#Biases" title="Permalink to this headline">¶</a></h3>
+<p><span class="math">\begin{align*}
+E[Y^1 \mid D = 1] - E[Y^0 \mid D = 0] & = E[\delta] + \underbrace{\{E[Y^0\mid D= 1] - E[Y^0\mid D= 0]\}}_{\text{Baseline bias}} \\
+& + (1 - \pi)  \underbrace{\left\{E[\delta \mid D = 1] -E[\delta \mid D = 0]\right\}}_{\text{Differential treatment effect bias}}
+\end{align*}</span></p>
+<p><img alt="25744710810c43af91ddbc8c6020d296" class="no-scaled-link" src="../../_images/fig-bias-example.png" style="width: 500px;" /></p>
+<p>The additional information provided in the text states that <span class="math notranslate nohighlight">\(\pi = 0.3\)</span> meaning that 30% of the sample participate in the treatment.</p>
+<p><span class="math">\begin{align*}
+ATT & = E[Y_1 - Y_0 \mid D = 1]= 10 - 6 = 4 \\
+ATC & = E[Y_1 - Y_0 \mid D = 0] = 8 - 5 = 3 \\
+\delta^{NAIVE} & = E[Y_1\mid D = 1] - E[Y_0\mid D = 0] = 10 - 5 = 5
+\end{align*}</span></p>
+<p>Now we are ready to calculate the average treatment effect:</p>
+<p><span class="math">\begin{align*}
+ATE = E[Y_1 - Y_0]  & = \pi\, E[Y_1 - Y_0 \mid D = 1] +  (1 - \pi)\, E[Y_1 - Y_0 \mid D = 0] \\
+& = 0.3 \times 4 + 0.7 \times 3 = 3.3
+\end{align*}</span></p>
+<p>Next, we can determine the different components of the bias.</p>
+<p><span class="math">\begin{align*}
+\Delta^{\text{base}} = E[Y^0\mid D= 1] - E[Y^0\mid D= 0] = 6 - 5 =  1 \\
+\Delta^{\text{diff}} = (1 - \pi)\left( E[\delta \mid D = 1] - E[\delta \mid D = 0]\right) = 0.7 \left( (10 - 6) - (8  - 5 )\right) = 0.7
+\end{align*}</span></p>
+<p>There are several different representation of the bias when using the naive estimator of mean difference in observed outcomes by treatment status as an estimate for the effect of treatment. We continue with the exposition in Frölich &amp; Sperlich (2019) and Heckman, Urzua, &amp; Vytlacil (2006).</p>
+<p><span class="math">\begin{align*}
+E[Y\mid D = 1] - E[Y\mid D = 0] & = E[Y^1\mid D = 1] - E[Y^0\mid D = 0] \\
+& =E[Y^1\mid D = 1]  - E[Y^0\mid D = 1] \\
+& + E[Y^0\mid D = 1] - E[Y^0\mid D = 0]  \\
+& = \underbrace{E[Y^1 - Y^0\mid D = 1]}_{TT} + \underbrace{E[Y^0\mid D= 1]- E[Y^0 \mid D = 0]}_{\text{Selection bias}}
+\end{align*}</span></p>
+<p>Now we can simply add and subtract <span class="math notranslate nohighlight">\(E[Y_1 - Y_0]\)</span> to get the more economic version.</p>
+<p><span class="math">\begin{align*}
+E[Y\mid D = 1] - E[Y\mid D = 0] & = \underbrace{E[Y^1 - Y^0]}_{ATE} \\
+& + \underbrace{E[Y^1 - Y^0 \mid D = 1] - E[Y^1 - Y^0]}_{\text{Sorting on gains}} \\
+& + \underbrace{E[Y^0\mid D = 1] - E[Y^0 \mid D = 0]}_{\text{Sorting on levels}}
+\end{align*}</span></p>
+<p>Sorting on levels is simply a different phrase for selection bias.</p>
+<p>The exposition in our core textbook is slightly different. Here the term <strong>bias</strong> has two separate components which are <strong>baseline bias</strong> and <strong>differential treatment effect bias</strong>. See the discussion in the book in the subsection on the typical inconsistency and bias of the naive estimator. The term baseline bias refers to the concept of sorting and levels and selection bias.</p>
+<p>Differential treatment bias is defined as:</p>
+<p><span class="math">\begin{align*}
+E[Y \mid D = 1] - E[Y \mid D = 0] & =  \underbrace{E[\delta]}_{ATE} + \underbrace{\{E[Y^0\mid D= 1] - E[Y^0\mid D= 0]\}}_{\text{Baseline bias}} \\
+& + \underbrace{(1 - \pi) \{E[\delta \mid D = 1] -E[\delta \mid D = 0]\}}_{\text{Differential treatment effect bias}}
+\end{align*}</span></p>
+<p>The last term is derived derived from the term describing selection on gains by the following decomposition.</p>
+<p><span class="math">\begin{align*}
+E[Y^1 - Y^0] = \pi E [Y^1  - Y^0 \mid D = 1] + (1 - \pi) E [Y^1  - Y^0 \mid D = 0]
+\end{align*}</span></p>
+<p>It is interpreted as the difference in effects between treated and control weighted by the share of control individuals. It is probably best thought of as an increment to the first term describing the average effect of treatment.</p>
+</div>
+<div class="section" id="Assumptions">
+<h3>Assumptions<a class="headerlink" href="#Assumptions" title="Permalink to this headline">¶</a></h3>
+<p>So, the SUTVA assumption is only necessary but not sufficient to learn about the effect of treatment in light of the biases discussed above. We are still stuck with several unknowns that we need to compute the average effect of treatment.</p>
+<p>Consider the following two assumptions:</p>
+<p><span class="math">\begin{align*}
+E[Y^1\mid D = 1] = E[Y^1\mid D = 0] \\
+E[Y^0\mid D = 1] = E[Y^0\mid D = 0] \\
+\end{align*}</span></p>
+<p>and recall our naive estimate</p>
+<p><span class="math">\begin{align*}
+\hat{\delta}_{NAIVE} & = E_N[y_i\mid d_i = 1] - E_N[y_i\mid d_i = 0] \\
+& \xrightarrow{p} E[Y^1\mid D = 1] - E[Y^0\mid D = 0]
+\end{align*}</span></p>
+<ul class="simple">
+<li><p>What assumptions suffice to estimate the ATE with the naive estimator?</p>
+<ul>
+<li><p>about potential outcomes for subsets of the population</p></li>
+<li><p>about the treatment selection / assignment process</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="Missing-data-and-imputation">
+<h2>Missing data and imputation<a class="headerlink" href="#Missing-data-and-imputation" title="Permalink to this headline">¶</a></h2>
+<p>This is an adopted example from Imbens &amp; Rubin (2015).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_lalonde_data</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>treat</th>
+      <th>re78</th>
+      <th>Y</th>
+      <th>Y_0</th>
+      <th>Y_1</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>561</th>
+      <td>0</td>
+      <td>5670.820</td>
+      <td>5670.820</td>
+      <td>5670.820</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>318</th>
+      <td>0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>687</th>
+      <td>0</td>
+      <td>7659.218</td>
+      <td>7659.218</td>
+      <td>7659.218</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>We can impute the missing values simply by their average counterpart.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">is_treated</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">is_treated</span><span class="p">,</span> <span class="s2">&quot;Y_1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_treated</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_treated</span><span class="p">,</span> <span class="s2">&quot;Y_0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">is_treated</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>treat</th>
+      <th>re78</th>
+      <th>Y</th>
+      <th>Y_0</th>
+      <th>Y_1</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>479</th>
+      <td>0</td>
+      <td>6930.336</td>
+      <td>6930.336</td>
+      <td>6930.336</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>480</th>
+      <td>0</td>
+      <td>3795.799</td>
+      <td>3795.799</td>
+      <td>3795.799</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>343</th>
+      <td>0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>690</th>
+      <td>0</td>
+      <td>2652.625</td>
+      <td>2652.625</td>
+      <td>2652.625</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">initial_stat</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y_1&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y_0&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Our estimated treatment effect is </span><span class="si">{</span><span class="n">initial_stat</span><span class="si">:</span><span class="s2">10.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Our estimated treatment effect is     886.30
+</pre></div></div>
+</div>
+<p>However, this does not really account for any uncertainty in our estimate. Can we do better? We now switch to the imputation of the counterfactual outcome on the individual level.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>  <span class="c1"># set seed to ensure reproducibility</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">get_lalonde_data</span><span class="p">()</span>  <span class="c1"># get the original data</span>
+
+<span class="n">status_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+
+<span class="n">stats</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">y_1_sampled</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">status_counts</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">y_0_sampled</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y_0&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">status_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">df_boot</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">is_treated</span> <span class="o">=</span> <span class="n">df_boot</span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="n">df_boot</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_treated</span><span class="p">,</span> <span class="s2">&quot;Y_0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_0_sampled</span>
+    <span class="n">df_boot</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">is_treated</span><span class="p">,</span> <span class="s2">&quot;Y_1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_1_sampled</span>
+
+    <span class="n">stat</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_boot</span><span class="p">[</span><span class="s2">&quot;Y_1&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_boot</span><span class="p">[</span><span class="s2">&quot;Y_0&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Our estimated treatment effect is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span><span class="si">:</span><span class="s2">10.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Our estimated treatment effect is     907.86
+</pre></div></div>
+</div>
+<p>How does the full distribution of estimates look like?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Statistic&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">initial_stat</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Initial&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x1e0ed15f7c0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_potential-outcome-model_notebook_39_1.png" src="../../_images/lectures_potential-outcome-model_notebook_39_1.png" />
+</div>
+</div>
+<p>Still some limitations remains. For example, we do sample from the empirical distribution of the observed outcomes and not the actual distribution. Phrased differently, we treat the distribution of potential outcomes as known and abstract from any uncertainty in our knowledge about it.</p>
+</div>
+<div class="section" id="Extensions-of-the-binary-potential-outcome-model">
+<h2>Extensions of the binary potential outcome model<a class="headerlink" href="#Extensions-of-the-binary-potential-outcome-model" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>over-time potential outcomes and causal effects</p>
+<ul>
+<li><p>a single unit over time (time series data)</p></li>
+<li><p>many units over time (panel data)</p></li>
+</ul>
+</li>
+<li><p>many-valued treatments</p></li>
+</ul>
+<div class="section" id="Over-time-potential-outcomes">
+<h3>Over-time potential outcomes<a class="headerlink" href="#Over-time-potential-outcomes" title="Permalink to this headline">¶</a></h3>
+<p>We explore the case of a single unit over time.</p>
+<p><strong>Ingredients</strong></p>
+<ul class="simple">
+<li><p>discrete time periods, <span class="math notranslate nohighlight">\(t\in\{1, ..., T\}\)</span></p></li>
+<li><p>sequence of observed values, <span class="math notranslate nohighlight">\(\{y_1, y_2, ..., y_T\}\)</span></p></li>
+<li><p>treatment initiated in <span class="math notranslate nohighlight">\(t^*\)</span></p></li>
+<li><p>duration of treatment <span class="math notranslate nohighlight">\(k\)</span></p></li>
+</ul>
+<p>Setting up the potential outcome model to explore the basic features of before-and-after designs for a single unit of analsysis.</p>
+<ul class="simple">
+<li><p>before the treatment is introduced (for <span class="math notranslate nohighlight">\(t &lt; t^*\)</span>):</p></li>
+</ul>
+<p><span class="math">\begin{align*}
+D_t & = 0 \\
+Y_t & = Y^0_t\\
+\end{align*}</span></p>
+<ul class="simple">
+<li><p>while the treatment is in place (from <span class="math notranslate nohighlight">\(t^*\)</span> through <span class="math notranslate nohighlight">\(t^* + k\)</span>):</p></li>
+</ul>
+<p><span class="math">\begin{align*}
+D_t & = 1 \\
+Y_t & = Y^1_t\\
+Y^0_t & \text{exists but is counterfactual}
+\end{align*}</span></p>
+<ul class="simple">
+<li><p>after the treatment ends (for time periods <span class="math notranslate nohighlight">\(t &gt; (t^* + k)\)</span>): <span class="math">\begin{align*}
+D_t & = 0 \\
+Y_t & = Y^0_t\\
+Y^1_t & \text{exists but is counterfactual}
+\end{align*}</span></p></li>
+</ul>
+<p>The following is an adapted example from our textbook.</p>
+</div>
+<div class="section" id="Year-of-the-fire-horse">
+<h3>Year of the fire horse<a class="headerlink" href="#Year-of-the-fire-horse" title="Permalink to this headline">¶</a></h3>
+<p>We study the effect of Japanese folk belief that families who give birth to babies will suffer untold miseries. This example does not only illustrative the versatility of the potential outcome framework but also serves as an example that different approaches (informed by domain-expertise) can result in different reasonable imputations for the counterfactual outcome.</p>
+<p><img alt="5d27eaf3237e4ce5ba264afbf82c55c4" class="no-scaled-link" src="../../_images/fig-birth-rates.png" style="width: 500px;" /></p>
+<p>The treatment indicator is as follows: <span class="math notranslate nohighlight">\(D_{1966} = 1\)</span> and <span class="math notranslate nohighlight">\(D_{\neq 1966} = 0\)</span> and we are interested in its effect on the birth rate in Japan</p>
+<p><span class="math">\begin{align*}
+\delta_{1966} = y^1_{1966} - y^0_{1966}.
+\end{align*}</span></p>
+<p>A reasonable approach is to estimate it by:</p>
+<p><span class="math">\begin{align*}
+\hat{\delta}_{1966} & = y_{1966} - y^0_{1966}\\
+\end{align*}</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;material/world_bank.csv&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Country Code&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Indicator Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Indicator Code&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;JPN&quot;</span><span class="p">,</span> <span class="s2">&quot;1960&quot;</span><span class="p">:</span><span class="s2">&quot;2017&quot;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Year&quot;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Birth rate&quot;</span><span class="p">]</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Birth rate</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1960</th>
+      <td>17.3</td>
+    </tr>
+    <tr>
+      <th>1961</th>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>1962</th>
+      <td>17.1</td>
+    </tr>
+    <tr>
+      <th>1963</th>
+      <td>17.4</td>
+    </tr>
+    <tr>
+      <th>1964</th>
+      <td>17.8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Let’s get to work.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Birth rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Birth rate&quot;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Birth rate&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 0, &#39;Year&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_potential-outcome-model_notebook_49_1.png" src="../../_images/lectures_potential-outcome-model_notebook_49_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1960</span><span class="p">,</span> <span class="mi">1970</span><span class="p">),</span> <span class="s2">&quot;Birth rate&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[87]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Year
+1960    17.3
+1961      17
+1962    17.1
+1963    17.4
+1964    17.8
+1965    18.7
+1966    13.8
+1967    19.4
+1968    18.7
+1969    18.5
+1970    18.7
+Name: Birth rate, dtype: object
+</pre></div></div>
+</div>
+<p>We can just take the year before or after treatment?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">estimates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">&quot;before&quot;</span><span class="p">,</span> <span class="mi">1965</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;after&quot;</span><span class="p">,</span> <span class="mi">1967</span><span class="p">)]:</span>
+    <span class="n">y_0</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">year</span><span class="p">,</span> <span class="s2">&quot;Birth rate&quot;</span><span class="p">]</span>
+    <span class="n">y_1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1966</span><span class="p">,</span> <span class="s2">&quot;Birth rate&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Using the year </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">, the treatment effect is </span><span class="si">{</span><span class="n">y_1</span> <span class="o">-</span> <span class="n">y_0</span><span class="si">:</span><span class="s2">10.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">estimates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_1</span> <span class="o">-</span> <span class="n">y_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ Using the year before, the treatment effect is   -4.90000
+ Using the year after, the treatment effect is   -5.60000
+</pre></div></div>
+</div>
+<p>Among demographers, there is the consensus that taking the average of 1963 and 1969 the way to go instead.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">y_0</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1963</span><span class="p">,</span> <span class="mi">1969</span><span class="p">],</span> <span class="s2">&quot;Birth rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">y_1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1966</span><span class="p">,</span> <span class="s2">&quot;Birth rate&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Another treatment effect is </span><span class="si">{:10.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_1</span> <span class="o">-</span> <span class="n">y_0</span><span class="p">))</span>
+<span class="n">estimates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_1</span> <span class="o">-</span> <span class="n">y_0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ Another treatment effect is   -4.15000
+</pre></div></div>
+</div>
+<p>Now we have multiple effects of treatment. Which is it?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Before&quot;</span><span class="p">,</span> <span class="s2">&quot;After&quot;</span><span class="p">,</span> <span class="s2">&quot;Average&quot;</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">estimates</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Effect&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Effect&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_potential-outcome-model_notebook_56_1.png" src="../../_images/lectures_potential-outcome-model_notebook_56_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Additional-resources">
+<h2>Additional resources<a class="headerlink" href="#Additional-resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Imbens, G. W. (2020)</strong>. <a class="reference external" href="https://www.aeaweb.org/articles?id=10.1257/jel.20191597">Potential outcome and directed acyclic graph approaches to causality: Relevance for empirical practice in economics</a>, <em>Journal of Economic Literature</em>, 58(4), 1129-79.</p></li>
+</ul>
+</div>
+<div class="section" id="Resources">
+<h2>Resources<a class="headerlink" href="#Resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Frölich, M., and Sperlich, S. (2019)</strong> . <a class="reference external" href="https://www.cambridge.org/de/academic/subjects/economics/econometrics-statistics-and-mathematical-economics/impact-evaluation-treatment-effects-and-causal-analysis?format=AR&amp;isbn=9781108617772">Impact evaluation: Treatment effects and causal analysis</a>. Cambridge, England: <em>Cambridge University Press</em>.</p></li>
+<li><p><strong>Heckman, J. J., Urzua, S. and Vytlacil, E. (2006)</strong>. <a class="reference external" href="https://www.nber.org/system/files/working_papers/w12574/w12574.pdf">Understanding instrumental variables in models with essential heterogeneity</a>. <em>Review of Economics and Statistics</em>, 88(3), 389–432.</p></li>
+<li><p><strong>Holland, P. W. (1986)</strong>. <a class="reference external" href="https://www.jstor.org/stable/2289064?seq=1">Statistics and causal inference</a>. <em>Journal of the American Statistical Association</em>, 81(396), 945–960.</p></li>
+<li><p><strong>Imbens, G. W., and Rubin, D. B. (2015)</strong>. <a class="reference external" href="https://www.cambridge.org/core/books/causal-inference-for-statistics-social-and-biomedical-sciences/71126BE90C58F1A431FE9B2DD07938AB">Causal inference in statistics, social, and biomedical sciences</a>. New York, NY: <em>Cambridge University Press</em>.</p></li>
+<li><p><strong>Rosenbaum, P. R. (2002)</strong>. <a class="reference external" href="https://link.springer.com/chapter/10.1007%2F978-1-4757-3692-2_3">Overt bias in observational studies</a>. <em>Observational studies</em>, 71–104, New York, NY: <em>Springer</em>.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../causal-graphs/notebook.html" class="btn btn-neutral float-right" title="Causal graphs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../introduction/notebook.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Prof. Dr. Philipp Eisenhauer.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Problem sets &mdash; OSE data science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Potential outcome model" href="potential-outcome-model/notebook.html" />
+    <link rel="prev" title="Generalized method of moments" href="../lectures/generalized-moments/notebook.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> OSE data science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lectures/index.html">Lectures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Problem sets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#potential-outcome-model">Potential outcome model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="potential-outcome-model/notebook.html">Potential outcome model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#matching-estimators">Matching estimators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="matching-estimators/notebook.html">Regression and matching estimators in causal effects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#generalized-roy-model">Generalized Roy model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generalized-roy-model/notebook.html">Generalized Roy Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#regression-discontinuity-design">Regression discontinuity design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="regression-discontinuity-design/notebook.html">Regression Discontinuity Design (RDD)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../handouts/index.html">Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/index.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets/index.html">Data sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../partners/index.html">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organization/index.html">Organization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OSE data science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Problem sets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/problem-sets/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="problem-sets">
+<h1>Problem sets<a class="headerlink" href="#problem-sets" title="Permalink to this headline">¶</a></h1>
+<p>We provide a set of problem sets to revisit selected issues we discussed during class.</p>
+<div class="section" id="potential-outcome-model">
+<h2>Potential outcome model<a class="headerlink" href="#potential-outcome-model" title="Permalink to this headline">¶</a></h2>
+<p>We explore the potential outcome model using observed and simulated data inspired by the <a class="reference external" href="https://www.cdc.gov/nchs/nhis/index.htm">National Health Interview Survey</a>. The accompanying data sets are available <a class="reference external" href="https://github.com/HumanCapitalAnalysis/ose-data-science/tree/master/problem-sets/potential-outcome-model/data">here</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="potential-outcome-model/notebook.html">Potential outcome model</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="matching-estimators">
+<h2>Matching estimators<a class="headerlink" href="#matching-estimators" title="Permalink to this headline">¶</a></h2>
+<p>We compare the consistency of regression and matching estimators using <a class="reference external" href="https://www.jstor.org/stable/1806062">LaLonde (1986)</a> framework and <a class="reference external" href="https://www.census.gov/programs-surveys/cps.html">the Current Population Survey</a> data. The accompanying data sets are available <a class="reference external" href="https://github.com/HumanCapitalAnalysis/ose-data-science/tree/master/problem-sets/matching-estimators/data">here</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matching-estimators/notebook.html">Regression and matching estimators in causal effects</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="generalized-roy-model">
+<h2>Generalized Roy model<a class="headerlink" href="#generalized-roy-model" title="Permalink to this headline">¶</a></h2>
+<p>We explore the generalized Roy model and practice estimation of marginal treatment effects using the open-source software package <a class="reference external" href="https://grmpy.readthedocs.io/en/latest/">grmpy</a>. Moreover, we simulate our own data set to conduct a Monte Carlo analysis and compare the performance of different estimators in the presence of essential heterogeneity. The accompanying files are available <a class="reference external" href="https://github.com/HumanCapitalAnalysis/ose-data-science/tree/master/problem-sets/generalized-roy-model/sources">here</a> and data <a class="reference external" href="https://github.com/HumanCapitalAnalysis/ose-data-science/tree/master/problem-sets/generalized-roy-model/data">here</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="generalized-roy-model/notebook.html">Generalized Roy Model</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="regression-discontinuity-design">
+<h2>Regression discontinuity design<a class="headerlink" href="#regression-discontinuity-design" title="Permalink to this headline">¶</a></h2>
+<p>We practice RDD with <a class="reference external" href="https://reader.elsevier.com/reader/sd/pii/S0304407607001121?token=B2B8292E08E07683C3CAFB853380CD4C1E5D1FD17982228079F6EE672298456ED7D6692F0598AA50D54463AC0A849065">Lee (2008)</a> framework. In particular, we illustrate a discontinuity at the cutoff point with local averages graph, estimate treatment effect by local linear regression and choose an optimal bandwidth by cross-validation procedure. The accompanying data sets are available <a class="reference external" href="https://github.com/HumanCapitalAnalysis/ose-data-science/tree/master/problem-sets/regression-discontinuity-design/data">here</a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="regression-discontinuity-design/notebook.html">Regression Discontinuity Design (RDD)</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="potential-outcome-model/notebook.html" class="btn btn-neutral float-right" title="Potential outcome model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../lectures/generalized-moments/notebook.html" class="btn btn-neutral float-left" title="Generalized method of moments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Prof. Dr. Philipp Eisenhauer.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

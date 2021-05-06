@@ -1,0 +1,2485 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Matching estimators of causal effects &mdash; OSE data science  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Regression estimators of causal effects" href="../regression-estimators/notebook.html" />
+    <link rel="prev" title="Conditioning estimators" href="../conditioning-estimators/notebook.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> OSE data science
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Lectures</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#potential-outcome-model">Potential outcome model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#causal-graphs">Causal graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#conditioning-estimators">Conditioning estimators</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#matching-estimators">Matching estimators</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Matching estimators of causal effects</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Matching-as-conditioning-via-stratification">Matching as conditioning via stratification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Matching-as-weighting">Matching as weighting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Matching-as-data-analysis-algorithm">Matching as data analysis algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Resources">Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#regression-estimators">Regression estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#heterogeneity-selection-and-causal-graphs">Heterogeneity, selection, and causal graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#instrumental-variables">Instrumental variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#generalized-roy-model">Generalized Roy model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#causal-explanations">Causal explanations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#repeated-observations">Repeated observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#regression-discontinuity-design">Regression discontinuity design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#generalized-method-of-moments">Generalized method of moments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../problem-sets/index.html">Problem sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../handouts/index.html">Handouts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../projects/index.html">Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../datasets/index.html">Data sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../partners/index.html">Partners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../organization/index.html">Organization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">OSE data science</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Lectures</a> &raquo;</li>
+        
+      <li>Matching estimators of causal effects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/lectures/matching-estimators/notebook.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="admonition note">
+<p>Download the notebook <a class="reference download external" download="" href="https://nbviewer.jupyter.org/github/HumanCapitalAnalysis/ose-data-science/blob/master/lecturesmatching-estimatorsnotebook.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>!
+Interactive online version: <a class="reference external" href="https://mybinder.org/v2/gh/HumanCapitalAnalysis/ose-data-science/master?filepath=lecturesmatching-estimatorsnotebook.ipynb"><img alt="binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</div>
+<div class="section" id="Matching-estimators-of-causal-effects">
+<h1>Matching estimators of causal effects<a class="headerlink" href="#Matching-estimators-of-causal-effects" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Introduction">
+<h2>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline">¶</a></h2>
+<p>There exists only one back-door path <span class="math notranslate nohighlight">\(D \leftarrow S \leftrightarrow X \rightarrow Y\)</span> and both <span class="math notranslate nohighlight">\(S\)</span> nor <span class="math notranslate nohighlight">\(X\)</span> are observable. Thus, we have a choice to condition on either one of them.</p>
+<p><img alt="b2f296921cc9468c8d9fada559a4af64" class="no-scaled-link" src="../../_images/fig-conditioning-balance-adjust.png" style="width: 300px;" /></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\)</span>, regression estimator, adjustment-for-other-causes conditioning strategy</p></li>
+<li><p><span class="math notranslate nohighlight">\(S\)</span>, matching estimator, balancing conditioning strategy</p></li>
+</ul>
+<p><strong>Agenda</strong></p>
+<ul class="simple">
+<li><p>matching as conditioning via stratification</p></li>
+<li><p>matching as weighting</p></li>
+<li><p>matching as data analysis algorithm</p></li>
+</ul>
+<p><strong>Fundamental concepts</strong></p>
+<ul class="simple">
+<li><p>stratification of data</p></li>
+<li><p>weighting to achieve balance</p></li>
+<li><p>propensity scores</p></li>
+</ul>
+<p><strong>Views on matching</strong></p>
+<ul class="simple">
+<li><p>method to form quasi-experimental contrasts by sampling comparable treatment and control cases</p></li>
+<li><p>nonparametric method of adjustment for treatment assignment patterns</p></li>
+</ul>
+<p><strong>Simulation data</strong></p>
+<p>The simulated data is inspired by real-world applications and thus rather complex. Nevertheless, the will serve as examples for several of the upcoming lectures. That is why we will invest some time initially to set up one of them in details.</p>
+</div>
+<div class="section" id="Matching-as-conditioning-via-stratification">
+<h2>Matching as conditioning via stratification<a class="headerlink" href="#Matching-as-conditioning-via-stratification" title="Permalink to this headline">¶</a></h2>
+<p>Individuals within groups determined by <span class="math notranslate nohighlight">\(S\)</span> are entirely indistinguishable from each other in all ways except</p>
+<ul class="simple">
+<li><p>observed treatment status</p></li>
+<li><p>differences in potential outcomes that are independent of treatment status</p></li>
+</ul>
+<p>More formally, we are able to assert the following <strong>conditional independence assumptions</strong>.</p>
+<p><span class="math">\begin{align*}
+E[Y^1 \mid D = 1, S] = E[Y^1 \mid D = 0, S] \\
+E[Y^0 \mid D = 1, S] = E[Y^0 \mid D = 0, S]
+\end{align*}</span></p>
+<p>implied by …</p>
+<ul class="simple">
+<li><p>treatment assignment is ignorable</p></li>
+<li><p>selection on observables</p></li>
+</ul>
+<p><strong>ATC</strong></p>
+<p><span class="math">\begin{align*}
+E[\delta \mid D = 0, S] & = E[Y^1 - Y^0 \mid D = 0, S] \\
+& = E[Y^1 \mid D = 0, S] - E[Y^0 \mid D = 0, S] \\
+& = E[Y^1 \mid D = 1, S] - E[Y^0 \mid D = 0, S] \\
+& = E[Y \mid D = 1, S] - E[Y \mid D = 0, S] \\
+\end{align*}</span></p>
+<p><strong>ATT</strong> <span class="math">\begin{align*}
+E[\delta \mid D = 1, S] & = E[Y^1 - Y^0 \mid D = 1, S] \\
+& = E[Y^1 \mid D = 1, S] - E[Y^0 \mid D = 1, S] \\
+& = E[Y \mid D = 1, S] - E[Y \mid D = 0, S] \\
+\end{align*}</span></p>
+<p><img alt="f67bfc4925334ed08343650626804663" class="no-scaled-link" src="../../_images/fig-matching-demonstration-1.png" style="width: 500px;" /></p>
+<p><strong>Features</strong></p>
+<ul class="simple">
+<li><p>The gains from treatment participation differ in each stratum and those that have the most to gain are more likely to participate. So unconditional independence between <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\((Y^1, Y^2)\)</span> does not hold.</p></li>
+</ul>
+<p>Let’s study these idealized conditions for a simulated dataset.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_sample_matching_demonstration_1</span><span class="p">(</span><span class="n">num_agents</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Simulate sample</span>
+
+<span class="sd">    Simulates a sample based for mathcing demonstration one using the information provided</span>
+<span class="sd">    in Table 6.1.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        num_agents: An integer that specifies the number of individuals</span>
+<span class="sd">            to sample.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Returns a dataframe with the observables (Y, S, D) as well as</span>
+<span class="sd">        the unobservables (Y_1, Y_0).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">get_potential_outcomes</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get potential outcomes.</span>
+
+<span class="sd">        Assigns the potential outcomes based on the observable S and</span>
+<span class="sd">        the information in Table 6.1.</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            The two potential outcomes are solely a function of the</span>
+<span class="sd">            observable and are not associated with the treatment</span>
+<span class="sd">            variable D.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            s: an integer for the value of the stratification variable</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A tuple with the two potential outcomes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">y_1</span><span class="p">,</span> <span class="n">y_0</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">y_1</span><span class="p">,</span> <span class="n">y_0</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span>
+        <span class="k">elif</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">y_1</span><span class="p">,</span> <span class="n">y_0</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">10</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AssertionError</span>
+
+        <span class="c1"># We want some randomness.</span>
+        <span class="n">y_1</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
+        <span class="n">y_0</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">y_1</span><span class="p">,</span> <span class="n">y_0</span>
+
+    <span class="c1"># Store some information about the sample variables</span>
+    <span class="c1"># and initialize an empty dataframe.</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+    <span class="n">info</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float</span>
+    <span class="n">info</span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span>
+    <span class="n">info</span><span class="p">[</span><span class="s2">&quot;S&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span>
+    <span class="n">info</span><span class="p">[</span><span class="s2">&quot;Y_1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float</span>
+    <span class="n">info</span><span class="p">[</span><span class="s2">&quot;Y_0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_agents</span><span class="p">):</span>
+        <span class="c1"># Simulate from the joint distribution of the</span>
+        <span class="c1"># observables.</span>
+        <span class="n">deviates</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+        <span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.36</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">]</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="n">probs</span><span class="p">)</span>
+        <span class="n">s</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">deviates</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+        <span class="c1"># Get potential outcomes and determine observed</span>
+        <span class="c1"># outcome.</span>
+        <span class="n">y_1</span><span class="p">,</span> <span class="n">y_0</span> <span class="o">=</span> <span class="n">get_potential_outcomes</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">d</span> <span class="o">*</span> <span class="n">y_1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">*</span> <span class="n">y_0</span>
+
+        <span class="c1"># Collect information</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">y_1</span><span class="p">,</span> <span class="n">y_0</span>
+
+    <span class="c1"># We want to enforce suitable types for each column.</span>
+    <span class="c1"># Unfortunately, this cannot be done at the time of</span>
+    <span class="c1"># initialization.</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<p>Let us see our simulation in action.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_sample_matching_demonstration_1</span><span class="p">(</span><span class="n">num_agents</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Y</th>
+      <th>D</th>
+      <th>S</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>9.254559</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7.651437</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13.795799</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.265936</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.856628</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>We are in the comfortable position to not only compute the naive estimate but also the true average treatment effect.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ate_naive</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;D == 1&quot;</span><span class="p">)[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;D == 0&quot;</span><span class="p">)[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ate_true</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Y_0&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="sa">f</span><span class="s2">&quot;The true ATE is </span><span class="si">{</span><span class="n">ate_true</span><span class="si">:</span><span class="s2">4.2f</span><span class="si">}</span><span class="s2"> while its naive estimate is </span><span class="si">{</span><span class="n">ate_naive</span><span class="si">:</span><span class="s2">4.2f</span><span class="si">}</span><span class="s2">. Why?&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;The true ATE is 2.73 while its naive estimate is 5.96. Why?&#39;
+</pre></div></div>
+</div>
+<p>What to do?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">])[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+S  D
+1  0     2.086518
+   1     4.187777
+2  0     6.032950
+   1     8.058900
+3  0     9.902624
+   1    14.136920
+Name: Y, dtype: float64
+</pre></div></div>
+</div>
+<p>Note that the observed outcomes within each stratum correspond to the average potential outcome within the stratum. We can compute the average treatment effect by looking at the difference within each strata.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">rslt_outc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">])[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">rslt_strat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;S&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ate_est</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="n">ate_est</span> <span class="o">+=</span> <span class="p">(</span><span class="n">rslt_outc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">rslt_outc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">rslt_strat</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+
+<span class="sa">f</span><span class="s2">&quot;The stratified estimate for the ATE is </span><span class="si">{</span><span class="n">ate_est</span><span class="si">:</span><span class="s2">4.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;The stratified estimate for the ATE is 2.80&#39;
+</pre></div></div>
+</div>
+<p>The ATT and ATC can be computed analogously just by applying the appropriate weights to the strata-specific effect of treatment.</p>
+<p>More generally.</p>
+<p><span class="math">\begin{align*}
+\{E_N [y_i \mid d_i = 1, s = s_i] - E_N [y_i \mid d_i = 0, s = s_i]\} \\
+\xrightarrow{p} E[Y^1 - Y^0\mid S = s] = E[\delta \mid S = s].
+\end{align*}</span> Weighted sums of these stratified estimates can then be taken such as for the unconditional ATE: <span class="math">\begin{align*}
+& \sum_s \{E_N[y_i \mid d_i = 1, s_i = s] - E_N[y_i \mid d_i = 0, s_i = s]\} \\
+& * {\Pr}_N[s_i = s] \xrightarrow{p} E[\delta]
+\end{align*}</span></p>
+<p>This examples shows all of the basic principles in matching estimators that we will discuss in greater detail in this lecture.</p>
+<ul class="simple">
+<li><p>Treatment and control subjects are matched together in the sense that they are grouped together into strata.</p></li>
+<li><p>An average difference between the outcomes of the treatment and control subjects is estimated, based on a weighting of the strata by common distribution.</p></li>
+</ul>
+<div class="section" id="Overlap-conditions">
+<h3>Overlap conditions<a class="headerlink" href="#Overlap-conditions" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_sample_matching_demonstration_2</span><span class="p">(</span><span class="n">num_agents</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Y</th>
+      <th>D</th>
+      <th>S</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.495446</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7.495097</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.614248</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.407392</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>12.524174</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">])[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+S  D
+1  0     2.097111
+2  0     6.028036
+   1     8.058439
+3  0     9.981168
+   1    14.023508
+Name: Y, dtype: float64
+</pre></div></div>
+</div>
+<p>Can we at least learn about the treatment on the treated? What else can we do?</p>
+</div>
+</div>
+<div class="section" id="Matching-as-weighting">
+<h2>Matching as weighting<a class="headerlink" href="#Matching-as-weighting" title="Permalink to this headline">¶</a></h2>
+<p>As indicated by the stylized example, there are often many strata where we do not have treated and control individuals available at the same time.</p>
+<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> combine information from different strata with the same propensity score <span class="math notranslate nohighlight">\(p\)</span></p>
+<p><strong>Definition</strong> The estimated propensity score is the estimated probability of taking the treatment as a function of variables that predict treatment assignment, i.e. <span class="math notranslate nohighlight">\(\Pr[D = 1 \mid S]\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> stratifying on the propensity score itself ameliorates the sparseness problem because the propensity score can be treated as a single stratifying variable (Rosenbaum &amp; Rubin (1983)).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">b_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># We need to study some features of this function to</span>
+<span class="c1"># to get a sense on the underyling economics.</span>
+<span class="n">df</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">get_sample_matching_demonstration_3</span><span class="p">(</span><span class="n">a_grid</span><span class="p">,</span> <span class="n">b_grid</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>d</th>
+      <th>y</th>
+      <th>y_1</th>
+      <th>y_0</th>
+      <th>p</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.01</td>
+      <td>0.03</td>
+      <td>0</td>
+      <td>94.788634</td>
+      <td>102.807448</td>
+      <td>94.788634</td>
+      <td>0.332700</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.01</td>
+      <td>0.04</td>
+      <td>1</td>
+      <td>107.735609</td>
+      <td>107.735609</td>
+      <td>93.808018</td>
+      <td>0.334033</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.01</td>
+      <td>0.05</td>
+      <td>0</td>
+      <td>104.010898</td>
+      <td>97.937608</td>
+      <td>104.010898</td>
+      <td>0.335369</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.01</td>
+      <td>0.05</td>
+      <td>0</td>
+      <td>107.356485</td>
+      <td>98.919732</td>
+      <td>107.356485</td>
+      <td>0.335369</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.01</td>
+      <td>0.06</td>
+      <td>1</td>
+      <td>109.372171</td>
+      <td>109.372171</td>
+      <td>95.717052</td>
+      <td>0.336708</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p><strong>underlying causal graphs</strong></p>
+<p><img alt="925bd9fe4f5e4bedb17e34af48bc322e" class="no-scaled-link" src="../../_images/fig-matching-demonstration-3.png" style="width: 500px;" /></p>
+<p>We will now look at different ways to construct estimates for the usual causal parameters. So, we first compute their true counterparts.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">stat</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y_0&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ATE true:  </span><span class="si">{</span><span class="n">stat</span><span class="si">:</span><span class="s2">5.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">stat</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;d == 1&quot;</span><span class="p">)[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;d == 0&quot;</span><span class="p">)[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ATE naive: </span><span class="si">{</span><span class="n">stat</span><span class="si">:</span><span class="s2">5.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ATE true:  4.397
+ATE naive: 4.846
+</pre></div></div>
+</div>
+<p>Let’s collect all effects in a dictionary for use further downstream.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">true_effects</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">true_effects</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y_1&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y_0&quot;</span><span class="p">])[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span>
+<span class="n">true_effects</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y_1&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y_0&quot;</span><span class="p">])[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span>
+<span class="n">true_effects</span> <span class="o">+=</span> <span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y_1&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y_0&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<p>How about the issue of sparsity on the data?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">get_sparsity_pattern_overall</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_matching-estimators_notebook_28_0.png" src="../../_images/lectures_matching-estimators_notebook_28_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">get_sparsity_pattern_by_treatment</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_matching-estimators_notebook_29_0.png" src="../../_images/lectures_matching-estimators_notebook_29_0.png" />
+</div>
+</div>
+<p>How does the propensity score <span class="math notranslate nohighlight">\(P(D = 1\mid S)\)</span> as a function of the observables <span class="math notranslate nohighlight">\((a, b)\)</span> look like?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_propensity_score</span><span class="p">(</span><span class="n">a_grid</span><span class="p">,</span> <span class="n">b_grid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_matching-estimators_notebook_31_0.png" src="../../_images/lectures_matching-estimators_notebook_31_0.png" />
+</div>
+</div>
+<p>We still must be worried about common support.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">get_common_support</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_matching-estimators_notebook_33_0.png" src="../../_images/lectures_matching-estimators_notebook_33_0.png" />
+</div>
+</div>
+<p><span class="math">\begin{align*}
+\hat{\delta}_{\text{ATT, weight}} \equiv \left( \frac{1}{n^1}\sum_{i:d_i = 1} y_i\right)
+- \left(\frac{\sum_{i:d_i=0}\hat{r}_i y_i}{\sum_{i:d_i = 0} \hat{r}_i}\right)
+\end{align*}</span></p>
+<p><span class="math">\begin{align*}
+\hat{\delta}_{\text{ATC, weight}} \equiv
+\left(
+\frac{\sum_{i: d_i = 1}\frac{y_i}{\hat{r}_i}}{\sum_{i: d_i = 1}\frac{1}{\hat{r}_i}}
+\right)
+- \left(\frac{1}{n^0} \sum_{i: d_i = 0} y_i\right)
+\end{align*}</span></p>
+<p><span class="math">\begin{align*}
+\hat{\delta}_{\text{ATE, weight}} \equiv \left(\frac{1}{n}\sum_{i}d_i\right) \hat{\delta}_{\text{ATT, weight}} +  \left(1 - \frac{1}{n}\sum_{i}d_i\right) \hat{\delta}_{\text{ATC, weight}}
+\end{align*}</span></p>
+<p><strong>Weights</strong></p>
+<p><span class="math">\begin{align*}
+r_i = \frac{p_i}{1 - p_i}
+\end{align*}</span></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plot_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_matching-estimators_notebook_36_0.png" src="../../_images/lectures_matching-estimators_notebook_36_0.png" />
+</div>
+</div>
+<p>We will now turn to some programming as it introduces you to the actual setup for the propensity score estimation and points towards the issues of potential model misspecification.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">get_att_weight</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get weighted ATT.</span>
+
+<span class="sd">    Calculates the weighted ATT basd on a provided</span>
+<span class="sd">    dataset and the propensity score.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        df: A dataframe with the observed data.</span>
+<span class="sd">        p: A numpy array with the weights.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A float which corresponds to the ATT.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">get_odds</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+    <span class="n">is_control</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">is_treated</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+
+    <span class="n">value</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">is_control</span><span class="p">],</span> <span class="n">weights</span><span class="p">[</span><span class="n">is_control</span><span class="p">]</span>
+    <span class="n">att</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">is_treated</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">att</span>
+
+
+<span class="k">def</span> <span class="nf">get_atc_weight</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get weighted ATC.</span>
+
+<span class="sd">    Calculates the weighted ATC basd on a provided</span>
+<span class="sd">    dataset and the propensity score.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        df: A dataframe with the observed data.</span>
+<span class="sd">        p: A numpy array with the weights.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A float which corresponds to the ATC.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">get_inv_odds</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+    <span class="n">is_control</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">is_treated</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+
+    <span class="n">value</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">is_treated</span><span class="p">],</span> <span class="n">weights</span><span class="p">[</span><span class="n">is_treated</span><span class="p">]</span>
+    <span class="n">atc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">][</span><span class="n">is_control</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">atc</span>
+
+
+<span class="k">def</span> <span class="nf">get_ate_weight</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get weighted ATE.</span>
+
+<span class="sd">    Calculates the weighted ATE basd on a provided</span>
+<span class="sd">    dataset and the propensity score.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        df: A dataframe with the observed data.</span>
+<span class="sd">        p: A numpy array with the weights.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A float which corresponds to the ATE.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">share_treated</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">atc</span> <span class="o">=</span> <span class="n">get_atc_weight</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">att</span> <span class="o">=</span> <span class="n">get_att_weight</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">share_treated</span> <span class="o">*</span> <span class="n">att</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">share_treated</span><span class="p">)</span> <span class="o">*</span> <span class="n">atc</span>
+
+
+<span class="n">rslt</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="s2">&quot;correct&quot;</span><span class="p">,</span> <span class="s2">&quot;misspecified&quot;</span><span class="p">]:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">get_propensity_score_3</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+
+    <span class="n">rslt</span><span class="p">[</span><span class="n">model</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">rslt</span><span class="p">[</span><span class="n">model</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">get_att_weight</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">p</span><span class="p">)]</span>
+    <span class="n">rslt</span><span class="p">[</span><span class="n">model</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">get_atc_weight</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">p</span><span class="p">)]</span>
+    <span class="n">rslt</span><span class="p">[</span><span class="n">model</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="n">get_ate_weight</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">p</span><span class="p">)]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;estimated: ATT </span><span class="si">{:5.3f}</span><span class="s2"> ATC </span><span class="si">{:5.3f}</span><span class="s2"> ATE </span><span class="si">{:5.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">rslt</span><span class="p">[</span><span class="n">model</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;true:      ATT </span><span class="si">{:5.3f}</span><span class="s2"> ATC </span><span class="si">{:5.3f}</span><span class="s2"> ATE </span><span class="si">{:5.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">true_effects</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+True
+estimated: ATT 4.567 ATC 4.356 ATE 4.456
+true:      ATT 4.549 ATC 4.259 ATE 4.397
+
+Correct
+Optimization terminated successfully.
+         Current function value: 0.683753
+         Iterations 4
+estimated: ATT 4.557 ATC 4.349 ATE 4.448
+true:      ATT 4.549 ATC 4.259 ATE 4.397
+
+Misspecified
+Optimization terminated successfully.
+         Current function value: 0.683792
+         Iterations 4
+estimated: ATT 4.560 ATC 4.344 ATE 4.447
+true:      ATT 4.549 ATC 4.259 ATE 4.397
+</pre></div></div>
+</div>
+<p>If the treatment assignment can be modeled perfectly, one can solve the sparseness problem that afflict finite datasets.</p>
+<p><strong>Requirements</strong></p>
+<ul class="simple">
+<li><p>perfect stratification of the propensity-score-estimating equation</p>
+<ul>
+<li><p>capture all back-door paths</p></li>
+<li><p>misspecification of propensity score equation</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="Matching-as-data-analysis-algorithm">
+<h2>Matching as data analysis algorithm<a class="headerlink" href="#Matching-as-data-analysis-algorithm" title="Permalink to this headline">¶</a></h2>
+<p><span class="math">\begin{align*}
+\hat{\delta}_{\text{ATT, match}} = \frac{1}{n^1} \sum_i \left[(y_i \mid d_i = 1) - \sum_j \omega_{i, j} (y_j \mid d_j =0 )\right]
+\end{align*}</span></p>
+<p><span class="math">\begin{align*}
+\hat{\delta}_{\text{ATC, match}} = \frac{1}{n^0} \sum_j \left[\sum_i \omega_{j, i} (y_i\mid d_i = 1) - (y_j \mid d_j = 0)\right]
+\end{align*}</span></p>
+<p>Alternative matching estimators can be represented as different procedures for deriving the weights <span class="math notranslate nohighlight">\(\omega_{i,j}\)</span> and <span class="math notranslate nohighlight">\(\omega_{j, i}\)</span> in the two expressions above.</p>
+<p><strong>Design choices</strong></p>
+<ul class="simple">
+<li><p>How many matched cases designated for each to-be-matched target?</p></li>
+<li><p>How to weigh multiple matched cases if more than one is utilized for each target case?</p></li>
+</ul>
+<div class="section" id="Basic-variants">
+<h3>Basic variants<a class="headerlink" href="#Basic-variants" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>exact matching</p>
+<ul>
+<li><p>construct counterfactual based on individuals with identical <span class="math notranslate nohighlight">\(S\)</span></p></li>
+</ul>
+</li>
+<li><p>nearest-neighbor and caliper</p>
+<ul>
+<li><p>construct counterfactual based on individuals closest on a unidimensional measure (e.g. propensity score), caliper ensures reasonable maximum distance</p></li>
+</ul>
+</li>
+<li><p>interval matching</p>
+<ul>
+<li><p>construct counterfactual by sorting individuals into segments based on unidimensional metric</p></li>
+</ul>
+</li>
+<li><p>kernel matching</p>
+<ul>
+<li><p>constructs counterfactual based on all individuals but weights them based on the distance</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="Benchmarking-tutorial">
+<h3>Benchmarking tutorial<a class="headerlink" href="#Benchmarking-tutorial" title="Permalink to this headline">¶</a></h3>
+<p>We revisit a simulated version of the data used in Morgan (2001). He contributes to the debate over the size of the causal of effect of Catholic schooling on test scores. The dataset is provided by the textbook and also available in our online repository.</p>
+<p><strong>Issues</strong></p>
+<ul class="simple">
+<li><p>What is the relative performance of alternative matching estimators?</p></li>
+<li><p>What is the consequence of conditioning only on a subset of the variables in the set of perfect stratification variables <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_sample_matching_demonstration_4</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>y</th>
+      <th>treat</th>
+      <th>asian</th>
+      <th>hispanic</th>
+      <th>black</th>
+      <th>natamer</th>
+      <th>urban</th>
+      <th>neast</th>
+      <th>ncentral</th>
+      <th>south</th>
+      <th>...</th>
+      <th>ncentralblack</th>
+      <th>southblack</th>
+      <th>twohisp</th>
+      <th>neasthisp</th>
+      <th>ncentralhisp</th>
+      <th>southhisp</th>
+      <th>yt</th>
+      <th>yc</th>
+      <th>dshock</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.00000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>...</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>10000.00000</td>
+      <td>10000.000000</td>
+      <td>10000.000000</td>
+      <td>1.000000e+04</td>
+      <td>10000.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>100.459241</td>
+      <td>0.105200</td>
+      <td>0.089800</td>
+      <td>0.143300</td>
+      <td>0.096100</td>
+      <td>0.007500</td>
+      <td>0.38910</td>
+      <td>0.208100</td>
+      <td>0.264000</td>
+      <td>0.302200</td>
+      <td>...</td>
+      <td>0.018200</td>
+      <td>0.050500</td>
+      <td>0.102100</td>
+      <td>0.016000</td>
+      <td>0.014900</td>
+      <td>0.05590</td>
+      <td>105.729319</td>
+      <td>99.727395</td>
+      <td>9.947598e-18</td>
+      <td>6.001924</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>13.493304</td>
+      <td>0.306826</td>
+      <td>0.285909</td>
+      <td>0.350396</td>
+      <td>0.294743</td>
+      <td>0.086281</td>
+      <td>0.48757</td>
+      <td>0.405969</td>
+      <td>0.440821</td>
+      <td>0.459234</td>
+      <td>...</td>
+      <td>0.133681</td>
+      <td>0.218985</td>
+      <td>0.302795</td>
+      <td>0.125481</td>
+      <td>0.121159</td>
+      <td>0.22974</td>
+      <td>13.525777</td>
+      <td>13.202781</td>
+      <td>2.088954e+00</td>
+      <td>2.146356</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>50.065298</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>54.788152</td>
+      <td>50.065298</td>
+      <td>-7.765338e+00</td>
+      <td>-2.142958</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>91.519660</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>96.848440</td>
+      <td>91.025084</td>
+      <td>-1.386373e+00</td>
+      <td>4.587783</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>100.303288</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>105.712292</td>
+      <td>99.685598</td>
+      <td>1.763749e-02</td>
+      <td>6.010071</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>109.459337</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.00000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>114.828609</td>
+      <td>108.607459</td>
+      <td>1.391807e+00</td>
+      <td>7.438161</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>159.426572</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.00000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.00000</td>
+      <td>159.790235</td>
+      <td>151.442150</td>
+      <td>8.432203e+00</td>
+      <td>14.653340</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 30 columns</p>
+</div></div>
+</div>
+<p>Let us look at some example covariates.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">example_covariates</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;urban&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">example_covariates</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>black</th>
+      <th>urban</th>
+      <th>test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>10000.000000</td>
+      <td>10000.00000</td>
+      <td>10000.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.096100</td>
+      <td>0.38910</td>
+      <td>-0.002229</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.294743</td>
+      <td>0.48757</td>
+      <td>0.991747</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>-3.862709</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>-0.676463</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>-0.006683</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.000000</td>
+      <td>1.00000</td>
+      <td>0.660488</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.000000</td>
+      <td>1.00000</td>
+      <td>3.722783</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;treat&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f47eade72d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_matching-estimators_notebook_49_1.png" src="../../_images/lectures_matching-estimators_notebook_49_1.png" />
+</div>
+</div>
+<p><img alt="aa5eca77a9214a1c9f5810f9b9df3af1" class="no-scaled-link" src="../../_images/fig-catholic-school-example.png" style="width: 500px;" /></p>
+<p>Is there any hope in identifying the <span class="math notranslate nohighlight">\(ATE\)</span>?</p>
+<p><img alt="ba4c26b9c59941a1b77a15cf7cac5fc6" class="no-scaled-link" src="../../_images/fig-matching-demonstration-four-potential-outcome.png" style="width: 500px;" /></p>
+<p><img alt="44b68e82cdef46c192d1a4429eef5cc5" class="no-scaled-link" src="../../_images/fig-matching-demonstration-four-propensity-score.png" style="width: 500px;" /></p>
+<p>There exists systematic treatment effect heterogeneity:</p>
+<p><img alt="2742af466794456da7e49246e3ac0e1f" class="no-scaled-link" src="../../_images/fig-treatment-effect-heterogeneity.png" style="width: 500px;" /></p>
+<p>Here comes the key feature that generates the dependence between <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> based on an unobservable.</p>
+<p><span class="math">\begin{align*}
+y_i^1 = y_i^0 + \delta^\prime_i + \delta^{\prime\prime}_i
+\end{align*}</span></p>
+<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(\delta^{\prime\prime}_i\)</span> is a associated with one of the potential outcomes and also affects the probability to select treatment.</p>
+<p>However, we can still identify the <span class="math notranslate nohighlight">\(ATT\)</span>. Why?</p>
+<p><span class="math">\begin{align*}
+E[\delta \mid D = 1, S] & = E[Y^1 - Y^0 \mid D = 1, S] \\
+& = E[Y^1 \mid D = 1, S] - E[Y^0 \mid D = 1, S] \\
+& = E[Y^1 \mid D = 1, S] - E[Y^0 \mid D = 0, S] \\
+& = E[Y \mid D = 1, S] - E[Y \mid D = 0, S] \\
+\end{align*}</span></p>
+<p>We establish a clear benchmark by looking at the true treatment effect.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">stat</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;yt&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;yc&quot;</span><span class="p">])[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;treat&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The true ATT is </span><span class="si">{</span><span class="n">stat</span><span class="si">:</span><span class="s2">5.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The true ATT is 6.957
+</pre></div></div>
+</div>
+<p>How are doing with respect to common support for the propensity score?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_sample_matching_demonstration_4</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;p&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_propensity_scores_matching_demonstration_4</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">get_common_support</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;treat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Optimization terminated successfully.
+         Current function value: 0.252643
+         Iterations 8
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_matching-estimators_notebook_53_1.png" src="../../_images/lectures_matching-estimators_notebook_53_1.png" />
+</div>
+</div>
+<p>Now we implement our own nearest neighbor matching routine.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">nearest_neighbor_algorithm_for_att</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">check_store</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">check_store</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;matched.ngbr.pkl&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">pkl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;matched.ngbr.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">))</span>
+
+    <span class="c1"># We select all treated individuals</span>
+    <span class="n">df_control</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;treat&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">df_treated</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;treat&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">rslt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">df_treated</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">11</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+    <span class="c1"># We want to store the information about the nearest neighbor.</span>
+    <span class="n">idx_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+    <span class="c1"># We now iterate over all treated individuals and</span>
+    <span class="c1"># find a set of neighbors.</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_treated</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()):</span>
+
+        <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">row</span><span class="p">[[</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;urban&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">]]</span>
+        <span class="n">df_control</span> <span class="o">=</span> <span class="n">df_control</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">distance</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df_control</span><span class="p">[</span><span class="s2">&quot;p&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">))</span>
+
+        <span class="n">idx_ngbr</span> <span class="o">=</span> <span class="n">df_control</span><span class="p">[</span><span class="s2">&quot;distance&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()</span>
+        <span class="n">idx_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx_ngbr</span><span class="p">)</span>
+        <span class="n">y_ngbr</span><span class="p">,</span> <span class="n">p_ngbr</span> <span class="o">=</span> <span class="n">df_control</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx_ngbr</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">]]</span>
+        <span class="n">b_ngbr</span><span class="p">,</span> <span class="n">u_ngbr</span> <span class="o">=</span> <span class="n">df_control</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx_ngbr</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;urban&quot;</span><span class="p">]]</span>
+        <span class="n">t_ngbr</span> <span class="o">=</span> <span class="n">df_control</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx_ngbr</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">]]</span>
+
+        <span class="n">rslt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y_ngbr</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">p_ngbr</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">b_ngbr</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">u_ngbr</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">t_ngbr</span><span class="p">]</span>
+
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;y_ngbr&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;p_ngbr&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;b_ngbr&quot;</span><span class="p">]</span>
+    <span class="n">columns</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;u_ngbr&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;t_ngbr&quot;</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rslt</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+
+    <span class="n">pkl</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;matched.ngbr.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">idx_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s put our algorithm to work!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_matched</span><span class="p">,</span> <span class="n">idx_series</span> <span class="o">=</span> <span class="n">nearest_neighbor_algorithm_for_att</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>How well are we able to match individuals based on their propensity score? How does earnings compare between matched individuals?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;p_ngbr&quot;</span><span class="p">,</span> <span class="n">df_matched</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;seaborn.axisgrid.JointGrid at 0x7f47eed89b10&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_matching-estimators_notebook_59_1.png" src="../../_images/lectures_matching-estimators_notebook_59_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;y_ngbr&quot;</span><span class="p">,</span> <span class="n">df_matched</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">140</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">140</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;seaborn.axisgrid.JointGrid at 0x7f47ec6b8850&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/lectures_matching-estimators_notebook_60_1.png" src="../../_images/lectures_matching-estimators_notebook_60_1.png" />
+</div>
+</div>
+<p>After all this effort, what is our treatment effect estimate?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">stat</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_matched</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_matched</span><span class="p">[</span><span class="s2">&quot;y_ngbr&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Here is our estimate for the treatment effect: </span><span class="si">{</span><span class="n">stat</span><span class="si">:</span><span class="s2">5.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Here is our estimate for the treatment effect: 7.236
+</pre></div></div>
+</div>
+<p>How often do we match the same individual?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">idx_series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1394    13
+1992    11
+1223    11
+2016    10
+4121     6
+        ..
+7486     1
+3389     1
+3388     1
+7482     1
+1164     1
+Length: 790, dtype: int64
+</pre></div></div>
+</div>
+<p>Who do we match for 14 times?!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">idx</span> <span class="o">=</span> <span class="n">idx_series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;treat&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1394</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>y</th>
+      <td>107.734632</td>
+    </tr>
+    <tr>
+      <th>treat</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>asian</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>hispanic</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>black</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>natamer</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>urban</th>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>neast</th>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>ncentral</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>south</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>sibs</th>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>bedroom</th>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>twoparent</th>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>ses</th>
+      <td>2.062742</td>
+    </tr>
+    <tr>
+      <th>test</th>
+      <td>0.818535</td>
+    </tr>
+    <tr>
+      <th>sessq</th>
+      <td>4.254905</td>
+    </tr>
+    <tr>
+      <th>testsq</th>
+      <td>0.669999</td>
+    </tr>
+    <tr>
+      <th>sestest</th>
+      <td>1.688426</td>
+    </tr>
+    <tr>
+      <th>twoblack</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>neastblack</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>ncentralblack</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>southblack</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>twohisp</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>neasthisp</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>ncentralhisp</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>southhisp</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>yt</th>
+      <td>114.962304</td>
+    </tr>
+    <tr>
+      <th>yc</th>
+      <td>107.734632</td>
+    </tr>
+    <tr>
+      <th>dshock</th>
+      <td>1.017638</td>
+    </tr>
+    <tr>
+      <th>d</th>
+      <td>7.227672</td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>0.624739</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>How do our covariantes balance across treatment status?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;treat&quot;</span><span class="p">)[</span><span class="n">example_covariates</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>treat</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>black</th>
+      <td>0.092646</td>
+      <td>0.125475</td>
+    </tr>
+    <tr>
+      <th>urban</th>
+      <td>0.337953</td>
+      <td>0.824144</td>
+    </tr>
+    <tr>
+      <th>test</th>
+      <td>-0.039018</td>
+      <td>0.310690</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>We now want to revisit the balancing of covariates.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">rename</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;y_ngbr&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;p_ngbr&quot;</span><span class="p">:</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;b_ngbr&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;u_ngbr&quot;</span><span class="p">:</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;t_ngbr&quot;</span><span class="p">:</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">df_control</span> <span class="o">=</span> <span class="n">df_matched</span><span class="p">[[</span><span class="s2">&quot;y_ngbr&quot;</span><span class="p">,</span> <span class="s2">&quot;p_ngbr&quot;</span><span class="p">,</span> <span class="s2">&quot;b_ngbr&quot;</span><span class="p">,</span> <span class="s2">&quot;u_ngbr&quot;</span><span class="p">,</span> <span class="s2">&quot;t_ngbr&quot;</span><span class="p">]]</span>
+<span class="n">df_control</span> <span class="o">=</span> <span class="n">df_control</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">rename</span><span class="p">)</span>
+<span class="n">df_control</span> <span class="o">=</span> <span class="n">df_control</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">treat</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df_treated</span> <span class="o">=</span> <span class="n">df_matched</span><span class="p">[[</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">]]</span>
+<span class="n">df_treated</span> <span class="o">=</span> <span class="n">df_treated</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">treat</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_subset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_treated</span><span class="p">,</span> <span class="n">df_control</span><span class="p">])</span>
+<span class="n">df_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;treat&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>treat</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>y</th>
+      <td>101.210034</td>
+      <td>108.445596</td>
+    </tr>
+    <tr>
+      <th>p</th>
+      <td>0.290813</td>
+      <td>0.290772</td>
+    </tr>
+    <tr>
+      <th>b</th>
+      <td>0.141635</td>
+      <td>0.125475</td>
+    </tr>
+    <tr>
+      <th>u</th>
+      <td>0.826996</td>
+      <td>0.824144</td>
+    </tr>
+    <tr>
+      <th>t</th>
+      <td>0.308589</td>
+      <td>0.310690</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Let’s take a little detour and look at the balancing of observables in the Lalonde dataset.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_lalonde_data</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>data_id</th>
+      <th>treat</th>
+      <th>age</th>
+      <th>education</th>
+      <th>black</th>
+      <th>hispanic</th>
+      <th>married</th>
+      <th>nodegree</th>
+      <th>re75</th>
+      <th>re78</th>
+      <th>Y</th>
+      <th>Y_0</th>
+      <th>Y_1</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Lalonde Sample</td>
+      <td>1</td>
+      <td>37</td>
+      <td>11</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>9930.0460</td>
+      <td>9930.0460</td>
+      <td>NaN</td>
+      <td>9930.0460</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Lalonde Sample</td>
+      <td>1</td>
+      <td>22</td>
+      <td>9</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>3595.8940</td>
+      <td>3595.8940</td>
+      <td>NaN</td>
+      <td>3595.8940</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Lalonde Sample</td>
+      <td>1</td>
+      <td>30</td>
+      <td>12</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>24909.4500</td>
+      <td>24909.4500</td>
+      <td>NaN</td>
+      <td>24909.4500</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Lalonde Sample</td>
+      <td>1</td>
+      <td>27</td>
+      <td>11</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>7506.1460</td>
+      <td>7506.1460</td>
+      <td>NaN</td>
+      <td>7506.1460</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Lalonde Sample</td>
+      <td>1</td>
+      <td>33</td>
+      <td>8</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>289.7899</td>
+      <td>289.7899</td>
+      <td>NaN</td>
+      <td>289.7899</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">example_covariates</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="s2">&quot;married&quot;</span><span class="p">,</span> <span class="s2">&quot;hispanic&quot;</span><span class="p">,</span> <span class="s2">&quot;re75&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;treat&quot;</span><span class="p">)[</span><span class="n">example_covariates</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>treat</th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>black</th>
+      <td>0.800000</td>
+      <td>0.801347</td>
+    </tr>
+    <tr>
+      <th>married</th>
+      <td>0.157647</td>
+      <td>0.168350</td>
+    </tr>
+    <tr>
+      <th>hispanic</th>
+      <td>0.112941</td>
+      <td>0.094276</td>
+    </tr>
+    <tr>
+      <th>re75</th>
+      <td>3026.682743</td>
+      <td>3066.098187</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>The covariates are balanced before any reweighting thanks to the assignment mechanisms.</p>
+<p>Returning to our simulated example. Which matching algorihtm is the best?</p>
+<p><strong>Incomplete specification</strong></p>
+<ul class="simple">
+<li><p>missing higher-order interactions in propensity score and omission of cognitive variable</p></li>
+</ul>
+<p><img alt="e442028efdf8403699694d341336fa7b" class="no-scaled-link" src="../../_images/fig-matching-demonstration-four-benchmarking.png" style="width: 500px;" /></p>
+<p><strong>Notes</strong></p>
+<ul class="simple">
+<li><p>The estimates for the incomplete specification are usually much larger.</p></li>
+<li><p>Software programs that used the same routine yield very different estimates.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="Resources">
+<h2>Resources<a class="headerlink" href="#Resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Heckman, J. J., Ichimura, H. and Todd, P. (1997)</strong>. <a class="reference external" href="https://www.jstor.org/stable/2971733?seq=1">Matching as an econometric evaluation estimator: Evidence from evaluating a job training programme</a>. <em>Review of Economic Studies</em>, 64(4), 605–54.</p></li>
+<li><p><strong>Heckman, J. J., Ichimura, H., Smith, J. A. and Todd, P. (1998)</strong>. <a class="reference external" href="https://www.jstor.org/stable/2999630?seq=1">Characterizing selection bias using experimental data</a>. <em>Econometrica</em>, 66(5), 1017–98.</p></li>
+<li><p><strong>Heckman, J. J., Ichimura, H. and Todd, P. (1998)</strong>. <a class="reference external" href="https://www.jstor.org/stable/2971733?seq=1">Matching as an econometric evaluation estimator</a>. <em>Review of Economic Studies</em>, 65(2), 261–94.</p></li>
+<li><p><strong>Heckman, J. J. and Hotz, V. J. (1989)</strong>. <a class="reference external" href="https://www.jstor.org/stable/2290059?seq=1">Choosing among alternative non-experimental methods for estimating the impact of social programs: The case of manpower training</a>. <em>Journal of the American Statistical Association</em>, 84(408), 862–74.</p></li>
+<li><p><strong>Heckman, J. and Navarro-Lozano, S. (2004)</strong>. <a class="reference external" href="https://www.nber.org/papers/w9497">Using matching, instrumental variables, and control functions to estimate economic choice models</a>. <em>The Review of Economics and Statistics</em>, 86(1), 30–57.</p></li>
+<li><p><strong>Morgan, S. (2001)</strong>. <a class="reference external" href="https://www.jstor.org/stable/2673139">Counterfactuals, causal effect heterogeneity, and the catholic school effect on learning</a>. <em>Sociology of Education</em>, 74(4), 341–374.</p></li>
+<li><p><strong>Rosenbaum, P. R. and Rubin, D. (1983)</strong>. <a class="reference external" href="https://academic.oup.com/biomet/article/70/1/41/240879">The central role of the propensity score in observational studies for causal effects</a>. <em>Biometrika</em>, 70(1), 41–55.</p></li>
+<li><p><strong>Smith, J. A. and Todd, P. (2005)</strong>. <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S030440760400082X">Does matching evercome Lalonde’s eritique of nonexperimental estimators?</a>. <em>Journal of Econometrics</em>, 125(1–2), 305–53.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../regression-estimators/notebook.html" class="btn btn-neutral float-right" title="Regression estimators of causal effects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../conditioning-estimators/notebook.html" class="btn btn-neutral float-left" title="Conditioning estimators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Prof. Dr. Philipp Eisenhauer.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
