@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.stats as ss
-from matplotlib.ticker import FixedLocator, FixedFormatter
+from matplotlib.ticker import FixedFormatter
+from matplotlib.ticker import FixedLocator
 
 
 def plot_individual_specific_effects(with_parameters=None):
