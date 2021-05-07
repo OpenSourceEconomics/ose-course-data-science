@@ -6,6 +6,7 @@ Several textbooks above provide an impressive amount of data from research artic
 
 We collect data from several textbooks.
 
+
 * Wooldridge, J. M. (2009). [*Econometric analysis of cross section and panel data*](https://mitpress.mit.edu/books/econometric-analysis-cross-section-and-panel-data). Cambridge, MA: The MIT Press.
 
 * Angrist, J. D., and Pischke, J. (2014). [*Mastering 'metrics*](http://masteringmetrics.com). Princeton, NJ: Princeton University Press.
