@@ -156,11 +156,11 @@ def get_sample_matching_demonstration_2(num_agents):
         data[i, :] = y, d, s, y_1, y_0
 
     info = collections.OrderedDict()
-    info["Y"] = np.float
-    info["D"] = np.int
-    info["S"] = np.int
-    info["Y_1"] = np.float
-    info["Y_0"] = np.float
+    info["Y"] = float
+    info["D"] = int
+    info["S"] = int
+    info["Y_1"] = float
+    info["Y_0"] = float
 
     df = pd.DataFrame(data, columns=info.keys())
     df = df.astype(info)
@@ -222,9 +222,9 @@ def get_common_support(df, label="d"):
     prob_treated = df["p"][df[label] == 1]
 
     fig, ax = plt.subplots(1, 1)
-    bins = np.linspace(0.01, 1.00, 100)
+    bins = np.linspace(0.01, 1.00, 49)
     ax.hist([prob_untreated, prob_treated], bins=bins, label=["control", "treated"])
-    ax.set_xlim([0, 1])
+    ax.set_xlim([0.30, 0.65])
     ax.set_xlabel("Propensity score")
     ax.legend()
 
