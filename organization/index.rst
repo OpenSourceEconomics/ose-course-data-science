@@ -31,26 +31,26 @@ Date      Topic
 27/04/20  Problem set: Potential outcome model
 28/04/20  Causal graphs
 
-04/05/20  Identification criteria for conditioning estimators
-05/05/20  Matching estimators for causal effects
+04/05/20  Causal graphs
+05/05/20  Identification criteria for conditioning estimators
 
 11/05/20  Matching estimators for causal effects
 12/05/20  Matching estimators for causal effects
 
-18/05/20  Regression estimators for causal effects
+18/05/20  Matching estimators for causal effects
 19/05/20  Dies Academicus, office hours
 
 25/05/20  Pentecost holidays
 26/05/20  Pentecost holidays
 
 01/06/20  Problem set: Matching estimators
-02/06/20  Self-selection, heterogeneity, and causal graphs
+02/06/20  Guest lecture: Alexander Sommer (Ernst & Young)
 
-08/06/20  Instrumental variable estimators of causal effects
-09/06/20  Instrumental variable estimators of causal effects
+08/06/20 Regression estimators for causal effects
+09/06/20 Self-selection, heterogeneity, and causal graphs
 
-15/06/20  Generalized Roy model
-16/06/20  Problem set: Generalized Roy model
+15/06/20 Instrumental variable estimators of causal effects
+16/06/20 Instrumental variable estimators of causal effects
 
 22/06/20  Mechanisms and causal explanations
 23/06/20  Repeated observations and the estimation of causal effects
@@ -58,7 +58,7 @@ Date      Topic
 29/06/20  Regression discontinuity design
 30/07/20  Regression discontinuity design
 
-06/07/20  Guest Lecture: Dr. Sebastian Garmann (Bundesrechnungshof)
+06/07/20  Guest lecture: Dr. Sebastian Garmann (Bundesrechnungshof)
 07/07/20  Problem set: Regression discontinuity design
 
 13/07/20  Introduction to structural econometrics
