@@ -224,7 +224,6 @@ def get_common_support(df, label="d"):
     fig, ax = plt.subplots(1, 1)
     bins = np.linspace(0.01, 1.00, 49)
     ax.hist([prob_untreated, prob_treated], bins=bins, label=["control", "treated"])
-    ax.set_xlim([0.30, 0.65])
     ax.set_xlabel("Propensity score")
     ax.legend()
 
