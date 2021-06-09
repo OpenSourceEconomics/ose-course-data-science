@@ -7,9 +7,10 @@ Our course equips students with the required skills in statistics, technology, a
 Private sector
 --------------
 
-**`Ernst & Young <https://www.ey.com/de_de>`__**
+`Ernst & Young <https://www.ey.com/de_de>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Alexander Sommer <https://www.linkedin.com/in/alexander-sommer-ey>`__, Manager Advanced Analytics, provided us with an overview of the statistical methodologies used for his consulting services. His talk focused on two case studies. First, he and his team applied outlier detection methods, cluster analysis, and simulation methods to improve the quality assurance for a major manufacturer in the automobile sector. Second, he reported on his experience in working with the public sector regarding the development of an online recommendation engine.
+`Alexander Sommer <https://www.linkedin.com/in/alexander-sommer-ey>`__, Manager Advanced Analytics, provided us with an overview of the statistical methodologies used for his consulting services. His talk focused on two case studies. First, he and his team applied outlier detection methods, cluster analysis, and simulation methods to improve the quality assurance for a major manufacturer in the automobile sector. Second, he reported on his experience working with the public sector regarding the development of an online recommendation engine. Throughout his presentation, Alexander emphasized the need for data visualization and a structured workflow to facilitate communication with clients.
 
 Public sector
 -------------
