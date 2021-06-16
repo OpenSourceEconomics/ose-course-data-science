@@ -6,8 +6,8 @@ channels:
 - opensourceeconomics
 
 dependencies:
-- python=3.7
-- numpy
+- python
+- numpy<1.20
 - pandas
 - matplotlib
 - sphinx
