@@ -47,9 +47,9 @@ def plot_choices(df, label):
 
     fig, ax = plt.subplots()
 
-    df.groupby("Period")["Choice"].value_counts(normalize=True).sort_index().loc[:10].unstack().plot.bar(
-        stacked=True, ax=ax
-    )
+    df.groupby("Period")["Choice"].value_counts(normalize=True).sort_index().loc[
+        :10
+    ].unstack().plot.bar(stacked=True, ax=ax)
 
     ax.xaxis.set_tick_params(rotation=0)
 
@@ -82,12 +82,7 @@ def plot_final_human_capital(df_sim, df_pol):
         "Experience_School",
     ]
 
-    x = [
-        "Blue Collar",
-        "Military",
-        "White Collar",
-        "School",
-    ]
+    x = ["Blue Collar", "Military", "White Collar", "School"]
 
     for label, df in [("Simulated", df_sim), ("Policy", df_pol)]:
 

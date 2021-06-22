@@ -115,15 +115,7 @@ def get_sample_regression_adjustment(sample, num_agents=1000, seed=123):
 
             # This is a direct copy from the top panel in Table 6.4
             if group in [0, 1]:
-                attr_ = (
-                    20,
-                    10,
-                    2.5,
-                    2.5,
-                    20,
-                    1,
-                    1,
-                )
+                attr_ = (20, 10, 2.5, 2.5, 20, 1, 1)
             elif group == 2:
                 attr_ = 15, 5, -2.5, -2.5, 15, 1, 0
             elif group == 3:

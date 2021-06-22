@@ -408,10 +408,7 @@ def _create_data(file):
     df = pd.read_pickle(init_dict["SIMULATION"]["source"] + ".grmpy.pkl")
 
     # Distribute information
-    indicator, dep = (
-        init_dict["ESTIMATION"]["indicator"],
-        init_dict["ESTIMATION"]["dependent"],
-    )
+    indicator, dep = (init_dict["ESTIMATION"]["indicator"], init_dict["ESTIMATION"]["dependent"])
     label_out = init_dict["TREATED"]["order"]
     label_choice = init_dict["CHOICE"]["order"]
     seed = init_dict["SIMULATION"]["seed"]
