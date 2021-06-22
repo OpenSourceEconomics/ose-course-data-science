@@ -47,7 +47,7 @@ def plot_choices(df, label):
 
     fig, ax = plt.subplots()
 
-    df.groupby("Period")["Choice"].value_counts(normalize=True).loc[:10].unstack().plot.bar(
+    df.groupby("Period")["Choice"].value_counts(normalize=True).sort_index().loc[:10].unstack().plot.bar(
         stacked=True, ax=ax
     )
 
@@ -64,9 +64,8 @@ def plot_wage_distribution(df_sim, df_pol):
     for label, df in [("Simulated", df_sim), ("Policy", df_pol)]:
         fig, ax = plt.subplots()
 
-        sns.distplot(df.loc[(slice(None), 49), "Wage"], ax=ax, hist=True)
+        sns.histplot(df.loc[(slice(None), 49), "Wage"], ax=ax)
 
-        ax.set_ylim([0, 0.000002])
         ax.set_xlim([0, 2500000])
 
         ax.set_title(label)
