@@ -17,7 +17,7 @@ The slides of his lecture are available `here <https://github.com/OpenSourceEcon
 `McKinsey & Company <https://www.mckinsey.de/>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Nils Wittmann <https://www.linkedin.com/in/nils-wittmann-373a0040/?originalSubdomain=de>`__, Analytics Expert explained how McKinsey implements latest analytical tools (i.e., Python, R, Julia, etc) and apply them to methods like machine learning to change the way companies interact with customers and to provide solutions for optimizing clients internal processes. Two case studies were discussed. In the first place, he shared the experience of applying logistic regression and ensemble learning as a classification approach to churn reduction. In the second place, he talked about a complex approach with over 100 drivers and 20 modelling techniques for demand forecasting.
+`Nils Wittmann <https://www.linkedin.com/in/nils-wittmann-373a0040/?originalSubdomain=de>`__, Analytics Expert, explained how his company uses the latest analytical tools to improve the internal processes of his clients and their interaction with customers. In addition, Nils shared his experiences from two recent projects. First, he reported on the use of regression models and machine learning techniques to tackle customer churn. Second, he presented an ensemble approach to forecast customer demand. Both projects illustrated the need for visualization and communication skills, in addition to technical knowledge, to bridge the gap between data insights and business value. 
 
 Public sector
 -------------
