@@ -14,6 +14,11 @@ Private sector
 
 The slides of his lecture are available `here <https://github.com/OpenSourceEconomics/ose-course-data-science/blob/master/partners/E%26Y.pdf>`_.
 
+`McKinsey & Company <https://www.mckinsey.de/>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Nils Wittmann <https://www.linkedin.com/in/nils-wittmann-373a0040/?originalSubdomain=de>`__, Analytics Expert, explained how his company uses the latest analytical tools to improve the internal processes of his clients and their interaction with customers. In addition, Nils shared his experiences from two recent projects. First, he reported on the use of regression models and machine learning techniques to tackle customer churn. Second, he presented an ensemble approach to forecast customer demand. Both projects illustrated the need for visualization and communication skills, in addition to technical knowledge, to bridge the gap between data insights and business value. 
+
 Public sector
 -------------
 
