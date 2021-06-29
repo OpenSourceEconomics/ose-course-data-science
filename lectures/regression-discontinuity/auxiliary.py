@@ -33,7 +33,7 @@ def plot_outcomes(version, grid):
     ax.legend()
     ax.set_title(f"{version.capitalize()} design", fontsize=25)
 
-    ax.set_xlabel("Z")
+    ax.set_xlabel("X")
     ax.set_ylabel("Outcomes")
 
 
@@ -45,7 +45,7 @@ def get_plot_probability(version, grid, probs):
     plt.plot((0.25, 0.25), (0, 1), "--", color="grey")
 
     ax.set_title(f"{version.capitalize()} design", fontsize=25)
-    ax.set_xlabel("Z")
+    ax.set_xlabel("X")
     ax.set_ylabel("Probability")
     ax.set_ylim([0.00, 1.09])
     ax.set_xlim([0, 1])
