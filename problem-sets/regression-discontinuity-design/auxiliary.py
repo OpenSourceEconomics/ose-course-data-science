@@ -27,6 +27,6 @@ def plot_logistic(df, probs):
 def plot_bandwidth(bandwidth, rslt_err):
 
     fig, ax = plt.subplots()
-    ax.plot(bandwidth, rslt_err["error"])
+    ax.plot(bandwidth, rslt_err)
     ax.set_xlabel("Bandwidth")
     ax.set_ylabel("Mean squared error")
