@@ -22,4 +22,6 @@ The slides of his lecture are available `here <https://github.com/OpenSourceEcon
 Public sector
 -------------
 
-Details coming soon!
+`Bundesrechnungshof <https://www.bundesrechnungshof.de/de>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`Sebastian Garmann <https://sites.google.com/site/garmannsebastian/>`__, Peter Koß and Gregor Teischler were part of the Data Science team from the Bundesrechnungshof who explained how they implement data analytics on audits for public institutions in order to make public policies more efficient. One case study mentioned during the lecture focused on an audit for making public communication more effective between public institutions. For this, they applied quantitative analysis (i.e., quantiles and distributions), as well as qualitative analysis (i.e., text mining). In this regard, they performed Word Clouds, Network Graphs, and Sentiment Scores to asses how well federal agencies communicate.
