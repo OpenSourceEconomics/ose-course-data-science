@@ -22,4 +22,6 @@ The slides of his lecture are available `here <https://github.com/OpenSourceEcon
 Public sector
 -------------
 
-Details coming soon!
+`Bundesrechnungshof <https://www.bundesrechnungshof.de/de>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`Sebastian Garmann <https://sites.google.com/site/garmannsebastian/>`__, Peter Koß, and Gregor Teischler, data scientists from the Bundesrechnungshof, explained how data analytics support their auditing of public institutions. For example, they presented a project assessing the effectiveness of communication with the public. In doing so, they combined quantitative analysis and qualitative analysis using approaches such as text mining, word clouds, network graphs, and sentiment scores. Throughout, they emphasized the efforts of the German government to increase access and use of government data by citizens and researchers through numerous open data initiatives.
