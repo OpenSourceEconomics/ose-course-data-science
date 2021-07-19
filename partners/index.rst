@@ -20,7 +20,7 @@ Private sector
 `Deutsche Bank <https://www.deutsche-bank.de/pk.html/>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Susanne Scholten <https://www.linkedin.com/in/susanne-scholten-ab826a5/?originalSubdomain=de>`__ and Martin Slowik <https://www.linkedin.com/in/martin-s-57817b89/>`__, discussed the practice of data analytics in the banking sector with us. As an example, they focused their presentation on default prediction and discussed the bank's internal model to predict the likelihood of default and the associated losses. They also introduced us to the agile software development environment used at the Deutsche Bank. In that context, Martin stressed the importance of project monitoring and the availability of continuous model validation.
+`Susanne Scholten <https://www.linkedin.com/in/susanne-scholten-ab826a5/?originalSubdomain=de>`__ and `Martin Slowik <https://www.linkedin.com/in/martin-s-57817b89/>`__, discussed the practice of data analytics in the banking sector with us. As an example, they focused their presentation on default prediction and discussed the bank's internal model to predict the likelihood of default and the associated losses. They also introduced us to the agile software development environment used at the Deutsche Bank. In that context, Martin stressed the importance of project monitoring and the availability of continuous model validation.
 
 Public sector
 -------------
