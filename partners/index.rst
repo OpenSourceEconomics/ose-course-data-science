@@ -17,6 +17,11 @@ Private sector
 
 `Nils Wittmann <https://www.linkedin.com/in/nils-wittmann-373a0040/?originalSubdomain=de>`__, Analytics Expert, explained how his company uses the latest analytical tools to improve the internal processes of his clients and their interaction with customers. In addition, Nils shared his experiences from two recent projects. First, he reported on the use of regression models and machine learning techniques to tackle customer churn. Second, he presented an ensemble approach to forecast customer demand. Both projects illustrated the need for visualization and communication skills, in addition to technical knowledge, to bridge the gap between data insights and business value. 
 
+`Deutsche Bank <https://www.deutsche-bank.de/pk.html/>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Susanne Scholten <https://www.linkedin.com/in/susanne-scholten-ab826a5/?originalSubdomain=de>`__ and Martin Slowik <https://www.linkedin.com/in/martin-s-57817b89/>`__, explained data analytics in practice from the banking sector. Specifically, they talked about scoring and default prediction; that is, the calculation of risk related parameters in order to distingish between non-defaulting and potentially defaulting clients. The bank performs analysis through Expected Credit Losses (ECL) methodology, which measures how likely will a default in a time slice be and what is the loss in a time slice if default occurs. They also presented the workflow of a specific case study where people from different areas of Deutsche Bank worked together in a model development framework to show the importance of monitoring and test models as the project advances. 
+
 Public sector
 -------------
 
