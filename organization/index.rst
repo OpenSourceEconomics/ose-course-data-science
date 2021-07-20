@@ -75,7 +75,7 @@ Lecture plan
 +------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | 13/07/2021 | Introduction to structural econometrics                                                                                                             |
 +------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| 14/07/2021 | `Guest Lecture: Martin Slowik (Deutsche Bank) <https://ose-data-science.readthedocs.io/en/latest/partners/index.html>`_                             |
+| 14/07/2021 | `Guest Lecture: Susane Scholten and Martin Slowik (Deutsche Bank) <https://ose-data-science.readthedocs.io/en/latest/partners/index.html>`_         |
 +------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | 20/07/2021 | `Maximum Likelihood Estimation <https://github.com/OpenSourceEconomics/ekw-lectures/blob/master/lectures/maximum-likelihood/notebook.ipynb>`_       |            
 +------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
