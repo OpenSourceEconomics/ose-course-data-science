@@ -58,7 +58,7 @@ Powered by
   :target: https://www.uni-bonn.de/research/research-profile/mathematics-modelling-and-simulation-of-complex-systems-1
   
 .. |GRN| image:: images/RN_German.png
-  :width: 10 %
+  :width: 15 %
   :target: https://reproducibilitynetwork.de/
 
 .. |space| raw:: html
