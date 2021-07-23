@@ -40,6 +40,23 @@ This course introduces students to basic microeconometric methods. The objective
    organization/index
 
 
+Textbooks
+---------
+
+|space| |space| |mirandafackler| |space| |juddnumeriacal| |space| |space|
+
+.. |mirandafackler| image:: images/fig-huntington-klein-2021.png
+  :width: 20 %
+  :target: https://www.theeffectbook.net/index.html
+
+.. |juddnumeriacal| image:: images/fig-cunningham-2021.jpg
+  :width: 19 %
+  :target: https://yalebooks.yale.edu/book/9780300251685/causal-inference
+
+
+We use the book `The Effect: An Introduction to Research Design and Causality <https://www.theeffectbook.net/index.html>`_ by `Nick Huntington-Klein <https://www.nickchk.com/>`_ and `Causal Inference: The Mixtape <https://yalebooks.yale.edu/book/9780300251685/causal-inference>`_ by `Scott Cunningham <https://www.scunning.com/>`_ throughout the course.
+
+
 Powered by
 ----------
 
