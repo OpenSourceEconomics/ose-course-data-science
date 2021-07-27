@@ -1,4 +1,4 @@
-.. |logo| image:: https://github.com/OpenSourceEconomics/ose-corporate-design/blob/master/logos/OSE_logo_no_type_RGB.svg
+.. |logo| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-logos/main/OSE_logo_RGB.svg
    :height: 25px
 
 |logo| OSE data science
