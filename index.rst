@@ -62,9 +62,9 @@ Powered by
 
 |OSE| |space| |Nuvolos| |space| |TRA| |space| |GRN|
 
-.. |OSE| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-corporate-design/master/logos/OSE_logo_RGB.svg
+.. |OSE| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-logos/main/OSE_logo_RGB.svg
   :width: 22 %
-  :target: https://open-econ.org
+  :target: https://open-econ.org/
 
 .. |Nuvolos| image:: images/fig-novolos.svg
   :width: 10 %
