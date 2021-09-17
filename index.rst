@@ -56,6 +56,10 @@ Textbooks
 
 We use the book `The Effect: An Introduction to Research Design and Causality <https://www.theeffectbook.net/index.html>`_ by `Nick Huntington-Klein <https://www.nickchk.com/>`_ and `Causal Inference: The Mixtape <https://yalebooks.yale.edu/book/9780300251685/causal-inference>`_ by `Scott Cunningham <https://www.scunning.com/>`_ throughout the course.
 
+Reviews
+-------
+
+* **Athey, S., Imbens, G. (2017)**. book `The State of Applied Econometrics: Causality and Policy Evaluation <https://www.aeaweb.org/articles?id=10.1257/jep.31.2.3>`_ , *Journal of Economics Perspectives*, 31(2).
 
 Powered by
 ----------
