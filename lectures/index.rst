@@ -146,3 +146,15 @@ We review the basic ideas behind the generalized method of moments (GMM) and imp
    :maxdepth: 1
 
    generalized-moments/notebook.ipynb
+   
+
+=============================
+Synthetic Control
+=============================
+
+A lecture on synthetic control method will be part of the next iteration of the OSE data science course, summer semester 2022. Details on this lecture will be realized soon.
+
+.. toctree::
+   :maxdepth: 1
+
+   synthethic-control/notebook.ipynb
