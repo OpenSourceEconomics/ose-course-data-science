@@ -63,7 +63,7 @@ Reviews
 Powered by
 ----------
 
-|space| |space| |UNI| |space| | Nuvolos| |space| |GRN|
+|space| |space| |UNI| |space| |Nuvolos| |space| |GRN|
 
 .. |UNI| image:: images/uni5.jpg
   :width: 10 %
@@ -80,7 +80,7 @@ Powered by
 .. |space| raw:: html
 
      <embed>
-	 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
      </embed>
 
 We gratefully acknowledge funding by the Federal Ministry of Education and Research (BMBF) and the Ministry of Culture and Science of the State of North Rhine-Westphalia (MKW) as part of the Excellence Strategy of the federal and state governments.
