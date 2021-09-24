@@ -53,7 +53,7 @@ Textbooks
   :target: https://yalebooks.yale.edu/book/9780300251685/causal-inference
 
 
-We use the book `The Effect: An Introduction to Research Design and Causality <https://www.theeffectbook.net/index.html>`_ by `Nick Huntington-Klein <https://www.nickchk.com/>`_ and `Causal Inference: The Mixtape <https://yalebooks.yale.edu/book/9780300251685/causal-inference>`_ by `Scott Cunningham <https://www.scunning.com/>`_ throughout the course.
+We use the book `The effect: an introduction to research design and causality <https://www.theeffectbook.net/index.html>`_ by `Nick Huntington-Klein <https://www.nickchk.com/>`_ and `Causal inference: the mixtape <https://yalebooks.yale.edu/book/9780300251685/causal-inference>`_ by `Scott Cunningham <https://www.scunning.com/>`_ throughout the course.
 
 Reviews
 -------
