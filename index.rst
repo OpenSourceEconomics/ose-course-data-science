@@ -35,7 +35,6 @@ This course introduces students to basic microeconometric methods. The objective
    problem-sets/index
    handouts/index
    projects/index
-   datasets/index
    partners/index
    organization/index
 
@@ -54,38 +53,34 @@ Textbooks
   :target: https://yalebooks.yale.edu/book/9780300251685/causal-inference
 
 
-We use the book `The Effect: An Introduction to Research Design and Causality <https://www.theeffectbook.net/index.html>`_ by `Nick Huntington-Klein <https://www.nickchk.com/>`_ and `Causal Inference: The Mixtape <https://yalebooks.yale.edu/book/9780300251685/causal-inference>`_ by `Scott Cunningham <https://www.scunning.com/>`_ throughout the course.
+We use the book `The effect: an introduction to research design and causality <https://www.theeffectbook.net/index.html>`_ by `Nick Huntington-Klein <https://www.nickchk.com/>`_ and `Causal inference: the mixtape <https://yalebooks.yale.edu/book/9780300251685/causal-inference>`_ by `Scott Cunningham <https://www.scunning.com/>`_ throughout the course.
 
 Reviews
 -------
 
-* **Athey, S., Imbens, G. (2017)**. book `The State of Applied Econometrics: Causality and Policy Evaluation <https://www.aeaweb.org/articles?id=10.1257/jep.31.2.3>`_ , *Journal of Economics Perspectives*, 31(2).
+* **Athey, S., Imbens, G. (2017)**. book `The state of applied econometrics: causality and policy evaluation <https://www.aeaweb.org/articles?id=10.1257/jep.31.2.3>`_ , *Journal of Economics Perspectives*, 31(2).
 
 Powered by
 ----------
 
-|OSE| |space| |Nuvolos| |space| |TRA| |space| |GRN|
+|space| |space| |UNI| |space| |Nuvolos| |space| |GRN|
 
-.. |OSE| image:: https://raw.githubusercontent.com/OpenSourceEconomics/ose-logos/main/OSE_logo_RGB.svg
-  :width: 22 %
-  :target: https://open-econ.org/
+.. |UNI| image:: images/uni5.jpg
+  :width: 10 %
+  :target: https://www.uni-bonn.de/en
 
 .. |Nuvolos| image:: images/fig-novolos.svg
   :width: 10 %
   :target: https://nuvolos.cloud
-
-.. |TRA| image:: images/fig-tra.png
-  :width: 10 %
-  :target: https://www.uni-bonn.de/research/research-profile/mathematics-modelling-and-simulation-of-complex-systems-1
   
 .. |GRN| image:: images/RN_German.png
-  :width: 15 %
+  :width: 20 %
   :target: https://reproducibilitynetwork.de/
 
 .. |space| raw:: html
 
      <embed>
-	 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
      </embed>
 
 We gratefully acknowledge funding by the Federal Ministry of Education and Research (BMBF) and the Ministry of Culture and Science of the State of North Rhine-Westphalia (MKW) as part of the Excellence Strategy of the federal and state governments.
