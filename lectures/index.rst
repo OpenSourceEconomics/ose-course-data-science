@@ -37,6 +37,17 @@ We explore the usefulness of causal graphs for the visualization of complex caus
 
    causal-graphs/notebook.ipynb
 
+==========================
+Randomized Experiments
+==========================
+
+A lecture on randomized experiments will be part of the next iteration of the OSE data science course, summer semester 2022. Details on this lecture will be realized soon.
+
+.. toctree::
+   :maxdepth: 1
+
+   experiments/notebook.ipynb
+
 =======================
 Conditioning estimators
 =======================
@@ -137,15 +148,15 @@ We study regression discontinuity design in more detail. We discuss identificati
    regression-discontinuity/notebook.ipynb
 
 =============================
-Generalized method of moments
+Difference in difference
 =============================
 
-We review the basic ideas behind the generalized method of moments (GMM) and implement some numerical examples. After introducing its basic setup, we discuss the GMM criterion function and how alternative estimation strategies are cast as GMM estimation problems. We then turn to the issues of identification and the role of the weighing matrix. Throughout, we practice the basic derivations involved in the GMM approach using an instrumental variables setup.
+A lecture on difference-in-difference method will be part of the next iteration of the OSE data science course, summer semester 2022. Details on this lecture will be realized soon.
 
 .. toctree::
    :maxdepth: 1
 
-   generalized-moments/notebook.ipynb
+   difference-in-difference/notebook.ipynb
    
 
 =============================
