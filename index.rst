@@ -58,7 +58,11 @@ We use the book `The effect: an introduction to research design and causality <h
 Reviews
 -------
 
-* **Athey, S., Imbens, G. (2017)**. book `The state of applied econometrics: causality and policy evaluation <https://www.aeaweb.org/articles?id=10.1257/jep.31.2.3>`_ , *Journal of Economics Perspectives*, 31(2), 3-32.
+* **Athey, S., Imbens, G. (2017)**. `The state of applied econometrics: causality and policy evaluation <https://www.aeaweb.org/articles?id=10.1257/jep.31.2.3>`_ , *Journal of Economics Perspectives*, 31(2), 3-32.
+
+
+
+* **Abadie, A., Cattaneo, M.D. (2018)**. `Econometric methods for program evaluation <https://www.annualreviews.org/doi/abs/10.1146/annurev-economics-080217-053402>`_ , *Annual Review of Economics*, 10, 465-503.
 
 Powered by
 ----------
