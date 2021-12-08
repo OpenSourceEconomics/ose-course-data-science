@@ -6,26 +6,22 @@ channels:
 - opensourceeconomics
 
 dependencies:
-- python
-- numpy<1.20
+- numpy
 - pandas
 - matplotlib
 - sphinx
 - flake8
 - pytest
-- pygraphviz
 - pytest-black
 - pytest-flake8
 - scipy
 - jupyterlab
-- xlrd
 - jupyter
 - ipython
 - pip
 - nbsphinx
 - nb_black
 - chaospy
-- respy
 - pip:
   - xlwt
   - seaborn
@@ -33,8 +29,5 @@ dependencies:
   - linearmodels
   - black-nb
   - flake8-nb
-  - kernreg
-  - grmpy
   - sphinx_rtd_theme
   - sphinxcontrib-bibtex
-  - rdrobust
