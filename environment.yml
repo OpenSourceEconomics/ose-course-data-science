@@ -22,8 +22,8 @@ dependencies:
 - nbsphinx
 - nb_black
 - chaospy
+- pygraphviz
 - pip:
-  - pygraphviz
   - rdrobust
   - xlrd
   - xlwt
