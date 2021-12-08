@@ -23,6 +23,7 @@ dependencies:
 - nb_black
 - chaospy
 - pip:
+  - xlrd
   - xlwt
   - seaborn
   - statsmodels
