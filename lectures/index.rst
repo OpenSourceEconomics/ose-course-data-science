@@ -103,17 +103,6 @@ We review basic instrumental variables estimation using a simulated example insp
 
    instrumental-variable/notebook.ipynb
 
-======================
-Generalized Roy model
-======================
-
-We use the generalized Roy model to discuss a variety of issues in the econometrics of policy evaluation. We outline the model setup, discuss different source of heterogeneity in the benefit of treatment, define the common treatment effect parameters, and explore the marginal benefit of treatment as the the unifying framework. We showcase the software package `grmpy` which allows to simulate and estimate the generalized Roy model.
-
-.. toctree::
-   :maxdepth: 1
-
-   generalized-roy-model/notebook.ipynb
-
 ===================
 Causal explanations
 ===================
@@ -157,7 +146,7 @@ A lecture on difference-in-difference method will be part of the next iteration 
    :maxdepth: 1
 
    difference-in-difference/notebook.ipynb
-   
+
 
 =============================
 Synthetic Control
