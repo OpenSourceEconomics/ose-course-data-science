@@ -103,17 +103,6 @@ We review basic instrumental variables estimation using a simulated example insp
 
    instrumental-variable/notebook.ipynb
 
-===================
-Causal explanations
-===================
-
-We study front-door identification that allow (under certain conditions) to provide a causal account of the effect of D on Y. As an example, we look at the seminal work in `Keane & Wolpin (1997) <https://www.jstor.org/stable/10.1086/262080>`_ who analyze a structural microeconometric model that allows to investigate the importance of competing economic mechanisms determining human capital accumulation decisions and is also used to predict the impact of a tuition subsidy on educational attainment.
-
-.. toctree::
-   :maxdepth: 1
-
-   mechanisms-causal-explanation/notebook.ipynb
-
 =====================
 Repeated observations
 =====================
